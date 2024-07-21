@@ -3,8 +3,9 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-800 p-4 text-white text-center">
-      <p>&copy; {new Date().getFullYear()} My Next.js Project</p>
+      <footer className="bg-gray-800 p-4 text-white text-center">
+          <div></div>
+      <p>&copy; {new Date().getFullYear()} siNUsoid v8</p>
     </footer>
   );
 };
