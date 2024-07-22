@@ -8,6 +8,7 @@ import { BrandBar, BrandLogo, NavLinks } from "./stylecomponents";
 const Header: React.FC = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navLinkArray = [
     { href: "/about", text: "About" },
     { href: "/events", text: "Events" },
@@ -29,11 +30,22 @@ const Header: React.FC = () => {
           </BrandLogo>
         </BrandBar>
         <NavLinks>
-          {navLinkArray.map((navLink, idx) => (
-            <Link key={`navlink_${idx}`} href={navLink.href}>
-              <div className="p-2">{navLink.text}</div></Link>
-          ))}
+          <div className={"hidden lg:flex space-x-4"}>
+            {navLinkArray.map((navLink, idx) => (
+              <Link key={`navlink_${idx}`} href={navLink?.href}>
+                <div className="p-2">{navLink?.text}</div>
+              </Link>
+            ))}
+          </div>
         </NavLinks>
+        <div className="lg:hidden pr-4">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-white bg-blue-500 p-2 rounded"
+          >
+            Menu
+          </button>
+        </div>
         <div className="space-x-4">
           <button
             className={
@@ -45,6 +57,17 @@ const Header: React.FC = () => {
           </button>
         </div>
       </nav>
+      {isMenuOpen && (
+        <div className="lg:hidden mt-2 space-y-2">
+          {navLinkArray.map((navLink, idx) => (
+            <Link key={`navlink_${idx}`} href={navLink.href}>
+              <div className="block p-2 bg-gray-200 dark:bg-gray-800 rounded">
+                {navLink.text}
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
     </header>
   );
 };
