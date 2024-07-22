@@ -1,6 +1,6 @@
 // src/components/Layout.tsx
 import React from "react";
-import Header from "./Header";
+import Header from "./Header/Header";
 import Footer from "./Footer";
 
 interface LayoutProps {
