@@ -11,6 +11,13 @@ const Header: React.FC = () => {
   const [mounted, setMounted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const navLinkArray = [
+    { href: "/", text: "Home", icon: <FaHome /> },
+    { href: "/about", text: "About", icon: <FaInfoCircle /> },
+    { href: "/events", text: "Events", icon: <FaCalendarAlt /> },
+    { href: "/sponsors", text: "Sponsors", icon: <FaHandsHelping />, hoverCardSize: "w-24" }, // Adjust hover card size here
+  ];
+
   useEffect(() => {
     setMounted(true);
   }, []);
