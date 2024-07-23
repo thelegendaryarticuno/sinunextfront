@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import { FaBars, FaHome, FaInfoCircle, FaCalendarAlt, FaHandsHelping } from "react-icons/fa";
+import { FaBars, FaInfoCircle, FaCalendarAlt, FaHandsHelping } from "react-icons/fa";
 import { BrandBar, BrandLogo, NavLinks } from "./stylecomponents";
 import { ModeToggle } from "../ui/modetoggle";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "../ui/hover-card";
@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinkArray = [
-    { href: "/", text: "Home", icon: <FaHome /> },
+    
     { href: "/about", text: "About", icon: <FaInfoCircle /> },
     { href: "/events", text: "Events", icon: <FaCalendarAlt /> },
     { href: "/sponsors", text: "Sponsors", icon: <FaHandsHelping />, hoverCardSize: "w-24" }, // Adjust hover card size here
