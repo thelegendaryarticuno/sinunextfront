@@ -1,6 +1,6 @@
 // src/components/Layout.tsx
 import React from "react";
-import Header from "./Header";
+import Header from "./Header/Header";
 import Footer from "./Footer";
 
 interface LayoutProps {
@@ -9,7 +9,7 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen pt-[60px]"> {/* Added padding to push content below fixed header */}
       <Header />
       <main className="flex-grow">{children}</main>
       <Footer />
