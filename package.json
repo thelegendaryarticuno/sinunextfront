@@ -23,7 +23,10 @@
     "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
-    "styled-components": "^6.1.12"
+    "react-icons": "^5.2.1",
+    "styled-components": "^6.1.12",
+    "tailwind-merge": "^2.4.0",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",
