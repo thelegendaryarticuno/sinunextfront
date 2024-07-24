@@ -31,9 +31,9 @@ const ReviewCard = ({ img }: { img: string }) => {
       className={cn(
         "relative w-80 h-40 cursor-pointer overflow-hidden rounded-xl border",
         // light styles
-        "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+        "border-gray-950/[.1] bg-slate-800/[.01] hover:bg-gray-950/[.05]",
         // dark styles
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+        "dark:border-gray-50/[.1] dark:bg-sky-100/[.8] dark:hover:bg-sky-50/[.9]"
       )}
     >
       <img className="w-full h-full object-cover" alt="" src={img} />
