@@ -4,7 +4,7 @@ import { useTheme } from "next-themes";
 import { FaBars } from "react-icons/fa";
 import { BrandBar, BrandLogo } from "./stylecomponents";
 import { ModeToggle } from "../ui/modetoggle";
-import NavLinks, { MobileNavLinks } from "../Constants/header_cons";
+import NavLinks, { MobileNavLinks } from "../Constants/headerConstant";
 
 const Header: React.FC = () => {
   const { theme, setTheme } = useTheme();

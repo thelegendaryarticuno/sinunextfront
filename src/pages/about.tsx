@@ -6,7 +6,8 @@ import Hero from "@/components/Hero/Hero";
 const About: React.FC = () => {
   return (
     <Layout>
-       <Hero/>
+      <Hero />
+      about
     </Layout>
   );
 };

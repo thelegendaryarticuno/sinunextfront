@@ -4,7 +4,8 @@ import Layout from "@/components/Layout";
 const Sponsors: React.FC = () => {
     return (
         <Layout>
-           <Hero/>
+            <Hero />
+            Sponsors
         </Layout>
     );
 }

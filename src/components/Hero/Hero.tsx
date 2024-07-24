@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
         <h2 className="text-lg mt-2">The Ultimate Fusion of Technology and Creativity at NIIT University</h2>
       </div>
       <div className={`w-full h-[30vh] flex items-center justify-center ${bottomContainerClass}`}>
-        <h1 className="text-4xl font-bold">I'm different</h1>
+        <h1 className="text-4xl font-bold">{"I'm different"}</h1>
       </div>
     </div>
   );

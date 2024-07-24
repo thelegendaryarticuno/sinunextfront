@@ -4,7 +4,8 @@ import Layout from "@/components/Layout";
 const Events: React.FC = () => {
   return (
     <Layout>
-       <Hero/>
+      <Hero />
+      Events
     </Layout>
   );
 };

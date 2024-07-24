@@ -13,7 +13,7 @@ export const navLinkArray = [
 const iconClassName = "text-current"; // This will make the color dynamic
 
 export const NavLinks: React.FC = () => (
-  <div className="hidden lg:flex space-x-4">
+  <div className="hidden lg:flex space-x-4 px-4">
     {navLinkArray.map((navLink, idx) => (
       <HoverCard key={`navlink_${idx}`}>
         <HoverCardTrigger asChild>
