@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 
-
-interface HeroProps {   /*for the type of props*/
+interface HeroProps {
   lightImage?: string;
   darkImage?: string;
 }
 
-const Hero: React.FC<HeroProps> = ({ lightImage, darkImage }) => {
+const Hero: React.FC<HeroProps> = ({ lightImage = '/images/ligh.jpg', darkImage = '/images/dark.jpg' }) => {
   const { theme, resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
 
