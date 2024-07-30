@@ -6,7 +6,7 @@ interface HeroProps {
   darkImage?: string;
 }
 
-const Hero: React.FC<HeroProps> = ({ lightImage = '/images/ligh.jpg', darkImage = '/images/dark.jpg' }) => {
+const Hero: React.FC<HeroProps> = ({ lightImage = '/images/light.jpg', darkImage = '/images/dark.jpg' }) => {
   const { theme, resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
 
