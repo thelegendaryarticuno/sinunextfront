@@ -1,11 +1,9 @@
-import Hero from "@/components/Hero/Hero";
-import Layout from "@/components/Layout";
+import Layout from "@/components/ui/Layout";
 
 const Events: React.FC = () => {
   return (
     <Layout>
-      <Hero />
-      Events
+      <h1>COMING SOON...</h1>
     </Layout>
   );
 };

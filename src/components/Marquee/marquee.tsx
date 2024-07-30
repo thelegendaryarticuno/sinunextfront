@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import Marquee from "@/components/magicui/marquee";
+import Image from "next/image";
 
 const reviews = [
   {
@@ -36,7 +37,7 @@ const ReviewCard = ({ img }: { img: string }) => {
         "dark:border-gray-50/[.1] dark:bg-sky-100/[.8] dark:hover:bg-sky-50/[.9]"
       )}
     >
-      <img className="w-full h-full object-cover" alt="" src={img} />
+      <Image className="w-full h-full object-cover" alt="" src={img} layout="fill" objectFit="cover" />
     </figure>
   );
 };
