@@ -18,7 +18,6 @@ export function AccordionFAQ() {
         <AccordionTrigger>What types of events and competitions can participants expect?</AccordionTrigger>
         <AccordionContent>
         Participants can expect robotics challenges, hackathons, coding competitions, paper presentations, quizzes, workshops, and keynote sessions by industry experts.
-          components&apos; aesthetic.
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-3">
