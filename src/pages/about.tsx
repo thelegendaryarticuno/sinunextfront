@@ -1,13 +1,11 @@
 // src/pages/about.tsx
 import React from "react";
-import Layout from "../components/Layout";
-import Hero from "@/components/Hero/Hero";
+import Layout from "../components/ui/Layout";
 
 const About: React.FC = () => {
   return (
     <Layout>
-      <Hero />
-      about
+      <h1>COMING SOON...</h1>
     </Layout>
   );
 };
