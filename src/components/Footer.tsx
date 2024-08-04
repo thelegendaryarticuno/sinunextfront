@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useTheme } from "next-themes";
+import { JSX, SVGProps } from "react";
 
 export default function Footer() {
   const { theme, setTheme } = useTheme();
@@ -92,7 +93,7 @@ export default function Footer() {
   );
 }
 
-function ArrowRightIcon(props) {
+function ArrowRightIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -112,7 +113,7 @@ function ArrowRightIcon(props) {
   );
 }
 
-function DiscordIcon(props) {
+function DiscordIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -131,7 +132,7 @@ function DiscordIcon(props) {
   );
 }
 
-function FacebookIcon(props) {
+function FacebookIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -150,7 +151,7 @@ function FacebookIcon(props) {
   );
 }
 
-function InstagramIcon(props) {
+function InstagramIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -171,7 +172,7 @@ function InstagramIcon(props) {
   );
 }
 
-function LinkedInIcon(props) {
+function LinkedInIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
@@ -192,7 +193,7 @@ function LinkedInIcon(props) {
   );
 }
 
-function YoutubeIcon(props) {
+function YoutubeIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
