@@ -13,7 +13,6 @@ const Grid: React.FC<GridProps> = ({ image1, image2, slogan1, slogan2 }) => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 p-4 mx-[5px] lg:mx-[5px]">
         <div className=" p-2 flex items-center justify-center rounded-2xl lg:max-h-[65vh] shadow-lg dark:shadow-gray-700">
           <img
-            classname="my-3"
             src={image1}
             alt="Item 1"
             className="w-full h-50% object-cover rounded-2xl"
