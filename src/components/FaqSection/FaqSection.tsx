@@ -25,7 +25,7 @@ export const FaqSection: React.FC = () => {
                     >
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent>{faq.answer}</AccordionContent>
+                    <AccordionContent>{faq.answer}</AccordionContent> 
                   </AccordionItem>
                 )
               )}

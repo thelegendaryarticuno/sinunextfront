@@ -2,11 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import RetroGrid from '../magicui/retro-grid';
+import Link from 'next/link'; // Import Link from next/link
 
 const AboutSection: React.FC = () => {
   const { theme, setTheme } = useTheme();
 
-  return (
+  return (  
     <div className="relative min-h-[70vh] dark:bg-black bg-white flex items-center justify-center p-2">
       <div className="max-w-7xl w-full dark:bg-zinc-900 bg-zinc-200 rounded-lg shadow-3xl overflow-hidden flex flex-col md:flex-row relative">
         <div className="relative flex-1 p-12 flex flex-col justify-between dark:bg-zinc-900 bg-zinc-200" style={{ minHeight: '65vh' }}>
@@ -29,9 +30,9 @@ const AboutSection: React.FC = () => {
               </h3>
               <div className="mt-auto">
                 <div className="flex space-x-6 mb-12">
-                  <a href="/about" className="bg-opacity-100 bg-white text-black px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-300 mb-8 md:ml-12 z-20">
-                    More Info
-                  </a>
+                  <Link href="/about" passHref className="bg-opacity-100 bg-white text-black px-8 py-3 rounded-full font-semibold text-lg hover:bg-gray-300 mb-8 md:ml-12 z-20"> {/* Ensure passHref is used */}
+                  More Info
+                  </Link>
                 </div>
               </div>
             </div>
