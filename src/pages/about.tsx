@@ -5,7 +5,7 @@ import Layout from "../components/ui/Layout";
 const About: React.FC = () => {
   return (
     <Layout>
-      <h1>COMING SOON...</h1>
+      <h1 className="min-h-[64vh]">COMING SOON...</h1>
     </Layout>
   );
 };
