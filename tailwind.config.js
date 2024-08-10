@@ -37,8 +37,22 @@ module.exports = {
           to: { height: "0" },
         },
       },
+      scrollbar: {
+        hidden: 'scrollbar-hidden',
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.scrollbar-hidden': {
+          '-ms-overflow-style': 'none', /* IE and Edge */
+          'scrollbar-width': 'none', /* Firefox */
+        },
+        '.scrollbar-hidden::-webkit-scrollbar': {
+          'display': 'none', /* Safari and Chrome */
+        },
+      });
+    },
+  ],
 };
-
