@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import RetroGrid from '../magicui/retro-grid';
-import Link from 'next/link'; // Import Link from next/link
+import Link from 'next/link';
 
 const AboutSection: React.FC = () => {
   const { theme, setTheme } = useTheme();
