@@ -1,8 +1,16 @@
+// Overview.js
 import React from 'react';
+import { useTheme } from 'next-themes';
 
 const Overview = () => {
+  const { theme } = useTheme();
+
   return (
-    <div className="max-w-3xl mx-auto bg-gray-900 text-white p-6 rounded-lg">
+    <div
+      className={`max-w-3xl mx-auto p-6 rounded-lg ${
+        theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'
+      }`}
+    >
       <h2 className="text-2xl font-bold mb-4">Overview</h2>
       <p className="mb-4">
         Welcome to Adobe GenSolve: where the fusion of generative AI and Adobe Creative Cloud empowers you to transform innovative ideas into groundbreaking solutions for a brighter future.
