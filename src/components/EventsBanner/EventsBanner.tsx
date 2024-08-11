@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface EventsBannerProps {
   lightImage?: string;
@@ -8,8 +9,12 @@ interface EventsBannerProps {
   logo?: string;
 }
 
-const EventsBanner: React.FC<EventsBannerProps> = ({ lightImage = '/images/eventslight.jpg', darkImage = '/images/eventsdark.png', logo = '/images/text_mc1.png' }) => {
-  const { theme, resolvedTheme } = useTheme();
+const EventsBanner: React.FC<EventsBannerProps> = ({
+  lightImage = '/images/eventslight.jpg',
+  darkImage = '/images/eventsdark.png',
+  logo = '/images/text_mc1.png'
+}) => {
+  const { resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
@@ -22,28 +27,37 @@ const EventsBanner: React.FC<EventsBannerProps> = ({ lightImage = '/images/event
     : { backgroundColor: isDark ? 'black' : 'white' };
 
   return (
-    <div className="relative w-full h-screen p-0 m-0 overflow-hidden">
-      <div 
-        className="w-[80%] h-[40vh] md:h-[30vh] flex flex-col md:justify-center items-start pl-12 text-left relative mx-auto rounded-lg overflow-hidden my-20"
-        style={bannerStyle} 
+    <div className="relative w-full overflow-hidden my-20">
+      <div
+        className="w-[80%] md:w-[80%] h-[35vh] md:h-[30vh] flex flex-col justify-center pl-4 md:pl-12 text-left mx-auto rounded-lg overflow-hidden"
+        style={bannerStyle}
       >
-        <div className="flex flex-col items-start">
-          <h1 className="text-4xl font-bold mb-2 mt-10 md:mb-0 md:mt-0">EVENT NAME</h1>
-          <h2 className="text-xl mt-2">Event Description.</h2>
-          <div className="mt-10 text-lg"> 
-            <p><strong>Start Date:</strong> August 10, 2024, 10:00 AM</p>
-            <p><strong>End Date:</strong> August 12, 2024, 5:00 PM</p>
+        <div className={`relative z-10 px-4 md:px-8 py-12 flex flex-col`}>
+          <div className="flex-grow">
+            <h2 className={`text-xl md:text-3xl font-bold mb-2 ${isDark ? 'text-white' : 'text-gray-800'}`}>EVENT NAME</h2>
+            <p className={`text-sm md:text-lg mb-4 ${isDark ? 'text-gray-200' : 'text-gray-950'}`}>Event Description</p>
+            <div className={`text-sm md:text-md ${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
+              <p><strong>Start Date:</strong> August 10, 2024, 10:00 AM</p>
+              <p><strong>End Date:</strong> August 12, 2024, 5:00 PM</p>
+            </div>
           </div>
-        </div>
-        <Link
-          href="#learn-more"
-          className="md:mb-0 mb-20 absolute md:bottom-8 md:right-8 bottom-2 bg-black text-white dark:bg-white dark:text-black py-3 px-6 text-lg rounded-md shadow-md dark:hover:bg-gray-300 hover:bg-gray-700 transition duration-300"
-        >
-          Learn More
-        </Link>
-        <div className="absolute bottom-4 left-8 flex items-center space-x-2">
-          <span className="text-sm text-gray-700 dark:text-gray-400 transition">Powered by</span>
-          <img src={logo} alt="Logo" className="h-4 w-auto" />
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mt-4">
+            <div className="flex items-center order-2 sm:order-1 mt-4 sm:mt-0">
+              <span className={`text-xs ${isDark ? 'text-gray-400' : 'text-gray-600'} mr-2`}>
+                Powered by
+              </span>
+              <Image 
+                src="/images/text_mc1.png" 
+                alt="sinu logo" 
+                className="h-4" 
+                height={16}
+                width={120}
+              />
+            </div>
+            <Link href='/events' className={`px-4 py-2 rounded sm:w-auto order-1 sm:order-2 ${isDark ? 'bg-white hover:bg-gray-400 text-black' : 'bg-black hover:bg-gray-600 text-white'} transition duration-300`}>
+              Register
+            </Link>
+          </div>
         </div>
       </div>
     </div>
