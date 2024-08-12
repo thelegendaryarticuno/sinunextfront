@@ -27,7 +27,7 @@ const Overview = () => {
           <li>Round 1: Online MCQ and Coding Contest - Elimination</li>
           <li>Round 2: Project Submission - Elimination</li>
           <li>Round 3: Mentorship for the Shortlisted Teams</li>
-          <li>Round 4: Grand Finale at the Adobe's Noida Office</li>
+          <li>Round 4: Grand Finale at the Adobe Noida Office</li>
         </ul>
       </div>
     </div>

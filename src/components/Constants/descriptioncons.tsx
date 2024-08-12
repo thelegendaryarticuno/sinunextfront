@@ -2,13 +2,15 @@ import React from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Overview from '../eventsection/Overview'; 
 import Rule from '../eventsection/Rule';
+import Prize from '../eventsection/prize';
+import Sponsor from '../eventsection/sponsor';
 
 export const tabsArray = [
   { value: "event-overview", text: "Event Overview", component: <Overview  /> },
   { value: "timeline", text: "Events Timeline", component: "Events Timeline" },
   { value: "rules-and-regulations", text: "Rules and Regulations", component: <Rule/> },
-  { value: "prizes", text: "Prizes", component: "Prizes" },
-  { value: "about sponsor", text: "Our Sponsors", component: "Sponsors" },
+  { value: "prizes", text: "Prizes", component: <Prize/> },
+  { value: "about sponsor", text: "Our Sponsors", component: <Sponsor/> },
   
 ];
 
