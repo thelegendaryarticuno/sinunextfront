@@ -1,11 +1,6 @@
-import Layout from "@/components/ui/Layout";
 
 const Sponsors: React.FC = () => {
-    return (
-        <Layout>
-           <h1>COMING SOON...</h1>
-        </Layout>
-    );
-}
-    
+  return <h1>COMING SOON...</h1>;
+};
+
 export default Sponsors;

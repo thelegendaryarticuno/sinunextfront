@@ -1,25 +1,25 @@
 export const FAQ_CATEGORY = [
-    {
-        section: "faq",
-        category: "eligibility",
-        title: "Eligibility",
-    },
-    {
-        section: "faq",
-        category: "dateAndVenue",
-        title: "Date and Venue",
-    },
-    {
-        section: "faq",
-        category: "registration",
-        title: "Registration",
-    },
-    {
-        section: "faq",
-        category: "events",
-        title: "Events",
-    },
-    ];
+  {
+    section: "faq",
+    category: "eligibility",
+    title: "Eligibility",
+  },
+  {
+    section: "faq",
+    category: "dateAndVenue",
+    title: "Date and Venue",
+  },
+  {
+    section: "faq",
+    category: "registration",
+    title: "Registration",
+  },
+  {
+    section: "faq",
+    category: "events",
+    title: "Events",
+  },
+];
 export const FAQ_DATA = [
   {
     section: "faq",
@@ -72,5 +72,105 @@ export const FAQ_DATA = [
     question: "Are there any workshops or keynote sessions?",
     answer:
       "Yes, there will be workshops and keynote sessions by industry experts.",
+  },
+];
+
+export const INDRADHANUSH_FAQ_CATEGORY = [
+  {
+    section: "faq",
+    category: "Introduction and Impact",
+    title: "Introduction and Impact",
+  },
+  {
+    section: "faq",
+    category: "dateAndVenue",
+    title: "Date and Venue",
+  },
+  {
+    section: "faq",
+    category: "Donations",
+    title: "Donations",
+  },
+  {
+    section: "faq",
+    category: "Volunteer Involvement",
+    title: "Volunteer Involvement",
+  },
+  {
+    section: "faq",
+    category: "Success Stories",
+    title: "Success Stories",
+  },
+];
+export const INDRADHANUSH_FAQ_DATA = [
+  {
+    section: "faq",
+    category: "Introduction and Impact",
+    question: "What is Indradhanush?",
+    answer:
+      "Indradhanush is a donation drive initiative organized by Sinusoid, dedicated to helping those in need.",
+  },
+  {
+    section: "faq",
+    category: "Introduction and Impact",
+    question: "What is the vision behind Indradhanush?",
+    answer:
+      "The initiative aims to uplift underprivileged communities by spreading joy and cultivating a culture of compassion and generosity.",
+  },
+  {
+    section: "faq",
+    category: "dateAndVenue",
+    question: "When is the event scheduled?",
+    answer:
+      "The event will commence on August 15th, 2024, in celebration of Independence Day.",
+  },
+  {
+    section: "faq",
+    category: "dateAndVenue",
+    question: "Where will the drive be held?",
+    answer:
+      "The drive will take place in the Spine area, along with the Sinusoid CR  for those wishing to make donations.",
+  },
+  {
+    section: "faq",
+    category: "Donations",
+    question: "What types of donations are accepted?",
+    answer:
+      "Donations of any items that are in good, reusable condition are welcome.",
+  },
+  {
+    section: "faq",
+    category: "Donations",
+    question: "Are monetary donations accepted?",
+    answer: "No, the drive does not accept monetary donations.",
+  },
+  {
+    section: "faq",
+    category: "Volunteer Involvement",
+    question: "How can volunteers contribute to Indradhanush?",
+    answer:
+      "Volunteers can participate by helping to organize the event, collecting donations, and distributing them to those in need.",
+  },
+  {
+    section: "faq",
+    category: "Volunteer Involvement",
+    question: "Is there a registration process for volunteers?",
+    answer:
+      "Yes, those interested can register through the Sinusoid website or reach out directly to the event organizers.",
+  },
+  {
+    section: "faq",
+    category: "Success Stories",
+    question:
+      "Could you share some success stories from previous Indradhanush drives?",
+    answer:
+      "Previous drives have successfully provided essential items to numerous families, contributing to their education, health, and overall well-being.",
+  },
+  {
+    section: "faq",
+    category: "Donations",
+    question: "How has Indradhanush positively impacted the community?",
+    answer:
+      "Indradhanush has made a meaningful difference by encouraging a spirit of giving, strengthening community ties, and improving the lives of many individuals.",
   },
 ];
