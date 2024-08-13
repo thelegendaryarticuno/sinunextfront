@@ -7,7 +7,7 @@ import Footer from "@/components/Footer/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider defaultTheme="dark" attribute="class">
       <Header />
       <Component {...pageProps} />
       <Footer />
