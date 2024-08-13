@@ -40,8 +40,7 @@ const ReviewCard = ({ img }: { img: string }) => {
         className="w-full h-full object-cover"
         alt=""
         src={img}
-        layout="fill"
-        objectFit="cover"
+        fill
       />
     </figure>
   );

@@ -37,7 +37,13 @@ const ReviewCard = ({ img }: { img: string }) => {
         "dark:border-gray-50/[.1] dark:bg-sky-100/[.8] dark:hover:bg-sky-50/[.9]"
       )}
     >
-      <Image className="w-full h-full object-cover" alt="" src={img} layout="fill" objectFit="cover" />
+      <Image
+        className="w-full h-full object-cover"
+        alt=""
+        src={img}
+        fill
+        style={{ objectFit: "cover" }}
+      />
     </figure>
   );
 };

@@ -11,7 +11,7 @@ const Card: React.FC<CardProps> = ({ title, imageSrc }) => {
   return (
     <div className="bg-white dark:bg-zinc-800 shadow-md rounded-lg w-full max-w-[300px] md:max-w-[500px] mx-auto overflow-hidden">
       <div className="relative w-full h-[200px] md:h-[300px]">
-        <Image src={imageSrc} alt={title} layout="fill" objectFit="cover" className="absolute top-0 left-0" />
+        <Image src={imageSrc} alt={title} fill className="absolute top-0 left-0 object-cover" />
       </div>
       <h3 className="text-lg font-semibold dark:text-white text-center mt-2">{title}</h3>
     </div>
@@ -26,7 +26,7 @@ type CollaborationSectionProps = {
 const CollaborationSection: React.FC<CollaborationSectionProps> = ({ image1Src, image2Src }) => {
   const { theme, setTheme } = useTheme();
 
-  return (  
+  return (
     <div className="relative min-h-[70vh] dark:bg-black bg-white flex items-center justify-center p-2">
       <div className="relative flex-1 p-12 flex flex-col justify-between dark:bg-zinc-950 bg-zinc-200" style={{ minHeight: '70vh' }}>
         <div className="flex flex-col h-full">

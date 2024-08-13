@@ -35,8 +35,8 @@ const Hero: React.FC<HeroProps> = ({
           <Image
             src={isDark ? darkbannerImageSrc : lightbannerImageSrc}
             alt={isDark ? 'Dark Banner' : 'Light Banner'}
-            layout="fill"
-            objectFit="contain"
+            fill
+            className="object-contain"
             quality={100}
             priority
           />
