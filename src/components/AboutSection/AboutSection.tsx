@@ -18,7 +18,7 @@ const AboutSection: React.FC = () => {
                   src="/images/logo_red_mc.png" 
                   alt="siNUsoid Logo" 
                   fill
-                  className="object-contain p-4 Z-20"
+                  className="object-contain p-4 z-20"
                 />
               </div>
             </div>
