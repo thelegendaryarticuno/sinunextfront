@@ -46,9 +46,9 @@ const ReviewCard = ({ img }: { img: string }) => {
   );
 };
 
-export function SponsorMarquee() {
+export function IndradhanushMarquee() {
   return (
-    <div className="relative flex h-[700px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
+    <div className="relative flex h-[550px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review, index) => (
           <ReviewCard key={index} img={review.img} />

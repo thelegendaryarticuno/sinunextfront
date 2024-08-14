@@ -6,7 +6,7 @@ import {
 } from "@/components/FaqSection/utils";
 import CustomGrid2x2withImage from "@/components/Grid/grid";
 import Hero from "@/components/Hero/Hero";
-import { SponsorMarquee } from "@/components/Indradhanush_Marquee/indradhanush_marquee";
+import { IndradhanushMarquee } from "@/components/Indradhanush_Marquee/indradhanush_marquee";
 import React from "react";
 
 const Home: React.FC = () => {
@@ -23,7 +23,7 @@ const Home: React.FC = () => {
         slogan1="Indradhanush is all about coming together to uplift our communities. Your donation can change lives—let's make it happen!."
         slogan2="Indradhanush is all about coming together to uplift our communities. Your donation can change lives—let's make it happen!."
       />
-      <SponsorMarquee />
+      <IndradhanushMarquee />
       <FaqSection
         Generic_Faq_Category={INDRADHANUSH_FAQ_CATEGORY}
         Generic_Faq_Data={INDRADHANUSH_FAQ_DATA}

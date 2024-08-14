@@ -1,7 +1,7 @@
 
 import TabsComponent from "@/components/Description/description";
 import EventsBanner from "@/components/EventsBanner/EventsBanner";
-import { SponsorMarquee } from "@/components/Indradhanush_Marquee/indradhanush_marquee";
+import { IndradhanushMarquee } from "@/components/Indradhanush_Marquee/indradhanush_marquee";
 
 
 const Events: React.FC = () => {
@@ -9,7 +9,7 @@ const Events: React.FC = () => {
     <>
       <EventsBanner/>
       <TabsComponent/>
-      <SponsorMarquee/>
+      <IndradhanushMarquee/>
     </>
   );
 };

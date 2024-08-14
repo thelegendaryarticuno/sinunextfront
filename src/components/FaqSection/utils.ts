@@ -108,7 +108,7 @@ export const INDRADHANUSH_FAQ_DATA = [
     category: "Introduction and Impact",
     question: "What is Indradhanush?",
     answer:
-      "Indradhanush is a donation drive initiative organized by Sinusoid, dedicated to helping those in need.",
+      "Indradhanush is a donation drive organized by siNUsoid, dedicated to helping those in need.",
   },
   {
     section: "faq",
@@ -129,7 +129,7 @@ export const INDRADHANUSH_FAQ_DATA = [
     category: "dateAndVenue",
     question: "Where will the drive be held?",
     answer:
-      "The drive will take place in the Spine area, along with the Sinusoid CR  for those wishing to make donations.",
+      "The drive will take place in the spine area, along with the siNUsoid CR for those wishing to make donations.",
   },
   {
     section: "faq",
@@ -156,7 +156,7 @@ export const INDRADHANUSH_FAQ_DATA = [
     category: "Volunteer Involvement",
     question: "Is there a registration process for volunteers?",
     answer:
-      "Yes, those interested can register through the Sinusoid website or reach out directly to the event organizers.",
+      "Yes, those interested can register through the siNUsoid website or reach out directly to the event organizers.",
   },
   {
     section: "faq",

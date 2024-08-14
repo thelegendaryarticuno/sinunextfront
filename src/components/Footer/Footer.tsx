@@ -72,7 +72,7 @@ export default function Footer() {
           <Link href="https://www.facebook.com/siNUsoidniit/" className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors">
             <FacebookIcon className="h-6 w-6 text-white dark:text-gray-900 hover:text-gray-900 dark:hover:text-gray-300 overflow-visible" />
           </Link>
-          <Link href="https://www.youtube.com/@siNUsoidannualtechfestofnu8938" className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors">
+          <Link href="https://www.youtube.com/@siNUsoidTechFest" className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors">
             <YoutubeIcon className="h-6 w-6 text-white dark:text-gray-900 hover:text-gray-900 dark:hover:text-gray-300 overflow-visible" />
           </Link>
           <Link href="https://in.linkedin.com/company/siNUsoid" className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors">
