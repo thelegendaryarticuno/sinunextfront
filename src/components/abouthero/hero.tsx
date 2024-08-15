@@ -1,19 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
-import Image from 'next/image';
 
 interface HeroProps {
   lightImage?: string;
   darkImage?: string;
-  lightbannerImageSrc?: string;
-  darkbannerImageSrc?: string;
 }
 
-const Hero: React.FC<HeroProps> = ({
-  lightImage = '/images/light.',
-  darkImage = '/images/.jpg',
-  lightbannerImageSrc = '/images/light.jpg',
-  darkbannerImageSrc = '/images/dark.jpg',
+const YHero: React.FC<HeroProps> = ({
+  lightImage = '/images/light.jpg',
+  darkImage = '/images/dark.jpg',
 }) => {
   const { theme, resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
@@ -31,22 +26,23 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <div className="w-full h-screen p-0 m-0 mt-16">
       <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden" style={bannerStyle}>
-        <div className="relative w-full h-full flex items-center justify-center">
-          <Image
-            src={isDark ? darkbannerImageSrc : lightbannerImageSrc}
-            alt={isDark ? 'Dark Banner' : 'Light Banner'}
-            fill
-            className="object-contain"
-            quality={100}
-            priority
-          />
+        <div className="w-full h-full relative overflow-hidden flex items-center justify-center">
+          
         </div>
       </div>
       <div className={`w-full h-[30vh] flex items-center justify-center ${bottomContainerClass}`}>
-        <h1 className="text-4xl font-bold">{"I'm different"}</h1>
+      {/* <iframe
+            src="https://chromedino.com/"
+            loading="lazy"
+            className="absolute w-[100%] h-[30%] z-10 border-none"
+            style={{ 
+              border: 'none', 
+              overflow: 'hidden' 
+            }}
+          ></iframe> */}
       </div>
     </div>
   );
 };
 
-export default Hero;
+export default YHero;

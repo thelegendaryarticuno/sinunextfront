@@ -5,15 +5,11 @@ import Image from 'next/image';
 interface HeroProps {
   lightImage?: string;
   darkImage?: string;
-  lightbannerImageSrc?: string;
-  darkbannerImageSrc?: string;
 }
 
-const Hero: React.FC<HeroProps> = ({
-  lightImage = '/images/light.',
-  darkImage = '/images/.jpg',
-  lightbannerImageSrc = '/images/light.jpg',
-  darkbannerImageSrc = '/images/dark.jpg',
+const IHero: React.FC<HeroProps> = ({
+  lightImage = '/images/Indradhanush/HerLight.webp',
+  darkImage = '/images/Indradhanush/HeroDark.webp',
 }) => {
   const { theme, resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
@@ -31,14 +27,13 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <div className="w-full h-screen p-0 m-0 mt-16">
       <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden" style={bannerStyle}>
-        <div className="relative w-full h-full flex items-center justify-center">
+        <div className="absolute w-full h-full flex items-center justify-center">
           <Image
-            src={isDark ? darkbannerImageSrc : lightbannerImageSrc}
-            alt={isDark ? 'Dark Banner' : 'Light Banner'}
-            fill
+            src="/images/indradhanush/text.svg"
+            alt="Text Overlay"
+            width={500} // Adjust width as needed
+            height={200} // Adjust height as needed
             className="object-contain"
-            quality={100}
-            priority
           />
         </div>
       </div>
@@ -49,4 +44,4 @@ const Hero: React.FC<HeroProps> = ({
   );
 };
 
-export default Hero;
+export default IHero;
