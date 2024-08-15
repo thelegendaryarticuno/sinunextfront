@@ -108,41 +108,41 @@ export const INDRADHANUSH_FAQ_DATA = [
     category: "Introduction and Impact",
     question: "What is Indradhanush?",
     answer:
-      "Indradhanush is a donation drive organized by siNUsoid, dedicated to helping those in need.",
+      "Indradhanush is a donation drive organized by siNUsoid, focused on bringing help and hope to those who need it most.",
   },
   {
     section: "faq",
     category: "Introduction and Impact",
     question: "What is the vision behind Indradhanush?",
     answer:
-      "The initiative aims to uplift underprivileged communities by spreading joy and cultivating a culture of compassion and generosity.",
+      "Our goal is simple: to uplift underprivileged communities by spreading joy and encouraging a culture of compassion and generosity.",
   },
   {
     section: "faq",
     category: "dateAndVenue",
     question: "When is the event scheduled?",
     answer:
-      "The event will commence on August 15th, 2024, in celebration of Independence Day.",
+      "The event kicks off on August 15th, 2024, as part of our Independence Day celebrations.",
   },
   {
     section: "faq",
     category: "dateAndVenue",
     question: "Where will the drive be held?",
     answer:
-      "The drive will take place in the spine area, along with the siNUsoid CR for those wishing to make donations.",
+      "You can find us at the Spine area, with additional collection points at the siNUsoid CR for anyone looking to donate.",
   },
   {
     section: "faq",
     category: "Donations",
     question: "What types of donations are accepted?",
     answer:
-      "Donations of any items that are in good, reusable condition are welcome.",
+      "We're accepting items that are in good, reusable condition—anything that can bring value to someone's life.",
   },
   {
     section: "faq",
     category: "Donations",
     question: "Are monetary donations accepted?",
-    answer: "No, the drive does not accept monetary donations.",
+    answer: "No, we're not accepting monetary donations. We focus on tangible items that can directly benefit those in need.",
   },
   {
     section: "faq",
