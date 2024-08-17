@@ -1,4 +1,4 @@
-import Collab, { CollaborationSection } from "@/components/CollaborationSection/CollaborationSection";
+import Collab from "@/components/CollaborationSection/CollaborationSection";
 import { FaqSection } from "@/components/FaqSection/FaqSection";
 import {
   INDRADHANUSH_FAQ_CATEGORY,
