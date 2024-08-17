@@ -1,13 +1,13 @@
-import CollaborationSection from "@/components/CollaborationSection/CollaborationSection";
+import Collab from "@/components/CollaborationSection/CollaborationSection";
 import { FaqSection } from "@/components/FaqSection/FaqSection";
 import {
   INDRADHANUSH_FAQ_CATEGORY,
   INDRADHANUSH_FAQ_DATA,
 } from "@/components/FaqSection/utils";
 import CustomGrid2x2withImage from "@/components/Grid/grid";
-import Hero from "@/components/Hero/Hero";
 import { SponsorMarquee } from "@/components/Indradhanush_Marquee/indradhanush_marquee";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
+import IHero from "@/components/indradhanushhero/hero";
 import React from "react";
 
 const Home: React.FC = () => {
@@ -33,6 +33,8 @@ const Home: React.FC = () => {
         image1Src="/images/ngo.png"
         image2Src="/images/ngo.png"
       />
+      <IHero/>
+      <Collab/>
       <CustomGrid2x2withImage
         image1="/images/image.webp"
         image2="/images/image.webp"

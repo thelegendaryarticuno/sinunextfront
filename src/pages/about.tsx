@@ -1,5 +1,10 @@
 // src/pages/about.tsx
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
+import ICollab from "@/components/aboutcollab/collab";
+import Grid from "@/components/aboutgrid/grid";
+import YHero from "@/components/abouthero/hero";
+import Our from "@/components/aboutwhoarewe/we";
+
 import React from "react";
 
 const About: React.FC = () => {
@@ -20,6 +25,11 @@ const About: React.FC = () => {
         PageTitle="About Us | siNUsoid v8"
       />
       <h1 className="min-h-[64vh]">COMING SOON...</h1>
+    <YHero/>
+    <ICollab/>
+    <Our/>
+    <Grid/>
+      
     </>
   );
 };
