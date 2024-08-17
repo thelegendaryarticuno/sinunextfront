@@ -1,38 +1,75 @@
 import Image from 'next/image';
-import Link from 'next/link';
-import { FaInstagram, FaLinkedin } from 'react-icons/fa'; // Import the icons
+import { FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { useTheme } from 'next-themes';
 
-const ProfileCard = () => {
+const ImageCard = ({ name, position }) => {
+  const { theme } = useTheme();
+
+  const containerBgColor = theme === 'dark' ? '#1d313c' : '#a44c4c';
+  const innerBgColor = theme === 'dark' ? '#FADAC1' : '#FADAC1';
+  const innerTextColor = theme === 'dark' ? '#ffffff' : '#000000';
+  const innerLogoColor = theme === 'dark' ? '#50a3ab' : '#000000';
+
   return (
-    <div className="max-w-xs bg-[#1D313C] rounded-lg shadow-lg p-8">
-      <div className="bg-[#FADAC1] p-4 rounded-lg">
+    <div
+      className="rounded-2xl px-8 py-8"
+      style={{
+        backgroundColor: containerBgColor,
+        width: '395px',
+        height: '440px',
+      }}
+    >
+      <div
+        className="rounded-md p-4"
+        style={{
+          backgroundColor: innerBgColor,
+          paddingBottom: '20px',
+        }}
+      >
         <Image
-          src="/images/profile.jpg" // replace with your image path
-          alt="Profile Image"
-          width={300}
-          height={300}
-          className="rounded-lg"
+          src="/images/profile.jpg"
+          alt={name}
+          width={324}
+          height={162}
+          className="object-cover"
         />
-        <div className='mt-4'>
-          <div className="flex justify-between items-center">
-            <div className="flex space-x-2 justify-center">
-              <Link href="https://google.com" passHref>
-                <FaInstagram className="w-5 h-5 text-[#50A3AB]" />
-              </Link>
-              <Link href="https://linkedin.com" passHref>
-                <FaLinkedin className="w-5 h-5 text-[#50A3AB]" />
-              </Link>
-            </div>
-            <div className="text-white text-lg">V8</div>
+        <div className="flex items-center justify-between mt-3">
+          <div className="flex gap-2">
+            <FaLinkedin style={{ color: innerLogoColor }} className="w-5 h-5" />
+            <FaInstagram style={{ color: innerLogoColor }} className="w-5 h-5" />
           </div>
+          <div className="text-[#00000] font-bold text-4xl">v8</div>
         </div>
       </div>
-      <div className="mt-2 text-white">
-        <div className="text-xl font-bold text-[#FADAC1]  text-right">ABHYAS</div>
-        <div className="text-md text-right">PR AND MARKETING</div>
+      <div className="mt-2 text-right pr-4">
+        <h2 style={{ color: innerTextColor }} className="text-2xl font-bold">
+          {name}
+        </h2>
+        <p style={{ color: innerTextColor }} className="font-bold text-sm mt-2">
+          {position}
+        </p>
       </div>
     </div>
   );
 };
 
-export default ProfileCard;
+const MeetTheTeam = () => {
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold text-center mb-8">Meet the Team</h1>
+      <div className="grid grid-cols-1 lg:grid-cols-3 md: items-center justify-center py-4 gap-10 lg:gap-10">
+        <ImageCard name="Abhyas" position="PR and Marketing Core" />
+        <ImageCard name="John Doe" position="Technical Lead" />
+        <ImageCard name="Jane Smith" position="Design Lead" />
+        <ImageCard name="Alice Brown" position="HR Manager" />
+        <ImageCard name="Michael Johnson" position="Software Developer" />
+        <ImageCard name="Emily Davis" position="UX/UI Designer" />
+        <ImageCard name="Chris Wilson" position="Content Strategist" />
+        <ImageCard name="Laura Garcia" position="Project Manager" />
+        <ImageCard name="James Anderson" position="Quality Assurance" />
+      </div>
+    </div>
+  );
+};
+
+export default MeetTheTeam;
