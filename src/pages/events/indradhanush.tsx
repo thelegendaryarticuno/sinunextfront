@@ -29,7 +29,6 @@ const Home: React.FC = () => {
         PageOGLImage="/logo/logo.png"
         PageTitle="indradhaNUsh | siNUsoid v8"
       />
-      <Hero />
       <CollaborationSection
         image1Src="/images/ngo.png"
         image2Src="/images/ngo.png"
