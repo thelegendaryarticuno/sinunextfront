@@ -3,15 +3,27 @@ import { FaqSection } from "@/components/FaqSection/FaqSection";
 import { FAQ_CATEGORY, FAQ_DATA } from "@/components/FaqSection/utils";
 import Hero from "@/components/Hero/Hero";
 import { SponsorMarquee } from "@/components/Marquee/marquee";
+import SEOComponent from "@/components/SEOComponent/SEOComponent";
 import Head from "next/head";
 import React from "react";
 
 const Home: React.FC = () => {
   return (
     <>
-      <Head>
-        <title>Home | siNUsoid v8</title>
-      </Head>
+      <SEOComponent
+        PageDescription="Discover siNUsoid, the annual tech fest of NIIT University, back for its 8th edition. Tag along for a ride filled with technology, curiosity and innovation; unleash your potential at siNUsoid v8!"
+        PageKeywords={[
+          "sinusoid",
+          "techfest",
+          "tech",
+          "fest",
+          "competitions",
+          "events",
+          "niit university",
+        ]}
+        PageOGLImage="/logo/logo.png"
+        PageTitle="siNUsoid v8 | Reflexive Retrograde"
+      />
       <Hero />
       <AboutSection />
       <SponsorMarquee />

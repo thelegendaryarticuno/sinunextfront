@@ -6,12 +6,33 @@ import {
 } from "@/components/FaqSection/utils";
 import CustomGrid2x2withImage from "@/components/Grid/grid";
 import { SponsorMarquee } from "@/components/Indradhanush_Marquee/indradhanush_marquee";
+import SEOComponent from "@/components/SEOComponent/SEOComponent";
 import IHero from "@/components/indradhanushhero/hero";
 import React from "react";
 
 const Home: React.FC = () => {
   return (
     <>
+      <SEOComponent
+        PageDescription={
+          "Empower those in need with IndradhaNUsh at siNUsoid. Donate usable goods and make a lasting impact. Together, we create hope and brighter futures."
+        }
+        PageKeywords={[
+          "sinusoid",
+          "techfest",
+          "doantion",
+          "hope",
+          "impact",
+          "niit university",
+          "support",
+        ]}
+        PageOGLImage="/logo/logo.png"
+        PageTitle="indradhaNUsh | siNUsoid v8"
+      />
+      {/* <CollaborationSection
+        image1Src="/images/ngo.png"
+        image2Src="/images/ngo.png"
+      /> */}
       <IHero/>
       <Collab/>
       <CustomGrid2x2withImage
