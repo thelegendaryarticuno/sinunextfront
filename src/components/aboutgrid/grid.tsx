@@ -18,7 +18,7 @@ const Grid = () => {
     <div className="flex justify-center items-center min-h-screen my-4" style={{ backgroundColor: bgColor }}>
       <div className="w-[80%]">
         <div
-          className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-4"
+          className="bg-white dark:bg-gray-800 shadow-lg rounded-lg p-4 my-4"
           style={{
             boxShadow: theme === 'light' ? '0 10px 15px rgba(0, 0, 0, 0.1)' : '0 10px 15px rgba(0, 0, 0, 0.5)',
           }}

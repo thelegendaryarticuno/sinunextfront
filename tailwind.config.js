@@ -14,7 +14,8 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         grid: "grid 15s linear infinite",
-        pulse: "pulse var(--duration) ease-out infinite",  // Added pulse animation
+        pulse: "pulse var(--duration) ease-out infinite",
+        noise: 'noise 0.2s infinite',  // Added noise animation
       },
       keyframes: {
         grid: {
@@ -40,6 +41,10 @@ module.exports = {
         pulse: {
           "0%, 100%": { boxShadow: "0 0 0 0 var(--pulse-color)" },
           "50%": { boxShadow: "0 0 0 8px var(--pulse-color)" },
+        },
+        noise: {  // Added noise keyframes
+          "0%, 100%": { opacity: '0.5' },
+          "50%": { opacity: '1' },
         },
       },
       scrollbar: {

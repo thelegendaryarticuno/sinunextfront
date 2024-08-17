@@ -6,7 +6,7 @@ interface HeroProps {
   darkImage?: string;
 }
 
-const YHero: React.FC<HeroProps> = ({
+const AboutHero: React.FC<HeroProps> = ({
   lightImage = '/images/light.jpg',
   darkImage = '/images/dark.jpg',
 }) => {
@@ -45,4 +45,4 @@ const YHero: React.FC<HeroProps> = ({
   );
 };
 
-export default YHero;
+export default AboutHero;

@@ -80,5 +80,33 @@
     @apply bg-background text-foreground;
   }
 }
+@keyframes noise {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
 
+.noise {
+  background-image: url('/images/noise.png');
+  opacity: 0.3;
+  animation: noise 0.2s infinite;
+}
 
+.centered-slide-carousel .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px; /* Adjust the width of the slides */
+  height:300px; /* Adjust the height of the slides */
+}
+
+.centered-slide-carousel .swiper-slide-shadow-left,
+.centered-slide-carousel .swiper-slide-shadow-right {
+  border-radius: 20px;
+}
+
+.centered-slide-carousel .swiper-pagination-bullet-active {
+  background: #007aff;
+}
