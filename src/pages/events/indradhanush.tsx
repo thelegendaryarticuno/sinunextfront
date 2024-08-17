@@ -1,4 +1,4 @@
-import Collab from "@/components/CollaborationSection/CollaborationSection";
+import Collab, { CollaborationSection } from "@/components/CollaborationSection/CollaborationSection";
 import { FaqSection } from "@/components/FaqSection/FaqSection";
 import {
   INDRADHANUSH_FAQ_CATEGORY,
@@ -29,10 +29,10 @@ const Home: React.FC = () => {
         PageOGLImage="/logo/logo.png"
         PageTitle="indradhaNUsh | siNUsoid v8"
       />
-      <CollaborationSection
+      {/* <CollaborationSection
         image1Src="/images/ngo.png"
         image2Src="/images/ngo.png"
-      />
+      /> */}
       <IHero/>
       <Collab/>
       <CustomGrid2x2withImage
