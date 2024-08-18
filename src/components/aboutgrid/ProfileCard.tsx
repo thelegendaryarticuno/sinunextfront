@@ -1,34 +1,42 @@
-import Image from 'next/image';
-import { FaLinkedin, FaInstagram } from 'react-icons/fa';
-import { useTheme } from 'next-themes';
-import Link from 'next/link';
+import Image from "next/image";
+import { FaLinkedin, FaInstagram } from "react-icons/fa";
+import { useTheme } from "next-themes";
+import Link from "next/link";
 
-const ImageCard = ({image, name, position }) => {
+interface ImageCardProps {
+  name: string;
+  position: string;
+  profileImgSrc: string;
+  linkedinLink: string;
+  instagramLink: string;
+}
+
+const ImageCard: React.FC<ImageCardProps> = ({ profileImgSrc, name, position, instagramLink="#", linkedinLink="#" }) => {
   const { theme } = useTheme();
 
-  const containerBgColor = theme === 'dark' ? '#1d313c' : '#a44c4c';
-  const innerBgColor = theme === 'dark' ? '#FADAC1' : '#FADAC1';
-  const innerTextColor = theme === 'dark' ? '#ffffff' : '#000000';
-  const innerLogoColor = theme === 'dark' ? '#50a3ab' : '#000000';
+  const containerBgColor = theme === "dark" ? "#1d313c" : "#a44c4c";
+  const innerBgColor = theme === "dark" ? "#FADAC1" : "#FADAC1";
+  const innerTextColor = theme === "dark" ? "#ffffff" : "#000000";
+  const innerLogoColor = theme === "dark" ? "#50a3ab" : "#000000";
 
   return (
     <div
       className="rounded-2xl px-8 py-8"
       style={{
         backgroundColor: containerBgColor,
-        width: '395px',
-        height: '440px',
+        width: "395px",
+        height: "440px",
       }}
     >
       <div
         className="rounded-md p-4"
         style={{
           backgroundColor: innerBgColor,
-          paddingBottom: '20px',
+          paddingBottom: "20px",
         }}
       >
         <Image
-          src="/images/profile.jpg"
+          src={profileImgSrc || "/images/profile.png"}
           alt={name}
           width={324}
           height={162}
@@ -36,11 +44,17 @@ const ImageCard = ({image, name, position }) => {
         />
         <div className="flex items-center justify-between mt-3">
           <div className="flex gap-2">
-            <Link href=''>
-                <FaLinkedin style={{ color: innerLogoColor }} className="w-5 h-5" />
+            <Link href={linkedinLink}>
+              <FaLinkedin
+                style={{ color: innerLogoColor }}
+                className="w-5 h-5"
+              />
             </Link>
-            <Link href=''>
-                <FaInstagram style={{ color: innerLogoColor }} className="w-5 h-5" />
+            <Link href={instagramLink}>
+              <FaInstagram
+                style={{ color: innerLogoColor }}
+                className="w-5 h-5"
+              />
             </Link>
           </div>
           <div className="text-[#00000] font-bold text-4xl">v8</div>
@@ -63,15 +77,86 @@ const MeetTheTeam = () => {
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold text-center mb-8">Meet the Team</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 md: items-center justify-center py-4 gap-10 lg:gap-10">
-        <ImageCard name="Abhyas" position="PR and Marketing Core" />
-        <ImageCard name="John Doe" position="Technical Lead" />
-        <ImageCard name="Jane Smith" position="Design Lead" />
-        <ImageCard name="Alice Brown" position="HR Manager" />
-        <ImageCard name="Michael Johnson" position="Software Developer" />
-        <ImageCard name="Emily Davis" position="UX/UI Designer" />
-        <ImageCard name="Chris Wilson" position="Content Strategist" />
-        <ImageCard name="Laura Garcia" position="Project Manager" />
-        <ImageCard name="James Anderson" position="Quality Assurance" />
+        <ImageCard
+          name="Abhyas"
+          position="PR and Marketing Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
+        <ImageCard
+          name="Abhyas"
+          position="PR and Marketing Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
+        <ImageCard
+          name="Abhyas"
+          position="PR and Marketing Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
+        <ImageCard
+          name="Abhyas"
+          position="PR and Marketing Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
+        <ImageCard
+          name="Abhyas"
+          position="PR and Marketing Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
+        <ImageCard
+          name="Abhyas"
+          position="PR and Marketing Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
+        <ImageCard
+          name="Abhyas"
+          position="PR and Marketing Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
+        <ImageCard
+          name="Abhyas"
+          position="PR and Marketing Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
+        <ImageCard
+          name="Abhyas"
+          position="PR and Marketing Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
+        <ImageCard
+          name="Abhyas"
+          position="PR and Marketing Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
       </div>
     </div>
   );
