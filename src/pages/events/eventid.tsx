@@ -1,7 +1,7 @@
 
 import TabsComponent from "@/components/Description/description";
 import EventsBanner from "@/components/EventsBanner/EventsBanner";
-import { SponsorMarquee } from "@/components/Indradhanush_Marquee/indradhanush_marquee";
+import { SponsorMarquee } from "@/components/Marquee/marquee";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
 
 
