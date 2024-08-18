@@ -10,10 +10,10 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({
-  lightImage = '/images/light.',
-  darkImage = '/images/.jpg',
-  lightbannerImageSrc = '/images/light.jpg',
-  darkbannerImageSrc = '/images/dark.jpg',
+  lightImage = '/images/light.jpg',
+  darkImage = '/images/dark.jpg',
+  lightbannerImageSrc = '/images/dark.jpg',
+  darkbannerImageSrc = '/images/light.jpg',
 }) => {
   const { theme, resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
@@ -27,19 +27,16 @@ const Hero: React.FC<HeroProps> = ({
   const bannerStyle = bannerImage
     ? { backgroundImage: `url(${bannerImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }
     : { backgroundColor: isDark ? 'black' : 'white' };
+  const componentImage = isDark ? darkbannerImageSrc : lightbannerImageSrc;
+  const componentStyle = bannerImage
+    ? { backgroundImage: `url(${componentImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }
+    : { backgroundColor: isDark ? 'black' : 'white' };
 
   return (
     <div className="w-full h-screen p-0 m-0 mt-16">
       <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden" style={bannerStyle}>
-        <div className="relative w-full h-full flex items-center justify-center">
-          <Image
-            src={isDark ? darkbannerImageSrc : lightbannerImageSrc}
-            alt={isDark ? 'Dark Banner' : 'Light Banner'}
-            fill
-            className="object-contain"
-            quality={100}
-            priority
-          />
+        <div className="object-contain flex items-center justify-center" style={componentStyle}>
+          
         </div>
       </div>
       <div className={`w-full h-[30vh] flex items-center justify-center ${bottomContainerClass}`}>

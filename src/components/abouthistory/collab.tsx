@@ -1,6 +1,6 @@
 import React from 'react';
-import Image from 'next/image';
 import { useTheme } from 'next-themes';
+import SlideShow from '../aboutimage/image';
 
 type CollaborationSectionProps = {
   imageSrc: string;
@@ -11,21 +11,15 @@ const CollaborationSection: React.FC<CollaborationSectionProps> = ({ imageSrc, t
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="relative min-h-[70vh] dark:bg-black bg-white flex items-center justify-center p-6">
-      <div className="relative flex-1 p-8 flex flex-col justify-between dark:bg-zinc-950 bg-zinc-200 bg-opacity-50 backdrop-blur-md rounded-xl shadow-lg">
+    <div className="relative min-h-[40vh] py-4 dark:bg-black bg-white flex items-center justify-center px-4 sm:px-8">
+      <div className="relative flex-1 py-4 flex flex-col justify-between dark:bg-zinc-950 bg-zinc-200 bg-opacity-50 backdrop-blur-md rounded-xl shadow-lg">
         <h3 className="dark:text-white text-black text-3xl md:text-5xl font-bold mb-6 text-center">
           History of siNUsoid
         </h3>
-        <div className="flex flex-col mt-12 md:flex-row justify-center items-center gap-12 md:gap-16">
-        <Image
-              src={imageSrc}
-              alt="Collaboration Logo"
-              width={250}
-              height={300}
-              className="object-cover"
-            />
-          <div className="p-4 text-center md:text-left dark:text-white text-black max-w-md ml-14">
-            <p className="text-md  md:text-xl">{text}</p>
+        <div className="flex flex-col lg:flex-row justify-center items-center max-w-full gap-8 lg:gap-16">
+          <SlideShow />
+          <div className="flex flex-col py-4 px-4 text-center md:text-left dark:text-white text-black max-w-md lg:ml-14">
+            <p className="text-md md:text-xl">{text}</p>
           </div>
         </div>
       </div>
@@ -33,7 +27,7 @@ const CollaborationSection: React.FC<CollaborationSectionProps> = ({ imageSrc, t
   );
 };
 
-const ICollab: React.FC = () => {
+const AboutHistory: React.FC = () => {
   return (
     <div>
       <CollaborationSection
@@ -46,4 +40,4 @@ const ICollab: React.FC = () => {
   );
 };
 
-export default ICollab;
+export default AboutHistory;
