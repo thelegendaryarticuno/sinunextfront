@@ -1,12 +1,9 @@
 // src/pages/about.tsx
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
-import Grid from "@/components/aboutgrid/grid";
-import YHero from "@/components/abouthero/hero";
 import Our from "@/components/aboutwhoarewe/we";
 import React from "react";
 import AboutHistory from "@/components/abouthistory/collab";
 import AboutHero from "@/components/abouthero/hero";
-import ImageCard from "@/components/aboutgrid/ProfileCard";
 import MeetTheTeam from "@/components/aboutgrid/ProfileCard";
 
 const About: React.FC = () => {
@@ -29,8 +26,7 @@ const About: React.FC = () => {
         PageOGLImage="/logo/logo.png"
         PageTitle="About Us | siNUsoid v8"
       />
-      <h1 className="min-h-[64vh]">COMING SOON...</h1>
-    <YHero/>
+    
     
     <Our/>
     </>

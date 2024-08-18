@@ -149,14 +149,7 @@ const MeetTheTeam = () => {
           linkedinLink="#"
 
         />
-        <ImageCard
-          name="Abhyas"
-          position="PR and Marketing Core"
-          profileImgSrc="/images/profile.jpg"
-          instagramLink="#"
-          linkedinLink="#"
-
-        />
+        
       </div>
     </div>
   );
