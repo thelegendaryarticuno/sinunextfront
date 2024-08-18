@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import { FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { useTheme } from 'next-themes';
+import Link from 'next/link';
 
-const ImageCard = ({ name, position }) => {
+const ImageCard = ({image, name, position }) => {
   const { theme } = useTheme();
 
   const containerBgColor = theme === 'dark' ? '#1d313c' : '#a44c4c';
@@ -35,8 +36,12 @@ const ImageCard = ({ name, position }) => {
         />
         <div className="flex items-center justify-between mt-3">
           <div className="flex gap-2">
-            <FaLinkedin style={{ color: innerLogoColor }} className="w-5 h-5" />
-            <FaInstagram style={{ color: innerLogoColor }} className="w-5 h-5" />
+            <Link href=''>
+                <FaLinkedin style={{ color: innerLogoColor }} className="w-5 h-5" />
+            </Link>
+            <Link href=''>
+                <FaInstagram style={{ color: innerLogoColor }} className="w-5 h-5" />
+            </Link>
           </div>
           <div className="text-[#00000] font-bold text-4xl">v8</div>
         </div>
