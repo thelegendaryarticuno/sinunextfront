@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTheme } from 'next-themes';
 import SlideShow from '../aboutimage/image';
+import Particles from "@/components/magicui/particles";
 
 type CollaborationSectionProps = {
   imageSrc: string;
@@ -13,6 +14,13 @@ const CollaborationSection: React.FC<CollaborationSectionProps> = ({ imageSrc, t
   return (
     <div className="relative min-h-[40vh] py-4 dark:bg-black bg-white flex items-center justify-center px-4 sm:px-8">
       <div className="relative flex-1 py-4 flex flex-col justify-between dark:bg-zinc-950 bg-zinc-200 bg-opacity-50 backdrop-blur-md rounded-xl shadow-lg">
+      <Particles
+        className="absolute inset-0"
+        quantity={100}
+        ease={80}
+        color="#ffffff"
+        refresh
+      />
         <h3 className="dark:text-white text-black text-3xl md:text-5xl font-bold mb-6 text-center">
           History of siNUsoid
         </h3>
