@@ -12,8 +12,8 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({
   lightImage = '/images/light.jpg',
   darkImage = '/images/dark.jpg',
-  lightbannerImageSrc = '/images/.jpg',
-  darkbannerImageSrc = '/images/.jpg',
+  lightbannerImageSrc = '/images/dark.jpg',
+  darkbannerImageSrc = '/images/light.jpg',
 }) => {
   const { theme, resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
@@ -36,14 +36,7 @@ const Hero: React.FC<HeroProps> = ({
     <div className="w-full h-screen p-0 m-0 mt-16">
       <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden" style={bannerStyle}>
         <div className="object-contain flex items-center justify-center" style={componentStyle}>
-          <Image
-            src={isDark ? darkbannerImageSrc : lightbannerImageSrc}
-            alt={isDark ? '' : ''}
-            fill
-            className="object-contain"
-            quality={100}
-            priority
-          />
+          
         </div>
       </div>
       <div className={`w-full h-[30vh] flex items-center justify-center ${bottomContainerClass}`}>
