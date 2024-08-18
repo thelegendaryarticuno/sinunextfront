@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import Marquee from "@/components/magicui/marquee";
 import Image from "next/image";
 
-const reviews = [
+const sponsorLogos = [
   { 
     img: "/sponsorLogo/BCH.webp" 
   },
@@ -47,7 +47,7 @@ const reviews = [
     },
 ];
 
-const firstRow = reviews.slice(0, 14);
+const firstRow = sponsorLogos.slice(0, 14);
 
 const ReviewCard = ({ img }: { img: string }) => {
   return (
