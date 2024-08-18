@@ -7,7 +7,7 @@ import { HoverCard, HoverCardTrigger, HoverCardContent } from "../ui/hover-card"
 export const navLinkArray = [
   { href: "/about", text: "About", icon: <FaInfoCircle /> },
   { href: "/events", text: "Events", icon: <FaCalendarAlt /> },
-  { href: "/sponsors", text: "Sponsors", icon: <FaHandsHelping />, hoverCardSize: "w-24" }, // Adjust hover card size here
+  { href: "/sponsor", text: "Sponsor", icon: <FaHandsHelping />, hoverCardSize: "w-24" }, // Adjust hover card size here
 ];
 
 const iconClassName = "text-current"; // This will make the color dynamic
