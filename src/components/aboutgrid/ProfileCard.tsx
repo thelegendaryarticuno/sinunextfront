@@ -77,7 +77,7 @@ const MeetTheTeam = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold text-center mb-8">Meet the Team</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-3 md:items-center justify-center py-4 gap-10 lg:gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 md:items-center justify-items-center py-4 gap-10 lg:gap-10">
         <ImageCard
           name="Toril Jain"
           position="Executive Head and Event C. Core"
