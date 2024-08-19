@@ -37,10 +37,10 @@ const We: React.FC<WeProps> = ({ imageSrc, title, description, principles }) => 
   );
 };
 
-const Our: React.FC = () => {
+const PrinciplesofSinuSoid: React.FC = () => {
   return (
     <We
-      imageSrc="/images/we.png"  
+      imageSrc="/images/we.png"
       title="What we're all about:"
       description="siNUsoid is far from your average tech fest. It's a wild ride through the coolest corners of technology, bringing together future innovators, tech geeks and those seeking knowledge. We celebrate technological advancements with the help of mind-blowing pre-fest events and thrilling on-fest events, all under the theme for each year's edition. And believe us when we say, there's something for everyone here. So why wait? Come explore the awesome world of tech and create truly amazing memories together with siNUsoid v8."
       principles={[
@@ -50,10 +50,10 @@ const Our: React.FC = () => {
         "Boring is banned; we're here to have a good time!",
         "Peace, love and plants ☘️ <3",
         "Inclusivity is key, we definitely support everyone (wink)",
-        "Touch grass, feel the air on your face!"
+        "Touch grass, feel the air on your face!",
       ]}
     />
   );
 };
 
-export default Our;
+export default PrinciplesofSinuSoid;
