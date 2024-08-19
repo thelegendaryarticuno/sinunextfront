@@ -18,7 +18,7 @@ const CollaborationSection: React.FC<CollaborationSectionProps> = ({ imageSrc, t
         className="absolute inset-0"
         quantity={100}
         ease={80}
-        color="#ffffff"
+        color={theme === "dark" ? "#ffffff" : "#000000"}
         refresh
       />
         <h3 className="dark:text-white text-black text-3xl md:text-5xl font-bold mb-6 text-center">
