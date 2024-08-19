@@ -82,49 +82,49 @@ const MeetTheTeam = () => {
           name="Toril Jain"
           position="Executive Head and Event C. Core"
           profileImgSrc="/CoreProfilePic/TorilJain.png"
-          instagramLink="#"
+          instagramLink="https://www.instagram.com/torilneedshelplmao/"
           linkedinLink="https://www.linkedin.com/in/toril-jain-2a6a12244"
         />
         <ImageCard
           name="Kaustav Karan"
           position="Technical Core"
           profileImgSrc="/CoreProfilePic/KaustavKaran.png"
-          instagramLink="#"
+          instagramLink="https://www.instagram.com/k2.pvt?igsh=enF4cmhtZzBxcTV4"
           linkedinLink="https://www.linkedin.com/in/kaustav-karan-0b5562219"
         />
         <ImageCard
           name="Aayush Dutta"
           position="Digital Design Core"
           profileImgSrc="/CoreProfilePic/AayushDutta.png"
-          instagramLink="#"
+          instagramLink="https://www.instagram.com/theazapto?igsh=MXBwN3B0MGVydGJjcQ=="
           linkedinLink="#"
         />
         <ImageCard
           name="Alisha Sultana"
           position="Sponsorship Core"
           profileImgSrc="/CoreProfilePic/AlishaaSultana.png"
-          instagramLink="#"
+          instagramLink="https://www.instagram.com/alishaxz_313?igsh=MThqdmg1eTJ4bmhndQ=="
           linkedinLink="https://www.linkedin.com/in/alisha-sultana-300801251"
         />
         <ImageCard
           name="Ananya Gupta"
           position="Content Core"
           profileImgSrc="/CoreProfilePic/AnanyaGupta.png"
-          instagramLink="#"
+          instagramLink="https://www.instagram.com/ananyaa1029?igsh=MWlmanhjeWsydDR4dA=="
           linkedinLink="#"
         />
         <ImageCard
           name="Jatin Arora"
           position="PR and Marketing Core"
           profileImgSrc="/CoreProfilePic/JatinArora.png"
-          instagramLink="#"
+          instagramLink="https://www.instagram.com/jatinnxarora?igsh=YWV4NzhzNHhwbGxr"
           linkedinLink="https://www.linkedin.com/in/jatin-arora-337a39251"
         />
         <ImageCard
           name="Yashwanth Yalavali"
           position="Creative Core"
           profileImgSrc="/CoreProfilePic/YaswanthY.png"
-          instagramLink="#"
+          instagramLink="https://www.instagram.com/yashwanth_yalavali?igsh=MW45c3U1bGFvMTh3cg=="
           linkedinLink="https://www.linkedin.com/in/yashwanth-yalavali-802908252"
         />
         <ImageCard
@@ -138,7 +138,7 @@ const MeetTheTeam = () => {
           name="Aayush Ranjan"
           position="Capture Core"
           profileImgSrc="/CoreProfilePic/AyushRanjan.png"
-          instagramLink="#"
+          instagramLink="https://www.instagram.com/ranjan_ayushh?igsh=MXNxaW5xMWxwNGs4Nw=="
           linkedinLink="https://www.linkedin.com/in/ayush-ranjan-228b30203"
         />
       </div>
