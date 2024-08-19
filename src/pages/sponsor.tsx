@@ -3,6 +3,11 @@ import { SponsorPageMarquee } from "@/components/SponsorPageMarquee/SponsorPageM
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
 import Image from "next/image";
 import ShineBorder from "@/components/magicui/shine-border";
+import SponsorComp from "@/components/stylecomponent2/stylecomponent2";
+import { useTheme } from "next-themes";
+import Partnership from "@/components/partnership/partnership";
+
+
 
 const Sponsors: React.FC = () => {
   return (
@@ -43,12 +48,12 @@ const Sponsors: React.FC = () => {
         <SponsorPageMarquee />
         <div className="relative min-h-[50vh] dark:bg-black bg-white flex items-center justify-center p-4">
           <ShineBorder className="max-w-4xl w-full dark:bg-zinc-900 bg-zinc-200 rounded-lg shadow-3xl overflow-hidden flex flex-col md:flex-row" color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}>
-            <div className="relative w-full md:w-[7%] flex items-center justify-center p-4">
-              <div className="text-sm md:text-base dark:text-white text-black" style={{writingMode: "vertical-lr", textOrientation: "upright"}}>
+            <div className="relative w-full lg:w-[7%] flex items-center justify-center p-4">
+              <div className="text-sm md:text-base dark:text-white text-black lg:[writing-mode:vertical-lr] lg:[text-orientation:upright]">
                 TITLE SPONSOR
               </div>
             </div>
-            <div className="relative w-full md:w-[30%] flex flex-col items-center justify-center md:border-l-4 border-zinc-50 dark:border-zinc-950">
+            <div className="relative w-full lg:w-[30%] flex flex-col items-center justify-center lg:border-l-4 border-zinc-50 dark:border-zinc-950">
               <div>
                 <Image 
                   src="/sponsorLogo/Ubon.webp" 
@@ -59,7 +64,7 @@ const Sponsors: React.FC = () => {
                 />
               </div>
             </div>
-            <div className="flex-1 p-4 md:p-8 flex flex-col justify-between md:ml-4">
+            <div className="flex-1 p-4 md:p-8 flex flex-col justify-between lg:ml-4">
               <div className="dark:text-white text-black text-4xl md:text-5xl font-bold mb-6">
                 Title Sponsor
               </div>
@@ -71,12 +76,12 @@ const Sponsors: React.FC = () => {
         </div>
         <div className="relative min-h-[50vh] dark:bg-black bg-white flex items-center justify-center p-4">
           <ShineBorder className="max-w-4xl w-full dark:bg-zinc-900 bg-zinc-200 rounded-lg shadow-3xl overflow-hidden flex flex-col md:flex-row-reverse" color={["#00DBDE", "#FC00FF", "#50CC7F"]}>
-            <div className="relative w-full md:w-[7%] flex items-center justify-center p-4">
-              <div className="text-sm md:text-base dark:text-white text-black" style={{writingMode: "vertical-lr", textOrientation: "upright"}}>
-                Co SPONSOR
+            <div className="relative w-full lg:w-[7%] flex items-center justify-center p-4">
+              <div className="text-sm md:text-base dark:text-white text-black lg:[writing-mode:vertical-lr] lg:[text-orientation:upright]">
+                CO SPONSOR
               </div>
             </div>
-            <div className="relative w-full md:w-[30%] flex flex-col items-center justify-center md:border-r-4 border-zinc-50 dark:border-zinc-950">
+            <div className="relative w-full lg:w-[30%] flex flex-col items-center justify-center lg:border-r-4 border-zinc-50 dark:border-zinc-950">
                 <Image 
                   src="/sponsorLogo/Gigabyte.webp" 
                   alt="coSponsorLogo" 
@@ -85,7 +90,7 @@ const Sponsors: React.FC = () => {
                   className="object-contain p-4 z-20"
                 />
             </div>
-            <div className="flex-1 p-4 md:p-8 flex flex-col justify-between md:mr-4">
+            <div className="flex-1 p-4 md:p-8 flex flex-col justify-between lg:mr-4">
               <div className="dark:text-white text-black text-4xl md:text-5xl font-bold mb-6">
                 Co Sponsor
               </div>
@@ -96,6 +101,8 @@ const Sponsors: React.FC = () => {
           </ShineBorder>
         </div>
       </div>
+      <SponsorComp/>
+      <Partnership/>
     </>
   );
 };
