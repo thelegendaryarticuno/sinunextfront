@@ -12,7 +12,6 @@ const Header: React.FC = () => {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
 
   useEffect(() => {
     setMounted(true);
