@@ -78,7 +78,47 @@ const MeetTheTeam = () => {
       <h1 className="text-4xl font-bold text-center mb-8">Meet the Team</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 md: items-center justify-center py-4 gap-10 lg:gap-10">
         <ImageCard
-          name="Abhyas"
+          name="Toril Jain"
+          position="Executive Head and Event Curation Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
+        <ImageCard
+          name="Kaustav Karan"
+          position="Technical Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
+        <ImageCard
+          name="Aayush Dutta"
+          position="Digital Design Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
+        <ImageCard
+          name="Aayush Ranjan"
+          position="Capture Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
+        <ImageCard
+          name="Ananya Gupta"
+          position="Content Core"
+          profileImgSrc="/images/profile.jpg"
+          instagramLink="#"
+          linkedinLink="#"
+
+        />
+        <ImageCard
+          name="Jatin Arora"
           position="PR and Marketing Core"
           profileImgSrc="/images/profile.jpg"
           instagramLink="#"
@@ -86,64 +126,24 @@ const MeetTheTeam = () => {
 
         />
         <ImageCard
-          name="Abhyas"
-          position="PR and Marketing Core"
+          name="Yashwanth Yalavali"
+          position="Creative Core"
           profileImgSrc="/images/profile.jpg"
           instagramLink="#"
           linkedinLink="#"
 
         />
         <ImageCard
-          name="Abhyas"
-          position="PR and Marketing Core"
+          name="Ritesh V. Reddy"
+          position="Operations Core"
           profileImgSrc="/images/profile.jpg"
           instagramLink="#"
           linkedinLink="#"
 
         />
         <ImageCard
-          name="Abhyas"
-          position="PR and Marketing Core"
-          profileImgSrc="/images/profile.jpg"
-          instagramLink="#"
-          linkedinLink="#"
-
-        />
-        <ImageCard
-          name="Abhyas"
-          position="PR and Marketing Core"
-          profileImgSrc="/images/profile.jpg"
-          instagramLink="#"
-          linkedinLink="#"
-
-        />
-        <ImageCard
-          name="Abhyas"
-          position="PR and Marketing Core"
-          profileImgSrc="/images/profile.jpg"
-          instagramLink="#"
-          linkedinLink="#"
-
-        />
-        <ImageCard
-          name="Abhyas"
-          position="PR and Marketing Core"
-          profileImgSrc="/images/profile.jpg"
-          instagramLink="#"
-          linkedinLink="#"
-
-        />
-        <ImageCard
-          name="Abhyas"
-          position="PR and Marketing Core"
-          profileImgSrc="/images/profile.jpg"
-          instagramLink="#"
-          linkedinLink="#"
-
-        />
-        <ImageCard
-          name="Abhyas"
-          position="PR and Marketing Core"
+          name="Alisha Sultana"
+          position="Sponsorship Core"
           profileImgSrc="/images/profile.jpg"
           instagramLink="#"
           linkedinLink="#"
