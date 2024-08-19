@@ -12,7 +12,7 @@ const CollaborationSection: React.FC<CollaborationSectionProps> = ({ imageSrc, t
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="relative min-h-[40vh] py-4 dark:bg-black bg-white flex items-center justify-center px-4 sm:px-8">
+    <div className="relative min-h-[40vh] py-4  flex items-center justify-center px-4 sm:px-8">
       <div className="relative flex-1 py-4 flex flex-col justify-between dark:bg-zinc-950 bg-zinc-200 bg-opacity-50 backdrop-blur-md rounded-xl shadow-lg">
       <Particles
         className="absolute inset-0"
@@ -37,14 +37,14 @@ const CollaborationSection: React.FC<CollaborationSectionProps> = ({ imageSrc, t
 
 const AboutHistory: React.FC = () => {
   return (
-    <div>
+    
       <CollaborationSection
         imageSrc="/logo/logo.png"
         text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
-    </div>
+    
   );
 };
 
