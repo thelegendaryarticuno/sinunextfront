@@ -51,8 +51,8 @@ const Sponsors: React.FC = () => {
             <div className="relative w-full md:w-[30%] flex flex-col items-center justify-center md:border-l-4 border-zinc-50 dark:border-zinc-950">
               <div>
                 <Image 
-                  src="/images/logo_red_mc.png" 
-                  alt="siNUsoid Logo" 
+                  src="/sponsorLogo/Ubon.webp" 
+                  alt="titleSponsorLogo" 
                   width={150}
                   height={150}
                   className="object-contain p-4 z-20"
@@ -61,7 +61,7 @@ const Sponsors: React.FC = () => {
             </div>
             <div className="flex-1 p-4 md:p-8 flex flex-col justify-between md:ml-4">
               <div className="dark:text-white text-black text-4xl md:text-5xl font-bold mb-6">
-                About siNUsoid
+                Title Sponsor
               </div>
               <div className="dark:text-white text-black mb-6 font-bold text-base">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum magnam deserunt laudantium doloremque minima, iste corporis quaerat animi blanditiis, iure fugiat nostrum eius modi ipsam ex culpa, quasi odit commodi.
@@ -78,8 +78,8 @@ const Sponsors: React.FC = () => {
             </div>
             <div className="relative w-full md:w-[30%] flex flex-col items-center justify-center md:border-r-4 border-zinc-50 dark:border-zinc-950">
                 <Image 
-                  src="/images/logo_red_mc.png" 
-                  alt="siNUsoid Logo" 
+                  src="/sponsorLogo/Gigabyte.webp" 
+                  alt="coSponsorLogo" 
                   width={150}
                   height={150}
                   className="object-contain p-4 z-20"
@@ -87,7 +87,7 @@ const Sponsors: React.FC = () => {
             </div>
             <div className="flex-1 p-4 md:p-8 flex flex-col justify-between md:mr-4">
               <div className="dark:text-white text-black text-4xl md:text-5xl font-bold mb-6">
-                About siNUsoid
+                Co Sponsor
               </div>
               <div className="dark:text-white text-black mb-6 font-bold text-base">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum magnam deserunt laudantium doloremque minima, iste corporis quaerat animi blanditiis, iure fugiat nostrum eius modi ipsam ex culpa, quasi odit commodi.
