@@ -11,13 +11,14 @@ interface ImageCardProps {
   instagramLink: string;
 }
 
-const ImageCard: React.FC<ImageCardProps> = ({ profileImgSrc, name, position, instagramLink="#", linkedinLink="#" }) => {
+const ImageCard: React.FC<ImageCardProps> = ({ profileImgSrc, name, position, instagramLink = "#", linkedinLink = "#" }) => {
   const { theme } = useTheme();
 
   const containerBgColor = theme === "dark" ? "#1d313c" : "#a44c4c";
   const innerBgColor = theme === "dark" ? "#FADAC1" : "#FADAC1";
   const innerTextColor = theme === "dark" ? "#ffffff" : "#000000";
   const innerLogoColor = theme === "dark" ? "#50a3ab" : "#000000";
+  const v8Color = theme === "dark" ? "#000000" : "#560b0b";
 
   return (
     <div
@@ -25,7 +26,7 @@ const ImageCard: React.FC<ImageCardProps> = ({ profileImgSrc, name, position, in
       style={{
         backgroundColor: containerBgColor,
         width: "395px",
-        height: "440px",
+        height: "485px",
       }}
     >
       <div
@@ -57,14 +58,14 @@ const ImageCard: React.FC<ImageCardProps> = ({ profileImgSrc, name, position, in
               />
             </Link>
           </div>
-          <div className="text-[#00000] font-bold text-4xl">v8</div>
+          <div className="text-4xl font-bold" style={{ color: v8Color }}>v8</div>
         </div>
       </div>
       <div className="mt-2 text-right pr-4">
         <h2 style={{ color: innerTextColor }} className="text-2xl font-bold">
           {name}
         </h2>
-        <p style={{ color: innerTextColor }} className="font-bold text-sm mt-2">
+        <p style={{ color: innerTextColor }} className="font-bold text-sm mt-0.5">
           {position}
         </p>
       </div>
@@ -76,80 +77,70 @@ const MeetTheTeam = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold text-center mb-8">Meet the Team</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-3 md: items-center justify-center py-4 gap-10 lg:gap-10">
+      <div className="grid grid-cols-1 lg:grid-cols-3 md:items-center justify-center py-4 gap-10 lg:gap-10">
         <ImageCard
           name="Toril Jain"
-          position="Executive Head and Event Curation Core"
-          profileImgSrc="/images/profile.jpg"
+          position="Executive Head and Event C. Core"
+          profileImgSrc="/CoreProfilePic/TorilJain.png"
           instagramLink="#"
-          linkedinLink="#"
-
+          linkedinLink="https://www.linkedin.com/in/toril-jain-2a6a12244"
         />
         <ImageCard
           name="Kaustav Karan"
           position="Technical Core"
-          profileImgSrc="/images/profile.jpg"
+          profileImgSrc="/CoreProfilePic/KaustavKaran.png"
           instagramLink="#"
-          linkedinLink="#"
-
+          linkedinLink="https://www.linkedin.com/in/kaustav-karan-0b5562219"
         />
         <ImageCard
           name="Aayush Dutta"
           position="Digital Design Core"
-          profileImgSrc="/images/profile.jpg"
+          profileImgSrc="/CoreProfilePic/AayushDutta.png"
           instagramLink="#"
           linkedinLink="#"
-
-        />
-        <ImageCard
-          name="Aayush Ranjan"
-          position="Capture Core"
-          profileImgSrc="/images/profile.jpg"
-          instagramLink="#"
-          linkedinLink="#"
-
-        />
-        <ImageCard
-          name="Ananya Gupta"
-          position="Content Core"
-          profileImgSrc="/images/profile.jpg"
-          instagramLink="#"
-          linkedinLink="#"
-
-        />
-        <ImageCard
-          name="Jatin Arora"
-          position="PR and Marketing Core"
-          profileImgSrc="/images/profile.jpg"
-          instagramLink="#"
-          linkedinLink="#"
-
-        />
-        <ImageCard
-          name="Yashwanth Yalavali"
-          position="Creative Core"
-          profileImgSrc="/images/profile.jpg"
-          instagramLink="#"
-          linkedinLink="#"
-
-        />
-        <ImageCard
-          name="Ritesh V. Reddy"
-          position="Operations Core"
-          profileImgSrc="/images/profile.jpg"
-          instagramLink="#"
-          linkedinLink="#"
-
         />
         <ImageCard
           name="Alisha Sultana"
           position="Sponsorship Core"
-          profileImgSrc="/images/profile.jpg"
+          profileImgSrc="/CoreProfilePic/AlishaaSultana.png"
+          instagramLink="#"
+          linkedinLink="https://www.linkedin.com/in/alisha-sultana-300801251"
+        />
+        <ImageCard
+          name="Ananya Gupta"
+          position="Content Core"
+          profileImgSrc="/CoreProfilePic/AnanyaGupta.png"
           instagramLink="#"
           linkedinLink="#"
-
         />
-        
+        <ImageCard
+          name="Jatin Arora"
+          position="PR and Marketing Core"
+          profileImgSrc="/CoreProfilePic/JatinArora.png"
+          instagramLink="#"
+          linkedinLink="https://www.linkedin.com/in/jatin-arora-337a39251"
+        />
+        <ImageCard
+          name="Yashwanth Yalavali"
+          position="Creative Core"
+          profileImgSrc="/CoreProfilePic/YaswanthY.png"
+          instagramLink="#"
+          linkedinLink="https://www.linkedin.com/in/yashwanth-yalavali-802908252"
+        />
+        <ImageCard
+          name="Ritesh V. Reddy"
+          position="Operations Core"
+          profileImgSrc="/CoreProfilePic/RiteshV.png"
+          instagramLink="#"
+          linkedinLink="#"
+        />
+        <ImageCard
+          name="Aayush Ranjan"
+          position="Capture Core"
+          profileImgSrc="/CoreProfilePic/AyushRanjan.png"
+          instagramLink="#"
+          linkedinLink="https://www.linkedin.com/in/ayush-ranjan-228b30203"
+        />
       </div>
     </div>
   );

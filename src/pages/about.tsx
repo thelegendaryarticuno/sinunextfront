@@ -26,9 +26,8 @@ const About: React.FC = () => {
     />
     <AboutHero/>
     <AboutHistory/>
-    <MeetTheTeam/>
-    
-    <Our/>
+     <Our/>
+     <MeetTheTeam/>
     </>
   );
 };
