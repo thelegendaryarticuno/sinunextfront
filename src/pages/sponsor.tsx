@@ -2,7 +2,12 @@ import React from "react";
 import { SponsorPageMarquee } from "@/components/SponsorPageMarquee/SponsorPageMarquee";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
 import Image from "next/image";
-import Link from "next/link";
+import ShineBorder from "@/components/magicui/shine-border";
+import SponsorComp from "@/components/stylecomponent2/stylecomponent2";
+import { useTheme } from "next-themes";
+import Partnership from "@/components/partnership/partnership";
+
+
 
 const Sponsors: React.FC = () => {
   return (
@@ -41,32 +46,63 @@ const Sponsors: React.FC = () => {
           </div>
         </div>
         <SponsorPageMarquee />
-        
-        
         <div className="relative min-h-[50vh] dark:bg-black bg-white flex items-center justify-center p-4">
-          <div className="max-w-4xl w-full dark:bg-zinc-900 bg-zinc-200 rounded-lg shadow-3xl overflow-hidden flex flex-col md:flex-row">
-            <div className="relative w-full md:w-[30%] flex items-center justify-center md:justify-end p-4 md:border-r-2 border-zinc-400 dark:border-zinc-700">
-              <div className="relative w-full h-[20vh] md:h-auto flex items-center justify-center">
+          <ShineBorder className="max-w-4xl w-full dark:bg-zinc-900 bg-zinc-200 rounded-lg shadow-3xl overflow-hidden flex flex-col md:flex-row" color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}>
+            <div className="relative w-full lg:w-[7%] flex items-center justify-center p-4">
+              <div className="text-sm md:text-base dark:text-white text-black lg:[writing-mode:vertical-lr] lg:[text-orientation:upright]">
+                TITLE SPONSOR
+              </div>
+            </div>
+            <div className="relative w-full lg:w-[30%] flex flex-col items-center justify-center lg:border-l-4 border-zinc-50 dark:border-zinc-950">
+              <div>
                 <Image 
-                  src="/images/logo_red_mc.png" 
-                  alt="siNUsoid Logo" 
+                  src="/sponsorLogo/Ubon.webp" 
+                  alt="titleSponsorLogo" 
                   width={150}
                   height={150}
                   className="object-contain p-4 z-20"
                 />
               </div>
             </div>
-            <div className="flex-1 p-4 md:p-8 flex flex-col justify-between md:ml-4">
-              <h1 className="dark:text-white text-black text-4xl md:text-5xl font-bold mb-6">
-                About siNUsoid
-              </h1>
-              <h3 className="dark:text-white text-black mb-6 font-bold text-base">
+            <div className="flex-1 p-4 md:p-8 flex flex-col justify-between lg:ml-4">
+              <div className="dark:text-white text-black text-4xl md:text-5xl font-bold mb-6">
+                Title Sponsor
+              </div>
+              <div className="dark:text-white text-black mb-6 font-bold text-base">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum magnam deserunt laudantium doloremque minima, iste corporis quaerat animi blanditiis, iure fugiat nostrum eius modi ipsam ex culpa, quasi odit commodi.
-              </h3>
+              </div>
             </div>
-          </div>
+          </ShineBorder>
+        </div>
+        <div className="relative min-h-[50vh] dark:bg-black bg-white flex items-center justify-center p-4">
+          <ShineBorder className="max-w-4xl w-full dark:bg-zinc-900 bg-zinc-200 rounded-lg shadow-3xl overflow-hidden flex flex-col md:flex-row-reverse" color={["#00DBDE", "#FC00FF", "#50CC7F"]}>
+            <div className="relative w-full lg:w-[7%] flex items-center justify-center p-4">
+              <div className="text-sm md:text-base dark:text-white text-black lg:[writing-mode:vertical-lr] lg:[text-orientation:upright]">
+                CO SPONSOR
+              </div>
+            </div>
+            <div className="relative w-full lg:w-[30%] flex flex-col items-center justify-center lg:border-r-4 border-zinc-50 dark:border-zinc-950">
+                <Image 
+                  src="/sponsorLogo/Gigabyte.webp" 
+                  alt="coSponsorLogo" 
+                  width={150}
+                  height={150}
+                  className="object-contain p-4 z-20"
+                />
+            </div>
+            <div className="flex-1 p-4 md:p-8 flex flex-col justify-between lg:mr-4">
+              <div className="dark:text-white text-black text-4xl md:text-5xl font-bold mb-6">
+                Co Sponsor
+              </div>
+              <div className="dark:text-white text-black mb-6 font-bold text-base">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum magnam deserunt laudantium doloremque minima, iste corporis quaerat animi blanditiis, iure fugiat nostrum eius modi ipsam ex culpa, quasi odit commodi.
+              </div>
+            </div>
+          </ShineBorder>
         </div>
       </div>
+      <SponsorComp/>
+      <Partnership/>
     </>
   );
 };
