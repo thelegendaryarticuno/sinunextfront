@@ -1,30 +1,29 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/autoplay';
-import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
-import Image from 'next/image';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/autoplay";
+import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
+import Image from "next/image";
 
 const SlideShow = () => {
   // Array of image details
   const logos = [
-    { src: '/historiclogo/v1Logo.png', alt: 'Logo 1' },
-    { src: '/historiclogo/v2Logo.png', alt: 'Logo 2' },
-    { src: '/historiclogo/v3Logo.png', alt: 'Logo 3' },
-    { src: '/historiclogo/v4Logo.png', alt: 'Logo 4' },
-    { src: '/historiclogo/v5Logo.png', alt: 'Logo 5' },
-    { src: '/historiclogo/v6Logo.png', alt: 'Logo 6' },
-    { src: '/historiclogo/v7Logo.png', alt: 'Logo 7' },
-    { src: '/historiclogo/v8Logo.png', alt: 'Logo 8' },
+    { src: "/historiclogo/v1Logo.png", alt: "Logo 1" },
+    { src: "/historiclogo/v2Logo.png", alt: "Logo 2" },
+    { src: "/historiclogo/v3Logo.png", alt: "Logo 3" },
+    { src: "/historiclogo/v4Logo.png", alt: "Logo 4" },
+    { src: "/historiclogo/v5Logo.png", alt: "Logo 5" },
+    { src: "/historiclogo/v6Logo.png", alt: "Logo 6" },
+    { src: "/historiclogo/v7Logo.png", alt: "Logo 7" },
+    { src: "/historiclogo/v8Logo.png", alt: "Logo 8" },
   ];
-    
 
   return (
     <div className="w-[40%] h-full">
       <div className="max-w-screen-lg mx-auto">
         <Swiper
-          className="slide-carousel"
+          className="slide-carousel rounded-md"
           effect="coverflow"
           grabCursor={true}
           centeredSlides={true}
@@ -45,8 +44,8 @@ const SlideShow = () => {
         >
           {logos.map((logo, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-indigo-50 dark:bg-indigo-50 rounded-4xl h-300 max-w-[400px] flex justify-center items-center">
-                <Image src={logo.src} alt={logo.alt} width={300} height={300} />
+              <div className="bg-indigo-50 dark:bg-indigo-50 rounded-lg h-300 max-w-[400px] flex justify-center items-center">
+                <Image src={logo.src} alt={logo.alt} width={300} height={300} className="rounded-lg" />
               </div>
             </SwiperSlide>
           ))}
