@@ -4,14 +4,18 @@ import type { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider defaultTheme="dark" attribute="class">
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-    </ThemeProvider>
+    <>
+      <GoogleAnalytics gaId="GTM-58KNP2JR" />
+      <ThemeProvider defaultTheme="dark" attribute="class">
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </ThemeProvider>
+    </>
   );
 }
 

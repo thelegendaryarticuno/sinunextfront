@@ -59,6 +59,13 @@
   }
 }
 
+@font-face {
+  font-family: 'jetBrainsMono';
+  src: url('/fonts/jetBrainsMono.ttf') format('truetype');
+  font-weight: light;
+  font-style: light;
+}
+
 @layer components {
   .border-border {
     border-color: hsl(var(--border));
@@ -78,7 +85,23 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'jetBrainsMono';
   }
 }
 
+.centered-slide-carousel .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px; /* Adjust the width of the slides */
+  height:300px; /* Adjust the height of the slides */
+}
+
+.centered-slide-carousel .swiper-slide-shadow-left,
+.centered-slide-carousel .swiper-slide-shadow-right {
+  border-radius: 20px;
+}
+
+.centered-slide-carousel .swiper-pagination-bullet-active {
+  background: #007aff;
+}
 

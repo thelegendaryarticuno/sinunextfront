@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useTheme } from "next-themes";
 import { JSX, SVGProps } from "react";
+import Image from "next/image";
 
 export default function Footer() {
   const { theme, setTheme } = useTheme();
@@ -8,30 +9,28 @@ export default function Footer() {
   return (
     <footer className="bg-gray-300 dark:bg-gray-900 text-black dark:text-white py-10">
       <div className="container mx-auto flex flex-col items-center md:flex-row md:justify-around">
-        <div className="flex flex-col items-center md:items-center md:order-2">
-          <p className="font-bold text-5xl h-12 mb-4 relative -ml-0 md:mr-20">
-            siNUsoid
-          </p>
+        <div className="flex flex-col items-center justify-center md:items-center ">
+           <Image src='/logo/textlogo.png' alt="siNUsoid Logo" width={300} height={100} />
         </div>
         <div className="flex flex-col items-center md:items-start mb-8 md:mb-0 md:mt-0 mt-7">
           <h3 className="font-bold mb-2">
-            <Link href="#" className="hover:text-slate-600 flex items-center" prefetch={true}>
+            <Link href="#" className="hover:text-slate-600 flex items-center">
               CONTACT US<ArrowRightIcon className="ml-2 h-4" />
             </Link>
           </h3>
           <ul className="space-y-1 text-center md:text-left">
             <li>
-              <Link href="tel:+918898924889" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white" prefetch={true}>
-                Toril Jain: +91 88989 24889
+              <Link href="tel:+917016803160" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white">
+                Kaustav Karan: +91 70168 03160
               </Link>
             </li>
             <li>
-              <Link href="tel:+919311602436" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white" prefetch={true}>
+              <Link href="tel:+919311602436" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white">
                 Jatin Arora: +91 93116 02436
               </Link>
             </li>
             <li>
-              <Link href="mailto:sinusoid@st.niituniversity.in" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white" prefetch={true}>
+              <Link href="mailto:sinusoid@st.niituniversity.in" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white">
                 sinusoid@st.niituniversity.in
               </Link>
             </li>
@@ -42,22 +41,17 @@ export default function Footer() {
             <h3 className="font-bold mb-2">QUICK LINKS</h3>
             <ul className="space-y-1">
               <li>
-                <Link href="index" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white" prefetch={true}>
-                  Home
+                <Link href="sponsor" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white">
+                  Sponsor
                 </Link>
               </li>
               <li>
-                <Link href="sponsors" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white" prefetch={true}>
-                  Sponsors
-                </Link>
-              </li>
-              <li>
-                <Link href="events" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white" prefetch={true}>
+                <Link href="events" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white">
                   Events
                 </Link>
               </li>
               <li>
-                <Link href="about" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white" prefetch={true}>
+                <Link href="about" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white">
                   About
                 </Link>
               </li>
@@ -67,19 +61,19 @@ export default function Footer() {
       </div>
       <div className="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 ml-6">
         <div className="flex justify-center space-x-4 mb-4">
-          <Link href="https://www.instagram.com/siNUsoid.nu/?hl=en" className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors" prefetch={true}>
+          <Link href="https://www.instagram.com/siNUsoid.nu/?hl=en" className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors">
             <InstagramIcon className="h-6 w-6 text-white dark:text-gray-900 hover:text-gray-900 dark:hover:text-gray-300 overflow-visible" />
           </Link>
-          <Link href="https://www.facebook.com/siNUsoidniit/" className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors" prefetch={true}>
+          <Link href="https://www.facebook.com/siNUsoidniit/" className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors">
             <FacebookIcon className="h-6 w-6 text-white dark:text-gray-900 hover:text-gray-900 dark:hover:text-gray-300 overflow-visible" />
           </Link>
-          <Link href="https://www.youtube.com/@siNUsoidannualtechfestofnu8938" className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors" prefetch={true}>
+          <Link href="https://www.youtube.com/@siNUsoidTechFest" className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors">
             <YoutubeIcon className="h-6 w-6 text-white dark:text-gray-900 hover:text-gray-900 dark:hover:text-gray-300 overflow-visible" />
           </Link>
-          <Link href="https://in.linkedin.com/company/siNUsoid" className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors" prefetch={true}>
+          <Link href="https://in.linkedin.com/company/siNUsoid" className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors">
             <LinkedInIcon className="h-6 w-6 text-white dark:text-gray-900 hover:text-gray-900 dark:hover:text-gray-300 overflow-visible" />
           </Link>
-          <Link href="https://discord.com/invite/AXDe7xeduP" className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors" prefetch={true}>
+          <Link href="https://discord.com/invite/AXDe7xeduP" className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors">
             <DiscordIcon className="h-6 w-6 text-white dark:text-gray-900 hover:text-gray-900 dark:hover:text-gray-300 overflow-visible" />
           </Link>
         </div>
