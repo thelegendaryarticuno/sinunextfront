@@ -21,7 +21,7 @@ const SlideShow = () => {
     
 
   return (
-    <div className="w-[40%] h-full">
+    <div className="lg:w-[40vw] md:w-[20] h-full">
       <div className="max-w-screen-lg mx-auto">
         <Swiper
           className="slide-carousel"
@@ -45,8 +45,8 @@ const SlideShow = () => {
         >
           {logos.map((logo, index) => (
             <SwiperSlide key={index}>
-              <div className="bg-indigo-50 dark:bg-indigo-50 rounded-4xl h-300 max-w-[400px] flex justify-center items-center">
-                <Image src={logo.src} alt={logo.alt} width={300} height={300} />
+              <div className="h-300 max-w-[400px] flex justify-center items-center">
+                <Image className='rounded-lg' src={logo.src} alt={logo.alt} width={300} height={300} />
               </div>
             </SwiperSlide>
           ))}
