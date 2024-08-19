@@ -22,13 +22,13 @@ const ImageCard: React.FC<ImageCardProps> = ({ profileImgSrc, name, position, in
 
   return (
     <div
-      className="rounded-2xl px-8 py-8"
+      className="rounded-2xl px-8 py-8 lg:w-[24vw]"
       style={{
         backgroundColor: containerBgColor,
-        width: "395px",
-        height: "485px",
+        maxWidth:"395px",
+        maxHeight:"485px",       
       }}
-    >
+    >  
       <div
         className="rounded-md p-4"
         style={{

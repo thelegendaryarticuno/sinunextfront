@@ -39,7 +39,7 @@ const Collab: React.FC = () => {
     <div>
       <CollaborationSection
         imageSrc="/images/NSS LOGO.webp"
-        text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        text="NSS: The National Service Scheme (NSS) is a Central Sector Scheme of Government of India, Ministry of Youth Affairs & Sports. The sole aim of the NSS is to provide hands on experience to young students of 11th & 12th Class of schools at +2 board level, Graduate & Post Graduate level  in delivering community service."
       />
     </div>
   );
