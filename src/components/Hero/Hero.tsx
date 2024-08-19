@@ -3,40 +3,55 @@ import { useTheme } from 'next-themes';
 import Image from 'next/image';
 
 interface HeroProps {
-  lightImage?: string;
-  darkImage?: string;
+  defaultLightImg?: string;
+  defaultDarkImg?: string;
   lightbannerImageSrc?: string;
   darkbannerImageSrc?: string;
 }
 
 const Hero: React.FC<HeroProps> = ({
-  lightImage = '/images/light.jpg',
-  darkImage = '/images/dark.jpg',
-  lightbannerImageSrc = '/images/dark.jpg',
+  defaultLightImg = '/images/lightBackground.png',
+  defaultDarkImg = '/images/dark.jpg',
+  lightbannerImageSrc = '/images/dak.jpg',
   darkbannerImageSrc = '/images/light.jpg',
 }) => {
   const { theme, resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
     setIsDark(resolvedTheme === 'dark');
   }, [resolvedTheme]);
 
   const bottomContainerClass = isDark ? 'bg-black text-white' : 'bg-white text-black';
-  const bannerImage = isDark ? darkImage : lightImage;
+  const bannerImage = isDark ? defaultDarkImg : defaultLightImg;
   const bannerStyle = bannerImage
     ? { backgroundImage: `url(${bannerImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }
     : { backgroundColor: isDark ? 'black' : 'white' };
   const componentImage = isDark ? darkbannerImageSrc : lightbannerImageSrc;
-  const componentStyle = bannerImage
-    ? { backgroundImage: `url(${componentImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }
-    : { backgroundColor: isDark ? 'black' : 'white' };
 
   return (
     <div className="w-full h-screen p-0 m-0 mt-16">
       <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden" style={bannerStyle}>
-        <div className="object-contain flex items-center justify-center" style={componentStyle}>
-          
+        <div className="w-[70%] h-auto flex items-center justify-center">
+          {!imageError && (
+            <Image
+              src={componentImage}
+              alt={isDark ? 'Dark Component' : 'Light Component'}
+              width={1000}  // You can adjust the width to fit your needs
+              height={1000} // Height should maintain the aspect ratio
+              objectFit="contain"
+              quality={100}
+              priority
+              onError={() => setImageError(true)}
+            />
+          )}
+          {imageError && (
+            <div className="text-center">
+              <p className="text-lg font-bold">{isDark ? '' : ''}</p>
+              <p className="text-sm"></p>
+            </div>
+          )}
         </div>
       </div>
       <div className={`w-full h-[30vh] flex items-center justify-center ${bottomContainerClass}`}>

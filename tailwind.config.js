@@ -14,7 +14,12 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         grid: "grid 15s linear infinite",
+<<<<<<< Updated upstream
         meteor: "meteor 5s linear infinite",
+=======
+        pulse: "pulse var(--duration) ease-out infinite",  // Added pulse animation
+
+>>>>>>> Stashed changes
         },
       keyframes: {
         grid: {

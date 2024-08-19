@@ -24,7 +24,7 @@ const CollaborationSection: React.FC<CollaborationSectionProps> = ({ imageSrc, t
         <h3 className="dark:text-white text-black text-3xl md:text-5xl font-bold mb-6 text-center">
           History of siNUsoid
         </h3>
-        <div className="flex flex-col lg:flex-row justify-center items-center max-w-full gap-8 lg:gap-16">
+        <div className="flex flex-col lg:flex-row justify-center items-center max-w-full gap-8 lg:gap-16 md:max-w-full">
           <SlideShow />
           <div className="flex flex-col py-4 px-4 text-center md:text-left dark:text-white text-black max-w-md lg:ml-14">
             <p className="text-md md:text-xl">{text}</p>

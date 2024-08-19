@@ -7,21 +7,31 @@ import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
 import Image from 'next/image';
 
 const SlideShow = () => {
+  // Array of image details
+  const logos = [
+    { src: '/historiclogo/v1Logo.png', alt: 'Logo 1' },
+    { src: '/historiclogo/v3Logo.png', alt: 'Logo 3' },
+    { src: '/historiclogo/v4Logo.png', alt: 'Logo 4' },
+    { src: '/historiclogo/v5Logo.png', alt: 'Logo 5' },
+    { src: '/historiclogo/v6Logo.png', alt: 'Logo 6' },
+    { src: '/historiclogo/v7Logo.png', alt: 'Logo 7' },
+  ];
+    
+
   return (
-    <div className="w-[40%] h-full ">
-      <div className="max-w-screen-lg mx-auto ">
+    <div className="w-[40%] h-full">
+      <div className="max-w-screen-lg mx-auto">
         <Swiper
           className="slide-carousel"
           effect="coverflow"
           grabCursor={true}
           centeredSlides={true}
-          slidesPerView={3}  
+          slidesPerView={3}
           coverflowEffect={{
             rotate: 50,
             stretch: 0,
             depth: 90,
             modifier: 1,
-            
           }}
           pagination={{ clickable: true }}
           autoplay={{
@@ -31,46 +41,13 @@ const SlideShow = () => {
           loop={true}
           modules={[EffectCoverflow, Pagination, Autoplay]}
         >
-          <SwiperSlide>
-            <div className="bg-indigo-50 rounded-2xl h-200 max-w-[400px] flex justify-center items-center">
-              <Image src="/logo/logo.png" alt="Logo 1" width={300} height={300} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="bg-indigo-50 rounded-2xl h-200 max-w-[400px] flex justify-center items-center">
-              <Image src="/logo/logo.png" alt="Logo 2" width={300} height={300} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="bg-indigo-50 rounded-2xl h-200 max-w-[400px] flex justify-center items-center">
-              <Image src="/logo/logo.png" alt="Logo 3" width={300} height={300} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="bg-indigo-50 rounded-2xl h-200 max-w-[400px] flex justify-center items-center">
-              <Image src="/logo/logo.png" alt="Logo 4" width={300} height={300} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="bg-indigo-50 rounded-2xl h-200 max-w-[400px] flex justify-center items-center">
-              <Image src="/logo/logo.png" alt="Logo 5" width={300} height={300} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="bg-indigo-50 rounded-2xl h-200 max-w-[400px] flex justify-center items-center">
-              <Image src="/logo/logo.png" alt="Logo 6" width={300} height={300} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="bg-indigo-50 rounded-2xl h-200 max-w-[400px] flex justify-center items-center">
-              <Image src="/logo/logo.png" alt="Logo 6" width={300} height={300} />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="bg-indigo-50 rounded-2xl h-200 max-w-[400px] flex justify-center items-center">
-              <Image src="/logo/logo.png" alt="Logo 6" width={300} height={300} />
-            </div>
-          </SwiperSlide>
+          {logos.map((logo, index) => (
+            <SwiperSlide key={index}>
+              <div className="bg-indigo-50 dark:bg-indigo-50 rounded-4xl h-300 max-w-[400px] flex justify-center items-center">
+                <Image src={logo.src} alt={logo.alt} width={300} height={300} />
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>
