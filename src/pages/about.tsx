@@ -1,6 +1,6 @@
 // src/pages/about.tsx
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
-import Our from "@/components/aboutwhoarewe/we";
+import Our from "@/components/aboutwhoarewe/principlesofSinuSoid";
 import React from "react";
 import AboutHistory from "@/components/abouthistory/collab";
 import AboutHero from "@/components/abouthero/hero";
@@ -26,9 +26,8 @@ const About: React.FC = () => {
     />
     <AboutHero/>
     <AboutHistory/>
-    <MeetTheTeam/>
-    
-    <Our/>
+     <Our/>
+     <MeetTheTeam/>
     </>
   );
 };

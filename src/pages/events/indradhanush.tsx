@@ -38,8 +38,8 @@ const Home: React.FC = () => {
       <CustomGrid2x2withImage
         image1="/images/image.webp"
         image2="/images/image.webp"
-        slogan1="Indradhanush is all about coming together to uplift our communities. Your donation can change lives—let's make it happen!."
-        slogan2="Indradhanush is all about coming together to uplift our communities. Your donation can change lives—let's make it happen!."
+        slogan1="Indhradhanush: Uniting Shades of Kindness for a Brighter Tomorrow"
+        slogan2="Harmony in Giving: Weaving Hope for a Brighter Future"
       />
       <IndradhanushMarquee />
       <FaqSection
