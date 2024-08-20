@@ -6,7 +6,7 @@ import { HoverCard, HoverCardTrigger, HoverCardContent } from "../ui/hover-card"
 
 export const navLinkArray = [
   { href: "/about", text: "About", icon: <FaInfoCircle /> },
-  { href: "/events", text: "Events", icon: <FaCalendarAlt /> },
+  // { href: "/events", text: "Events", icon: <FaCalendarAlt /> },
   { href: "/sponsor", text: "Sponsor", icon: <FaHandsHelping />, hoverCardSize: "w-24" }, // Adjust hover card size here
 ];
 
