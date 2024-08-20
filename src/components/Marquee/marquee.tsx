@@ -3,52 +3,27 @@ import Marquee from "@/components/magicui/marquee";
 import Image from "next/image";
 
 const reviews = [
-  { 
-    img: "/sponsorLogo/BCH.webp" 
-  },
-  { 
-    img: "/sponsorLogo/CodeChef.webp" 
-  },
-  {
-     img: "/sponsorLogo/CodingNinjas.webp" 
-    },
-  {
-     img: "/sponsorLogo/Gigabyte.webp" 
-    },
-  {
-     img: "/sponsorLogo/Jio.webp" 
-    },
-  {
-     img: "/sponsorLogo/Kaspersky.webp" 
-    },
-  {
-     img: "/sponsorLogo/Microsoft.webp" 
-    },
-  {
-     img: "/sponsorLogo/MountainDew.webp" 
-    },
-  {
-     img: "/sponsorLogo/RedBull.webp" 
-    },
-  {
-     img: "/sponsorLogo/RoyalEnfield.webp" 
-    },
-  {
-     img: "/sponsorLogo/SKOAR.webp" 
-    },
-  {
-     img: "/sponsorLogo/TpLink.webp" 
-    },
-  {
-     img: "/sponsorLogo/Ubon.webp" 
-    },
-  {
-     img: "/sponsorLogo/Zomato.webp" 
-    },
+  { img: "/sponsorLogo/BCH.webp" },
+  { img: "/sponsorLogo/CodeChef.webp" },
+  { img: "/sponsorLogo/CodingNinjas.webp" },
+  { img: "/sponsorLogo/Gigabyte.webp" },
+  { img: "/sponsorLogo/Jio.webp" },
+  { img: "/sponsorLogo/Kaspersky.webp" },
+  { img: "/sponsorLogo/Microsoft.webp" },
+  { img: "/sponsorLogo/MountainDew.webp" },
+  { img: "/sponsorLogo/RedBull.webp" },
+  { img: "/sponsorLogo/RoyalEnfield.webp" },
+  { img: "/sponsorLogo/SKOAR.webp" },
+  { img: "/sponsorLogo/TpLink.webp" },
+  { img: "/sponsorLogo/Ubon.webp" },
+  { img: "/sponsorLogo/Zomato.webp" },
 ];
 
 const firstRow = reviews.slice(0, 14);
-const secondRow = reviews.slice(0, 14);
+const secondRow = [
+  ...reviews.slice(6, 14),
+  ...reviews.slice(0, 6),
+];
 
 const ReviewCard = ({ img }: { img: string }) => {
   return (
