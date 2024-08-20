@@ -43,7 +43,7 @@ const AboutHistory: React.FC = () => {
     
       <CollaborationSection
         imageSrc="/logo/logo.png"
-        text="SiNUsoid is more than just a tech fest—it's where future innovators and tech enthusiasts come together. 
+        text="siNUsoid is more than just a tech fest—it's where future innovators and tech enthusiasts come together. 
               With exciting events and competitions, each year brings something new and memorable. 
               Whether you're here to learn or just have fun, SiNUsoid v8 is your chance to dive into the world of tech and make some great memories."
       />
