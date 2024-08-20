@@ -24,8 +24,11 @@ const AboutSection: React.FC = () => {
             </div>
             <div className="flex-1 p-4 md:p-12 flex flex-col justify-between md:ml-12">
               <h1 className="dark:text-white text-black text-5xl md:text-7xl font-bold mb-12">About siNUsoid<br /></h1>
-              <h3 className="dark:text-white text-black mb-12 w-full md:w-8/12 font-bold text-l"><br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum magnam deserunt laudantium doloremque minima, iste corporis quaerat animi blanditiis, iure fugiat nostrum eius modi ipsam ex culpa, quasi odit commodi.
+              <h3 className="dark:text-white text-black mb-12 w-full md:w-8/12 font-bold text-l">
+                   siNUsoid, NIIT University premier tech fest, has grown into a vibrant hub for both technical and creative exploration.
+                   Now in its 8th edition, it brings students together to apply their knowledge in real-world scenarios, offering unique 
+                   opportunities to showcase their skills. Each year, siNUsoid pushes creative boundaries, fostering a close-knit community 
+                   of curiosity, collaboration, and discovery.
               </h3>
               <div className="mt-auto">
                 <div className="flex space-x-6 mb-12">
