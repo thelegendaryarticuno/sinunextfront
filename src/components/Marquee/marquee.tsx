@@ -9,7 +9,7 @@ const reviews = [
   { img: "/sponsorLogo/Gigabyte.webp" },
   { img: "/sponsorLogo/Jio.webp" },
   { img: "/sponsorLogo/Kaspersky.webp" },
-  { img: "/sponsorLogo/Microsoft.webp" },
+  { img: "/sponsorLogo/Microsoft.webp" }, 
   { img: "/sponsorLogo/MountainDew.webp" },
   { img: "/sponsorLogo/RedBull.webp" },
   { img: "/sponsorLogo/RoyalEnfield.webp" },

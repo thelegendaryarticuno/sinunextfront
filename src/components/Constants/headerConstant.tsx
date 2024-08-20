@@ -31,10 +31,15 @@ export const NavLinks: React.FC = () => (
   </div>
 );
 
-export const MobileNavLinks: React.FC = () => (
+interface MobileNavLinksProps {
+  isMenuOpen: boolean;
+  setIsMenuOpen: (isMenuOpen: boolean) => void;
+}
+
+export const MobileNavLinks: React.FC<MobileNavLinksProps> = ({setIsMenuOpen}) => (
   <div className="lg:hidden mt-2 space-y-2">
     {navLinkArray.map((navLink, idx) => (
-      <Link key={`navlink_${idx}`} href={navLink.href}>
+      <Link key={`navlink_${idx}`} href={navLink.href} onClick={() => setIsMenuOpen(false)} >
         <div className="flex items-center p-3 bg-gray-200 dark:bg-gray-800 rounded">
           <div className={`mr-2 ${iconClassName} dark:text-[#FADAC1]`}>{navLink.icon}</div>
           <span className="text-black dark:text-[#FADAC1]">{navLink.text}</span>

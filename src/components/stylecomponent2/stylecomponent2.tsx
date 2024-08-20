@@ -3,15 +3,16 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 
 const sponsors = [
-  "/sponsorLogo/BCH.webp",
-  "/sponsorLogo/BCH.webp",
-  "/sponsorLogo/BCH.webp",
-  "/sponsorLogo/BCH.webp",
-  "/sponsorLogo/BCH.webp",
-  "/sponsorLogo/BCH.webp",
-  "/sponsorLogo/BCH.webp",
-  "/sponsorLogo/BCH.webp",
-  "/sponsorLogo/BCH.webp",
+  "/sponsorLogo/Jio.webp",
+  "/sponsorLogo/Microsoft.webp",
+  "/sponsorLogo/MountainDew.webp",
+  "/sponsorLogo/Kaspersky.webp",
+  "/sponsorLogo/RoyalEnfield.webp",
+  "/sponsorLogo/bewakoof.webp",
+  "/sponsorLogo/sbi.webp",
+  "/sponsorLogo/ramada.webp",
+  "/sponsorLogo/zomato.webp",
+  "/sponsorLogo/Gigabyte.webp"
 ];
 
 const SponsorComp: React.FC = () => {
