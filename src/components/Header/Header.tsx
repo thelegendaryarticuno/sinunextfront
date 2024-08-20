@@ -41,7 +41,7 @@ const Header: React.FC = () => {
           <ModeToggle />
         </div>
       </nav>
-      {isMenuOpen && <MobileNavLinks />}
+      {isMenuOpen && <MobileNavLinks isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />}
     </header>
   );
 };

@@ -20,13 +20,13 @@ export default function Footer() {
           </h3>
           <ul className="space-y-1 text-center md:text-left">
             <li>
-              <Link href="tel:+917016803160" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white">
-                Kaustav Karan: +91 70168 03160
+              <Link href="tel:+919311602436" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white">
+                Jatin Arora: +91 93116 02436
               </Link>
             </li>
             <li>
-              <Link href="tel:+919311602436" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white">
-                Jatin Arora: +91 93116 02436
+              <Link href="tel:+917016803160" className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white">
+                Kaustav Karan: +91 70168 03160
               </Link>
             </li>
             <li>

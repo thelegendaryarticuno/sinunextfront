@@ -1,84 +1,72 @@
-import React, { useEffect, useState } from 'react';
-import { useTheme } from 'next-themes';
-import Image from 'next/image';
+import React, { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
+import Image from "next/image";
 
 interface HeroProps {
   defaultLightImg?: string;
   defaultDarkImg?: string;
   lightbannerImageSrc?: string;
   darkbannerImageSrc?: string;
+  lightbannerVideoSrc?: string;
 }
 
 const Hero: React.FC<HeroProps> = ({
-  defaultLightImg = '/images/light.jpg',
-  defaultDarkImg = '/images/dark.jpg',
-  lightbannerImageSrc = '/images/lightBackground.png',
-  darkbannerImageSrc = '/images/dark.jpg',
+  defaultLightImg = "/images/light.jpg",
+  defaultDarkImg = "/images/dark.jpg",
+  lightbannerImageSrc = "/images/caset_named_light.webp", // Light mode image
+  darkbannerImageSrc = "/images/caset_named_dark.webp", // Dark mode image
+  lightbannerVideoSrc = "/heroVideo/mainHeroVid.mp4",
 }) => {
   const { theme, resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
-  const [lightImageError, setLightImageError] = useState(false);
-  const [darkImageError, setDarkImageError] = useState(false);
+  const [currentLightImg, setCurrentLightImg] = useState(lightbannerImageSrc);
+  const [currentDarkImg, setCurrentDarkImg] = useState(darkbannerImageSrc);
 
   useEffect(() => {
-    setIsDark(resolvedTheme === 'dark');
+    setIsDark(resolvedTheme === "dark");
   }, [resolvedTheme]);
 
-  const bottomContainerClass = isDark ? 'bg-black text-white' : 'bg-white text-black';
-  const bannerImage = isDark
-    ? (darkImageError ? defaultDarkImg : darkbannerImageSrc)
-    : (lightImageError ? defaultLightImg : lightbannerImageSrc);
+  const handleLightImageError = () => {
+    setCurrentLightImg(defaultLightImg);
+  };
 
-  const bannerStyle = bannerImage
-    ? { backgroundImage: `url(${bannerImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }
-    : { backgroundColor: isDark ? 'black' : 'white' };
+  const handleDarkImageError = () => {
+    setCurrentDarkImg(defaultDarkImg);
+  };
+
+  const bannerImage = isDark ? currentDarkImg : currentLightImg;
 
   return (
     <div className="w-full h-screen p-0 m-0 mt-16">
-      <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden" style={bannerStyle}>
-        <div className="w-[70%] h-auto flex items-center justify-center">
-          {!isDark && !lightImageError && (
-            <Image
-              src={lightbannerImageSrc}
-              alt="Light Component"
-              fill
-              quality={100}
-              priority
-              onError={() => setLightImageError(true)}
-            />
-          )}
-          {isDark && !darkImageError && (
-            <Image
-              src={darkbannerImageSrc}
-              alt="Dark Component"
-              fill
-              quality={100}
-              priority
-              onError={() => setDarkImageError(true)}
-            />
-          )}
-          {(isDark && darkImageError) && (
-            <Image
-              src={defaultDarkImg}
-              alt="Default Dark Component"
-              fill
-              quality={100}
-              priority
-            />
-          )}
-          {(!isDark && lightImageError) && (
-            <Image
-              src={defaultLightImg}
-              alt="Default Light Component"
-              fill
-              quality={100}
-              priority
-            />
-          )}
-        </div>
+      <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden">
+        {/* Video background */}
+        <video
+          src={lightbannerVideoSrc}
+          autoPlay
+          loop
+          muted
+          className="absolute top-0 left-0 w-full h-full object-cover z-10"
+        />
+
+        {/* Background image */}
+        <Image
+          src={bannerImage}
+          alt="Banner Background Image"
+          layout="fill"
+          quality={100}
+          priority
+          onError={isDark ? handleDarkImageError : handleLightImageError}
+          className="object-contain z-20"
+        />
       </div>
-      <div className={`w-full h-[30vh] flex items-center justify-center ${bottomContainerClass}`}>
-        <h1 className="text-4xl font-bold">{"I'm different"}</h1>
+      <div
+        className={`w-full h-[30vh] flex items-center justify-center ${
+          isDark ? "bg-black text-white" : "bg-white text-black"
+        }`}
+      >
+        <div className="w-full h-full relative">
+          <Image src="/logo/1.svg" alt="Logo" layout="fill" objectFit="cover" />
+        </div>
       </div>
     </div>
   );
