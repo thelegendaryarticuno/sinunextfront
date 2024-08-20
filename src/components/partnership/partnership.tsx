@@ -7,6 +7,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import HyperText from "@/components/magicui/hyper-text";
 import { BorderBeam } from "@/components/magicui/border-beam";
+import { ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 
 const Partnership: React.FC = () => {
   return (
@@ -45,8 +48,17 @@ const Partnership: React.FC = () => {
 
         <Dialog>
           <DialogTrigger asChild>
-            <div className="lg:mt-16 text-lg lg:text-xl font-bold underline cursor-pointer">
-              GET IN TOUCH
+            <div className="lg:mt-16 text-lg lg:text-xl font-bold cursor-pointer">
+              <AnimatedGradientText>
+                <span
+                  className={cn(
+                    `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent font-bold text-xl`
+                  )}
+                >
+                  GET IN TOUCH
+                </span>
+                <ChevronRight className="ml-1 size-6 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
+              </AnimatedGradientText>
             </div>
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">

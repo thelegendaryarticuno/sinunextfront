@@ -16,6 +16,8 @@ module.exports = {
         grid: "grid 15s linear infinite",
         meteor: "meteor 5s linear infinite",
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        shimmer: "shimmer 8s infinite",
+        gradient: "gradient 8s linear infinite",
         },
       keyframes: {
         grid: {
@@ -64,6 +66,19 @@ module.exports = {
         "border-beam": {
           "100%": {
             "offset-distance": "100%",
+          },
+        },
+        shimmer: {
+          "0%, 90%, 100%": {
+            "background-position": "calc(-100% - var(--shimmer-width)) 0",
+          },
+          "30%, 60%": {
+            "background-position": "calc(100% + var(--shimmer-width)) 0",
+          },
+        },
+        gradient: {
+          to: {
+            backgroundPosition: "var(--bg-size) 0",
           },
         },
         
