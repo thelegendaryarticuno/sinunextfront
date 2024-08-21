@@ -40,6 +40,7 @@ const Hero: React.FC<HeroProps> = ({
     <div className="w-full h-screen p-0 m-0 mt-16">
       <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden">
         {/* Video background */}
+        {/* Video background */}
         <video
           src={lightbannerVideoSrc}
           autoPlay
@@ -59,14 +60,16 @@ const Hero: React.FC<HeroProps> = ({
           className="object-contain z-20"
         />
       </div>
-      <div
-        className={`w-full h-[30vh] flex items-center justify-center ${
-          isDark ? "bg-black text-white" : "bg-white text-black"
-        }`}
-      >
-        <div className="w-full h-full relative">
-          <Image src="/logo/1.svg" alt="Logo" layout="fill" objectFit="cover" />
-        </div>
+
+      <div className="relative flex justify-center items-center w-full h-[30vh] mt-2 bg-[#FADAC1]">
+        <Image
+          src="/images/Indradhanush/indradhadhaNUshBanner.png"
+          alt="Logo"
+          layout="fill"
+          objectFit="contain"
+          className="p-10"
+        />
+        
       </div>
     </div>
   );
