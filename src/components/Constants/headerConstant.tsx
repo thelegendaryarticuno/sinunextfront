@@ -18,12 +18,17 @@ export const NavLinks: React.FC = () => (
       <HoverCard key={`navlink_${idx}`}>
         <HoverCardTrigger asChild>
           <Link href={navLink.href}>
-            <div className={`p-2 ${iconClassName} dark:text-[#FADAC1]`}>
+            <div
+              className={`flex flex-row gap-1 items-center p-2 ${iconClassName} dark:text-[#FADAC1]`}
+            >
               {navLink.icon}
+              {navLink.text}
             </div>
           </Link>
         </HoverCardTrigger>
-        <HoverCardContent className={navLink.hoverCardSize ? navLink.hoverCardSize : "w-20"}>
+        <HoverCardContent
+          className={navLink.hoverCardSize ? navLink.hoverCardSize : "w-20"}
+        >
           <div className="text-center">{navLink.text}</div>
         </HoverCardContent>
       </HoverCard>
