@@ -46,7 +46,7 @@ const Sponsors: React.FC = () => {
           </div>
         </div>
         <SponsorPageMarquee />
-        <div className="relative min-h-[50vh] dark:bg-black bg-white flex items-center justify-center p-4">
+        <div className="relative min-h-[70vh] dark:bg-black bg-white flex items-center justify-center p-4">
           <ShineBorder className="max-w-4xl w-full dark:bg-zinc-900 bg-zinc-200 rounded-lg shadow-3xl overflow-hidden flex flex-col md:flex-row" color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}>
             <div className="relative w-full lg:w-[7%] flex items-center justify-center p-4">
               <div className="text-sm md:text-base dark:text-white text-black lg:[writing-mode:vertical-lr] lg:[text-orientation:upright]">
@@ -69,12 +69,12 @@ const Sponsors: React.FC = () => {
                 Title Sponsor
               </div>
               <div className="dark:text-white text-black mb-6 font-bold text-base">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum magnam deserunt laudantium doloremque minima, iste corporis quaerat animi blanditiis, iure fugiat nostrum eius modi ipsam ex culpa, quasi odit commodi.
+              We are proud to have had UBON as the Title Sponsor for siNUsoid v7. Their support and collaboration were instrumental in the success of the event. As the leading name associated with our event, our Title Sponsor enjoys unparalleled visibility, and engagement with a tech-savvy audience eager to explore.    (Previous Sponsor)
               </div>
             </div>
           </ShineBorder>
         </div>
-        <div className="relative min-h-[50vh] dark:bg-black bg-white flex items-center justify-center p-4">
+        <div className="relative min-h-[60vh] dark:bg-black bg-white flex items-center justify-center p-4">
           <ShineBorder className="max-w-4xl w-full dark:bg-zinc-900 bg-zinc-200 rounded-lg shadow-3xl overflow-hidden flex flex-col md:flex-row-reverse" color={["#00DBDE", "#FC00FF", "#50CC7F"]}>
             <div className="relative w-full lg:w-[7%] flex items-center justify-center p-4">
               <div className="text-sm md:text-base dark:text-white text-black lg:[writing-mode:vertical-lr] lg:[text-orientation:upright]">
@@ -83,7 +83,7 @@ const Sponsors: React.FC = () => {
             </div>
             <div className="relative w-full lg:w-[30%] flex flex-col items-center justify-center lg:border-r-4 border-zinc-50 dark:border-zinc-950">
                 <Image 
-                  src="/sponsorLogo/Gigabyte.webp" 
+                  src="/sponsorLogo/SKOAR.webp"
                   alt="coSponsorLogo" 
                   width={150}
                   height={150}
@@ -95,7 +95,7 @@ const Sponsors: React.FC = () => {
                 Co Sponsor
               </div>
               <div className="dark:text-white text-black mb-6 font-bold text-base">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum magnam deserunt laudantium doloremque minima, iste corporis quaerat animi blanditiis, iure fugiat nostrum eius modi ipsam ex culpa, quasi odit commodi.
+              We would also like to acknowledge Skoar. This partnership offers substantial branding opportunities, ensuring high exposure and connection with a diverse audience. As a Co-Sponsor, your brand will be prominently featured throughout the event, ensuring that you stand out in a competitive market.         (Previous Sponsor)
               </div>
             </div>
           </ShineBorder>

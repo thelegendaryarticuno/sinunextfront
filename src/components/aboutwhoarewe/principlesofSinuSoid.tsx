@@ -49,7 +49,7 @@ const PrinciplesofSinuSoid: React.FC = () => {
         "Dream big; shoot for the stars!",
         "Boring is banned; we're here to have a good time!",
         "Peace, love and plants ☘️ <3",
-        "Inclusivity is key, we definitely support everyone (wink)",
+        "Inclusivity is key, we definitely support everyone (>.<)",
         "Touch grass, feel the air on your face!",
       ]}
     />

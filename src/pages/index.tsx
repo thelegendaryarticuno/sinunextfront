@@ -4,8 +4,9 @@ import { FAQ_CATEGORY, FAQ_DATA } from "@/components/FaqSection/utils";
 import Hero from "@/components/Hero/Hero";
 import { SponsorMarquee } from "@/components/Marquee/marquee";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
-import Head from "next/head";
 import React from "react";
+import Head from "next/head";
+
 
 const Home: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const Home: React.FC = () => {
         PageTitle="siNUsoid v8 | Reflexive Retrograde"
       />
       <Hero />
+      
       <AboutSection />
       <SponsorMarquee />
       <FaqSection

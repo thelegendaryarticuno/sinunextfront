@@ -45,43 +45,37 @@ const EventsBanner: React.FC<EventsBannerProps> = ({
             <div className="flex flex-col md:flex-row md:items-start mb-4">
               <div className="flex flex-row text-base md:text-md mb-2 md:mb-0 md:mr-4">
                 <div className="mr-4">
-                  <p className={`${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
-                    Start Date:
-                  </p>
+                  <p className={`${isDark ? 'text-gray-200' : 'text-gray-900'}`}>Start Date:</p>
                   <p className={`${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
                     <strong>August 10, 2024, 10:00 AM</strong>
                   </p>
                 </div>
                 <div className="ml-4">
-                  <p className={`${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
-                    End Date:
-                  </p>
+                  <p className={`${isDark ? 'text-gray-200' : 'text-gray-900'}`}>End Date:</p>
                   <p className={`${isDark ? 'text-gray-200' : 'text-gray-900'}`}>
                     <strong>August 12, 2024, 5:00 PM</strong>
-                  </p>            
+                  </p>
                 </div>
               </div>
             </div>
-          <PulsatingButton/>
+            <PulsatingButton />
           </div>
-          
-          {/* Image Div */}
+
+               
           <div className="mt-6 ml-auto mr-8 hidden md:block">
             <Image 
               src={rightImage} 
               alt="Event illustration" 
               className="rounded-lg"
-              width={200} // Adjust the width as needed
-              height={100} // Adjust the height as needed
+              width={200} 
+              height={100} 
             />
           </div>
         </div>
 
         <div className="flex justify-start md:justify-between items-center mt-1 md:mt-2">
           <div className="flex items-center ml-12 mb-4">
-            <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'} mr-2`}>
-              Powered by
-            </span>
+            <span className={`text-sm ${isDark ? 'text-gray-400' : 'text-gray-600'} mr-2`}>Powered by</span>
             <Image 
               src={logo} 
               alt="sinu logo" 
@@ -90,7 +84,7 @@ const EventsBanner: React.FC<EventsBannerProps> = ({
               width={120}
             />
           </div>
-        </div>        
+        </div>
       </div>
     </div>
   );
