@@ -43,7 +43,7 @@ const Sponsors: React.FC = () => {
           </div>
         </div>
         <SponsorPageMarquee />
-        <div className="relative min-h-[70vh] dark:bg-black bg-white flex items-center justify-center p-4">
+        <div className="relative dark:bg-black bg-white flex items-center justify-center p-4">
           <ShineBorder
             className="max-w-4xl w-full dark:bg-zinc-900 bg-zinc-200 rounded-lg shadow-3xl overflow-hidden flex flex-col md:flex-row"
             color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
@@ -79,7 +79,7 @@ const Sponsors: React.FC = () => {
             </div>
           </ShineBorder>
         </div>
-        <div className="relative min-h-[60vh] dark:bg-black bg-white flex items-center justify-center p-4">
+        <div className="relative dark:bg-black bg-white flex items-center justify-center p-4">
           <ShineBorder
             className="max-w-4xl w-full dark:bg-zinc-900 bg-zinc-200 rounded-lg shadow-3xl overflow-hidden flex flex-col md:flex-row-reverse"
             color={["#00DBDE", "#FC00FF", "#50CC7F"]}

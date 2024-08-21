@@ -1,10 +1,10 @@
-// src/pages/about.tsx
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
 import Our from "@/components/aboutwhoarewe/principlesofSinuSoid";
 import React from "react";
 import AboutHistory from "@/components/abouthistory/collab";
 import AboutHero from "@/components/abouthero/hero";
 import MeetTheTeam from "@/components/aboutgrid/ProfileCard";
+import Image from "next/image";
 
 const About: React.FC = () => {
   return (
@@ -23,7 +23,7 @@ const About: React.FC = () => {
         PageOGLImage="/logo/logo.png"
         PageTitle="About Us | siNUsoid v8"
       />
-      {/* <AboutHero/> */}
+      {/* Video Section */}
       <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden mt-20">
         <video
           className="video-element"
@@ -35,18 +35,21 @@ const About: React.FC = () => {
         >
           <source src="/sponsorBG/video.mp4" type="video/mp4" />
         </video>
-        <div
-          className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4 font-bold"
-          // style={{ marginTop: "-50px" }}
-        >
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4 font-bold">
           <h1 className="text-6xl font-bold mb-8">About Us</h1>
         </div>
       </div>
-      {/* <div className="w-full h-[30vh] flex items-center justify-center relative ">
-        <div className="flex justify-center items-center w-[90vw] h-[80%] rounded-lg bg-slate-300">
-          dw
-        </div>
-      </div> */}
+
+      {/* GIF Section */}
+      <div className="w-[80%] h-[25vh] mx-[12rem] rounded-2xl justify-items-center relative py-4 my-4 bg-zinc-500">
+        <Image
+          src="/images/sinuVersionText.gif" // replace with the actual path to your GIF
+          alt="About Us GIF"
+          layout="fill"
+          objectFit="contain"
+          className="p-2 my-2 justify-items-center w-[80%]"
+        />
+      </div>
       <AboutHistory />
       <Our />
       <MeetTheTeam />
