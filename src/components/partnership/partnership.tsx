@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {Dialog,DialogContent,DialogDescription,DialogFooter,DialogHeader,DialogTitle,DialogTrigger,} from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import HyperText from "@/components/magicui/hyper-text";
@@ -10,8 +18,49 @@ import { BorderBeam } from "@/components/magicui/border-beam";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
+import axios from "axios";
 
 const Partnership: React.FC = () => {
+  const defaultFormData = {
+    name: "",
+    email: "",
+    phone: "",
+    companyName: "",
+  };
+  const [formData, setFormData] = useState(defaultFormData);
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    fieldName: string
+  ) => {
+    setSubmitted(false);
+    setFormData((prev) => ({ ...prev, [fieldName]: e?.target?.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setSubmitted(false);
+    try {
+      const response = await axios.post(
+        "https://api.sinusoid.in/sponsorContact",
+        formData
+      );
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    } finally {
+      setFormData(defaultFormData);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    console.log({ formData });
+  }, [formData]);
+
   return (
     <div className="flex flex-col-reverse md:flex-col lg:flex-row items-center justify-between w-full p-8 lg:p-16">
       {/* Vertical/Horizontal Text for siNUsoid */}
@@ -63,6 +112,7 @@ const Partnership: React.FC = () => {
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
+              {/* {onSubmit} */}
               <DialogTitle>
                 <HyperText
                   className="text-4xl items-center font-bold text-black dark:text-white"
@@ -82,6 +132,9 @@ const Partnership: React.FC = () => {
                   id="name"
                   placeholder="Enter your name"
                   className="col-span-3"
+                  value={formData?.name}
+                  onChange={(e) => handleChange(e, "name")}
+                  required
                 />
               </div>
               <div className="grid grid-cols-4 items-center gap-6">
@@ -92,6 +145,9 @@ const Partnership: React.FC = () => {
                   id="Email"
                   placeholder="Enter your Email"
                   className="col-span-3"
+                  value={formData?.email}
+                  onChange={(e) => handleChange(e, "email")}
+                  required
                 />
               </div>
               <div className="grid grid-cols-4 items-center gap-6">
@@ -102,6 +158,9 @@ const Partnership: React.FC = () => {
                   id="phone"
                   placeholder="Enter your phone number"
                   className="col-span-3"
+                  value={formData?.phone}
+                  onChange={(e) => handleChange(e, "phone")}
+                  required
                 />
               </div>
               <div className="grid grid-cols-4 items-center gap-6">
@@ -112,11 +171,55 @@ const Partnership: React.FC = () => {
                   id="company"
                   placeholder="Enter your company name"
                   className="col-span-3"
+                  value={formData?.companyName}
+                  onChange={(e) => handleChange(e, "companyName")}
+                  required
                 />
               </div>
             </div>
             <DialogFooter>
-              <Button type="submit">Submit</Button>
+              <Button type="submit" onClick={handleSubmit} disabled={loading}>
+                {loading ? (
+                  <svg
+                    className="animate-spin h-5 w-5 mr-3"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                ) : submitted ? (
+                  <div className="flex items-center">
+                    <svg
+                      className="h-5 w-5 mr-3 text-green-500"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5 12l5 5L20 7"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    Submitted
+                  </div>
+                ) : (
+                  "Submit"
+                )}
+              </Button>
             </DialogFooter>
             <BorderBeam size={250} duration={11} delay={8} />
           </DialogContent>
