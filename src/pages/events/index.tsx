@@ -1,6 +1,7 @@
 import EventsBanner from "@/components/EventsBanner/EventsBanner";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
 import EventCard from "@/components/eventlisting/eventcard";
+import OnFest from "@/components/eventlisting/onfest";
 
 const Events: React.FC = () => {
   return (
@@ -21,17 +22,7 @@ const Events: React.FC = () => {
         PageOGLImage="/images/dark.jpg"
         PageTitle="Events | siNUsoid v8"
       />
-       <EventCard
-            imageSrc="/images/dark.jpg"
-            title="ABSTRUSE"
-            description="XXXXXXXXXXXXXXXXXXXXXX
-            XXXXXXXXXXXXXXXXXXXXXXXXX
-            XXXXXXXXXXXXXXXXXXXXXXXX"
-            eventStartDate="xx-xx-xxxx"
-            eventEndDate="xx-xx-xxxx"
-            registrationStartDate="xx-xx-xxxx"
-            registrationEndDate="xx-xx-xxxx"
-        />
+       <OnFest/>
     </>
   );
 };
