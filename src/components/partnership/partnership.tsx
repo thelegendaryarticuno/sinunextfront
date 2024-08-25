@@ -115,6 +115,7 @@ const Partnership: React.FC = () => {
               {/* {onSubmit} */}
               <DialogTitle>
                 <HyperText
+                  duration={1150}
                   className="text-4xl items-center font-bold text-black dark:text-white"
                   text="Sponsor Us Today!"
                 />
