@@ -24,9 +24,9 @@ const About: React.FC = () => {
         PageTitle="About Us | siNUsoid v8"
       />
       {/* Video Section */}
-      <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden mt-20">
+      <div className="w-full md:h-[70vh] h-[40vh] flex items-center justify-center relative overflow-hidden mt-20">
         <video
-          className="video-element"
+          className="video-element w-full"
           width={1500}
           autoPlay
           loop
@@ -41,13 +41,13 @@ const About: React.FC = () => {
       </div>
 
       {/* GIF Section */}
-      <div className="w-[80%] h-[25vh] mx-[12rem] rounded-2xl justify-items-center relative py-4 my-4 bg-zinc-500">
+      <div className="w-[80%] h-[25vh] mx-auto rounded-2xl justify-center items-center relative py-4 my-4 bg-zinc-500">
         <Image
           src="/images/sinuVersionText.gif" // replace with the actual path to your GIF
           alt="About Us GIF"
           layout="fill"
           objectFit="contain"
-          className="p-2 my-2 justify-items-center w-[80%]"
+          className="p-2 my-2 justify-center items-center w-[80%]"
         />
       </div>
       <AboutHistory />

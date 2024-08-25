@@ -40,7 +40,6 @@ const Hero: React.FC<HeroProps> = ({
     <div className="w-full h-screen p-0 m-0 mt-16">
       <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden">
         {/* Video background */}
-        {/* Video background */}
         <video
           src={lightbannerVideoSrc}
           autoPlay

@@ -24,14 +24,13 @@ const Sponsors: React.FC = () => {
         PageTitle="Our Sponsors | siNUsoid v8"
       />
       <div className="w-full h-max p-0 m-0 mt-16">
-        <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden">
+        <div className="w-full md:h-[70vh] h-[30vh] flex items-center justify-center relative overflow-hidden">
           <video
-            className="video-element"
-            width={1500}
+            className="video-element w-full"
             autoPlay
             loop
             muted
-            style={{ filter: "blur(8px)" }}
+            style={{ filter: "blur(6px)" }}
           >
             <source src="/sponsorBG/video.mp4" type="video/mp4" />
           </video>
@@ -39,7 +38,7 @@ const Sponsors: React.FC = () => {
             className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4"
             style={{ marginTop: "-50px" }}
           >
-            <h1 className="text-6xl font-bold mb-8">Our Partners</h1>
+            <h1 className="mt-10 md:mt-0 text-4xl md:text-6xl font-bold">Our Partners</h1>
           </div>
         </div>
         <SponsorPageMarquee />
