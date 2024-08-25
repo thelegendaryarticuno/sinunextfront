@@ -55,21 +55,21 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <h3 className="font-bold mb-2">QUICK LINKS</h3>
             <ul className="space-y-1">
-              {/* <li>
+              <li>
                 <Link
                   href="sponsor"
                   className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white"
                 >
                   Sponsor
                 </Link>
-              </li> */}
+              </li>
               <li>
-                <Link
+                {/* <Link
                   href="events"
                   className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white"
                 >
                   Events
-                </Link>
+                </Link> */}
               </li>
               <li>
                 <Link
@@ -83,7 +83,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 ml-6">
+      <div className="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 ml-6 mr-6">
         <div className="flex justify-center space-x-4 mb-4">
           <Link
             href="https://www.instagram.com/siNUsoid.nu/?hl=en"
