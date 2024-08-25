@@ -19,7 +19,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
 }) => {
   return (
     <div className="flex flex-col items-center my-12">
-      <FaqHeading>Frequently Asked Questions</FaqHeading>
+      <h2 className="text-[2rem] font-semibold text-center mb-4">Frequently Asked Questions</h2>
       <Accordion type="multiple" className="max-w-6xl w-full">
         {(Generic_Faq_Category || FAQ_CATEGORY).map((category, idx) => (
           <div
