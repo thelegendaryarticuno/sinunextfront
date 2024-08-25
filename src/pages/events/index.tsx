@@ -1,5 +1,6 @@
 import EventsBanner from "@/components/EventsBanner/EventsBanner";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
+import EventCard from "@/components/eventlisting/eventcard";
 
 const Events: React.FC = () => {
   return (
@@ -17,10 +18,20 @@ const Events: React.FC = () => {
           "hackathon",
           "gaming",
         ]}
-        PageOGLImage="/logo/logo.png"
+        PageOGLImage="/images/dark.jpg"
         PageTitle="Events | siNUsoid v8"
       />
-      <EventsBanner />
+       <EventCard
+            imageSrc="/images/dark.jpg"
+            title="ABSTRUSE"
+            description="XXXXXXXXXXXXXXXXXXXXXX
+            XXXXXXXXXXXXXXXXXXXXXXXXX
+            XXXXXXXXXXXXXXXXXXXXXXXX"
+            eventStartDate="xx-xx-xxxx"
+            eventEndDate="xx-xx-xxxx"
+            registrationStartDate="xx-xx-xxxx"
+            registrationEndDate="xx-xx-xxxx"
+        />
     </>
   );
 };
