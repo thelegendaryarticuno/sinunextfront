@@ -13,8 +13,8 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({
   defaultLightImg = "/images/light.jpg",
   defaultDarkImg = "/images/dark.jpg",
-  lightbannerImageSrc = "/images/caset_named_light.webp", // Light mode image
-  darkbannerImageSrc = "/images/caset_named_dark.webp", // Dark mode image
+  lightbannerImageSrc = "/images/caset_light.webp", // Light mode image
+  darkbannerImageSrc = "/images/caset_dark.webp", // Dark mode image
   lightbannerVideoSrc = "/heroVideo/mainHeroVid.mp4",
 }) => {
   const { theme, resolvedTheme } = useTheme();
@@ -59,14 +59,16 @@ const Hero: React.FC<HeroProps> = ({
           className="object-contain z-20"
         />
       </div>
-      <div
-        className={`w-full h-[30vh] flex items-center justify-center ${
-          isDark ? "bg-black text-white" : "bg-white text-black"
-        }`}
-      >
-        <div className="w-full h-full relative">
-          <Image src="/logo/1.svg" alt="Logo" layout="fill" objectFit="cover" />
-        </div>
+
+      <div className="relative flex justify-center items-center w-full h-[30vh] mt-2 bg-[#FADAC1]">
+        <Image
+          src="/images/Indradhanush/indradhadhaNUshBanner.png"
+          alt="Logo"
+          layout="fill"
+          objectFit="contain"
+          className="p-10"
+        />
+        
       </div>
     </div>
   );

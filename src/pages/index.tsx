@@ -25,8 +25,7 @@ const Home: React.FC = () => {
         PageOGLImage="/logo/logo.png"
         PageTitle="siNUsoid v8 | Reflexive Retrograde"
       />
-      <Hero />
-      
+      <Hero />      
       <AboutSection />
       <SponsorMarquee />
       <FaqSection

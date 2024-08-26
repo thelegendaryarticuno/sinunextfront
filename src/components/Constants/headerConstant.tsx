@@ -27,7 +27,7 @@ export const NavLinks: React.FC = () => (
           </Link>
         </HoverCardTrigger>
         <HoverCardContent
-          className={navLink.hoverCardSize ? navLink.hoverCardSize : "w-20"}
+          className={`${navLink.hoverCardSize ? navLink.hoverCardSize : "w-20"} bg-white dark:bg-black`}
         >
           <div className="text-center">{navLink.text}</div>
         </HoverCardContent>
