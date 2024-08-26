@@ -41,13 +41,13 @@ const About: React.FC = () => {
       </div>
 
       {/* GIF Section */}
-      <div className="w-[80%] h-[25vh] mx-auto rounded-2xl justify-center items-center relative py-4 my-4 bg-zinc-500">
+      <div className="w-[80%] h-[25vh] mx-auto rounded-2xl justify-center items-center relative py-4 my-4">
         <Image
           src="/images/sinuVersionText.gif" // replace with the actual path to your GIF
           alt="About Us GIF"
           layout="fill"
           objectFit="contain"
-          className="p-2 my-2 justify-center items-center w-[80%]"
+          className="p-2 my-2 justify-center items-center w-[80%] bg-zinc-600 rounded-3xl"
         />
       </div>
       <AboutHistory />
