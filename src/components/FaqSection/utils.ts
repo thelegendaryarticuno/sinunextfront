@@ -38,7 +38,7 @@ export const FAQ_DATA = [
     section: "faq",
     category: "dateAndVenue",
     question: "When and where is siNUsoid v8 happening?",
-    answer: "siNUsoid will be held from 3rd to 5th of November, 2024.",
+    answer: "siNUsoid will be held from 8th to 10th of November, 2024.",
   },
   {
     section: "faq",
