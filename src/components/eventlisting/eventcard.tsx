@@ -21,35 +21,33 @@ const EventCard: React.FC<HeroProps> = ({
     registrationEndDate,
 }) => {
     return (
-        <div className="bg-[#1D313C] dark:bg-gray-800 mt-16 mb-4 text-white dark:text-gray-300 rounded-lg p-6 
-                        w-[90%] md:w-[75%] lg:w-[40%] 
-                        h-auto lg:h-[30vh] 
-                        relative flex flex-col lg:flex-row flex-wrap overflow-hidden mx-auto">
+        <div className="bg-[#1D313C] dark:bg-gray-800 text-white dark:text-gray-300 rounded-lg p-4 
+                        w-full lg:w-[90%] 
+                        h-auto lg:h-[40vh] 
+                        relative flex flex-col lg:flex-row overflow-hidden">
             {/* Left Section */}
             <div className="lg:w-1/2 flex flex-col justify-between">
                 {/* Title */}
-                <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 text-center lg:text-left overflow-hidden text-ellipsis whitespace-nowrap">
+                <div className="text-2xl md:text-3xl lg:text-4xl font-bold text-center lg:text-left overflow-hidden ml-2 text-ellipsis">
                     {title}
                 </div>
 
                 {/* Image with Overlay */}
-                <div className="relative mt-3 lg:mt-0">
+                <div > {/* Reduce top margin to decrease the gap */}
                     <Image 
                         src={imageSrc} 
                         alt={title} 
                         layout="responsive" 
-                        width={100} 
-                        height={80} 
+                        width={130} 
+                        height={150}  
                         className="object-cover rounded-lg" 
                     />
-                    <div className="bg-cyan-950 text-white font-bold absolute bottom-0 left-0 w-full h-[20%] flex items-center justify-center rounded-b-lg overflow-hidden">
-                        Starts in: xx:xx:xx
-                    </div>
+                    
                 </div>
             </div>
 
             {/* Right Section */}
-            <div className="lg:w-1/2 flex flex-col justify-between lg:pl-7 mt-4 lg:mt-0 overflow-hidden">
+            <div className="lg:w-1/2 flex flex-col justify-between lg:pl-4 mt-4 lg:mt-0">
                 {/* Description */}
                 <div>
                     <p className="text-sm mb-2 text-center lg:text-left break-words">
@@ -58,7 +56,7 @@ const EventCard: React.FC<HeroProps> = ({
                 </div>
 
                 {/* Event and Registration Dates */}
-                <div className="text-xs mt-3 text-center md:text-center lg:text-left">
+                <div className="text-xs mt-2 text-center md:text-center lg:text-left">
                     <p className="whitespace-nowrap overflow-hidden text-ellipsis">Event start date: {eventStartDate}</p>
                     <p className="whitespace-nowrap overflow-hidden text-ellipsis">Event end date: {eventEndDate}</p>
                     {registrationStartDate &&

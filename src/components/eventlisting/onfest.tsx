@@ -26,10 +26,10 @@ const OnFest: React.FC = () => {
     ];
 
     return (
-        <div className="container mx-auto py-8 px-4">
-            <div className="flex flex-wrap -mx-4">
+        <div className="container mx-auto py-8 px-4 mt-16 flex justify-center">
+            <div className="grid grid-cols-1 my-4 md:grid-cols-2 gap-8 justify-items-center w-full lg:w-4/5">
                 {eventCardsData.concat(eventCardsData, eventCardsData, eventCardsData).map((event, index) => (
-                    <div key={index} className="w-full md:w-1/2 px-4 mb-8">
+                    <div key={index}>
                         <EventCard
                             imageSrc={event.imageSrc}
                             title={event.title}
