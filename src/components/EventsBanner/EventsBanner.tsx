@@ -4,6 +4,7 @@ import Image from 'next/image';
 import PulsatingButton from '../ui/pulsatingbutton';
 
 interface EventsBannerProps {
+  eventData?: string;
   lightImage?: string;
   darkImage?: string;
   logo?: string;
@@ -11,6 +12,7 @@ interface EventsBannerProps {
 }
 
 const EventsBanner: React.FC<EventsBannerProps> = ({
+  eventData = null,
   lightImage = '/images/eventslight.jpg',
   darkImage = '/images/eventsdark.png',
   logo = '/images/text_mc1.png',
@@ -37,7 +39,7 @@ const EventsBanner: React.FC<EventsBannerProps> = ({
         <div className="relative z-10 p-8 md:px-12 py-2 flex flex-col md:flex-row h-full justify-between items-start md:items-center">
           <div className="flex-1">
             <h2 className={`text-2xl mt-3 md:text-3xl font-bold mb-4 ${isDark ? 'text-white' : 'text-gray-800'}`}>
-              EVENT NAME
+              event name
             </h2>
             <p className={`text-sm md:text-lg mb-6 ${isDark ? 'text-gray-200' : 'text-gray-950'}`}>
               Event Description
