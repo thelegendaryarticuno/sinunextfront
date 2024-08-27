@@ -4,15 +4,18 @@ import EventsBanner from "@/components/EventsBanner/EventsBanner";
 import { SponsorMarquee } from "@/components/Marquee/marquee";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
 import axios from "axios";
+import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 
 const Events: React.FC = () => {
 
+  const { eventid } = useParams();
+
   const fetchAllEvent = async () => {
     try {
       const response = await axios.get(
-        "https://api.sinusoid.in/events/abstruse"
+        `https://api.sinusoid.in/events/${eventid || "abstruse"}`
       );
       console.log(response?.data);
       return response?.data;
@@ -40,7 +43,7 @@ const Events: React.FC = () => {
         PageOGLImage="/logo/logo.png"
         PageTitle=""
       />
-      <EventsBanner />
+      <EventsBanner eventData={eventData} />
       <TabsComponent />
       <SponsorMarquee />
     </>
