@@ -1,4 +1,3 @@
-
 import TabsComponent from "@/components/Description/description";
 import EventsBanner from "@/components/EventsBanner/EventsBanner";
 import { SponsorMarquee } from "@/components/Marquee/marquee";
@@ -7,44 +6,45 @@ import axios from "axios";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-
 const Events: React.FC = () => {
+  const params = useParams();
+  const eventid = params?.eventid || "abstruse";
 
-  const { eventid } = useParams();
+  const [eventData, setEventData] = useState<any>(null);
 
   const fetchAllEvent = async () => {
     try {
       const response = await axios.get(
-        `https://api.sinusoid.in/events/${eventid || "abstruse"}`
+        `https://api.sinusoid.in/events/${eventid}`
       );
-      console.log(response?.data);
       return response?.data;
     } catch (error) {
       console.error("Error fetching events:", error);
       return null;
     }
   };
-  const [eventData, setEventData] = useState<any>(null);
-  
+
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchAllEvent();
       setEventData(data);
     };
-  
+
     fetchData();
-  }, []);
+  }, [eventid]);
 
   return (
     <>
       <SEOComponent
-        PageDescription=""
-        PageKeywords={["sinusoid", "techfest", ""]}
-        PageOGLImage="/logo/logo.png"
-        PageTitle=""
+        PageDescription={eventData?.description || "Default description"}
+        PageKeywords={["sinusoid", "techfest", eventData?.title || ""]}
+        PageOGLImage={eventData?.image || "/logo/logo.png"}
+        PageTitle={eventData?.title || "Event Title"}
       />
       <EventsBanner eventData={eventData} />
-      <TabsComponent />
+      <TabsComponent eventData={eventData} />
+      {/* <Overview  eventData={eventData} /> */}
+
       <SponsorMarquee />
     </>
   );

@@ -6,7 +6,7 @@ import PulsatingButton from "../ui/pulsatingbutton";
 interface EventsBannerProps {
   eventData?: {
     eventName: string;
-    longDesc: string;
+    eventTagline: string;
     schedule: { eventStart: string; eventEnd: string };
   };
   lightImage?: string;
@@ -58,7 +58,7 @@ const EventsBanner: React.FC<EventsBannerProps> = ({
                 isDark ? "text-gray-200" : "text-gray-950"
               }`}
             >
-              {eventData?.longDesc}
+              {eventData?.eventTagline}
             </p>
             <div className="flex flex-col md:flex-row md:items-start mb-4">
               <div className="flex flex-row text-base md:text-md mb-2 md:mb-0 md:mr-4">
