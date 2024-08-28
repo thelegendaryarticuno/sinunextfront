@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import axios from "axios";
 
-const Partnership: React.FC = () => {
+const   Partnership: React.FC = () => {
   const defaultFormData = {
     name: "",
     email: "",
@@ -110,13 +110,13 @@ const Partnership: React.FC = () => {
               </AnimatedGradientText>
             </div>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-[425px]">
+          <DialogContent className="sm:max-w-[425px] sm:px-10">
             <DialogHeader>
               {/* {onSubmit} */}
               <DialogTitle>
                 <HyperText
                   duration={1150}
-                  className="text-4xl items-center font-bold text-black dark:text-white"
+                  className="text-2xl md:text-4xl items-center font-bold text-black dark:text-white"
                   text="Sponsor Us Today!"
                 />
               </DialogTitle>

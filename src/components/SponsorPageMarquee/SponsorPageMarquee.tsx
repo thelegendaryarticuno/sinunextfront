@@ -4,46 +4,46 @@ import Image from "next/image";
 
 const sponsorLogos = [
   { 
-    img: "/sponsorLogo/BCH.webp" 
+    img: "/sponsorLogo/BCH.webp", alt:"BCH" 
   },
   { 
-    img: "/sponsorLogo/CodeChef.webp" 
+    img: "/sponsorLogo/CodeChef.webp", alt:"CodeChef"
   },
   {
-     img: "/sponsorLogo/CodingNinjas.webp" 
+     img: "/sponsorLogo/CodingNinjas.webp", alt:"CodingNinjas" 
     },
   {
-     img: "/sponsorLogo/Gigabyte.webp" 
+     img: "/sponsorLogo/Gigabyte.webp" , alt:"Gigabyte" 
     },
   {
-     img: "/sponsorLogo/Jio.webp" 
+     img: "/sponsorLogo/Jio.webp" , alt:"Jio"
     },
   {
-     img: "/sponsorLogo/Kaspersky.webp" 
+     img: "/sponsorLogo/Kaspersky.webp" , alt:"Kaspersky"
     },
   {
-     img: "/sponsorLogo/Microsoft.webp" 
+     img: "/sponsorLogo/Microsoft.webp" , alt:"Microsoft"
     },
   {
-     img: "/sponsorLogo/MountainDew.webp" 
+     img: "/sponsorLogo/MountainDew.webp" , alt:"MountainDew"
     },
   {
-     img: "/sponsorLogo/RedBull.webp" 
+     img: "/sponsorLogo/RedBull.webp" , alt:"RedBull"
     },
   {
-     img: "/sponsorLogo/RoyalEnfield.webp" 
+     img: "/sponsorLogo/RoyalEnfield.webp" , alt:"RoyalEnfield"
     },
   {
-     img: "/sponsorLogo/SKOAR.webp" 
+     img: "/sponsorLogo/SKOAR.webp" , alt:"SKOAR"
     },
   {
-     img: "/sponsorLogo/TpLink.webp" 
+     img: "/sponsorLogo/TpLink.webp" , alt:"TpLink"
     },
   {
-     img: "/sponsorLogo/Ubon.webp" 
+     img: "/sponsorLogo/Ubon.webp" , alt:"Ubon"
     },
   {
-     img: "/sponsorLogo/Zomato.webp" 
+     img: "/sponsorLogo/Zomato.webp" , alt:"Zomato"
     },
 ];
 

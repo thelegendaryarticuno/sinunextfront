@@ -55,21 +55,21 @@ export default function Footer() {
           <div className="text-center md:text-left">
             <h3 className="font-bold mb-2">QUICK LINKS</h3>
             <ul className="space-y-1">
-              {/* <li>
+              <li>
                 <Link
                   href="sponsor"
                   className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white"
                 >
                   Sponsor
                 </Link>
-              </li> */}
+              </li>
               <li>
-                <Link
+                {/* <Link
                   href="events"
                   className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white"
                 >
                   Events
-                </Link>
+                </Link> */}
               </li>
               <li>
                 <Link
@@ -83,35 +83,40 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 ml-6">
+      <div className="border-t border-gray-200 dark:border-gray-700 mt-8 pt-8 ml-6 mr-6">
         <div className="flex justify-center space-x-4 mb-4">
           <Link
             href="https://www.instagram.com/siNUsoid.nu/?hl=en"
             className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors"
+            aria-label="Instagram"
           >
             <InstagramIcon className="h-6 w-6 text-white dark:text-gray-900 hover:text-gray-900 dark:hover:text-gray-300 overflow-visible" />
           </Link>
           <Link
             href="https://www.facebook.com/siNUsoidniit/"
             className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors"
+            aria-label="Facebook"
           >
             <FacebookIcon className="h-6 w-6 text-white dark:text-gray-900 hover:text-gray-900 dark:hover:text-gray-300 overflow-visible" />
           </Link>
           <Link
             href="https://www.youtube.com/@siNUsoidTechFest"
             className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors"
+            aria-label="YouTube"
           >
             <YoutubeIcon className="h-6 w-6 text-white dark:text-gray-900 hover:text-gray-900 dark:hover:text-gray-300 overflow-visible" />
           </Link>
           <Link
             href="https://in.linkedin.com/company/siNUsoid"
             className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors"
+            aria-label="LinkedIn"
           >
             <LinkedInIcon className="h-6 w-6 text-white dark:text-gray-900 hover:text-gray-900 dark:hover:text-gray-300 overflow-visible" />
           </Link>
           <Link
             href="https://discord.com/invite/AXDe7xeduP"
             className="bg-gray-900 dark:bg-white rounded-full p-2 hover:bg-gray-300 dark:hover:bg-gray-900 transition-colors"
+            aria-label="Discord"
           >
             <DiscordIcon className="h-6 w-6 text-white dark:text-gray-900 hover:text-gray-900 dark:hover:text-gray-300 overflow-visible" />
           </Link>

@@ -3,20 +3,20 @@ import Marquee from "@/components/magicui/marquee";
 import Image from "next/image";
 
 const reviews = [
-  { img: "/sponsorLogo/BCH.webp" },
-  { img: "/sponsorLogo/CodeChef.webp" },
-  { img: "/sponsorLogo/CodingNinjas.webp" },
-  { img: "/sponsorLogo/Gigabyte.webp" },
-  { img: "/sponsorLogo/Jio.webp" },
-  { img: "/sponsorLogo/Kaspersky.webp" },
-  { img: "/sponsorLogo/Microsoft.webp" }, 
-  { img: "/sponsorLogo/MountainDew.webp" },
-  { img: "/sponsorLogo/RedBull.webp" },
-  { img: "/sponsorLogo/RoyalEnfield.webp" },
-  { img: "/sponsorLogo/SKOAR.webp" },
-  { img: "/sponsorLogo/TpLink.webp" },
-  { img: "/sponsorLogo/Ubon.webp" },
-  { img: "/sponsorLogo/Zomato.webp" },
+  { img: "/sponsorLogo/BCH.webp" , alt:"BCH"},
+  { img: "/sponsorLogo/CodeChef.webp", alt:"CodeChef" },
+  { img: "/sponsorLogo/CodingNinjas.webp", alt:"CodingNinjas" },
+  { img: "/sponsorLogo/Gigabyte.webp", alt:"Gigabyte" },
+  { img: "/sponsorLogo/Jio.webp", alt:"Jio" },
+  { img: "/sponsorLogo/Kaspersky.webp", alt:"Kaspersky" },
+  { img: "/sponsorLogo/Microsoft.webp", alt:"Microsoft" }, 
+  { img: "/sponsorLogo/MountainDew.webp", alt:"MountainDew" },
+  { img: "/sponsorLogo/RedBull.webp", alt:"RedBull" },
+  { img: "/sponsorLogo/RoyalEnfield.webp", alt:"RoyalEnfield" },
+  { img: "/sponsorLogo/SKOAR.webp", alt:"SKOAR" },
+  { img: "/sponsorLogo/TpLink.webp", alt:"TpLink" },
+  { img: "/sponsorLogo/Ubon.webp", alt:"Ubon" },
+  { img: "/sponsorLogo/Zomato.webp", alt:"Zomato" },
 ];
 
 const firstRow = reviews.slice(0, 14);

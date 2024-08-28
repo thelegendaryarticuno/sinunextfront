@@ -5,6 +5,7 @@ interface SEOComponentProps {
   PageDescription?: string;
   PageKeywords?: string[];
   PageOGLImage?: string;
+  PageURL?: string;
 }
 
 export default function SEOComponent({
@@ -12,6 +13,7 @@ export default function SEOComponent({
   PageDescription = "siNUsoid v8",
   PageKeywords = ["siNUsoid", "techfest", "niituniversity"],
   PageOGLImage = "/logo/logo.png",
+  PageURL="sinusoid.in"
 }: SEOComponentProps) {
   return (
     <Head>
@@ -30,8 +32,9 @@ export default function SEOComponent({
         property="og:description"
         content={PageDescription || "siNUsoid v8"}
       />
-      <meta property="og:image" content="/socialLogo.jpg" />
+      <meta property="og:image" content={PageOGLImage || "/socialLogo.jpg"} />
       <meta property="og:type" content="website" />
+      <meta property="og:url" content={PageURL || "sinusoid.in"} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:creator" content="@sinusoid_nu" />
       <meta name="twitter:title" content={PageTitle || "siNUsoid v8"} />

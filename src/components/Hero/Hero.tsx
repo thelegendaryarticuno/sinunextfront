@@ -13,8 +13,8 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({
   defaultLightImg = "/images/light.jpg",
   defaultDarkImg = "/images/dark.jpg",
-  lightbannerImageSrc = "/images/caset_named_light.webp", // Light mode image
-  darkbannerImageSrc = "/images/caset_named_dark.webp", // Dark mode image
+  lightbannerImageSrc = "/images/caset_light.webp", // Light mode image
+  darkbannerImageSrc = "/images/caset_dark.webp", // Dark mode image
   lightbannerVideoSrc = "/heroVideo/mainHeroVid.mp4",
 }) => {
   const { theme, resolvedTheme } = useTheme();
@@ -39,7 +39,6 @@ const Hero: React.FC<HeroProps> = ({
   return (
     <div className="w-full h-screen p-0 m-0 mt-16">
       <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden">
-        {/* Video background */}
         {/* Video background */}
         <video
           src={lightbannerVideoSrc}
