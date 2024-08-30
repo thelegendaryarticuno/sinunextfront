@@ -8,20 +8,14 @@ interface EventsBannerProps {
     eventName: string;
     longDesc: string;
     overview: string;
-    rules: {
-      idx: string;
-      info: string;
-      _id: string;
-    }[];
-    prizes: {
-      idx: string;
-      info: string;
-      _id: string;
-    }[];
+    rules: string[];
+    prizes: string[];
+    eventStructure: string[];
     schedule: {
       eventStart: string;
       eventEnd: string;
       registrationStart: string;
+      registrationEnd: string;
       submissionStart: string;
       submissionEnd: string;
     };
@@ -38,8 +32,8 @@ export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
       component: (
         <div>
           {eventData?.rules?.map((rule, idx) => (
-            <p key={rule._id}>
-              {rule.info}
+            <p key={idx}>
+              {rule}
             </p>
           ))}
         </div>
@@ -51,14 +45,27 @@ export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
       component: (
         <div>
           {eventData?.prizes?.map((prize, idx) => (
-            <p key={prize._id}>
-              {prize.info}
+            <p key={idx}>
+              {prize}
             </p>
           ))}
         </div>
       ),
     },
-    { value: "about sponsor", text: "Our Sponsors", component: <Sponsor /> },
+    {
+      value: "event-structure",
+      text: "Event Structure",
+      component: (
+        <div>
+          {eventData?.eventStructure?.map((structure, idx) => (
+            <p key={idx}>
+              {structure}
+            </p>
+          ))}
+        </div>
+      ),
+    },
+    { value: "about-sponsor", text: "Our Sponsors", component: <Sponsor /> },
   ];
 
   useEffect(() => {
@@ -95,6 +102,7 @@ export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
                   <p>Event Start: {eventData.schedule.eventStart}</p>
                   <p>Event End: {eventData.schedule.eventEnd}</p>
                   <p>Registration Start: {eventData.schedule.registrationStart}</p>
+                  <p>Registration End: {eventData.schedule.registrationEnd}</p>
                   <p>Submission Start: {eventData.schedule.submissionStart}</p>
                   <p>Submission End: {eventData.schedule.submissionEnd}</p>
                 </>
