@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 const Events: React.FC = () => {
   const params = useParams();
   const eventid = params?.eventid || "abstruse";
-
   const [eventData, setEventData] = useState<any>(null);
 
   const fetchAllEvent = async () => {

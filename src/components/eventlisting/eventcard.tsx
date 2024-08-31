@@ -35,26 +35,36 @@ const EventCard: React.FC<EventCardProps> = ({
   const eventStart = dayjs(eventStartDate);
   const eventEnd = dayjs(eventEndDate);
 
+  let dateLabel = '';
   let dateInfo = '';
 
   if (currentDate.isBefore(regStart)) {
-    dateInfo = `Registration starts: ${regStart.format('DD-MM-YYYY')}`;
+    dateLabel = 'Registration starts:';
+    dateInfo = regStart.format("D MMMM, YYYY");
   } else if (currentDate.isBefore(regEnd)) {
-    dateInfo = `Registration ends: ${regEnd.format('DD-MM-YYYY')}`;
+    dateLabel = 'Registration ends:';
+    dateInfo = regEnd.format('DD-MMM-YYYY');
   } else if (currentDate.isBefore(eventStart)) {
-    dateInfo = `Event starts: ${eventStart.format('DD-MM-YYYY')}`;
+    dateLabel = 'Event starts:';
+    dateInfo = eventStart.format('DD-MMM-YYYY');
   } else if (currentDate.isBefore(eventEnd)) {
-    dateInfo = `Event ends: ${eventEnd.format('DD-MM-YYYY')}`;
+    dateLabel = 'Event ends:';
+    dateInfo = eventEnd.format('DD-MMM-YYYY');
   } else {
-    dateInfo = `Event closed on: ${eventEnd.format('DD-MM-YYYY')}`;
+    dateLabel = 'Event closed on:';
+    dateInfo = eventEnd.format('DD-MMM-YYYY');
   }
 
   const badgeBgColor = theme === "dark" ? "bg-white" : "bg-black";
   const badgeTextColor = theme === "dark" ? "text-black" : "text-white";
+  const cardBackgroundColor = theme === "dark" ? "bg-gray-800" : "bg-orange-200";
+  const cardTextColor = theme === "dark" ? "text-gray-200" : "text-orange-800";
+  const cardBorderColor = theme === "light" ? "border-orange-800" : "";
 
   return (
     <div
-      className="flex flex-col bg-white dark:bg-gray-800 rounded-md shadow-md p-4 relative transform transition-transform duration-300 hover:scale-105 mx-auto h-[100%] md:max-w-22 lg:min-w-19">
+      className={`flex flex-col w-[95%] ${cardBackgroundColor} ${cardBorderColor} border rounded-md shadow-md p-4 relative transform transition-transform duration-300 hover:scale-105 mx-auto h-[100%] min-w-19 md:max-w-22`}
+    >
       <div className="relative w-full h-40 rounded-md overflow-hidden">
         <img
           src={imageSrc}
@@ -68,17 +78,18 @@ const EventCard: React.FC<EventCardProps> = ({
         </div>
       </div>
       <div className="flex-grow mt-4 mb-6">
-        <h3 className="text-lg font-bold text-black dark:text-gray-200">{eventName}</h3>
-        <p className="text-gray-600 dark:text-gray-400 mt-1">{eventTagLine}</p>
-        <p className="text-gray-600 dark:text-gray-400 font-bold mt-1">{dateInfo}</p>
+        <h3 className={`text-lg font-bold ${cardTextColor}`}>{eventName}</h3>
+        <p className={`mt-1 ${cardTextColor}`}>{eventTagLine}</p>
+        <p className={`mt-2.5 ${cardTextColor}`}>{dateLabel}</p>
+        <p className={`font-bold ${cardTextColor}`}>{dateInfo}</p>
       </div>
       
-      {/* Collaboration and Show More Button */}
-      <div className="flex flex-col md:flex-row-reverse justify-between items-center mt-auto">
-        <button className="bg-[#FADAC1] dark:bg-blue-500 hover:bg-[#F6723A] dark:hover:bg-blue-700 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+      
+      <div className="flex flex-col md:flex-row-reverse justify-between items-center ">
+        <button className="bg-orange-400 dark:bg-orange-600 hover:bg-orange-800 dark:hover:bg-orange-800 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
           Show more
         </button>
-        <div className="flex items-center text-xs text-gray-600 dark:text-gray-400 md:mt-3">
+        <div className={`flex items-center text-xs ${cardTextColor} mt-5`}>
           <span>In collaboration with </span>
           <img src={collaborationLogo} alt="Collaboration Logo" className="ml-2 w-12 h-auto" />
         </div>

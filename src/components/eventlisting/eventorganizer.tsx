@@ -20,6 +20,7 @@ const EventOrganizer: React.FC = () => {
         >
           Prefest Events
         </button>
+        
       </div>
       
       <div className="mt-8">

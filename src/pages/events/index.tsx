@@ -38,9 +38,7 @@ const Events: React.FC = () => {
           <h1 className="text-6xl font-bold mb-8">Events</h1>
         </div>
       </div>
-
-      
-       <EventOrganizer/>
+      <EventOrganizer/>
     </>
   );
 };
