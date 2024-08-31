@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTheme } from 'next-themes';
 import dayjs from 'dayjs';
+import Link from 'next/link'; // Import the Link component from Next.js
 
 interface EventCardProps {
   imageSrc: string;
@@ -13,6 +14,7 @@ interface EventCardProps {
   eventStartDate: string;
   eventEndDate: string;
   collaborationLogo: string;
+  eventId: string;  // Add eventId as a prop
 }
 
 const EventCard: React.FC<EventCardProps> = ({
@@ -26,6 +28,7 @@ const EventCard: React.FC<EventCardProps> = ({
   eventStartDate,
   eventEndDate,
   collaborationLogo,
+  eventId,  // Destructure eventId
 }) => {
   const { theme } = useTheme();
   const currentDate = dayjs();
@@ -84,11 +87,13 @@ const EventCard: React.FC<EventCardProps> = ({
         <p className={`font-bold ${cardTextColor}`}>{dateInfo}</p>
       </div>
       
-      
-      <div className="flex flex-col md:flex-row-reverse justify-between items-center ">
-        <button className="bg-orange-400 dark:bg-orange-600 hover:bg-orange-800 dark:hover:bg-orange-800 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-          Show more
-        </button>
+      <div className="flex flex-col md:flex-row-reverse justify-between items-center">
+        {/* Wrap the button with the Link component */}
+        <Link href={`/events/${eventId}`} passHref className="bg-orange-400 dark:bg-orange-600 hover:bg-orange-800 dark:hover:bg-orange-800 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+          
+            Show more
+          
+        </Link>
         <div className={`flex items-center text-xs ${cardTextColor} mt-5`}>
           <span>In collaboration with </span>
           <img src={collaborationLogo} alt="Collaboration Logo" className="ml-2 w-12 h-auto" />
