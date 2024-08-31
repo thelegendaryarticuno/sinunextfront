@@ -8,12 +8,24 @@ const PreFest: React.FC = () => {
       altText: "Google AI Essentials",
       eventName: "Pre fest Sinusoid",
       eventTagLine: "A premier tech event for developers",
+      eventStatus: "Ongoing", // Manually set event status
+      registrationStartDate: "2024-09-01",  
+      registrationEndDate: "2024-09-10",    
+      eventStartDate: "2024-09-15",         
+      eventEndDate: "2024-09-20",
+      collaborationLogo: "/logo/logo.png",           
     },
     {
       imageSrc: "/images/light.jpg",
       altText: "Another Event",
-      eventName: "Prefest Tech Expo",
+      eventName: "Pre fest Tech Expo",
       eventTagLine: "Explore the latest in tech and innovation",
+      eventStatus: "Upcoming", // Manually set event status
+      registrationStartDate: "2024-09-05",  
+      registrationEndDate: "2024-09-12",    
+      eventStartDate: "2024-09-18",         
+      eventEndDate: "2024-09-25",           
+      collaborationLogo: "/logo/logo.png",  
     },
     // Add more events here if needed
   ];
@@ -30,6 +42,13 @@ const PreFest: React.FC = () => {
             altText={event.altText}
             eventName={event.eventName}
             eventTagLine={event.eventTagLine}
+            eventStatus={event.eventStatus} // Pass the eventStatus prop
+            registrationStartDate={event.registrationStartDate}
+            registrationEndDate={event.registrationEndDate}
+            eventStartDate={event.eventStartDate}
+            eventEndDate={event.eventEndDate}
+            collaborationLogo={event.collaborationLogo}
+
           />
         </div>
       ))}
