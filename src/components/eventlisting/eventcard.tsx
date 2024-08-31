@@ -60,9 +60,9 @@ const EventCard: React.FC<EventCardProps> = ({
 
   const badgeBgColor = theme === "dark" ? "bg-white" : "bg-black";
   const badgeTextColor = theme === "dark" ? "text-black" : "text-white";
-  const cardBackgroundColor = theme === "dark" ? "bg-gray-800" : "bg-orange-200";
+  const cardBackgroundColor = theme === "dark" ? "bg-gray-800" : "bg-zinc-200";
   const cardTextColor = theme === "dark" ? "text-gray-200" : "text-orange-800";
-  const cardBorderColor = theme === "light" ? "border-orange-800" : "";
+  const cardBorderColor = theme === "light" ? "border-orange-900" : "";
 
   return (
     <div
