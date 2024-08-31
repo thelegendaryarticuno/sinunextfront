@@ -9,7 +9,8 @@ const OnFest: React.FC = () => {
   const fetchAllEvents = async () => {
     try {
       const response = await axios.get('https://api.sinusoid.in/events/');
-      setFetchedData(response?.data);
+      const publishedEvents = response?.data.filter((event: any) => event?.published === true);
+      setFetchedData(publishedEvents);
     } catch (error) {
       console.error("Error fetching events:", error);
       setFetchedData([]);
@@ -22,17 +23,17 @@ const OnFest: React.FC = () => {
 
   useEffect(() => {
     const formattedEvents = fetchedData.map((event: any) => ({
-      imageSrc: "/images/light.jpg",  
+      imageSrc: "/images/light.jpg",
       altText: "Google AI Essentials",
-      eventName: event?.eventName,  
-      eventTagLine: event?.eventTagline,  
-      eventStatus: event?.status || "Upcoming",  
-      registrationStartDate: event?.registrationStartDate,  
-      registrationEndDate: event?.registrationEndDate,  
-      eventStartDate: event?.eventStartDate,  
-      eventEndDate: event?.eventEndDate,  
-      collaborationLogo: "/logo/logo.png", 
-      eventId: event?.eventId,  
+      eventName: event?.eventName,
+      eventTagLine: event?.eventTagline,
+      eventStatus: event?.status || "Upcoming",
+      registrationStartDate: event?.registrationStartDate,
+      registrationEndDate: event?.registrationEndDate,
+      eventStartDate: event?.eventStartDate,
+      eventEndDate: event?.eventEndDate,
+      collaborationLogo: "/logo/logo.png",
+      eventId: event?.eventId,
     }));
     setEvents(formattedEvents);
   }, [fetchedData]);
@@ -55,7 +56,7 @@ const OnFest: React.FC = () => {
             eventStartDate={event?.eventStartDate}
             eventEndDate={event?.eventEndDate}
             collaborationLogo={event?.collaborationLogo}
-            eventId={event?.eventId} 
+            eventId={event?.eventId}
           />
         </div>
       ))}

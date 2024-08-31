@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import EventCard from './eventcard';
 import axios from 'axios';
 
-const OnFest: React.FC = () => {
+const Workshop: React.FC = () => {
   const [events, setEvents] = useState<any[]>([]);
   const [fetchedData, setFetchedData] = useState<any[]>([]);
 
   const fetchAllEvents = async () => {
     try {
-      const response = await axios.get('https://api.sinusoid.in/events/');
+      const response = await axios.get('https://api.sinusoid.in/workshops/');
       const publishedEvents = response?.data.filter((event: any) => event?.published === false);
       setFetchedData(publishedEvents);
     } catch (error) {
@@ -25,15 +25,15 @@ const OnFest: React.FC = () => {
     const formattedEvents = fetchedData.map((event: any) => ({
       imageSrc: "/images/light.jpg",
       altText: "Google AI Essentials",
-      eventName: event?.eventName,
-      eventTagLine: event?.eventTagline,
+      eventName: event?.workshopName,
+      eventTagLine: event?.workshopTagline,
       eventStatus: event?.status || "Upcoming",
-      registrationStartDate: event?.registrationStartDate,
+      registrationStartDate: event?.workshopStart,
       registrationEndDate: event?.registrationEndDate,
       eventStartDate: event?.eventStartDate,
       eventEndDate: event?.eventEndDate,
       collaborationLogo: "/logo/logo.png",
-      eventId: event?.eventId,
+      eventId: event?.workshopId,
     }));
     setEvents(formattedEvents);
   }, [fetchedData]);
@@ -64,4 +64,4 @@ const OnFest: React.FC = () => {
   );
 };
 
-export default OnFest;
+export default Workshop;
