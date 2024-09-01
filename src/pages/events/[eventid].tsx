@@ -3,35 +3,42 @@ import EventsBanner from "@/components/EventsBanner/EventsBanner";
 import { SponsorMarquee } from "@/components/Marquee/marquee";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
 import axios from "axios";
-import { useParams } from "next/navigation";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const Events: React.FC = () => {
-  const params = useParams();
-  const eventid = params?.eventid || "abstruse";
-
+  const router = useRouter();
+  const { eventid } = router?.query || "404";
   const [eventData, setEventData] = useState<any>(null);
 
-  const fetchAllEvent = async () => {
+  const fetchEventById = async (eventid: string) => {
     try {
       const response = await axios.get(
         `https://api.sinusoid.in/events/${eventid}`
       );
       return response?.data;
     } catch (error) {
-      console.error("Error fetching events:", error);
+      console.error("Error fetching event:", error);
       return null;
     }
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchAllEvent();
-      setEventData(data);
-    };
-
-    fetchData();
-  }, [eventid]);
+    if (eventid && router) {
+      const fetchData = async () => {
+        const data = await fetchEventById(eventid as string);
+        setEventData(data);
+  
+        if (!data) {
+          router.push("/404");
+        } else if (data?.published === false) {
+          router.push("/404");
+        }
+      };
+  
+      fetchData();
+    }
+  }, [eventid, router]);
 
   return (
     <>
@@ -43,7 +50,6 @@ const Events: React.FC = () => {
       />
       <EventsBanner eventData={eventData} />
       <TabsComponent eventData={eventData} />
-
       <SponsorMarquee />
     </>
   );
