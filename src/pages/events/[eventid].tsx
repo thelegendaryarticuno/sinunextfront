@@ -24,20 +24,21 @@ const Events: React.FC = () => {
   };
 
   useEffect(() => {
-    if (eventid) {
+    if (eventid && router) {
       const fetchData = async () => {
         const data = await fetchEventById(eventid as string);
         setEventData(data);
-        
-        // If eventID is not found or an error occurs, redirect to a default event or error page
+  
         if (!data) {
-          router.push("/events/defaultEventId");
+          router.push("/404");
+        } else if (data?.published === false) {
+          router.push("/404");
         }
       };
-
+  
       fetchData();
     }
-  }, [eventid]);
+  }, [eventid, router]);
 
   return (
     <>
