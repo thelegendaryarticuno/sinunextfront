@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 const Events: React.FC = () => {
   const router = useRouter();
-  const { eventid } = router.query;
+  const { eventid } = router?.query || "404";
   const [eventData, setEventData] = useState<any>(null);
 
   const fetchEventById = async (eventid: string) => {
@@ -24,20 +24,21 @@ const Events: React.FC = () => {
   };
 
   useEffect(() => {
-    if (eventid) {
+    if (eventid && router) {
       const fetchData = async () => {
         const data = await fetchEventById(eventid as string);
         setEventData(data);
-        
-        // If eventID is not found or an error occurs, redirect to a default event or error page
+  
         if (!data) {
-          router.push("/events/defaultEventId");
+          router.push("/404");
+        } else if (data?.published === false) {
+          router.push("/404");
         }
       };
-
+  
       fetchData();
     }
-  }, [eventid]);
+  }, [eventid, router]);
 
   return (
     <>
@@ -49,7 +50,6 @@ const Events: React.FC = () => {
       />
       <EventsBanner eventData={eventData} />
       <TabsComponent eventData={eventData} />
-
       <SponsorMarquee />
     </>
   );

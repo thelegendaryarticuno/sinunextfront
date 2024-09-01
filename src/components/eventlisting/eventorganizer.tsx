@@ -4,7 +4,7 @@ import PreFest from './prefest';
 import Workshop from './workshop';  // Import the Workshop component
 
 const EventOrganizer: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('onfest');
+  const [activeTab, setActiveTab] = useState("prefest");
 
   return (
     <div className="container mx-auto mt-10">

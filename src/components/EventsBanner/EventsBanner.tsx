@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import PulsatingButton from "../ui/pulsatingbutton";
+import dayjs from "dayjs";
 
 interface EventsBannerProps {
   eventData?: {
@@ -48,7 +49,7 @@ const EventsBanner: React.FC<EventsBannerProps> = ({
         style={bannerStyle}
       >
         <div className="relative z-10 p-8 md:px-12 py-2 flex flex-col md:flex-row h-full justify-between items-start md:items-center">
-          <div className="flex-1">
+          <div className="flex flex-col h-full justify-center">
             <h2
               className={`text-2xl mt-3 md:text-3xl font-bold mb-4 ${
                 isDark ? "text-white" : "text-gray-800"
@@ -74,7 +75,11 @@ const EventsBanner: React.FC<EventsBannerProps> = ({
                   <p
                     className={`${isDark ? "text-gray-200" : "text-gray-900"}`}
                   >
-                    <strong>{eventData?.schedule?.eventStart}</strong>
+                    <strong>
+                      {dayjs(eventData?.schedule?.eventStart).format(
+                        "	dddd, MMMM D, YYYY"
+                      )}
+                    </strong>
                   </p>
                 </div>
                 <div className="ml-4">
@@ -86,12 +91,18 @@ const EventsBanner: React.FC<EventsBannerProps> = ({
                   <p
                     className={`${isDark ? "text-gray-200" : "text-gray-900"}`}
                   >
-                    <strong>{eventData?.schedule?.eventEnd}</strong>
+                    <strong>
+                      {dayjs(eventData?.schedule?.eventEnd).format(
+                        "	dddd, MMMM D, YYYY"
+                      )}
+                    </strong>
                   </p>
                 </div>
               </div>
             </div>
-            <PulsatingButton />
+            <div className="max-w-60">
+              <PulsatingButton />
+            </div>
           </div>
           <div className="mt-6 ml-auto mr-8 hidden md:block">
             <Image

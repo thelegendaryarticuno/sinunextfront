@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Overview from "../eventsection/Overview";
 import Sponsor from "../eventsection/sponsor";
+import dayjs from "dayjs";
 
 interface EventsBannerProps {
   eventData?: {
@@ -24,8 +25,16 @@ interface EventsBannerProps {
 
 export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
   const tabsArray = [
-    { value: "event-overview", text: "Event Overview", component: <Overview eventData={eventData} /> },
-    { value: "timeline", text: "Events Timeline", component: "Events Timeline" },
+    {
+      value: "event-overview",
+      text: "Event Overview",
+      component: <Overview eventData={eventData} />,
+    },
+    {
+      value: "timeline",
+      text: "Events Timeline",
+      component: "Events Timeline",
+    },
     {
       value: "rules-and-regulations",
       text: "Rules and Regulations",
@@ -99,12 +108,34 @@ export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
             <TabsContent key={`content_${idx}`} value={tab?.value}>
               {tab?.value === "timeline" && eventData?.schedule ? (
                 <>
-                  <p>Event Start: {eventData.schedule.eventStart}</p>
-                  <p>Event End: {eventData.schedule.eventEnd}</p>
-                  <p>Registration Start: {eventData.schedule.registrationStart}</p>
-                  <p>Registration End: {eventData.schedule.registrationEnd}</p>
-                  <p>Submission Start: {eventData.schedule.submissionStart}</p>
-                  <p>Submission End: {eventData.schedule.submissionEnd}</p>
+                  <p>
+                    Event Start:{" "}
+                    {dayjs(eventData?.schedule?.eventStart).format(
+                      "	MMMM D, YYYY"
+                    )}
+                  </p>
+                  <p>
+                    Event End:{" "}
+                    {dayjs(eventData.schedule.eventEnd).format("MMMM D, YYYY")}
+                  </p>
+                  <p>
+                    Registration Start:{" "}
+                    {dayjs(eventData.schedule.registrationStart).format(
+                      "MMMM D, YYYY"
+                    )}
+                  </p>
+                  <p>
+                    Submission Start:{" "}
+                    {dayjs(eventData.schedule.submissionStart).format(
+                      "	MMMM D, YYYY"
+                    )}
+                  </p>
+                  <p>
+                    Submission End:{" "}
+                    {dayjs(eventData.schedule.submissionEnd).format(
+                      "MMMM D, YYYY"
+                    )}
+                  </p>
                 </>
               ) : (
                 tab?.component
