@@ -8,7 +8,10 @@ interface EventsBannerProps {
   eventData?: {
     eventName: string;
     eventTagline: string;
-    schedule: { eventStart: string; eventEnd: string };
+    schedule: {
+      eventStart: string;
+      eventEnd: string;
+    };
   };
   lightImage?: string;
   darkImage?: string;

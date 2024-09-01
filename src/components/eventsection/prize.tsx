@@ -3,16 +3,13 @@ import { useTheme } from 'next-themes';
 
 interface EventsBannerProps {
   eventData?: {
-    prizes: {
-      info: string;
-    };
+    prizes: string[];
   };
 }
 
 const Prize: React.FC<EventsBannerProps> = ({ eventData }) => {
   const { theme } = useTheme();
 
-  // Debugging: Log eventData to check if it has the expected structure
   useEffect(() => {
     console.log('EventData in Prize component:', eventData);
 
@@ -26,7 +23,7 @@ const Prize: React.FC<EventsBannerProps> = ({ eventData }) => {
   return (
     <div>
       <p className={`text-center text-sm mt-4 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
-        {eventData?.prizes.info || 'No prize information available'}
+        {eventData?.prizes?.length ? eventData.prizes.join(', ') : 'No prize information available'}
       </p>
     </div>
   );

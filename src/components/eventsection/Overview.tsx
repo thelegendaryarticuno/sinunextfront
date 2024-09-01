@@ -11,8 +11,6 @@ interface EventsBannerProps {
 
 const Overview: React.FC<EventsBannerProps> = ({ eventData }) => {
   const { theme } = useTheme();
-
-  // Debugging: Log eventData to verify its structure
   useEffect(() => {
     console.log('EventData in Overview component:', eventData);
 
@@ -31,7 +29,9 @@ const Overview: React.FC<EventsBannerProps> = ({ eventData }) => {
         theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-black'
       }`}
     >
-      <h2 className="text-2xl font-bold mb-4">{eventData?.eventName || 'Event Name Unavailable'}</h2>
+      <h2 className="text-2xl font-bold mb-4">
+        {eventData?.eventName || 'Event Name Unavailable'}
+      </h2>
       <p className="mb-4">
         {eventData?.overview || 'No overview available.'}
       </p>
