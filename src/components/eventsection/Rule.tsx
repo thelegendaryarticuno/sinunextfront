@@ -4,9 +4,7 @@ import { useTheme } from 'next-themes';
 
 interface EventsBannerProps {
   eventData?: {
-    rules: {
-      info: string;
-    };
+    rules: string[];
   };
 }
 
@@ -31,7 +29,11 @@ const Rule: React.FC<EventsBannerProps> = ({ eventData }) => {
     >
       <h1 className="text-3xl font-bold mb-4">Rules</h1>
       <ul className="list-disc list-inside space-y-2">
-        <li>{eventData?.rules?.info || 'No rules available'}</li>
+        {eventData?.rules?.length ? (
+          eventData.rules.map((rule, index) => <li key={index}>{rule}</li>)
+        ) : (
+          <li>No rules available</li>
+        )}
       </ul>
       <p className="mt-4">
         In case of any query,{' '}
