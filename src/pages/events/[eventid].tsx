@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 const Events: React.FC = () => {
   const router = useRouter();
-  const { eventid } = router.query;
+  const { eventid } = router?.query || "404";
   const [eventData, setEventData] = useState<any>(null);
 
   const fetchEventById = async (eventid: string) => {
