@@ -21,10 +21,10 @@ interface EventsBannerProps {
 
 const EventsBanner: React.FC<EventsBannerProps> = ({
   eventData,
-  lightImage = "/images/eventslight.jpg",
-  darkImage = "/images/eventsdark.png",
+  lightImage = "/events/hackathon-35vh.webp",
+  darkImage = "/events/hackathon-35vh.webp",
   logo = "/images/text_mc1.png",
-  rightImage = "/images/right.png",
+  rightImage = "/events/3D_illustrations-removebg-preview.png",
 }) => {
   const { resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
@@ -45,66 +45,64 @@ const EventsBanner: React.FC<EventsBannerProps> = ({
   return (
     <div className="relative w-full overflow-hidden my-20">
       <div
-        className="w-[90%] md:w-[80%] h-[45vh] md:h-[40vh] flex flex-col justify-center pl-4 md:pl-12 text-left mx-auto rounded-lg overflow-hidden"
+        className="w-full md:w-[90%] lg:w-[80%] h-[40vh] md:h-[45vh] lg:h-[50vh] flex flex-col justify-center pl-4 md:pl-8 lg:pl-12 text-left mx-auto rounded-lg overflow-hidden"
         style={bannerStyle}
       >
-        <div className="relative z-10 p-8 md:px-12 py-2 flex flex-col md:flex-row h-full justify-between items-start md:items-center">
-          <div className="flex flex-col h-full justify-center">
+        <div className="relative z-10 p-4 md:p-6 lg:p-8 flex flex-col md:flex-row h-full justify-between items-start md:items-center">
+          <div className="flex flex-col h-full justify-center max-w-full md:max-w-lg">
             <h2
-              className={`text-2xl mt-3 md:text-3xl font-bold mb-4 ${
+              className={`text-xl md:text-2xl lg:text-3xl font-bold mb-4 ${
                 isDark ? "text-white" : "text-gray-800"
               }`}
             >
               {eventData?.eventName}
             </h2>
             <p
-              className={`text-sm md:text-lg mb-6 ${
+              className={`text-sm md:text-base lg:text-lg mb-6 ${
                 isDark ? "text-gray-200" : "text-gray-950"
               }`}
             >
               {eventData?.eventTagline}
             </p>
             <div className="flex flex-col md:flex-row md:items-start mb-4">
-              <div className="flex flex-row text-base md:text-md mb-2 md:mb-0 md:mr-4">
-                <div className="mr-4">
-                  <p
-                    className={`${isDark ? "text-gray-200" : "text-gray-900"}`}
-                  >
-                    Start Date:
-                  </p>
-                  <p
-                    className={`${isDark ? "text-gray-200" : "text-gray-900"}`}
-                  >
-                    <strong>
-                      {dayjs(eventData?.schedule?.eventStart).format(
-                        "	dddd, MMMM D, YYYY"
-                      )}
-                    </strong>
-                  </p>
-                </div>
-                <div className="ml-4">
-                  <p
-                    className={`${isDark ? "text-gray-200" : "text-gray-900"}`}
-                  >
-                    End Date:
-                  </p>
-                  <p
-                    className={`${isDark ? "text-gray-200" : "text-gray-900"}`}
-                  >
-                    <strong>
-                      {dayjs(eventData?.schedule?.eventEnd).format(
-                        "	dddd, MMMM D, YYYY"
-                      )}
-                    </strong>
-                  </p>
-                </div>
+              <div className="flex flex-col text-base md:text-md mb-2 md:mb-0 md:mr-4">
+                <p
+                  className={`${isDark ? "text-gray-200" : "text-gray-900"}`}
+                >
+                  Start Date:
+                </p>
+                <p
+                  className={`${isDark ? "text-gray-200" : "text-gray-900"}`}
+                >
+                  <strong>
+                    {dayjs(eventData?.schedule?.eventStart).format(
+                      "dddd, MMMM D, YYYY"
+                    )}
+                  </strong>
+                </p>
+              </div>
+              <div className="flex flex-col text-base md:text-md mt-2 md:mt-0 ml-4">
+                <p
+                  className={`${isDark ? "text-gray-200" : "text-gray-900"}`}
+                >
+                  End Date:
+                </p>
+                <p
+                  className={`${isDark ? "text-gray-200" : "text-gray-900"}`}
+                >
+                  <strong>
+                    {dayjs(eventData?.schedule?.eventEnd).format(
+                      "dddd, MMMM D, YYYY"
+                    )}
+                  </strong>
+                </p>
               </div>
             </div>
-            <div className="max-w-60">
+            <div className="max-w-max">
               <PulsatingButton />
             </div>
           </div>
-          <div className="mt-6 ml-auto mr-8 hidden md:block">
+          <div className="mt-6 ml-auto mr-4 md:mr-8 hidden md:block flex-shrink-0">
             <Image
               src={rightImage}
               alt="Event illustration"
@@ -116,7 +114,7 @@ const EventsBanner: React.FC<EventsBannerProps> = ({
         </div>
 
         <div className="flex justify-start md:justify-between items-center mt-1 md:mt-2">
-          <div className="flex items-center ml-12 mb-4">
+          <div className="flex items-center ml-4 md:ml-12 mb-4">
             <span
               className={`text-sm ${
                 isDark ? "text-gray-400" : "text-gray-600"

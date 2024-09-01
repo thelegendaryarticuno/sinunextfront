@@ -32,7 +32,7 @@ const OnFest: React.FC = () => {
       registrationEndDate: event?.registrationEndDate,
       eventStartDate: event?.eventStartDate,
       eventEndDate: event?.eventEndDate,
-      collaborationLogo: "/logo/logo.png",
+      collaborationLogo: "/events/Hive Pen.png",
       eventId: event?.eventId,
     }));
     setEvents(formattedEvents);

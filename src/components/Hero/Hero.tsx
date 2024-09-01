@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import Link from "next/link";
 
 interface HeroProps {
   defaultLightImg?: string;
@@ -17,7 +18,7 @@ const Hero: React.FC<HeroProps> = ({
   darkbannerImageSrc = "/images/caset_dark.webp", // Dark mode image
   lightbannerVideoSrc = "/heroVideo/mainHeroVid.mp4",
 }) => {
-  const { theme, resolvedTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
   const [currentLightImg, setCurrentLightImg] = useState(lightbannerImageSrc);
   const [currentDarkImg, setCurrentDarkImg] = useState(darkbannerImageSrc);
@@ -35,6 +36,10 @@ const Hero: React.FC<HeroProps> = ({
   };
 
   const bannerImage = isDark ? currentDarkImg : currentLightImg;
+
+  const logoSrc = isDark
+    ? "/events/dark.svg" // Dark mode logo
+    : "/events/light.svg"; // Light mode logo
 
   return (
     <div className="w-full h-screen p-0 m-0 mt-16">
@@ -59,17 +64,17 @@ const Hero: React.FC<HeroProps> = ({
           className="object-contain z-20"
         />
       </div>
-
-      <div className="relative flex justify-center items-center w-full h-[30vh] mt-2 bg-[#FADAC1]">
-        <Image
-          src="/images/Indradhanush/indradhadhaNUshBanner.png"
-          alt="Logo"
-          layout="fill"
-          objectFit="contain"
-          className="p-10"
-        />
-        
-      </div>
+      <Link href='/events/hiveweb3hackathon'>
+        <div className="relative flex justify-center items-center w-full h-[30vh] mt-2">
+          <Image
+            src={logoSrc}
+            alt="Theme Specific Logo"
+            layout="fill"
+            objectFit="fill"
+            className="p-0"
+          />
+        </div>
+      </Link>
     </div>
   );
 };
