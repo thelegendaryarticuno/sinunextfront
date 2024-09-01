@@ -28,6 +28,7 @@
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
+    "dayjs": "^1.11.13",
     "framer-motion": "^11.3.12",
     "lucide-react": "^0.414.0",
     "measure": "^0.1.1",

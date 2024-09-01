@@ -36,7 +36,7 @@ export default function PulsatingButton({
       }
       {...props}
     >
-      <div className="relative z-10">Register</div>
+      <div className="relative z-10">Coming Soon</div>
       <div className="absolute top-1/2 left-1/2 w-full h-full rounded-lg bg-inherit animate-pulse -translate-x-1/2 -translate-y-1/2" />
     </button>
   );

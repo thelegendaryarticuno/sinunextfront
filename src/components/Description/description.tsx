@@ -1,23 +1,92 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Overview from "../eventsection/Overview";
-import Rule from "../eventsection/Rule";
-import Prize from "../eventsection/prize";
 import Sponsor from "../eventsection/sponsor";
+import dayjs from "dayjs";
 
-export const tabsArray = [
-  { value: "event-overview", text: "Event Overview", component: <Overview /> },
-  { value: "timeline", text: "Events Timeline", component: "Events Timeline" },
-  {
-    value: "rules-and-regulations",
-    text: "Rules and Regulations",
-    component: <Rule />,
-  },
-  { value: "prizes", text: "Prizes", component: <Prize /> },
-  { value: "about sponsor", text: "Our Sponsors", component: <Sponsor /> },
-];
+interface EventsBannerProps {
+  eventData?: {
+    eventName: string;
+    longDesc: string;
+    overview: string;
+    rules: string[];
+    prizes: string[];
+    eventStructure: string[];
+    schedule: {
+      eventStart: string;
+      eventEnd: string;
+      registrationStart: string;
+      registrationEnd: string;
+      submissionStart: string;
+      submissionEnd: string;
+    };
+  };
+}
 
-export const TabsComponent: React.FC = () => {
+export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
+  const tabsArray = [
+    {
+      value: "event-overview",
+      text: "Event Overview",
+      component: <Overview eventData={eventData} />,
+    },
+    {
+      value: "timeline",
+      text: "Events Timeline",
+      component: "Events Timeline",
+    },
+    {
+      value: "rules-and-regulations",
+      text: "Rules and Regulations",
+      component: (
+        <div>
+          {eventData?.rules?.map((rule, idx) => (
+            <p key={idx}>
+              {rule}
+            </p>
+          ))}
+        </div>
+      ),
+    },
+    {
+      value: "prizes",
+      text: "Prizes",
+      component: (
+        <div>
+          {eventData?.prizes?.map((prize, idx) => (
+            <p key={idx}>
+              {prize}
+            </p>
+          ))}
+        </div>
+      ),
+    },
+    {
+      value: "event-structure",
+      text: "Event Structure",
+      component: (
+        <div>
+          {eventData?.eventStructure?.map((structure, idx) => (
+            <p key={idx}>
+              {structure}
+            </p>
+          ))}
+        </div>
+      ),
+    },
+    { value: "about-sponsor", text: "Our Sponsors", component: <Sponsor /> },
+  ];
+
+  useEffect(() => {
+    console.log("EventData in TabsComponent:", eventData);
+
+    if (!eventData) {
+      console.warn("No event data available");
+    } else if (!eventData.schedule) {
+      console.warn("No schedule data available in eventData");
+    }
+  }, [eventData]);
+
   return (
     <div className="w-[80%] mx-auto">
       <Tabs defaultValue="event-overview" className="w-full">
@@ -37,7 +106,40 @@ export const TabsComponent: React.FC = () => {
         <div className="tabs-contents p-4 bg-gray-50 dark:bg-gray-900 rounded-b-lg">
           {tabsArray.map((tab, idx) => (
             <TabsContent key={`content_${idx}`} value={tab?.value}>
-              {tab.component}
+              {tab?.value === "timeline" && eventData?.schedule ? (
+                <>
+                  <p>
+                    Event Start:{" "}
+                    {dayjs(eventData?.schedule?.eventStart).format(
+                      "	MMMM D, YYYY"
+                    )}
+                  </p>
+                  <p>
+                    Event End:{" "}
+                    {dayjs(eventData.schedule.eventEnd).format("MMMM D, YYYY")}
+                  </p>
+                  <p>
+                    Registration Start:{" "}
+                    {dayjs(eventData.schedule.registrationStart).format(
+                      "MMMM D, YYYY"
+                    )}
+                  </p>
+                  <p>
+                    Submission Start:{" "}
+                    {dayjs(eventData.schedule.submissionStart).format(
+                      "	MMMM D, YYYY"
+                    )}
+                  </p>
+                  <p>
+                    Submission End:{" "}
+                    {dayjs(eventData.schedule.submissionEnd).format(
+                      "MMMM D, YYYY"
+                    )}
+                  </p>
+                </>
+              ) : (
+                tab?.component
+              )}
             </TabsContent>
           ))}
         </div>
