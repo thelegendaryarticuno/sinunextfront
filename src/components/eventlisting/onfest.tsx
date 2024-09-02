@@ -31,10 +31,10 @@ const OnFest: React.FC = () => {
       eventName: event?.eventName,
       eventTagLine: event?.eventTagline,
       eventStatus: event?.status || "Upcoming",
-      registrationStartDate: event?.registrationStartDate,
-      registrationEndDate: event?.registrationEndDate,
-      eventStartDate: event?.eventStartDate,
-      eventEndDate: event?.eventEndDate,
+      registrationStartDate: event?.registrationStart,
+      registrationEndDate: event?.registrationEnd,
+      eventStartDate: event?.eventStart,
+      eventEndDate: event?.eventEnd,
       collaborationLogo: "/logo/logo.png",
       eventId: event?.eventId,
     }));
@@ -68,7 +68,7 @@ const OnFest: React.FC = () => {
         </div>
       ) : (
         <p className="text-center text-lg font-semibold">
-          No events right now. Join us and stay tuned for more.
+          Coming Soon!
         </p>
       )}
     </div>
