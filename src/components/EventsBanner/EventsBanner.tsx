@@ -4,13 +4,21 @@ import Image from "next/image";
 import PulsatingButton from "../ui/pulsatingbutton";
 import dayjs from "dayjs";
 
+interface EventsBannerProps {
+  eventData: any;
+  lightImage?: string;
+  darkImage?: string;
+  logo?: string;
+  rightImage?: string;
+}
+
 const EventsBanner = ({
   eventData,
   lightImage = "/events/hackathon-35vh.jpg",
   darkImage = "/events/hackathon-35vh.jpg",
   logo = "/events/Hive Pen.png",
   rightImage = "/events/3D_illustrations-removebg-preview.png",
-}) => {
+}: EventsBannerProps) => {
   const { resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
 
