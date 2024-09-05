@@ -92,7 +92,7 @@ const EventCard: React.FC<EventCardProps> = ({
         </Link>
         <div className={`flex items-center text-xs ${cardTextColor} mt-5`}>
           <span>In collaboration with </span>
-          <img src={collaborationLogo} alt="Collaboration Logo" className="w-16 h-10 mr-3" />
+          <img src={collaborationLogo} alt="Collaboration Logo" className="w-12 h-8 mr-3" />
         </div>
       </div>
     </div>

@@ -2,10 +2,11 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
-import Header from "@/components/Header/Header";
+import Header from "@/components/Header/header";
 import Footer from "@/components/Footer/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Head from "next/head";
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -15,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Head>
           <meta httpEquiv="Content-Language" content="en" />
         </Head>
-        <Header />
+        <Header/>
         <Component {...pageProps} />
         <Footer />
       </ThemeProvider>
