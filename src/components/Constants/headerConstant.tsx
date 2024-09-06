@@ -50,11 +50,11 @@ export const MobileNavLinks: React.FC<MobileNavLinksProps> = ({ setIsMenuOpen })
         </div>
       </Link>
     ))}
-    <Link href="/signin" onClick={() => setIsMenuOpen(false)}>
+    {/* <Link href="/signin" onClick={() => setIsMenuOpen(false)}>
       <div className="flex items-center justify-center p-3 rounded bg-orange-400 dark:bg-orange-600 hover:bg-orange-800 dark:hover:bg-orange-800 text-black dark:text-white">
         Sign In
       </div>
-    </Link>
+    </Link> */}
   </div>
 );
 

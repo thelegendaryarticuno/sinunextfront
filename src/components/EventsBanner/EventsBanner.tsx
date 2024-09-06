@@ -3,6 +3,7 @@ import { useTheme } from "next-themes";
 import Image from "next/image";
 import PulsatingButton from "../ui/pulsatingbutton";
 import dayjs from "dayjs";
+import { useRouter } from "next/router";
 
 interface EventsBannerProps {
   eventData: any;
@@ -21,6 +22,7 @@ const EventsBanner = ({
 }: EventsBannerProps) => {
   const { resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     setIsDark(resolvedTheme === "dark");
@@ -102,7 +104,18 @@ const EventsBanner = ({
               </div>
             </div>
             <div className="max-w-60">
-              <PulsatingButton />
+              {eventData?.eventId === "hiveweb3hackathon" ? (
+                <PulsatingButton
+                  text="Register Now"
+                  onClick={() =>
+                    router.push(
+                      "/events/hiveweb3hackathon/registerHiveWeb3Hackathon"
+                    )
+                  }
+                />
+              ) : (
+                <PulsatingButton text="Coming Soon" />
+              )}
             </div>
           </div>
           <div className="mt-6 ml-auto hidden lg:block">
