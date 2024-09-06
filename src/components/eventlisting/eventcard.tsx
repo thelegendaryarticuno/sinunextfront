@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from 'next-themes';
 import dayjs from 'dayjs';
-import Link from 'next/link'; // Import the Link component from Next.js
+import Link from 'next/link';
 
 interface EventCardProps {
   imageSrc: string;
@@ -14,7 +14,7 @@ interface EventCardProps {
   eventStartDate: string;
   eventEndDate: string;
   collaborationLogo: string;
-  eventId: string;  // Add eventId as a prop
+  eventId: string;
 }
 
 const EventCard: React.FC<EventCardProps> = ({
@@ -28,7 +28,7 @@ const EventCard: React.FC<EventCardProps> = ({
   eventStartDate,
   eventEndDate,
   collaborationLogo,
-  eventId,  // Destructure eventId
+  eventId,
 }) => {
   const { theme } = useTheme();
   const currentDate = dayjs();
@@ -45,17 +45,14 @@ const EventCard: React.FC<EventCardProps> = ({
     dateLabel = 'Registration starts:';
     dateInfo = regStart.format("D MMMM, YYYY");
   } else if (currentDate.isBefore(regEnd)) {
-    dateLabel = 'Registration ends:';
-    dateInfo = regEnd.format('DD-MMM-YYYY');
-  } else if (currentDate.isBefore(eventStart)) {
-    dateLabel = 'Event starts:';
-    dateInfo = eventStart.format('DD-MMM-YYYY');
+    dateLabel = 'Registration ends on:';
+    dateInfo = regEnd.format('D MMMM, YYYY');
   } else if (currentDate.isBefore(eventEnd)) {
     dateLabel = 'Event ends:';
-    dateInfo = eventEnd.format('DD-MMM-YYYY');
+    dateInfo = eventEnd.format('D MMMM, YYYY');
   } else {
     dateLabel = 'Event closed on:';
-    dateInfo = eventEnd.format('DD-MMM-YYYY');
+    dateInfo = eventEnd.format('D MMMM, YYYY');
   }
 
   const badgeBgColor = theme === "dark" ? "bg-white" : "bg-black";
@@ -66,7 +63,7 @@ const EventCard: React.FC<EventCardProps> = ({
 
   return (
     <div
-      className={`flex flex-col w-[95%] ${cardBackgroundColor} ${cardBorderColor} border rounded-md shadow-md p-4 relative transform transition-transform duration-300 hover:scale-105 mx-auto h-[100%] min-w-19 md:max-w-22`}
+      className={`flex flex-col w-[95%] ${cardBackgroundColor} ${cardBorderColor} border rounded-md shadow-md p-4 relative transform transition-transform duration-300 hover:scale-105 mx-auto h-full min-w-[22rem] md:max-w-[22rem]`}
     >
       <div className="relative w-full h-40 rounded-md overflow-hidden">
         <img
@@ -88,15 +85,14 @@ const EventCard: React.FC<EventCardProps> = ({
       </div>
       
       <div className="flex flex-col md:flex-row-reverse justify-between items-center">
-        {/* Wrap the button with the Link component */}
-        <Link href={`/events/${eventId}`} passHref className="bg-orange-400 dark:bg-orange-600 hover:bg-orange-800 dark:hover:bg-orange-800 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-          
+        <Link href={`/events/${eventId}`} passHref>
+          <button className="bg-orange-400 dark:bg-orange-600 hover:bg-orange-800 dark:hover:bg-orange-800 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             Show more
-          
+          </button>
         </Link>
         <div className={`flex items-center text-xs ${cardTextColor} mt-5`}>
           <span>In collaboration with </span>
-          <img src={collaborationLogo} alt="Collaboration Logo" className="ml-2 w-12 h-auto" />
+          <img src={collaborationLogo} alt="Collaboration Logo" className="w-16 h-10 mr-3" />
         </div>
       </div>
     </div>

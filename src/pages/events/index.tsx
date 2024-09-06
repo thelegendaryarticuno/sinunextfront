@@ -1,10 +1,14 @@
 import EventsBanner from "@/components/EventsBanner/EventsBanner";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
-import EventCard from "@/components/eventlisting/eventcard";
 import EventOrganizer from "@/components/eventlisting/eventorganizer";
-import OnFest from "@/components/eventlisting/onfest";
+import Image from "next/image";
+import Link from "next/link";
+import { useTheme } from "next-themes";
 
 const Events: React.FC = () => {
+  const { resolvedTheme } = useTheme();
+  const logoSrc = resolvedTheme === "dark" ? "/events/dark.svg" : "/events/light.svg";
+
   return (
     <>
       <SEOComponent
@@ -23,22 +27,32 @@ const Events: React.FC = () => {
         PageOGLImage="/images/dark.jpg"
         PageTitle="Events | siNUsoid v8"
       />
-      <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden mt-20">
-        <video
-          className="video-element"
-          width={1500}
-          autoPlay
-          loop
-          muted
-          style={{ filter: "blur(8px)" }}
-        >
-          <source src="/sponsorBG/video.mp4" type="video/mp4" />
-        </video>
+      <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden mt-16">
+        <Image
+          src="/events/events-hero.webp"
+          alt="Events Background"
+          layout="fill"
+          objectFit="cover"
+          quality={100}
+          className="absolute inset-0 z-[-1]"
+        />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4 font-bold">
           <h1 className="text-6xl font-bold mb-8">Events</h1>
         </div>
       </div>
-      <EventOrganizer/>
+      <Link href='/events/hiveweb3hackathon'>
+        <div className="relative flex justify-center items-center w-full h-[30vh] mt-2">
+          <Image
+            src={logoSrc}
+            alt="Theme Specific Logo"
+            layout="fill"
+            objectFit="fill"
+            className="p-0"
+          />
+        </div>
+      </Link>
+
+      <EventOrganizer />
     </>
   );
 };
