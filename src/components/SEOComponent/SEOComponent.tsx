@@ -13,12 +13,14 @@ export default function SEOComponent({
   PageDescription = "siNUsoid v8",
   PageKeywords = ["siNUsoid", "techfest", "niituniversity"],
   PageOGLImage = "/logo/logo.png",
-  PageURL="sinusoid.in"
+  PageURL = "sinusoid.in",
 }: SEOComponentProps) {
   return (
     <Head>
       <title>{`${PageTitle}` || "siNUsoid v8"}</title>
       <meta name="description" content={PageDescription || "siNUsoid v8"} />
+
+      <meta httpEquiv="Content-Language" content="en" />
       <link rel="icon" href="/socialLogo.jpg" />
       <meta
         name="keywords"
