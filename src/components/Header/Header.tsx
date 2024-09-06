@@ -1,4 +1,3 @@
-// src/components/Header.tsx
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { FaBars } from "react-icons/fa";
@@ -6,7 +5,7 @@ import { BrandBar, BrandLogo } from "./stylecomponents";
 import { ModeToggle } from "../ui/modetoggle";
 import NavLinks, { MobileNavLinks } from "../Constants/headerConstant";
 import Image from "next/image";
-
+import Link from "next/link";
 
 const Header: React.FC = () => {
   const { theme, setTheme } = useTheme();
@@ -27,8 +26,18 @@ const Header: React.FC = () => {
             <Image src='/logo/logo.png' alt="siNUsoid Logo" width={40} height={4} />
             <Image src='/logo/textlogo.png' alt="siNUsoid Logo" width={150} height={50} className="ml-2"/>
           </BrandLogo>
+          <NavLinks />
         </BrandBar>
-        <NavLinks />
+
+        <div className="flex space-x-4 items-center">
+          {/* <Link href="/signin">
+            <div className="hidden md:block w-24 text-center p-2 rounded bg-orange-400 dark:bg-orange-600 hover:bg-orange-800 dark:hover:bg-orange-800 text-black dark:text-white">
+              Sign In
+            </div>
+          </Link> */}
+          <ModeToggle />
+        </div>
+
         <div className="lg:hidden pr-4">
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -36,9 +45,6 @@ const Header: React.FC = () => {
           >
             <FaBars />
           </button>
-        </div>
-        <div className="space-x-4">
-          <ModeToggle />
         </div>
       </nav>
       {isMenuOpen && <MobileNavLinks isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />}
