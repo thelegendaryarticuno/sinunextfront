@@ -45,7 +45,7 @@ const RegisterHiveWeb3Hackathon: React.FC = () => {
             <div className="hidden md:flex flex-col justify-center items-center w-[50%]">
               <Image
                 className="rounded-lg"
-                src="/events/hackathon-35vh.jpg"
+                src="/images/hiveHackathon.jpg"
                 alt="Hackathon"
                 width={500}
                 height={500}
