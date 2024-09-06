@@ -46,11 +46,11 @@ const Events: React.FC = () => {
         PageDescription={eventData?.description || "Default description"}
         PageKeywords={["sinusoid", "techfest", eventData?.title || ""]}
         PageOGLImage={eventData?.image || "/logo/logo.png"}
-        PageTitle={eventData?.title || "Event Title"}
+        PageTitle={eventData?.eventName || "Event Title"}
       />
       <EventsBanner eventData={eventData} />
       <TabsComponent eventData={eventData} />
-      <SponsorMarquee />
+      <SponsorMarquee/>
     </>
   );
 };

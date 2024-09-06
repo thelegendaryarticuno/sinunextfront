@@ -1,62 +1,66 @@
 import React, { useEffect, useState } from 'react';
-import EventCard from './eventcard';
+import WorkshopCard from './workshopcard';
 import axios from 'axios';
 
 const Workshop: React.FC = () => {
-  const [events, setEvents] = useState<any[]>([]);
+  const [workshops, setWorkshops] = useState<any[]>([]);
   const [fetchedData, setFetchedData] = useState<any[]>([]);
 
-  const fetchAllEvents = async () => {
+  const fetchAllWorkshops = async () => {
     try {
       const response = await axios.get('https://api.sinusoid.in/workshops/');
-      const publishedEvents = response?.data.filter((event: any) => event?.published === false);
-      setFetchedData(publishedEvents);
+      const publishedWorkshops = response?.data.filter((workshop: any) => workshop?.published === true);
+      setFetchedData(publishedWorkshops);
     } catch (error) {
-      console.error("Error fetching events:", error);
+      console.error("Error fetching workshops:", error);
       setFetchedData([]);
     }
   };
 
   useEffect(() => {
-    fetchAllEvents();
+    fetchAllWorkshops();
   }, []);
 
   useEffect(() => {
-    const formattedEvents = fetchedData.map((event: any) => ({
-      imageSrc: "/images/light.jpg",
-      altText: "Google AI Essentials",
-      eventName: event?.workshopName,
-      eventTagLine: event?.workshopTagline,
-      eventStatus: event?.status || "Upcoming",
-      registrationStartDate: event?.workshopStart,
-      registrationEndDate: event?.registrationEndDate,
-      eventStartDate: event?.eventStartDate,
-      eventEndDate: event?.eventEndDate,
-      collaborationLogo: "/logo/logo.png",
-      eventId: event?.workshopId,
-    }));
-    setEvents(formattedEvents);
+    const formattedWorkshops = fetchedData.map((workshop: any) => {
+      // Extract the first collaborator's data if it exists
+      const firstCollaboration = workshop?.collaboration?.[0] || {};
+
+      // Extract the start date from the schedule object
+      const workshopStartDate = workshop?.schedule?.workshopStart || null;
+
+      return {
+        imageSrc: "/images/light.jpg",
+        altText: workshop?.workshopName || "Workshop Image",
+        workshopName: workshop?.workshopName,
+        workshopTagLine: workshop?.workshopTagline,
+        workshopStartDate: workshopStartDate, // Use the extracted start date
+        workshopStartTime: workshop?.workshopStartTime,
+        collaborationLogo: firstCollaboration?.logoSrc || "/logo/defaultLogo.png", // Provide a default logo if none is found
+        collaborationName: firstCollaboration?.name || "Collaborator",
+        workshopId: workshop?.workshopId,
+      };
+    });
+    setWorkshops(formattedWorkshops);
   }, [fetchedData]);
 
   return (
     <div className="flex flex-wrap justify-center gap-10 mt-16 mb-4 px-4">
-      {events.map((event, index) => (
+      {workshops.map((workshop, index) => (
         <div
           key={index}
           className="w-full md:w-2/3 lg:w-1/3 flex justify-center mb-4 px-2"
         >
-          <EventCard
-            imageSrc={event?.imageSrc}
-            altText={event?.altText}
-            eventName={event?.eventName}
-            eventTagLine={event?.eventTagLine}
-            eventStatus={event?.eventStatus}
-            registrationStartDate={event?.registrationStartDate}
-            registrationEndDate={event?.registrationEndDate}
-            eventStartDate={event?.eventStartDate}
-            eventEndDate={event?.eventEndDate}
-            collaborationLogo={event?.collaborationLogo}
-            eventId={event?.eventId}
+          <WorkshopCard
+            imageSrc={workshop?.imageSrc}
+            altText={workshop?.altText}
+            workshopName={workshop?.workshopName}
+            workshopTagLine={workshop?.workshopTagLine}
+            workshopStartDate={workshop?.workshopStartDate}
+            workshopStartTime={workshop?.workshopStartTime}
+            collaborationLogo={workshop?.collaborationLogo}
+            collaborationName={workshop?.collaborationName}
+            workshopId={workshop?.workshopId}
           />
         </div>
       ))}

@@ -64,12 +64,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                {/* <Link
+                <Link
                   href="events"
                   className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white"
                 >
                   Events
-                </Link> */}
+                </Link> 
               </li>
               <li>
                 <Link
