@@ -2,10 +2,11 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
-import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import Head from "next/head";
+import Header from "@/components/Header/Header";
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
