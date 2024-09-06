@@ -5,7 +5,6 @@ import Hero from "@/components/Hero/Hero";
 import { SponsorMarquee } from "@/components/Marquee/marquee";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
 import React from "react";
-import Head from "next/head";
 
 
 const Home: React.FC = () => {
