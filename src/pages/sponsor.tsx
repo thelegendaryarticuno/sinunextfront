@@ -55,11 +55,11 @@ const Sponsors: React.FC = () => {
             <div className="relative w-full lg:w-[30%] flex flex-col items-center justify-center lg:border-l-4 border-zinc-50 dark:border-zinc-950">
               <div>
                 <Image
-                  src="/sponsorLogo/Ubon.webp"
+                  src="/images/HiveVerticalLogo.png"
                   alt="titleSponsorLogo"
-                  width={150}
-                  height={150}
-                  className="object-contain p-4 z-20"
+                  width={450}
+                  height={450}
+                  className="object-contain z-20"
                 />
               </div>
             </div>

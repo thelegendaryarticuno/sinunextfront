@@ -37,9 +37,6 @@ const Hero: React.FC<HeroProps> = ({
 
   const bannerImage = isDark ? currentDarkImg : currentLightImg;
 
-  const logoSrc = isDark
-    ? "/events/dark.svg" // Dark mode logo
-    : "/events/light.svg"; // Light mode logo
 
   return (
     <div className="w-full h-screen p-0 m-0 mt-16">
@@ -67,11 +64,11 @@ const Hero: React.FC<HeroProps> = ({
       <Link href='/events/hiveweb3hackathon'>
         <div className="relative flex justify-center items-center w-full h-[30vh] mt-2">
           <Image
-            src={logoSrc}
+            src={isDark ? "/events/dark.svg" : "/events/light.svg"}
             alt="Theme Specific Logo"
             layout="fill"
             objectFit="fill"
-            className="p-0"
+            className=""
           />
         </div>
       </Link>
