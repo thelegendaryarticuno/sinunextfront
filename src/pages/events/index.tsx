@@ -51,8 +51,7 @@ const Events: React.FC = () => {
           />
         </div>
       </Link>
-
-      <EventOrganizer />
+     <EventOrganizer />
     </>
   );
 };
