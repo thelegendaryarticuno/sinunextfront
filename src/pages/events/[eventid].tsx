@@ -50,7 +50,7 @@ const Events: React.FC = () => {
       />
       <EventsBanner eventData={eventData} />
       <TabsComponent eventData={eventData} />
-      <SponsorMarquee />
+      <SponsorMarquee/>
     </>
   );
 };

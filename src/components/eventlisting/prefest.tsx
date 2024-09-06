@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import EventCard from './eventcard';
 import axios from 'axios';
+import { useTheme } from 'next-themes';
 
 const OnFest: React.FC = () => {
   const [events, setEvents] = useState<any[]>([]);
   const [fetchedData, setFetchedData] = useState<any[]>([]);
+  const { resolvedTheme } = useTheme();
+  const [isDark, setIsDark] = useState(false);
 
   const fetchAllEvents = async () => {
     try {
       const response = await axios.get('https://api.sinusoid.in/events/');
-      // Filter for events with published status as false
+      // Filter for events with published status as true
       const filteredEvents = response?.data.filter((event: any) =>
         event?.published === true
       );
@@ -21,25 +24,29 @@ const OnFest: React.FC = () => {
   };
 
   useEffect(() => {
+    setIsDark(resolvedTheme === 'dark');
+  }, [resolvedTheme]);
+
+  useEffect(() => {
     fetchAllEvents();
   }, []);
 
   useEffect(() => {
     const formattedEvents = fetchedData.map((event: any) => ({
-      imageSrc: "/images/light.jpg",
+      imageSrc: isDark ? "/images/dark.jpg" : "/images/light.jpg", // Use appropriate image based on theme
       altText: "Google AI Essentials",
       eventName: event?.eventName,
       eventTagLine: event?.eventTagline,
       eventStatus: event?.status || "Upcoming",
-      registrationStartDate: event?.schedule?.registrationStart, // Accessing dates from schedule
-      registrationEndDate: event?.schedule?.registrationEnd,     // Accessing dates from schedule
-      eventStartDate: event?.schedule?.eventStart,               // Accessing dates from schedule
-      eventEndDate: event?.schedule?.eventEnd,                   // Accessing dates from schedule
-      collaborationLogo: "/events/Hive Pen.png",
+      registrationStartDate: event?.schedule?.registrationStart,
+      registrationEndDate: event?.schedule?.registrationEnd,
+      eventStartDate: event?.schedule?.eventStart,
+      eventEndDate: event?.schedule?.eventEnd,
+      collaborationLogo: isDark ? "/events/Hive Pen.png" : "/events/1.png", // Use appropriate logo based on theme
       eventId: event?.eventId,
     }));
     setEvents(formattedEvents);
-  }, [fetchedData]);
+  }, [fetchedData, isDark]);
 
   return (
     <div className="flex flex-col items-center mt-16 mb-4 px-4">
@@ -68,7 +75,7 @@ const OnFest: React.FC = () => {
         </div>
       ) : (
         <p className="text-center text-lg font-semibold">
-          No events right now. Join us and stay tuned for more.
+          Loading....
         </p>
       )}
     </div>
