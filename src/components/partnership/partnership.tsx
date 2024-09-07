@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import axios from "axios";
 
-const   Partnership: React.FC = () => {
+const Partnership: React.FC = () => {
   const defaultFormData = {
     name: "",
     email: "",

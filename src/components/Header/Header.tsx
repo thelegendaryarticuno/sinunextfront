@@ -30,11 +30,11 @@ const Header: React.FC = () => {
         </BrandBar>
 
         <div className="flex space-x-4 items-center">
-          <Link href="/signin">
+          {/* <Link href="/signin">
             <div className="hidden md:block w-24 text-center p-2 rounded bg-orange-400 dark:bg-orange-600 hover:bg-orange-800 dark:hover:bg-orange-800 text-black dark:text-white">
               Sign In
             </div>
-          </Link>
+          </Link> */}
           <ModeToggle />
         </div>
 

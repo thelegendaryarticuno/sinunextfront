@@ -1,25 +1,20 @@
 // src/pages/_app.tsx
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
-import { ThemeProvider } from "next-themes";
 import Footer from "@/components/Footer/Footer";
-import { GoogleAnalytics } from "@next/third-parties/google";
-import Head from "next/head";
 import Header from "@/components/Header/Header";
-
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { ThemeProvider } from "next-themes";
+import type { AppProps } from "next/app";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <GoogleAnalytics gaId="GTM-58KNP2JR" />
-      <ThemeProvider defaultTheme="dark" attribute="class">
-        <Head>
-          <meta httpEquiv="Content-Language" content="en" />
-        </Head>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </ThemeProvider>
+        <ThemeProvider defaultTheme="dark" attribute="class">
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </ThemeProvider>
     </>
   );
 }
