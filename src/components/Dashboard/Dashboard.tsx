@@ -8,7 +8,6 @@ export default function WelcomeComponent() {
               <span className="ml-2" role="img" aria-label="wave">👋</span>
             </h1>
             <div className="dark:text-orange-200 text-gray-800 text-2xl">
-              <p><span className="font-semibold">Age:</span> 25</p>
               <p><span className="font-semibold">University:</span> NIIT University</p>
               <p><span className="font-semibold">Place:</span> London</p>
             </div>
