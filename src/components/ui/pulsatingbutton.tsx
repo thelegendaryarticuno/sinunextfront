@@ -8,12 +8,14 @@ interface PulsatingButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   pulseColor?: string;
   duration?: string;
+  text?: string;
 }
 
 export default function PulsatingButton({
   className,
   pulseColor = "#0096ff",
   duration = "1.5s",
+  text = "Text Here",
   ...props
 }: PulsatingButtonProps) {
   const { theme } = useTheme();
@@ -36,7 +38,7 @@ export default function PulsatingButton({
       }
       {...props}
     >
-      <div className="relative z-10">Coming Soon</div>
+      <div className="relative z-10">{text}</div>
       <div className="absolute top-1/2 left-1/2 w-full h-full rounded-lg bg-inherit animate-pulse -translate-x-1/2 -translate-y-1/2" />
     </button>
   );
