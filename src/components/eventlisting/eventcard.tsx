@@ -43,7 +43,7 @@ const EventCard: React.FC<EventCardProps> = ({
 
   if (currentDate.isBefore(regStart)) {
     dateLabel = 'Registration starts:';
-    dateInfo = regStart.format("D MMMM, YYYY");
+    dateInfo = regStart.format('D MMMM, YYYY');
   } else if (currentDate.isBefore(regEnd)) {
     dateLabel = 'Registration ends on:';
     dateInfo = regEnd.format('D MMMM, YYYY');
@@ -55,11 +55,12 @@ const EventCard: React.FC<EventCardProps> = ({
     dateInfo = eventEnd.format('D MMMM, YYYY');
   }
 
-  const badgeBgColor = theme === "dark" ? "bg-white" : "bg-black";
-  const badgeTextColor = theme === "dark" ? "text-black" : "text-white";
-  const cardBackgroundColor = theme === "dark" ? "bg-gray-800" : "bg-zinc-200";
-  const cardTextColor = theme === "dark" ? "text-gray-200" : "text-orange-800";
-  const cardBorderColor = theme === "light" ? "border-orange-900" : "";
+  // Styling for themes
+  const badgeBgColor = theme === 'dark' ? 'bg-white' : 'bg-black';
+  const badgeTextColor = theme === 'dark' ? 'text-black' : 'text-white';
+  const cardBackgroundColor = theme === 'dark' ? 'bg-gray-800' : 'bg-zinc-200';
+  const cardTextColor = theme === 'dark' ? 'text-gray-200' : 'text-orange-800';
+  const cardBorderColor = theme === 'light' ? 'border-orange-900' : '';
 
   return (
     <div
@@ -77,23 +78,28 @@ const EventCard: React.FC<EventCardProps> = ({
           {eventStatus}
         </div>
       </div>
-      <div className="flex-grow mt-4 mb-6">
+      <div className="flex-grow mt-4 mb-2">
         <h3 className={`text-lg font-bold ${cardTextColor}`}>{eventName}</h3>
         <p className={`mt-1 ${cardTextColor}`}>{eventTagLine}</p>
         <p className={`mt-2.5 ${cardTextColor}`}>{dateLabel}</p>
         <p className={`font-bold ${cardTextColor}`}>{dateInfo}</p>
       </div>
-      
-      <div className="flex flex-col md:flex-row-reverse justify-between items-center">
+      <div className="flex items-center justify-center w-full my-1">
+        <span className={`text-sm ${cardTextColor} mr-2`}>
+          In collaboration with
+        </span>
+        <img
+          src={collaborationLogo}
+          alt="Collaboration Logo"
+          className="w-[4.5rem] h-8 object-contain"
+        />
+      </div>
+      <div className="flex justify-center mt-2">
         <Link href={`/events/${eventId}`} passHref>
           <button className="bg-orange-400 dark:bg-orange-600 hover:bg-orange-800 dark:hover:bg-orange-800 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             Show more
           </button>
         </Link>
-        <div className={`flex items-center text-xs ${cardTextColor} mt-5`}>
-          <span>In collaboration with </span>
-          <img src={collaborationLogo} alt="Collaboration Logo" className="w-12 h-8 mr-3" />
-        </div>
       </div>
     </div>
   );

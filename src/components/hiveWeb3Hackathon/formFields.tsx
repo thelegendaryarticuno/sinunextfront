@@ -76,6 +76,7 @@ export const FirstNameLastName: React.FC<GenericSection> = ({
     </>
   );
 };
+
 export const EmailPhoneNumber: React.FC<GenericSection> = ({
   setSection,
   hackathonForm,
@@ -226,6 +227,7 @@ export const TeamDeatils: React.FC<GenericSection> = ({
     </>
   );
 };
+
 export const TeamMembersNumber: React.FC<GenericSection> = ({
   setSection,
   hackathonForm,
@@ -252,10 +254,12 @@ export const TeamMembersNumber: React.FC<GenericSection> = ({
           onValueChange={(e: string) => onMemberValueChange(e)}
           required
         >
-          <SelectTrigger>
+          <SelectTrigger
+            className="bg-gray-300 text-black hover:bg-gray-300"
+          >
             <SelectValue placeholder={"Select number of team members"} />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="bg-gray-300 text-black">
             <SelectItem value="1">1</SelectItem>
             <SelectItem value="2">2</SelectItem>
             <SelectItem value="3">3</SelectItem>
@@ -293,44 +297,55 @@ export const TeamMembers: React.FC<TeamMembersProps> = ({
   return (
     <>
       {hackathonForm?.teamMembers?.map((member: any, index: number) => (
-        <div key={index} className="flex flex-col gap-4 lg:flex-row ">
-          <h3 className="lg:w-[50%] w-[100%]">Team Member {index + 1}</h3>
+        <div key={index} className="flex flex-col gap-4 lg:flex-row mb-6">
+          {/* Adjust spacing here */}
+          <h3 className="lg:w-[50%] w-[100%] text-lg mb-4">
+            Team Member {index + 1}
+          </h3>
 
           <div className="lg:w-[50%] w-[100%]">
-            <Label htmlFor="name">Name</Label>
+            <Label htmlFor={`name-${index}`} className="mb-2">
+              Name
+            </Label>
             <Input
               type="text"
-              id="name"
+              id={`name-${index}`}
               name="name"
               value={member?.name}
-              placeholder="enter team member name"
-              onChange={(e) =>
-                setHackathonForm((prev: any) => {
-                  const teamMembers = [...prev?.teamMembers];
-                  teamMembers[index].name = e?.target?.value;
-                  return { ...prev, teamMembers };
-                })
-              }
+              placeholder="Enter team member name"
+              onChange={(e) => {
+                const updatedMembers = [...hackathonForm?.teamMembers];
+                updatedMembers[index].name = e?.target?.value;
+                setHackathonForm((prev: any) => ({
+                  ...prev,
+                  teamMembers: updatedMembers,
+                }));
+              }}
+              className="mt-2"
               pattern="[A-Za-z]+"
               title="Please enter a valid name"
               required
             />
           </div>
           <div className="lg:w-[50%] w-[100%]">
-            <Label htmlFor="emailId">Email</Label>
+            <Label htmlFor={`emailId-${index}`} className="mb-2">
+              Email
+            </Label>
             <Input
               type="email"
-              id="emailId"
+              id={`emailId-${index}`}
               name="emailId"
               value={member?.emailId}
-              placeholder="enter team member email"
-              onChange={(e) =>
-                setHackathonForm((prev: any) => {
-                  const teamMembers = [...prev?.teamMembers];
-                  teamMembers[index].emailId = e?.target?.value;
-                  return { ...prev, teamMembers };
-                })
-              }
+              placeholder="Enter team member email"
+              onChange={(e) => {
+                const updatedMembers = [...hackathonForm?.teamMembers];
+                updatedMembers[index].emailId = e?.target?.value;
+                setHackathonForm((prev: any) => ({
+                  ...prev,
+                  teamMembers: updatedMembers,
+                }));
+              }}
+              className="mt-2"
               pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
               title="Please enter a valid email"
               required
@@ -346,12 +361,8 @@ export const TeamMembers: React.FC<TeamMembersProps> = ({
           Previous
         </Button>
         <Button
-          onClick={() => submitForm()}
+          onClick={submitForm}
           className="bg-blue-500 text-white max-w-xs min-w-[220px]"
-          disabled={hackathonForm?.teamMembers?.some(
-            (member: any) =>
-              !member?.name || !member?.emailId || !member?.emailId.match
-          )}
         >
           Submit
         </Button>
