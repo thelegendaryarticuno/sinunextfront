@@ -7,7 +7,7 @@ import { useTheme } from "next-themes";
 
 const Events: React.FC = () => {
   const { resolvedTheme } = useTheme();
-  const logoSrc = resolvedTheme === "dark" ? "/events/dark.svg" : "/events/light.svg";
+  const logoSrc = resolvedTheme === "dark" ? "/events/Dark30vh.png" : "/events/Light30vh.png";
 
   return (
     <>
