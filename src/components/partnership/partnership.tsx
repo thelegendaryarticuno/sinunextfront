@@ -63,12 +63,10 @@ const Partnership: React.FC = () => {
 
   return (
     <div className="flex flex-col-reverse md:flex-col lg:flex-row items-center justify-between w-full p-8 lg:p-16">
-      {/* Vertical/Horizontal Text for siNUsoid */}
       <div className="lg:text-3xl dark:text-white text-black px-10 lg:[writing-mode:vertical-lr] lg:[text-orientation:mixed] hidden lg:block relative lg:-top-20">
         siNUsoid
       </div>
 
-      {/* Content */}
       <div className="lg:w-1/2 w-full lg:mr-16">
         <h1 className="text-4xl lg:text-6xl font-bold mb-8 lg:mb-12">
           BECOME A PARTNER
