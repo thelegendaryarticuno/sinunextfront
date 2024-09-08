@@ -11,7 +11,7 @@ import {
   HoverCardTrigger,
   HoverCardContent,
 } from "../ui/hover-card";
-import SignIn from "../SignIn/signin";
+// import SignIn from "../SignIn/signin";
 
 export const navLinkArray = [
   { href: "/about", text: "About", icon: <FaInfoCircle /> },
@@ -107,7 +107,7 @@ export const MobileNavLinks: React.FC<MobileNavLinksProps> = ({
         </button> */}
       </div>
 
-      {isSignInOpen && <SignIn setIsSignInOpen={setIsSignInOpen} />}
+      {/* {isSignInOpen && <SignIn setIsSignInOpen={setIsSignInOpen} />} */}
     </>
   );
 };

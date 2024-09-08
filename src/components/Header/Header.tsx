@@ -5,7 +5,7 @@ import { BrandBar, BrandLogo } from "./stylecomponents";
 import { ModeToggle } from "../ui/modetoggle";
 import NavLinks, { MobileNavLinks } from "../Constants/headerConstant";
 import Image from "next/image";
-import SignIn from "../SignIn/signin";
+// import SignIn from "../SignIn/signin";
 import Link from "next/link";
 
 const Header: React.FC = () => {
@@ -82,7 +82,7 @@ const Header: React.FC = () => {
         )}
       </header>
 
-      {isSignInOpen && <SignIn setIsSignInOpen={setIsSignInOpen} />}
+      {/* {isSignInOpen && <SignIn setIsSignInOpen={setIsSignInOpen} />} */}
     </>
   );
 };
