@@ -16,7 +16,7 @@ const reviews = [
   { img: "/sponsorLogo/SKOAR.webp", alt:"SKOAR" },
   { img: "/sponsorLogo/TpLink.webp", alt:"TpLink" },
   { img: "/sponsorLogo/Ubon.webp", alt:"Ubon" },
-  { img: "/sponsorLogo/Zomato.webp", alt:"Zomato" },
+  { img: "/sponsorLogo/studCops.webp", alt:"StudCops" },
 ];
 
 const firstRow = reviews.slice(0, 14);

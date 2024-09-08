@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from 'next-themes';
 import dayjs from 'dayjs';
-import Link from 'next/link'; // Import the Link component from Next.js
+import Link from 'next/link';
 
 interface WorkshopCardProps {
   imageSrc: string;
@@ -12,7 +12,7 @@ interface WorkshopCardProps {
   workshopStartTime: string;
   collaborationLogo: string;
   collaborationName: string;
-  workshopId: string; // Add workshopId as a prop
+  workshopId: string;
 }
 
 const WorkshopCard: React.FC<WorkshopCardProps> = ({
@@ -24,28 +24,23 @@ const WorkshopCard: React.FC<WorkshopCardProps> = ({
   workshopStartTime,
   collaborationLogo,
   collaborationName,
-  workshopId, // Destructure workshopId
+  workshopId,
 }) => {
   const { theme } = useTheme();
 
-  // Parse the workshop start date
   const workshopStart = dayjs(workshopStartDate);
-  // Get the current date
   const currentDate = dayjs();
 
-  // Compare the dates
   const isUpcoming = currentDate.isBefore(workshopStart);
   const dateInfo = workshopStart.format('DD-MMM-YYYY');
 
-  const badgeBgColor = theme === "dark" ? "bg-white" : "bg-black";
-  const badgeTextColor = theme === "dark" ? "text-black" : "text-white";
   const cardBackgroundColor = theme === "dark" ? "bg-gray-800" : "bg-zinc-200";
   const cardTextColor = theme === "dark" ? "text-gray-200" : "text-orange-800";
   const cardBorderColor = theme === "light" ? "border-orange-900" : "";
 
   return (
     <div
-      className={`flex flex-col w-[95%] ${cardBackgroundColor} ${cardBorderColor} border rounded-md shadow-md p-4 relative transform transition-transform duration-300 hover:scale-105 mx-auto h-[100%] min-w-19 md:max-w-22`}
+      className={`flex flex-col w-[80%] ${cardBackgroundColor} ${cardBorderColor} border rounded-md shadow-md p-4 relative transform transition-transform duration-300 hover:scale-105 mx-auto h-[100%] min-w-19 md:max-w-22 mt-2`} 
     >
       <div className="relative w-full h-40 rounded-md overflow-hidden">
         <img
@@ -54,29 +49,29 @@ const WorkshopCard: React.FC<WorkshopCardProps> = ({
           className="absolute inset-0 w-full h-full object-cover"
         />
       </div>
-      <div className="flex-grow mt-4 mb-6">
+      <div className="flex-grow mt-2 mb-6">
         <h3 className={`text-lg font-bold ${cardTextColor}`}>{workshopName}</h3>
         <p className={`mt-1 ${cardTextColor}`}>{workshopTagLine}</p>
-        <p className={`mt-2.5 ${cardTextColor}`}>
+        <p className={`mt-2 ${cardTextColor}`}>
           {isUpcoming ? "Starts on:" : "Event ended on:"}
         </p>
         <p className={`font-bold ${cardTextColor}`}>{dateInfo}</p>
       </div>
 
-      <div className="flex flex-col md:flex-row-reverse justify-between items-center">
-        {/* Wrap the button with the Link component */}
-        <Link href={`/workshops/${workshopId}`} passHref className="bg-orange-400 dark:bg-orange-600 hover:bg-orange-800 dark:hover:bg-orange-800 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-          Show more
-        </Link>
-        <div className={`flex flex-col md:flex-row items-center text-xs ${cardTextColor} mt-5`}>
-          <p>In collaboration with</p>
-          <div className="flex items-center mt-2">
-            <img src={collaborationLogo} alt="Collaboration Logo" className="w-12 h-auto" />
-          </div>
-          <div>
-          <p className="ml-1 text-center">{collaborationName}</p>
-          </div>
+      <div className={`flex flex-row items-center justify-between w-full text-[10px] ${cardTextColor} mt-1`}>
+        <p className="text-center">In collaboration with</p>
+        <div className="flex items-center ml-1">
+          <img src={collaborationLogo} alt="Collaboration Logo" className="w-10 h-auto mr-1" />
+          <p>{collaborationName}</p>
         </div>
+      </div>
+
+      <div className="flex justify-center mt-2 w-full">
+        <Link href={`/workshops/${workshopId}`}>
+          <button className="bg-orange-400 dark:bg-orange-600 hover:bg-orange-800 dark:hover:bg-orange-800 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            Show more
+          </button>
+        </Link>
       </div>
     </div>
   );
