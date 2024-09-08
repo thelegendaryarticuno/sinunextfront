@@ -40,11 +40,13 @@ export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
       text: "Rules and Regulations",
       component: (
         <div>
-          {eventData?.rules?.map((rule, idx) => (
-            <p key={idx}>
-              {rule}
-            </p>
-          ))}
+          <ul className="list-disc list-inside space-y-3">
+            {eventData?.rules?.map((rule, idx) => (
+              <li key={idx} className="mb-3">
+                {rule}
+              </li>
+            ))}
+          </ul>
         </div>
       ),
     },
@@ -54,7 +56,7 @@ export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
       component: (
         <div>
           {eventData?.prizes?.map((prize, idx) => (
-            <p key={idx}>
+            <p key={idx} className="mb-2">
               {prize}
             </p>
           ))}
@@ -67,7 +69,7 @@ export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
       component: (
         <div>
           {eventData?.eventStructure?.map((structure, idx) => (
-            <p key={idx}>
+            <p key={idx} className="mb-2">
               {structure}
             </p>
           ))}
@@ -111,7 +113,7 @@ export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
                   <p>
                     Event Start:{" "}
                     {dayjs(eventData?.schedule?.eventStart).format(
-                      "	MMMM D, YYYY"
+                      "MMMM D, YYYY"
                     )}
                   </p>
                   <p>
@@ -127,7 +129,7 @@ export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
                   <p>
                     Submission Start:{" "}
                     {dayjs(eventData.schedule.submissionStart).format(
-                      "	MMMM D, YYYY"
+                      "MMMM D, YYYY"
                     )}
                   </p>
                   <p>
