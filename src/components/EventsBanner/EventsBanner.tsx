@@ -103,7 +103,7 @@ const EventsBanner = ({
                 </div>
               </div>
             </div>
-            <div className="max-w-60">
+            <div className="max-w-60 flex justify-center">
               {eventData?.eventId === "hiveweb3hackathon" ? (
                 <PulsatingButton
                   text="Register Now"
@@ -141,7 +141,7 @@ const EventsBanner = ({
             <Image
               src={logo}
               alt="sinu logo"
-              className="h-6"
+              className="h-8"
               height={24}
               width={100}
             />

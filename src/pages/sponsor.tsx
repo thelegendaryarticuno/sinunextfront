@@ -55,11 +55,11 @@ const Sponsors: React.FC = () => {
             <div className="relative w-full lg:w-[30%] flex flex-col items-center justify-center lg:border-l-4 border-zinc-50 dark:border-zinc-950">
               <div>
                 <Image
-                  src="/images/HiveVerticalLogo.png"
+                  src="/images/Hive.png"
                   alt="titleSponsorLogo"
-                  width={450}
-                  height={450}
-                  className="object-contain z-20"
+                  width={250}
+                  height={250}
+                  className="object-contain p-4 z-20"
                 />
               </div>
             </div>
@@ -68,12 +68,9 @@ const Sponsors: React.FC = () => {
                 Title Sponsor
               </div>
               <div className="dark:text-white text-black mb-6 font-bold text-base">
-                We are proud to have had UBON as the Title Sponsor for siNUsoid
-                v7. Their support and collaboration were instrumental in the
-                success of the event. As the leading name associated with our
-                event, our Title Sponsor enjoys unparalleled visibility, and
-                engagement with a tech-savvy audience eager to explore.
-                (Previous Sponsor)
+              We’re thrilled to have Hive as the Title Sponsor for siNUsoid v8!
+              Hive isn’t just a tech name - it’s a thriving ecosystem with top Web3 dapps like Splinterlands and PeakD , known for its fast 3-second transactions and zero gas fees. 
+              Hive makes blockchain tech efficient and accessible. Having them as our Title Sponsor means unmatched engagement and a new level of innovation.
               </div>
             </div>
           </ShineBorder>

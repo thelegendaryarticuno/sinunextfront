@@ -37,6 +37,9 @@ const Hero: React.FC<HeroProps> = ({
 
   const bannerImage = isDark ? currentDarkImg : currentLightImg;
 
+  const logoSrc = isDark
+    ? "/events/Dark30vh.png" // Dark mode logo
+    : "/events/Light30vh.png"; // Light mode logo
 
   return (
     <div className="w-full h-screen p-0 m-0 mt-16">

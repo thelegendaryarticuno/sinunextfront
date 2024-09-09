@@ -43,7 +43,7 @@ const sponsorLogos = [
      img: "/sponsorLogo/Ubon.webp" , alt:"Ubon"
     },
   {
-     img: "/sponsorLogo/Zomato.webp" , alt:"Zomato"
+     img: "/sponsorLogo/studCops.webp" , alt:"StudCops"
     },
 ];
 
