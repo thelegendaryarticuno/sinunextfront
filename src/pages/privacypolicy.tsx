@@ -275,7 +275,7 @@ const PrivacyPolicy = () => {
       <div className="flex flex-col md:flex-row md:justify-between ${borderColor} pb-4">
         <h3 className="text-lg font-semibold md:w-1/3">Transfer of Your Personal Data</h3>
         <p className="md:w-2/3 mt-4 md:mt-0">
-        Your information, including Personal Data, is processed at the Company's operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.
+        Your information, including Personal Data, is processed at the Company operating offices and in any other places where the parties involved in the processing are located. It means that this information may be transferred to — and maintained on — computers located outside of Your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from Your jurisdiction.
         Your consent to this Privacy Policy followed by Your submission of such information represents Your agreement to that transfer.
         The Company will take all steps reasonably necessary to ensure that Your data is treated securely and in accordance with this Privacy Policy and no transfer of Your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of Your data and other personal information.
         </p>
@@ -311,7 +311,7 @@ const PrivacyPolicy = () => {
         Data from anyone under the age of 13 without verification of parental consent, We take steps
         to remove that information from Our servers.
         If We need to rely on consent as a legal basis for processing Your information and Your country
-        requires consent from a parent, We may require Your parent's consent before We collect and use 
+        requires consent from a parent, We may require Your parents consent before We collect and use 
         that information.
         </p>
       </div>
@@ -319,7 +319,7 @@ const PrivacyPolicy = () => {
         <h3 className="text-lg font-semibold md:w-1/3">Links to Other Websites</h3>
         <p className="md:w-2/3 mt-4 md:mt-0">
         Our Service may contain links to other websites that are not operated by Us.
-        If You click on a third party link, You will be directed to that third party's site.
+        If You click on a third party link, You will be directed to that third party site.
         We strongly advise You to review the Privacy Policy of every site You visit.
         <br/>
         We have no control over and assume no responsibility for the content, privacy policies 
