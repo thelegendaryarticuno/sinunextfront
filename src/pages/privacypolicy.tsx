@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTheme } from 'next-themes';
+import Link from 'next/link';
 
 const PrivacyPolicy = () => {
   const { theme } = useTheme();
@@ -294,7 +295,7 @@ const PrivacyPolicy = () => {
         </p>
       </div>
       <div className="flex flex-col md:flex-row md:justify-between ${borderColor} pb-4">
-        <h3 className="text-lg font-semibold md:w-1/3">Children's Privacy</h3>
+        <h3 className="text-lg font-semibold md:w-1/3">Childrens Privacy</h3>
         <p className="md:w-2/3 mt-4 md:mt-0">
         Our Service does not address anyone under the age of 13. We do not knowingly 
         collect personally identifiable information from anyone under the age of 13. 
@@ -344,16 +345,16 @@ const PrivacyPolicy = () => {
       {/* Contact Details */}
       <ul className="list-disc pl-5 space-y-2">
         <li>
-          By email: <a href="mailto:email@example.com" className="text-blue-600 underline">[email protected]</a>
+          By email: <a href="mailto:email@example.com" className="text-blue-600 underline">[email protected]</a>
         </li>
         <li>
-          By visiting this page on our website: <a href="https://sinusoid.in" className="text-purple-600 underline">https://sinusoid.in</a>
+          By visiting this page on our website: <Link href="https://sinusoid.in" className="text-purple-600 underline">https://sinusoid.in</Link>
         </li>
         <li>
           By phone number: +91 7016803160
         </li>
       </ul>
-          <p className='mt-2'>Our privacy policies are subject to change. All updates will appear on this page. </p>
+          <p className="mt-2">Our privacy policies are subject to change. All updates will appear on this page. </p>
         </div>
       </div>
 
