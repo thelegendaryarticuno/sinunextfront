@@ -38,7 +38,9 @@ const Sponsors: React.FC = () => {
             className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4"
             style={{ marginTop: "-50px" }}
           >
-            <h1 className="mt-10 md:mt-0 text-4xl md:text-6xl font-bold">Our Partners</h1>
+            <h1 className="mt-10 md:mt-0 text-4xl md:text-6xl font-bold">
+              Our Partners
+            </h1>
           </div>
         </div>
         <SponsorPageMarquee />
@@ -68,9 +70,9 @@ const Sponsors: React.FC = () => {
                 Title Sponsor
               </div>
               <div className="dark:text-white text-black mb-6 font-bold text-base">
-              We’re thrilled to have Hive as the Title Sponsor for siNUsoid v8!
-              Hive isn’t just a tech name - it’s a thriving ecosystem with top Web3 dapps like Splinterlands and PeakD , known for its fast 3-second transactions and zero gas fees. 
-              Hive makes blockchain tech efficient and accessible. Having them as our Title Sponsor means unmatched engagement and a new level of innovation.
+                {
+                  "We're thrilled to have Hive as the Title Sponsor for siNUsoid v8! Hive isn't just a tech name - it's a thriving ecosystem with top Web3 dapps like Splinterlands and PeakD , known for its fast 3-second transactions and zero gas fees. Hive makes blockchain tech efficient and accessible. Having them as our Title Sponsor means unmatched engagement and a new level of innovation."
+                }
               </div>
             </div>
           </ShineBorder>
@@ -99,11 +101,9 @@ const Sponsors: React.FC = () => {
                 Co Sponsor
               </div>
               <div className="dark:text-white text-black mb-6 font-bold text-base">
-                We would also like to acknowledge Skoar. This partnership offers
-                substantial branding opportunities, ensuring high exposure and
-                connection with a diverse audience. As a Co-Sponsor, your brand
-                will be prominently featured throughout the event, ensuring that
-                you stand out in a competitive market. (Previous Sponsor)
+                {
+                  "We would also like to acknowledge Skoar. This partnership offers substantial branding opportunities, ensuring high exposure and connection with a diverse audience. As a Co-Sponsor, your brand will be prominently featured throughout the event, ensuring that you stand out in a competitive market. (Previous Sponsor)"
+                }
               </div>
             </div>
           </ShineBorder>
