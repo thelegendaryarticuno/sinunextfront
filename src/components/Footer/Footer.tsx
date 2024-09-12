@@ -130,7 +130,10 @@ export default function Footer() {
           </Link>
         </div>
         <div className="text-center text-sm mt-4">
-          <p>© 2024 siNUsoid v8. All rights reserved.</p>
+          <span>© 2024 siNUsoid v8. All rights reserved.</span>
+          <Link href="/privacypolicy">
+              <span>| Privacy Policy </span>
+          </Link>
         </div>
       </div>
     </footer>
