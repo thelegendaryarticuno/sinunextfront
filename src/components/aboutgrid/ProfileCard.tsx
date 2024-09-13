@@ -7,7 +7,7 @@ import Image from "next/image";
 // Arrays of image details
 const profileImages = [
   { src: "/CoreProfilePic/TorilJain.png", alt: "Toril Jain" },
-  { src: "/CoreProfilePic/KaustavKaran.png", alt: "Kaustav Karan" },
+  { src: "/CoreProfilePic/KaustavKaran.jpg", alt: "Kaustav Karan" },
   { src: "/CoreProfilePic/AayushDutta.png", alt: "Aayush Dutta" },
   { src: "/CoreProfilePic/AlishaaSultana.png", alt: "Alisha Sultana" },
   { src: "/CoreProfilePic/AnanyaGupta.png", alt: "Ananya Gupta" },
