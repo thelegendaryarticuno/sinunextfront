@@ -64,7 +64,7 @@ const Hero: React.FC<HeroProps> = ({
           className="object-contain z-20"
         />
       </div>
-      <Link href='/events/hiveweb3hackathon'>
+      <Link href="/events/hiveweb3hackathon">
         <div className="relative flex justify-center items-center w-full h-[30vh] mt-2">
           <Image
             src={logoSrc}

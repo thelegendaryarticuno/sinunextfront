@@ -26,7 +26,7 @@ export const navLinkArray = [
     href: "/merchandise",
     text: "Merchandise",
     icon: <FaShoppingCart />,
-    hoverCardSize: "w-28",
+    hoverCardSize: "w-30",
   },
 ];
 
@@ -48,7 +48,7 @@ export const NavLinks: React.FC = () => (
         </HoverCardTrigger>
         <HoverCardContent
           className={`${
-            navLink.hoverCardSize ? navLink.hoverCardSize : "w-20"
+            navLink.hoverCardSize ? navLink.hoverCardSize : "w-30"
           } bg-white dark:bg-black`}
         >
           <div className="text-center">{navLink.text}</div>
