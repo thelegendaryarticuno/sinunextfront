@@ -4,9 +4,12 @@ import Image from "next/image";
 import PulsatingButton from "../ui/pulsatingbutton";
 import dayjs from "dayjs";
 import { useRouter } from "next/router";
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '@/components/Redux/store';
+import { setEventData } from '@/components/Redux/eventSlice';
+import { Event } from '@/components/Redux/types';
 
 interface EventsBannerProps {
-  eventData: any;
   lightImage?: string;
   darkImage?: string;
   logo?: string;
@@ -14,7 +17,6 @@ interface EventsBannerProps {
 }
 
 const EventsBanner = ({
-  eventData,
   lightImage = "/events/hackathon-35vh.jpg",
   darkImage = "/events/hackathon-35vh.jpg",
   logo = "/events/Hive Pen.png",
@@ -23,10 +25,33 @@ const EventsBanner = ({
   const { resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
   const router = useRouter();
+  const dispatch = useDispatch<AppDispatch>();
+  const eventData = useSelector((state: RootState) => state.event.eventData);
 
   useEffect(() => {
     setIsDark(resolvedTheme === "dark");
   }, [resolvedTheme]);
+
+  useEffect(() => {
+    const fetchEventData = async () => {
+      const data: Event = await fetchEventFromAPI();
+      dispatch(setEventData(data));
+    };
+
+    fetchEventData();
+  }, [dispatch]);
+
+  const fetchEventFromAPI = async (): Promise<Event> => {
+    return {
+      eventId: "hiveweb3hackathon",
+      eventName: "Hive Web3 Hackathon",
+      eventTagline: "Join us for an exciting Web3 hackathon!",
+      schedule: {
+        eventStart: "2024-09-20T09:00:00Z",
+        eventEnd: "2024-09-22T17:00:00Z",
+      },
+    };
+  };
 
   const bannerImage = isDark ? darkImage : lightImage;
   const bannerStyle = bannerImage
