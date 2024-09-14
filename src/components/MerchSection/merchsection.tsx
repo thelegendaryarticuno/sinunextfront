@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -16,6 +16,8 @@ import { BorderBeam } from "@/components/magicui/border-beam";
 import axios from "axios";
 import Image from "next/image";
 import "react-medium-image-zoom/dist/styles.css";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
 
 const MerchSection: React.FC = () => {
   const defaultFormData = {
@@ -23,50 +25,9 @@ const MerchSection: React.FC = () => {
     email: "",
     phone: "",
   };
-  const [formData, setFormData] = useState(defaultFormData);
+
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    fieldName: string
-  ) => {
-    setSubmitted(false);
-    setFormData((prev) => ({ ...prev, [fieldName]: e.target.value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setSubmitted(false);
-    try {
-      await axios.post("https://api.sinusoid.in/merchandiseOrder", formData);
-      setSubmitted(true);
-    } catch (error) {
-      console.error("Error submitting data:", error);
-    } finally {
-      setFormData(defaultFormData);
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    console.log({ formData });
-  }, [formData]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const { left, top, width, height } =
-      e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - left) / width) * 100;
-    const y = ((e.clientY - top) / height) * 100;
-
-    const zoomedImage = e.currentTarget.querySelector(
-      ".zoomed-image"
-    ) as HTMLElement;
-    if (zoomedImage) {
-      zoomedImage.style.transformOrigin = `${x}% ${y}%`;
-    }
-  };
 
   const merch = "/images/front.png";
   const merchfront = "/images/logo-merch.png";
@@ -90,12 +51,38 @@ const MerchSection: React.FC = () => {
     }
   };
 
+  const validationSchema = Yup.object({
+    name: Yup.string().required("Name is required"),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    phone: Yup.string()
+      .matches(/^\d+$/, "Phone number is not valid")
+      .min(10, "Phone number must be at least 10 digits")
+      .optional(),
+  });
+
+  const handleSubmit = async (
+    values: any,
+    { setSubmitting, resetForm }: any
+  ) => {
+    setLoading(true);
+    setSubmitted(false);
+    try {
+      await axios.post("https://api.sinusoid.in/merchandiseOrder", values);
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Error submitting data:", error);
+    } finally {
+      resetForm();
+      setSubmitting(false);
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="relative w-full h-auto mt-8 flex flex-col md:flex-row items-center justify-center gap-16 p-4 dark:bg-black bg-gray-200">
-      <div
-        className="relative w-4/5 h-[40vh] md:h-[60vh] md:w-[60vh] overflow-hidden border-2 dark:border-gray-800 border-gray-100 rounded-md shadow-xl"
-        onMouseMove={handleMouseMove}
-      >
+      <div className="relative w-4/5 h-[40vh] md:h-[60vh] md:w-[60vh] overflow-hidden border-2 dark:border-gray-800 border-gray-100 rounded-md shadow-xl">
         <div className="relative w-full h-full cursor-zoom-in">
           <Image
             src={mainImage}
@@ -150,91 +137,114 @@ const MerchSection: React.FC = () => {
                   is back in stock.
                 </DialogDescription>
               </DialogHeader>
-              <div className="grid gap-6 py-4">
-                <div className="grid grid-cols-4 items-center gap-6">
-                  <Label htmlFor="name" className="text-right">
-                    Name
-                  </Label>
-                  <Input
-                    id="name"
-                    placeholder="Enter your name"
-                    className="col-span-3"
-                    value={formData?.name}
-                    onChange={(e) => handleChange(e, "name")}
-                    required
-                  />
-                </div>
-                <div className="grid grid-cols-4 items-center gap-6">
-                  <Label htmlFor="Email" className="text-right">
-                    Email
-                  </Label>
-                  <Input
-                    id="Email"
-                    placeholder="Enter your Email"
-                    className="col-span-3"
-                    value={formData?.email}
-                    onChange={(e) => handleChange(e, "email")}
-                    required
-                  />
-                </div>
-                <div className="grid grid-cols-4 items-center gap-6">
-                  <Label htmlFor="phone" className="text-right">
-                    Phone Number
-                  </Label>
-                  <Input
-                    id="phone"
-                    placeholder="Enter your phone number"
-                    className="col-span-3"
-                    value={formData?.phone}
-                    onChange={(e) => handleChange(e, "phone")}
-                  />
-                </div>
-              </div>
-              <DialogFooter>
-                <Button type="submit" onClick={handleSubmit} disabled={loading}>
-                  {loading ? (
-                    <svg
-                      className="animate-spin h-5 w-5 mr-3"
-                      viewBox="0 0 24 24"
-                    >
-                      <circle
-                        className="opacity-25"
-                        cx="12"
-                        cy="12"
-                        r="10"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      ></circle>
-                      <path
-                        className="opacity-75"
-                        fill="currentColor"
-                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                      ></path>
-                    </svg>
-                  ) : submitted ? (
-                    <div className="flex items-center">
-                      <svg
-                        className="h-5 w-5 mr-3 text-green-500"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M5 12l5 5L20 7"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
+
+              <Formik
+                initialValues={defaultFormData}
+                validationSchema={validationSchema}
+                onSubmit={handleSubmit}
+              >
+                {({ isSubmitting }) => (
+                  <Form className="grid gap-6 py-4">
+                    <div className="grid grid-cols-4 items-center gap-6">
+                      <Label htmlFor="name" className="text-right">
+                        Name
+                      </Label>
+                      <div className="col-span-3">
+                        <Field
+                          name="name"
+                          placeholder="Enter your name"
+                          className="w-full p-2 border rounded"
                         />
-                      </svg>
-                      Submitted
+                        <ErrorMessage
+                          name="name"
+                          component="div"
+                          className="text-red-500 text-sm"
+                        />
+                      </div>
                     </div>
-                  ) : (
-                    "Submit"
-                  )}
-                </Button>
-              </DialogFooter>
-              <BorderBeam size={250} duration={11} delay={8} />
+                    <div className="grid grid-cols-4 items-center gap-6">
+                      <Label htmlFor="email" className="text-right">
+                        Email
+                      </Label>
+                      <div className="col-span-3">
+                        <Field
+                          name="email"
+                          type="email"
+                          placeholder="Enter your email"
+                          className="w-full p-2 border rounded"
+                        />
+                        <ErrorMessage
+                          name="email"
+                          component="div"
+                          className="text-red-500 text-sm"
+                        />
+                      </div>
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-6">
+                      <Label htmlFor="phone" className="text-right">
+                        Phone Number
+                      </Label>
+                      <div className="col-span-3">
+                        <Field
+                          name="phone"
+                          placeholder="Enter your phone number"
+                          className="w-full p-2 border rounded"
+                        />
+                        <ErrorMessage
+                          name="phone"
+                          component="div"
+                          className="text-red-500 text-sm"
+                        />
+                      </div>
+                    </div>
+                    <DialogFooter>
+                      <Button type="submit" disabled={isSubmitting || loading}>
+                        {loading ? (
+                          <svg
+                            className="animate-spin h-5 w-5 mr-3"
+                            viewBox="0 0 24 24"
+                          >
+                            <circle
+                              className="opacity-25"
+                              cx="12"
+                              cy="12"
+                              r="10"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            ></circle>
+                            <path
+                              className="opacity-75"
+                              fill="currentColor"
+                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                            ></path>
+                          </svg>
+                        ) : submitted ? (
+                          <div className="flex items-center">
+                            <svg
+                              className="h-5 w-5 mr-3 text-green-500"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M5 12l5 5L20 7"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                              />
+                            </svg>
+                            Submitted
+                          </div>
+                        ) : (
+                          "Submit"
+                        )}
+                      </Button>
+                    </DialogFooter>
+                    <BorderBeam size={250} duration={11} delay={8} />
+                  </Form>
+                )}
+              </Formik>
             </DialogContent>
           </Dialog>
         </div>
