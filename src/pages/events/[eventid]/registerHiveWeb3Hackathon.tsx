@@ -1,21 +1,19 @@
-import {
-  EmailPhoneNumber,
-  FirstNameLastName,
-  TeamDeatils, // Correct spelling should be used if needed
-  TeamMembers,
-  TeamMembersNumber,
-  UniversityName,
-} from "@/components/hiveWeb3Hackathon/formFields";
+import { EmailPhoneNumber } from '@/components/hiveWeb3Hackathon/emailphone';
+import { FirstNameLastName } from '@/components/hiveWeb3Hackathon/fnamelname';
+import { UniversityName } from '@/components/hiveWeb3Hackathon/universityName';
+import { TeamDetails } from '@/components/hiveWeb3Hackathon/teamDetails';
+import { TeamMembersNumber } from '@/components/hiveWeb3Hackathon/teamMember';
+import { TeamMembers } from '@/components/hiveWeb3Hackathon/submission';
 import { ThankyouComponent } from "@/components/hiveWeb3Hackathon/thankyouComponent";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
-import { HackathonSchema } from "@/constants/hackathonConstant";
+import { HackathonSchema, HackathonFormType } from "@/constants/hackathonConstant";
 import axios from "axios";
 import Image from "next/image";
 import React, { useState } from "react";
 
 const RegisterHiveWeb3Hackathon: React.FC = () => {
   const [section, setSection] = useState(0);
-  const [hackathonForm, setHackathonForm] = useState(HackathonSchema);
+  const [hackathonForm, setHackathonForm] = useState<HackathonFormType>(HackathonSchema);
   const [isFormSubmitted, setFormSubmitted] = useState(false);
 
   async function submitFormHandler() {
@@ -36,7 +34,7 @@ const RegisterHiveWeb3Hackathon: React.FC = () => {
         PageOGLImage="/logo/logo.png"
         PageURL="sinusoid.in"
       />
-      <div className="flex flex-col items-center py-12 px-6 md:px-12 h-auto"> {/* Removed background color */}
+      <div className="flex flex-col items-center py-12 px-6 md:px-12 h-auto">
         {isFormSubmitted ? (
           <ThankyouComponent />
         ) : (
@@ -47,16 +45,16 @@ const RegisterHiveWeb3Hackathon: React.FC = () => {
                 className="rounded-lg"
                 src="/images/hiveHackathon.jpg"
                 alt="Hive Web3 Hackathon Banner"
-                width={600} // Increased image width
-                height={600} // Increased image height
+                width={600}
+                height={600}
               />
             </div>
             {/* Form Div */}
             <div className="flex flex-col justify-center w-full md:w-[50%] px-4">
-              <h1 className="text-lg lg:text-2xl font-bold text-center mt-16 mb-12"> {/* Increased margins */}
+              <h1 className="text-lg lg:text-2xl font-bold text-center mt-16 mb-12">
                 Register for Hive Web3 Hackathon
               </h1>
-              <div className="flex flex-col gap-6"> {/* Increased gap */}
+              <div className="flex flex-col gap-6">
                 {section === 0 && (
                   <FirstNameLastName
                     setSection={setSection}
@@ -79,7 +77,7 @@ const RegisterHiveWeb3Hackathon: React.FC = () => {
                   />
                 )}
                 {section === 3 && (
-                  <TeamDeatils
+                  <TeamDetails
                     setSection={setSection}
                     hackathonForm={hackathonForm}
                     setHackathonForm={setHackathonForm}
