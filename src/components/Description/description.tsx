@@ -1,39 +1,76 @@
 import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState, AppDispatch } from "@/components/Redux/store";
+import { fetchEventData } from "@/components/Redux/eventSlice";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Overview from "../eventsection/Overview";
 import Sponsor from "../eventsection/sponsor";
 import dayjs from "dayjs";
+import { Event } from "@/components/Redux/types";
 
-interface EventsBannerProps {
-  eventData?: {
-    eventName: string;
-    longDesc: string;
-    overview: string;
-    rules: string[];
-    prizes: string[];
-    eventStructure: string[];
-    schedule: {
-      eventStart: string;
-      eventEnd: string;
-      registrationStart: string;
-      registrationEnd: string;
-      submissionStart: string;
-      submissionEnd: string;
-    };
-  };
+interface DescriptionProps {
+  eventId: string;
 }
 
-export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
+const Description: React.FC<DescriptionProps> = ({ eventId }) => {
+  const dispatch: AppDispatch = useDispatch();
+  const { eventData, loading, error } = useSelector(
+    (state: RootState) => state.event
+  );
+
+  useEffect(() => {
+    if (!eventData) {
+      dispatch(fetchEventData(eventId));
+    }
+  }, [dispatch, eventId, eventData]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+  if (!eventData) return <p>No event data available.</p>;
+
+  return (
+    <div className="description-container p-4">
+      <TabsComponent eventData={eventData} />
+    </div>
+  );
+};
+
+const TabsComponent: React.FC<{ eventData: Event }> = ({ eventData }) => {
+  const renderTimeline = () => (
+    <>
+      <p>
+        Event Start:{" "}
+        {dayjs(eventData?.schedule?.eventStart).format("MMMM D, YYYY")}
+      </p>
+      <p>
+        Event End:{" "}
+        {dayjs(eventData.schedule.eventEnd).format("MMMM D, YYYY")}
+      </p>
+      <p>
+        Registration Start:{" "}
+        {dayjs(eventData.schedule.registrationStart).format("MMMM D, YYYY")}
+      </p>
+      <p>
+        Submission Start:{" "}
+        {dayjs(eventData.schedule.submissionStart).format("MMMM D, YYYY")}
+      </p>
+      <p>
+        Submission End:{" "}
+        {dayjs(eventData.schedule.submissionEnd).format("MMMM D, YYYY")}
+      </p>
+    </>
+  );
+
   const tabsArray = [
     {
       value: "event-overview",
       text: "Event Overview",
-      component: <Overview eventData={eventData} />,
+      component: <Overview />, // Pass the Overview component
     },
     {
       value: "timeline",
       text: "Events Timeline",
-      component: "Events Timeline",
+      component: renderTimeline(), // Render timeline conditionally
     },
     {
       value: "rules-and-regulations",
@@ -76,18 +113,12 @@ export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
         </div>
       ),
     },
-    { value: "about-sponsor", text: "Our Sponsors", component: <Sponsor /> },
+    {
+      value: "about-sponsor",
+      text: "Our Sponsors",
+      component: <Sponsor />,
+    },
   ];
-
-  useEffect(() => {
-    console.log("EventData in TabsComponent:", eventData);
-
-    if (!eventData) {
-      console.warn("No event data available");
-    } else if (!eventData.schedule) {
-      console.warn("No schedule data available in eventData");
-    }
-  }, [eventData]);
 
   return (
     <div className="w-[80%] mx-auto">
@@ -95,11 +126,7 @@ export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
         <div className="tabs-triggers bg-gray-100 dark:bg-gray-700 rounded-t-lg overflow-x-auto scrollbar-hidden">
           <TabsList className="flex space-x-2 md:space-x-4 lg:space-x-6 min-w-max">
             {tabsArray.map((tab, idx) => (
-              <TabsTrigger
-                key={`tab_${idx}`}
-                value={tab?.value}
-                className="whitespace-nowrap min-w-max"
-              >
+              <TabsTrigger key={`tab_${idx}`} value={tab?.value}>
                 {tab?.text}
               </TabsTrigger>
             ))}
@@ -108,40 +135,7 @@ export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
         <div className="tabs-contents p-4 bg-gray-50 dark:bg-gray-900 rounded-b-lg">
           {tabsArray.map((tab, idx) => (
             <TabsContent key={`content_${idx}`} value={tab?.value}>
-              {tab?.value === "timeline" && eventData?.schedule ? (
-                <>
-                  <p>
-                    Event Start:{" "}
-                    {dayjs(eventData?.schedule?.eventStart).format(
-                      "MMMM D, YYYY"
-                    )}
-                  </p>
-                  <p>
-                    Event End:{" "}
-                    {dayjs(eventData.schedule.eventEnd).format("MMMM D, YYYY")}
-                  </p>
-                  <p>
-                    Registration Start:{" "}
-                    {dayjs(eventData.schedule.registrationStart).format(
-                      "MMMM D, YYYY"
-                    )}
-                  </p>
-                  <p>
-                    Submission Start:{" "}
-                    {dayjs(eventData.schedule.submissionStart).format(
-                      "MMMM D, YYYY"
-                    )}
-                  </p>
-                  <p>
-                    Submission End:{" "}
-                    {dayjs(eventData.schedule.submissionEnd).format(
-                      "MMMM D, YYYY"
-                    )}
-                  </p>
-                </>
-              ) : (
-                tab?.component
-              )}
+              {tab.component}
             </TabsContent>
           ))}
         </div>
@@ -150,4 +144,4 @@ export const TabsComponent: React.FC<EventsBannerProps> = ({ eventData }) => {
   );
 };
 
-export default TabsComponent;
+export default Description;
