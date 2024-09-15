@@ -7,7 +7,7 @@ import * as Yup from "yup";
 interface EmailPhoneNumberProps {
   setSection: (section: number) => void;
   hackathonForm: any; // Adjust this type to match HackathonSchema
-  setHackathonForm: React.Dispatch<React.SetStateAction<any>>; // Adjust to match HackathonSchema type
+  setHackathonForm: any; // Adjust to match HackathonSchema type
 }
 
 const validationSchema = Yup.object({
@@ -31,9 +31,9 @@ export const EmailPhoneNumber: React.FC<EmailPhoneNumberProps> = ({
         phoneNumber: hackathonForm.phoneNumber || "",
       }}
       validationSchema={validationSchema}
-      onSubmit={(values) => {
+      onSubmit={(values: any) => {
         // Update the form state with new values
-        setHackathonForm((prevState) => ({
+        setHackathonForm((prevState : any) => ({
           ...prevState,
           ...values,
         }));
@@ -64,7 +64,7 @@ export const EmailPhoneNumber: React.FC<EmailPhoneNumberProps> = ({
               onBlur={handleBlur}
             />
             {errors.emailId && touched.emailId && (
-              <div className="text-red-500">{errors.emailId}</div>
+              <div className="text-red-500">{errors?.emailId.toString()}</div>
             )}
           </div>
           <div className="max-w-xs mt-4 ">
@@ -80,7 +80,7 @@ export const EmailPhoneNumber: React.FC<EmailPhoneNumberProps> = ({
               onBlur={handleBlur}
             />
             {errors.phoneNumber && touched.phoneNumber && (
-              <div className="text-red-500">{errors.phoneNumber}</div>
+              <div className="text-red-500">{errors?.phoneNumber.toString()}</div>
             )}
           </div>
           <div className="flex flex-col mt-4 gap-4 lg:flex-row">
