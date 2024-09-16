@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import EventCard from './eventcard';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import EventCard from "./eventcard";
+import axios from "axios";
 
 const OnFest: React.FC = () => {
   const [events, setEvents] = useState<any[]>([]);
@@ -8,10 +8,10 @@ const OnFest: React.FC = () => {
 
   const fetchAllEvents = async () => {
     try {
-      const response = await axios.get('https://api.sinusoid.in/events/');
-      // Filter for events with eventType "Onfest" and published status as false
-      const filteredEvents = response?.data.filter((event: any) =>
-        event?.eventType === "Onfest" && event?.published === false
+      const response = await axios.get("https://api.sinusoid.in/events/");
+      const filteredEvents = response?.data.filter(
+        (event: any) =>
+          event?.eventType !== "prefest" && event?.published === true
       );
       setFetchedData(filteredEvents);
     } catch (error) {
@@ -67,9 +67,7 @@ const OnFest: React.FC = () => {
           ))}
         </div>
       ) : (
-        <p className="text-center text-lg font-semibold">
-          Coming Soon!
-        </p>
+        <p className="text-center text-lg font-semibold">Coming Soon!</p>
       )}
     </div>
   );
