@@ -4,9 +4,11 @@ import Image from "next/image";
 import PulsatingButton from "../ui/pulsatingbutton";
 import dayjs from "dayjs";
 import { useRouter } from "next/router";
+import { useSelector } from 'react-redux';
+import { RootState } from '@/components/Redux/store';
+import { Event } from '@/components/Redux/types';
 
 interface EventsBannerProps {
-  eventData: any;
   lightImage?: string;
   darkImage?: string;
   logo?: string;
@@ -14,7 +16,6 @@ interface EventsBannerProps {
 }
 
 const EventsBanner = ({
-  eventData,
   lightImage = "/events/hackathon-35vh.jpg",
   darkImage = "/events/hackathon-35vh.jpg",
   logo = "/events/Hive Pen.png",
@@ -23,6 +24,9 @@ const EventsBanner = ({
   const { resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
   const router = useRouter();
+
+  // Fetch eventData from Redux
+  const eventData = useSelector((state: RootState) => state.event.eventData);
 
   useEffect(() => {
     setIsDark(resolvedTheme === "dark");

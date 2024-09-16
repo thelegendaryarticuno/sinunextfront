@@ -8,15 +8,8 @@ import MerchSection from "@/components/MerchSection/merchsection";
 
 const Merchandise: React.FC = () => {
   const { resolvedTheme } = useTheme();
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    setIsDark(resolvedTheme === "dark");
-  }, [resolvedTheme]);
-
-  const logoSrc = isDark
-    ? "/events/Dark30vh.png" // Dark mode logo
-    : "/events/Light30vh.png"; // Light mode logo
+  const logoSrc =
+    resolvedTheme === "dark" ? "/events/dark.svg" : "/events/light.svg";
 
   const hero =
     resolvedTheme === "dark"

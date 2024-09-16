@@ -11,13 +11,13 @@ const sponsors = [
   "/sponsorLogo/bewakoof.webp",
   "/sponsorLogo/sbi.webp",
   "/sponsorLogo/ramada.webp",
-  "/sponsorLogo/zomato.webp",
+  "/sponsorLogo/Zomato.png",
   "/sponsorLogo/Gigabyte.webp"
 ];
 
 const SponsorComp: React.FC = () => {
   const { theme } = useTheme();
-  // const partnersColor = theme === "dark" ? "#ffffff" : "#000000";  // Corrected color codes
+  // const partnersColor = theme === "dark" ? "#ffffff" : "#000000";
 
   return (
     <div className="w-full px-5 bg-primary text-white py-16">
