@@ -9,7 +9,7 @@ import MerchSection from "@/components/MerchSection/merchsection";
 const Merchandise: React.FC = () => {
   const { resolvedTheme } = useTheme();
   const logoSrc =
-    resolvedTheme === "dark" ? "/events/dark.svg" : "/events/light.svg";
+    resolvedTheme === "dark" ? "/events/Dark30vh.png" : "/events/Light30vh.png";
 
   const hero =
     resolvedTheme === "dark"
