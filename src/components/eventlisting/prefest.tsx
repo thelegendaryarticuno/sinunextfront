@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import EventCard from './eventcard';
-import axios from 'axios';
-import { useTheme } from 'next-themes';
+import React, { useEffect, useState } from "react";
+import EventCard from "./eventcard";
+import axios from "axios";
+import { useTheme } from "next-themes";
 
-const OnFest: React.FC = () => {
+const PreFest: React.FC = () => {
   const [events, setEvents] = useState<any[]>([]);
   const [fetchedData, setFetchedData] = useState<any[]>([]);
   const { resolvedTheme } = useTheme();
@@ -11,10 +11,10 @@ const OnFest: React.FC = () => {
 
   const fetchAllEvents = async () => {
     try {
-      const response = await axios.get('https://api.sinusoid.in/events/');
-      // Filter for events with published status as true
-      const filteredEvents = response?.data.filter((event: any) =>
-        event?.published === true
+      const response = await axios.get("https://api.sinusoid.in/events/");
+      const filteredEvents = response?.data.filter(
+        (event: any) =>
+          event?.eventType !== "onfest" && event?.published === true
       );
       setFetchedData(filteredEvents);
     } catch (error) {
@@ -24,7 +24,7 @@ const OnFest: React.FC = () => {
   };
 
   useEffect(() => {
-    setIsDark(resolvedTheme === 'dark');
+    setIsDark(resolvedTheme === "dark");
   }, [resolvedTheme]);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const OnFest: React.FC = () => {
 
   useEffect(() => {
     const formattedEvents = fetchedData.map((event: any) => ({
-      imageSrc: isDark ? "/images/dark.jpg" : "/images/light.jpg", // Use appropriate image based on theme
+      imageSrc: isDark ? "/images/dark.jpg" : "/images/light.jpg",
       altText: "Google AI Essentials",
       eventName: event?.eventName,
       eventTagLine: event?.eventTagline,
@@ -42,20 +42,31 @@ const OnFest: React.FC = () => {
       registrationEndDate: event?.schedule?.registrationEnd,
       eventStartDate: event?.schedule?.eventStart,
       eventEndDate: event?.schedule?.eventEnd,
-      collaborationLogo: isDark ? "/events/Hive Pen.png" : "/events/1.png", // Use appropriate logo based on theme
+      collaborationLogo: isDark ? "/events/Hive Pen.png" : "/events/1.png",
       eventId: event?.eventId,
     }));
     setEvents(formattedEvents);
   }, [fetchedData, isDark]);
 
+  const gridColumns =
+    events.length === 1
+      ? "grid-cols-1 items-center"
+      : events.length === 2
+      ? "grid-cols-2"
+      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+
   return (
     <div className="flex flex-col items-center mt-16 mb-4 px-4">
       {events.length > 0 ? (
-        <div className="flex flex-wrap justify-center gap-10">
+        <div className={`grid ${gridColumns} gap-8 justify-center`}>
           {events.map((event, index) => (
             <div
               key={index}
-              className="w-full md:w-2/3 lg:w-1/3 flex justify-center mb-4 px-2"
+              className={`w-full flex justify-center mb-4 ${
+                events.length === 4 && index === 3
+                  ? "lg:col-span-3 sm:col-span-2"
+                  : ""
+              }`}
             >
               <EventCard
                 imageSrc={event?.imageSrc}
@@ -74,12 +85,10 @@ const OnFest: React.FC = () => {
           ))}
         </div>
       ) : (
-        <p className="text-center text-lg font-semibold">
-          Loading....
-        </p>
+        <p className="text-center text-lg font-semibold">Loading....</p>
       )}
     </div>
   );
 };
 
-export default OnFest;
+export default PreFest;
