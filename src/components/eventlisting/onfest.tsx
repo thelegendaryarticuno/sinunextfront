@@ -41,14 +41,25 @@ const OnFest: React.FC = () => {
     setEvents(formattedEvents);
   }, [fetchedData]);
 
+  const gridColumns =
+    events.length === 1
+      ? "grid-cols-1 items-center"
+      : events.length === 2
+      ? "grid-cols-1 sm:grid-cols-2"
+      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
+
   return (
     <div className="flex flex-col items-center mt-16 mb-4 px-4">
       {events.length > 0 ? (
-        <div className="flex flex-wrap justify-center gap-10">
+        <div className={`grid ${gridColumns} gap-10 justify-center`}>
           {events.map((event, index) => (
             <div
               key={index}
-              className="w-full md:w-2/3 lg:w-1/3 flex justify-center mb-4 px-2"
+              className={`w-full flex justify-center mb-4 ${
+                events.length === 4 && index === 3
+                  ? "lg:col-span-3 sm:col-span-2"
+                  : ""
+              }`}
             >
               <EventCard
                 imageSrc={event?.imageSrc}
