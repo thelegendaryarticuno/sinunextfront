@@ -15,9 +15,9 @@ export interface Event {
   status?: string;
   overview?: string;   // Optional
   longDesc?: string;   // Optional
-  logo?: string;       // Optional, logo for the event
+  logo?: string;      
   schedule: Schedule;
-  rules?: string[];    // Optional array of rules
-  prizes?: string[];   // Optional array of prizes
-  eventStructure?: string[];  // Optional event structure details
+  rules?: string[];   
+  prizes?: string[];  
+  eventStructure?: string[];  
 }

@@ -11,7 +11,6 @@ import { PersistGate } from 'redux-persist/integration/react';  // Import Persis
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
-      {/* PersistGate delays rendering until the persisted state has been retrieved */}
       <PersistGate loading={null} persistor={persistor}>
         <GoogleAnalytics gaId="GTM-58KNP2JR" />
         <ThemeProvider defaultTheme="dark" attribute="class">

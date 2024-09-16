@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { Event } from './types'; // Ensure Event interface includes `prizes` as an optional array
+import { Event } from './types'; 
 
 interface EventState {
   eventData: Event | null;
@@ -31,11 +31,9 @@ const eventSlice = createSlice({
   name: 'event',
   initialState,
   reducers: {
-    // Reducer to manually set event data
     setEventData(state, action: PayloadAction<Event>) {
       state.eventData = action.payload;
     },
-    // Optional reducer to reset event data (if needed)
     resetEventData(state) {
       state.eventData = null;
     },
@@ -57,6 +55,5 @@ const eventSlice = createSlice({
   },
 });
 
-// Exporting actions and reducer
 export const { setEventData, resetEventData } = eventSlice.actions;
 export default eventSlice.reducer;

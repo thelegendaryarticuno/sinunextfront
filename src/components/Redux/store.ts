@@ -4,30 +4,28 @@ import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import { combineReducers } from 'redux';
 
-// Create a persist configuration
+
 const persistConfig = {
   key: 'root',
-  storage, // You can also configure other storage options if needed
+  storage, 
 };
 
-// Combine reducers if you add more in the future
+
 const rootReducer = combineReducers({
   event: eventReducer,
 });
 
-// Create a persisted reducer
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-// Configure store with persisted reducer
+
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: false, // Disable serializable check for redux-persist
+      serializableCheck: false, 
     }),
 });
 
-// Create a persistor
 export const persistor = persistStore(store);
 
 export type RootState = ReturnType<typeof store.getState>;

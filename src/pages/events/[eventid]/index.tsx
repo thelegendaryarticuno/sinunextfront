@@ -38,7 +38,6 @@ const Events: React.FC = () => {
       ) : (
         <>
           <EventsBanner />
-          {/* Pass eventId to Description component */}
           <Description eventId={eventid as string} />
           <SponsorMarquee />
         </>

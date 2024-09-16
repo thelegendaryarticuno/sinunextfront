@@ -65,12 +65,12 @@ const TabsComponent: React.FC<{ eventData: Event }> = ({ eventData }) => {
     {
       value: "event-overview",
       text: "Event Overview",
-      component: <Overview />, // Pass the Overview component
+      component: <Overview />,
     },
     {
       value: "timeline",
       text: "Events Timeline",
-      component: renderTimeline(), // Render timeline conditionally
+      component: renderTimeline(), 
     },
     {
       value: "rules-and-regulations",
