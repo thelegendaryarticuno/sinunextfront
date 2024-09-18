@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import HyperText from "../magicui/hyper-text";
 import {
   Dialog,
   DialogContent,
@@ -11,55 +11,89 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import HyperText from "@/components/magicui/hyper-text";
-import { BorderBeam } from "@/components/magicui/border-beam";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import axios from "axios";
+import * as Yup from "yup";
+import FormikForm from "@/components/formikform/formikform"; // Import your generic FormikForm component
 
 const Partnership: React.FC = () => {
-  const defaultFormData = {
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  // Define the initial values
+  const initialValues = {
     name: "",
     email: "",
     phone: "",
     companyName: "",
   };
-  const [formData, setFormData] = useState(defaultFormData);
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    fieldName: string
+  // Define the validation schema using Yup
+  const validationSchema = Yup.object({
+    name: Yup.string().required("Name is required"),
+    email: Yup.string()
+      .email("Invalid email format")
+      .required("Email is required"),
+    phone: Yup.string().required("Phone number is required"),
+    companyName: Yup.string().required("Company name is required"),
+  });
+
+  // Define the fields for the form
+  const fields = [
+    {
+      name: "name",
+      label: "Name",
+      type: "text",
+      placeholder: "Enter your name",
+      validation: Yup.string().required("Name is required"),
+    },
+    {
+      name: "email",
+      label: "Email",
+      type: "email",
+      placeholder: "Enter your email",
+      validation: Yup.string()
+        .email("Invalid email format")
+        .required("Email is required"),
+    },
+    {
+      name: "phone",
+      label: "Phone Number",
+      type: "text",
+      placeholder: "Enter your phone number",
+      validation: Yup.string().required("Phone number is required"),
+    },
+    {
+      name: "companyName",
+      label: "Company Name",
+      type: "text",
+      placeholder: "Enter your company name",
+      validation: Yup.string().required("Company name is required"),
+    },
+  ];
+
+  // Submit handler
+  const handleSubmit = async (
+    values: any,
+    { setSubmitting, resetForm }: any
   ) => {
-    setSubmitted(false);
-    setFormData((prev) => ({ ...prev, [fieldName]: e?.target?.value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
     setLoading(true);
-    setSubmitted(false);
     try {
       const response = await axios.post(
         "https://api.sinusoid.in/sponsorContact",
-        formData
+        values
       );
       setSubmitted(true);
     } catch (error) {
       console.error("Error submitting data:", error);
     } finally {
-      setFormData(defaultFormData);
+      resetForm();
       setLoading(false);
+      setSubmitting(false);
     }
   };
-
-  useEffect(() => {
-    console.log({ formData });
-  }, [formData]);
 
   return (
     <div className="flex flex-col-reverse md:flex-col lg:flex-row items-center justify-between w-full p-8 lg:p-16">
@@ -99,7 +133,7 @@ const Partnership: React.FC = () => {
               <AnimatedGradientText>
                 <span
                   className={cn(
-                    `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent font-bold text-xl`
+                    "inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent font-bold text-xl"
                   )}
                 >
                   GET IN TOUCH
@@ -108,9 +142,9 @@ const Partnership: React.FC = () => {
               </AnimatedGradientText>
             </div>
           </DialogTrigger>
+
           <DialogContent className="sm:max-w-[425px] sm:px-10">
             <DialogHeader>
-              {/* {onSubmit} */}
               <DialogTitle>
                 <HyperText
                   duration={1150}
@@ -122,107 +156,22 @@ const Partnership: React.FC = () => {
                 Please fill in the form to get in touch...
               </DialogDescription>
             </DialogHeader>
-            <div className="grid gap-6 py-4">
-              <div className="grid grid-cols-4 items-center gap-6">
-                <Label htmlFor="name" className="text-right">
-                  Name
-                </Label>
-                <Input
-                  id="name"
-                  placeholder="Enter your name"
-                  className="col-span-3"
-                  value={formData?.name}
-                  onChange={(e) => handleChange(e, "name")}
-                  required
-                />
-              </div>
-              <div className="grid grid-cols-4 items-center gap-6">
-                <Label htmlFor="Email" className="text-right">
-                  Email
-                </Label>
-                <Input
-                  id="Email"
-                  placeholder="Enter your Email"
-                  className="col-span-3"
-                  value={formData?.email}
-                  onChange={(e) => handleChange(e, "email")}
-                  required
-                />
-              </div>
-              <div className="grid grid-cols-4 items-center gap-6">
-                <Label htmlFor="phone" className="text-right">
-                  Phone Number
-                </Label>
-                <Input
-                  id="phone"
-                  placeholder="Enter your phone number"
-                  className="col-span-3"
-                  value={formData?.phone}
-                  onChange={(e) => handleChange(e, "phone")}
-                  required
-                />
-              </div>
-              <div className="grid grid-cols-4 items-center gap-6">
-                <Label htmlFor="company" className="text-right">
-                  Company Name
-                </Label>
-                <Input
-                  id="company"
-                  placeholder="Enter your company name"
-                  className="col-span-3"
-                  value={formData?.companyName}
-                  onChange={(e) => handleChange(e, "companyName")}
-                  required
-                />
-              </div>
-            </div>
-            <DialogFooter>
-              <Button type="submit" onClick={handleSubmit} disabled={loading}>
-                {loading ? (
-                  <svg
-                    className="animate-spin h-5 w-5 mr-3"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx="12"
-                      cy="12"
-                      r="10"
-                      stroke="currentColor"
-                      strokeWidth="4"
-                    ></circle>
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    ></path>
-                  </svg>
-                ) : submitted ? (
-                  <div className="flex items-center">
-                    <svg
-                      className="h-5 w-5 mr-3 text-green-500"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M5 12l5 5L20 7"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    Submitted
-                  </div>
-                ) : (
-                  "Submit"
-                )}
-              </Button>
-            </DialogFooter>
-            <BorderBeam size={250} duration={11} delay={8} />
+
+            {/* Use the FormikForm component */}
+            <FormikForm
+              initialValues={initialValues}
+              validationSchema={validationSchema}
+              onSubmit={handleSubmit}
+              fields={fields}
+              submitButtonText={
+                loading ? "Submitting..." : submitted ? "Submitted" : "Submit"
+              }
+            />
+
+            <DialogFooter />
           </DialogContent>
         </Dialog>
+
         <Link href="#contact-partnerships"></Link>
       </div>
 
