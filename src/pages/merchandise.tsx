@@ -1,5 +1,5 @@
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
@@ -8,8 +8,15 @@ import MerchSection from "@/components/MerchSection/merchsection";
 
 const Merchandise: React.FC = () => {
   const { resolvedTheme } = useTheme();
-  const logoSrc =
-    resolvedTheme === "dark" ? "/events/dark.svg" : "/events/light.svg";
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    setIsDark(resolvedTheme === "dark");
+  }, [resolvedTheme]);
+
+  const logoSrc = isDark
+    ? "/events/Dark30vh.png" // Dark mode logo
+    : "/events/Light30vh.png"; // Light mode logo
 
   const hero =
     resolvedTheme === "dark"
@@ -60,8 +67,8 @@ const Merchandise: React.FC = () => {
           />
         </div>
       </Link>
-      <MerchSection />
 
+      <MerchSection />
       <MerchAccordion />
     </>
   );

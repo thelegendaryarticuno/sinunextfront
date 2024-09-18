@@ -1,25 +1,30 @@
 import React, { useEffect } from 'react';
 import Link from 'next/link';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '@/components/Redux/store';
+import { fetchEventData } from '@/components/Redux/eventSlice';
 import { useTheme } from 'next-themes';
 
-interface EventsBannerProps {
-  eventData?: {
-    rules: string[];
-  };
+interface RuleProps {
+  eventId: string;
 }
 
-const Rule: React.FC<EventsBannerProps> = ({ eventData }) => {
+const Rule: React.FC<RuleProps> = ({ eventId }) => {
+  const dispatch: AppDispatch = useDispatch();
+  const { eventData, loading, error } = useSelector(
+    (state: RootState) => state.event
+  );
   const { theme } = useTheme();
 
   useEffect(() => {
-    console.log('EventData in Rule component:', eventData);
-
     if (!eventData) {
-      console.warn('No eventData available');
-    } else if (!eventData.rules) {
-      console.warn('No rules data available in eventData');
+      dispatch(fetchEventData(eventId));
     }
-  }, [eventData]);
+  }, [dispatch, eventId, eventData]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+  if (!eventData) return <p>No event data available.</p>;
 
   return (
     <div
