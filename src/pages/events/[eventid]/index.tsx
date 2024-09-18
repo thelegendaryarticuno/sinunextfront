@@ -1,56 +1,47 @@
-import TabsComponent from "@/components/Description/description";
-import EventsBanner from "@/components/EventsBanner/EventsBanner";
-import { SponsorMarquee } from "@/components/Marquee/marquee";
-import SEOComponent from "@/components/SEOComponent/SEOComponent";
-import axios from "axios";
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchEventData } from '@/components/Redux/eventSlice';
+import { RootState, AppDispatch } from '@/components/Redux/store';
+import EventsBanner from '@/components/EventsBanner/EventsBanner';
+import Description from '@/components/Description/description';
+import { SponsorMarquee } from '@/components/Marquee/marquee';
+import SEOComponent from '@/components/SEOComponent/SEOComponent';
+import { Event } from '@/components/Redux/types';  // Import Event type
 
 const Events: React.FC = () => {
   const router = useRouter();
-  const { eventid } = router?.query || "404";
-  const [eventData, setEventData] = useState<any>(null);
-
-  const fetchEventById = async (eventid: string) => {
-    try {
-      const response = await axios.get(
-        `https://api.sinusoid.in/events/${eventid}`
-      );
-      return response?.data;
-    } catch (error) {
-      console.error("Error fetching event:", error);
-      return null;
-    }
-  };
+  const { eventid } = router.query; // get eventId from router query
+  const dispatch = useDispatch<AppDispatch>();
+  const eventData = useSelector((state: RootState) => state.event.eventData);
+  const loading = useSelector((state: RootState) => state.event.loading);
+  const error = useSelector((state: RootState) => state.event.error);
 
   useEffect(() => {
-    if (eventid && router) {
-      const fetchData = async () => {
-        const data = await fetchEventById(eventid as string);
-        setEventData(data);
-  
-        if (!data) {
-          router.push("/404");
-        } else if (data?.published === false) {
-          router.push("/404");
-        }
-      };
-  
-      fetchData();
+    if (eventid && typeof eventid === 'string') {
+      dispatch(fetchEventData(eventid));
     }
-  }, [eventid, router]);
+  }, [dispatch, eventid]);
 
   return (
     <>
       <SEOComponent
-        PageDescription={eventData?.description || "Default description"}
-        PageKeywords={["sinusoid", "techfest", eventData?.title || ""]}
-        PageOGLImage={eventData?.image || "/logo/logo.png"}
-        PageTitle={eventData?.eventName || "Event Title"}
+        PageDescription={eventData?.longDesc || 'Default description'}
+        PageKeywords={['sinusoid', 'techfest', eventData?.eventName || '']}
+        PageOGLImage={eventData?.logo || '/logo/logo.png'}
+        PageTitle={eventData?.eventName || 'Event Title'}
       />
-      <EventsBanner eventData={eventData} />
-      <TabsComponent eventData={eventData} />
-      <SponsorMarquee/>
+      {loading ? (
+        <div>Loading...</div>
+      ) : error ? (
+        <div>Error loading event data: {error}</div>
+      ) : (
+        <>
+          <EventsBanner />
+          <Description eventId={eventid as string} />
+          <SponsorMarquee />
+        </>
+      )}
     </>
   );
 };

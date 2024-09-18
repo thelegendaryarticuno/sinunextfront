@@ -69,7 +69,7 @@ export default function Footer() {
                   className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white"
                 >
                   Events
-                </Link> 
+                </Link>
               </li>
               <li>
                 <Link
@@ -77,6 +77,14 @@ export default function Footer() {
                   className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white"
                 >
                   About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="merchandise"
+                  className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white"
+                >
+                  Merchandise
                 </Link>
               </li>
             </ul>
@@ -122,14 +130,19 @@ export default function Footer() {
           </Link>
         </div>
         <div className="text-center text-sm mt-4">
-          <p>© 2024 siNUsoid v8. All rights reserved.</p>
+          <span>© 2024 siNUsoid v8. All rights reserved.</span>
+          <Link href="/privacypolicy">
+              <span>| Privacy Policy </span>
+          </Link>
         </div>
       </div>
     </footer>
   );
 }
 
-function ArrowRightIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
+function ArrowRightIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
@@ -168,7 +181,9 @@ function DiscordIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
   );
 }
 
-function FacebookIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
+function FacebookIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
@@ -187,7 +202,9 @@ function FacebookIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) 
   );
 }
 
-function InstagramIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
+function InstagramIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
@@ -208,7 +225,9 @@ function InstagramIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>)
   );
 }
 
-function LinkedInIcon(props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) {
+function LinkedInIcon(
+  props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>
+) {
   return (
     <svg
       {...props}
