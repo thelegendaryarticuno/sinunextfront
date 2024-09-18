@@ -43,6 +43,7 @@ const About: React.FC = () => {
       {/* GIF Section */}
       <div className="w-[80%] h-[25vh] mx-auto rounded-2xl justify-center items-center relative py-4 my-4">
         <Image
+          unoptimized
           src="/images/sinuVersionText.gif" // replace with the actual path to your GIF
           alt="About Us GIF"
           layout="fill"
