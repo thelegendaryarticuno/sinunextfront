@@ -8,7 +8,7 @@ const Error404: React.FC = () => {
   const router = useRouter();
 
     function redirectToHome() {
-      router
+      router.push("/");
   }
 
   return (
