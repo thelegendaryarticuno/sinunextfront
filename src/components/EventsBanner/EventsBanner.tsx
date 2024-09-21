@@ -110,12 +110,12 @@ const EventsBanner = ({
             <div className="max-w-60 flex justify-center">
               {eventData?.eventId === "hiveweb3hackathon" ? (
                 <PulsatingButton
-                  text="Register Now"
-                  onClick={() =>
-                    router.push(
-                      "/events/hiveweb3hackathon/registerHiveWeb3Hackathon"
-                    )
-                  }
+                  text="Register Closed"
+                  // onClick={() =>
+                  //   router.push(
+                  //     "/events/hiveweb3hackathon/registerHiveWeb3Hackathon"
+                  //   )
+                  // }
                 />
               ) : (
                 <PulsatingButton text="Coming Soon" />
