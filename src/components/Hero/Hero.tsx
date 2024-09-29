@@ -67,7 +67,7 @@ const Hero: React.FC<HeroProps> = ({
       <Link href="/events/hiveweb3hackathon">
         <div className="relative flex justify-center items-center w-full h-[30vh] mt-2">
           <Image
-            src={isDark ? "/events/dark.svg" : "/events/light.svg"}
+            src={isDark ? "/events/Dark.svg" : "/events/Light.svg"}
             alt="Theme Specific Logo"
             layout="fill"
             objectFit="fill"
