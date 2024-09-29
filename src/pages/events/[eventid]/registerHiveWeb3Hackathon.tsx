@@ -16,14 +16,14 @@ const RegisterHiveWeb3Hackathon: React.FC = () => {
   const [hackathonForm, setHackathonForm] = useState<HackathonFormType>(HackathonSchema);
   const [isFormSubmitted, setFormSubmitted] = useState(false);
 
-  // async function submitFormHandler() {
-  //   try {
-  //     await axios.post("https://api.sinusoid.in/hackathon", hackathonForm);
-  //     setFormSubmitted(true);
-  //   } catch (error) {
-  //     console.log("Error submitting data: ", error);
-  //   }
-  // }
+  async function submitFormHandler() {
+    try {
+      await axios.post("https://api.sinusoid.in/hackathon", hackathonForm);
+      setFormSubmitted(true);
+    } catch (error) {
+      console.log("Error submitting data: ", error);
+    }
+  }
 
   return (
     <>
@@ -51,10 +51,10 @@ const RegisterHiveWeb3Hackathon: React.FC = () => {
             </div>
             {/* Form Div */}
             <div className="flex flex-col justify-center w-full md:w-[50%] px-4">
-              <h1 className="text-lg lg:text-2xl font-bold text-center mt-16 mb-12">
+              {/* <h1 className="text-lg lg:text-2xl font-bold text-center mt-16 mb-12">
                 Register for Hive Web3 Hackathon have closed
-              </h1>
-              {/* <div className="flex flex-col gap-6">
+              </h1> */}
+              <div className="flex flex-col gap-6">
                 {section === 0 && (
                   <FirstNameLastName
                     setSection={setSection}
@@ -98,7 +98,7 @@ const RegisterHiveWeb3Hackathon: React.FC = () => {
                     submitForm={submitFormHandler}
                   />
                 )}
-              </div> */}
+              </div>
             </div>
           </div>
         )}
