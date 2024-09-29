@@ -68,6 +68,11 @@ export const MobileNavLinks: React.FC<MobileNavLinksProps> = ({
 }) => {
   const [isSignInOpen, setIsSignInOpen] = useState(false);
 
+  const handleClick = () => {
+    const brochureUrl = "/prAsset/siNUsoidV8Brochure.pdf";
+    window.open(brochureUrl, "_blank");
+  };
+
   useEffect(() => {
     if (isSignInOpen) {
       document.body.style.overflow = "hidden";
@@ -105,6 +110,12 @@ export const MobileNavLinks: React.FC<MobileNavLinksProps> = ({
         >
           Sign In
         </button> */}
+        <button
+          onClick={handleClick}
+          className="flex items-center justify-center p-3 rounded bg-orange-400 dark:bg-orange-600 hover:bg-orange-500 dark:hover:bg-orange-800 text-black dark:text-white w-full"
+        >
+          Download Brochure Now!
+        </button>
       </div>
 
       {/* {isSignInOpen && <SignIn setIsSignInOpen={setIsSignInOpen} />} */}

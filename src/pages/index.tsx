@@ -26,6 +26,7 @@ const Home: React.FC = () => {
       />
       <Hero />      
       <AboutSection />
+      
       <SponsorMarquee />
       <FaqSection
         Generic_Faq_Category={FAQ_CATEGORY}
