@@ -5,7 +5,6 @@ export const BrandBar = styled.div`
   display: flex;
   justify-content: start;
   align-items: center;
-  width: 100%;
   height: 100%;
   padding: 0 60px 0 20px;
 `;
