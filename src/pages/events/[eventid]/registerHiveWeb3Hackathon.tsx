@@ -51,9 +51,9 @@ const RegisterHiveWeb3Hackathon: React.FC = () => {
             </div>
             {/* Form Div */}
             <div className="flex flex-col justify-center w-full md:w-[50%] px-4">
-              <h1 className="text-lg lg:text-2xl font-bold text-center mt-16 mb-12">
-                Register for Hive Web3 Hackathon
-              </h1>
+              {/* <h1 className="text-lg lg:text-2xl font-bold text-center mt-16 mb-12">
+                Register for Hive Web3 Hackathon have closed
+              </h1> */}
               <div className="flex flex-col gap-6">
                 {section === 0 && (
                   <FirstNameLastName

@@ -108,12 +108,12 @@ const EventsBanner = ({
               </div>
             </div>
             <div className="max-w-60 flex justify-center">
-              {eventData?.eventId === "hiveweb3hackathon" ? (
+              {eventData?.eventId === "abstruse" ? (
                 <PulsatingButton
-                  text="Register Now"
+                  text="Live Now!"
                   onClick={() =>
                     router.push(
-                      "/events/hiveweb3hackathon/registerHiveWeb3Hackathon"
+                      "https://abstruse.sinusoid.in"
                     )
                   }
                 />

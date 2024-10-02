@@ -14,6 +14,11 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSignInOpen, setIsSignInOpen] = useState(false);
 
+  const handleClick = () => {
+    const brochureUrl = "/prAsset/siNUsoidV8Brochure.pdf";
+    window.open(brochureUrl, "_blank");
+  };
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -62,16 +67,21 @@ const Header: React.FC = () => {
             >
               Sign In
             </button> */}
-            <ModeToggle />
-          </div>
-
-          <div className="lg:hidden pr-4">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`text-[#000] dark:text-[#FADAC1] p-2 rounded`}
+              onClick={handleClick}
+              className=" hidden lg:flex text-center p-2 rounded bg-orange-400 dark:bg-orange-600 hover:bg-orange-500 dark:hover:bg-orange-800 text-black dark:text-white"
             >
-              <FaBars />
+              Download Brochure
             </button>
+            <ModeToggle />
+            <div className="lg:hidden pr-4">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className={`text-[#000] dark:text-[#FADAC1] p-2 rounded`}
+              >
+                <FaBars />
+              </button>
+            </div>
           </div>
         </nav>
         {isMenuOpen && (

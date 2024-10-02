@@ -67,11 +67,11 @@ const Hero: React.FC<HeroProps> = ({
       <Link href="/events/hiveweb3hackathon">
         <div className="relative flex justify-center items-center w-full h-[30vh] mt-2">
           <Image
-            src={logoSrc}
+            src={isDark ? "/events/Dark.svg" : "/events/Light.svg"}
             alt="Theme Specific Logo"
             layout="fill"
             objectFit="fill"
-            className="p-0"
+            className=""
           />
         </div>
       </Link>
