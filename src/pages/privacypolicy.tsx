@@ -2,6 +2,8 @@ import React from "react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
 
+// comment
+//
 const PrivacyPolicy = () => {
   const { theme } = useTheme();
 
