@@ -17,7 +17,7 @@ const AboutHero: React.FC<HeroProps> = ({
   useEffect(() => {
     setIsDark(resolvedTheme === "dark");
   }, [resolvedTheme]);
-
+//  test
   const bottomContainerClass = isDark
     ? "bg-black text-white"
     : "bg-white text-black";
