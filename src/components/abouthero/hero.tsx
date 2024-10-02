@@ -6,6 +6,7 @@ interface HeroProps {
   lightImage?: string;
   darkImage?: string;
 }
+//test
 
 const AboutHero: React.FC<HeroProps> = ({
   lightImage = "/images/light.jpg",
