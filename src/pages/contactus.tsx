@@ -1,21 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useTheme } from "next-themes";
-import Image from "next/image"; // Import Image component
+import Image from "next/image";
+import { CheckCircle, XCircle } from "lucide-react"; // Import icons
 
-const SplitSection = () => {
+const ContactUs = () => {
   const { theme } = useTheme();
-  const textColor = theme === "dark" ? "text-white" : "text-black";
-  const leftSplitColor = theme === "dark" ? "bg-white" : "bg-slate-800";
-  const rightSplitColor = theme === "dark" ? "bg-slate-800" : "bg-white";
 
+  const [submissionStatus, setSubmissionStatus] = useState<"idle" | "success" | "error">("idle");
+
+  // Reset the submission status after 5-10 seconds
+  useEffect(() => {
+    if (submissionStatus !== "idle") {
+      const timeout = setTimeout(() => setSubmissionStatus("idle"), 7000); // 7 seconds
+      return () => clearTimeout(timeout); // Cleanup timeout
+    }
+  }, [submissionStatus]);
+
+  // Dynamic Styles based on Theme
+  const bgColor =
+    theme === "dark"
+      ? "bg-gradient-to-br from-black to-gray-900"
+      : "bg-gradient-to-br from-blue-400 to-blue-200";
+  const textColor = theme === "dark" ? "text-gray-100" : "text-black";
+  const inputBorderColor = theme === "dark" ? "border-gray-600" : "border-black";
+  const buttonBgColor =
+    theme === "dark" ? "bg-slate-600" : "bg-blue-500";
+
+  // Formik Form Handling
   const formik = useFormik({
     initialValues: {
       firstName: "",
       lastName: "",
       email: "",
-      subject: "",
       query: "",
     },
     validationSchema: Yup.object({
@@ -24,129 +42,142 @@ const SplitSection = () => {
       email: Yup.string()
         .email("Invalid email format")
         .required("Email is required"),
-      subject: Yup.string().required("Subject is required"),
       query: Yup.string().required("Please ask your query"),
     }),
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        const response = await fetch("https://api.sinusoid.in/contactUs", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(values),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to submit the form.");
+        }
+
+        setSubmissionStatus("success"); // Set success status
+        resetForm(); // Reset the form fields
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        setSubmissionStatus("error"); // Set error status
+      }
     },
   });
 
+  // Render Success or Error Message
+  if (submissionStatus === "success") {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <CheckCircle className="text-green-500 w-16 h-16 mx-auto" />
+          <p className="text-xl font-semibold mt-4 text-green-500">Form Submitted Successfully!</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (submissionStatus === "error") {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <XCircle className="text-red-500 w-16 h-16 mx-auto" />
+          <p className="text-xl font-semibold mt-4 text-red-500">Form Not Submitted. Please try again.</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Main Form UI
   return (
-    <div className="flex flex-col md:flex-row h-full md:h-screen mt-16">
-      <div
-        className={`hidden md:block w-1/2 ${leftSplitColor} p-12 flex flex-col justify-center items-center`}
-      >
-        {/* Replacing the text with an image */}
+    <div
+      className={`min-h-screen ${bgColor} flex flex-col mt-16 md:flex-row items-center justify-center p-6 md:space-x-24 space-y-8 md:space-y-0`}
+    >
+      {/* Image Section */}
+      <div className="w-full max-w-md flex items-center justify-center hidden md:block">
         <Image
-          src="/images/query.png" // Path to the image in the public/images folder
-          alt="Descriptive alt text for the image"
-          width={500} // Adjust the width and height as per your design
-          height={500}
+          src="/images/contactus.jpg"
+          alt="Contact Us Image"
+          width={400}
+          height={400}
           className="object-contain"
         />
       </div>
 
-      <div
-        className={`w-full md:w-1/2 ${rightSplitColor} p-6 md:p-12 flex flex-col justify-center md:h-auto overflow-auto`}
-      >
-        <h2
-          className={`text-3xl text-center  md:text-4xl font-bold mb-4 ${textColor}`}
-        >
+      {/* Contact Form Section */}
+      <div className="w-full max-w-md">
+        <h2 className={`text-4xl font-bold mb-6 text-center ${textColor}`}>
           Contact Us
         </h2>
-        <p className="text-base md:text-lg mb-6">
-          {" "}
-          Use the form below to get in touch.
+        <p className={`text-md mb-8 text-center ${textColor}`}>
+          Use the form below to get in touch with us.
         </p>
-        <form onSubmit={formik.handleSubmit} className="space-y-4">
-          <div className="flex flex-col md:flex-row md:space-x-4">
-            <div className="w-full mb-4 md:mb-0">
+
+        <form onSubmit={formik.handleSubmit} className="space-y-6">
+          <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
+            <div className="w-full md:w-1/2">
               <input
                 id="firstName"
                 name="firstName"
                 type="text"
                 placeholder="First Name"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none"
+                className={`w-full p-3 border ${inputBorderColor} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400`}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.firstName}
               />
-              {formik.touched.firstName && formik.errors.firstName ? (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.firstName}
-                </div>
-              ) : null}
+              {formik.touched.firstName && formik.errors.firstName && (
+                <div className="text-red-500 text-sm mt-1">{formik.errors.firstName}</div>
+              )}
             </div>
-            <div className="w-full">
+
+            <div className="w-full md:w-1/2">
               <input
                 id="lastName"
                 name="lastName"
                 type="text"
                 placeholder="Last Name"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none"
+                className={`w-full p-3 border ${inputBorderColor} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400`}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.lastName}
               />
-              {formik.touched.lastName && formik.errors.lastName ? (
-                <div className="text-red-500 text-sm">
-                  {formik.errors.lastName}
-                </div>
-              ) : null}
+              {formik.touched.lastName && formik.errors.lastName && (
+                <div className="text-red-500 text-sm mt-1">{formik.errors.lastName}</div>
+              )}
             </div>
           </div>
 
-          <div className="w-full mb-4">
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Email"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-            />
-            {formik.touched.email && formik.errors.email ? (
-              <div className="text-red-500 text-sm">{formik.errors.email}</div>
-            ) : null}
-          </div>
-
-          <div className="w-full mb-4">
-            <input
-              id="subject"
-              name="subject"
-              type="text"
-              placeholder="Subject"
-              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.subject}
-            />
-            {formik.touched.subject && formik.errors.subject ? (
-              <div className="text-red-500 text-sm">
-                {formik.errors.subject}
-              </div>
-            ) : null}
-          </div>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="Email"
+            className={`w-full p-3 border ${inputBorderColor} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400`}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.email}
+          />
+          {formik.touched.email && formik.errors.email && (
+            <div className="text-red-500 text-sm mt-1">{formik.errors.email}</div>
+          )}
 
           <textarea
             id="query"
             name="query"
             placeholder="Ask your query"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none h-32"
+            className={`w-full p-3 border ${inputBorderColor} rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 h-32`}
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.query}
           />
-          {formik.touched.query && formik.errors.query ? (
-            <div className="text-red-500 text-sm">{formik.errors.query}</div>
-          ) : null}
+          {formik.touched.query && formik.errors.query && (
+            <div className="text-red-500 text-sm mt-1">{formik.errors.query}</div>
+          )}
 
           <button
             type="submit"
-            className="bg-black text-white px-6 py-3 rounded-lg w-full"
+            className={`${buttonBgColor} text-white px-6 py-3 rounded-md w-full hover:bg-blue-600 transition-all duration-300`}
           >
             Submit
           </button>
@@ -156,4 +187,4 @@ const SplitSection = () => {
   );
 };
 
-export default SplitSection;
+export default ContactUs;

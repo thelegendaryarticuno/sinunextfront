@@ -11,7 +11,7 @@ import { Event } from '@/components/Redux/types';  // Import Event type
 
 const Events: React.FC = () => {
   const router = useRouter();
-  const { eventid } = router.query; // get eventId from router query
+  const { eventid } = router.query; // get eventId from router query 
   const dispatch = useDispatch<AppDispatch>();
   const eventData = useSelector((state: RootState) => state.event.eventData);
   const loading = useSelector((state: RootState) => state.event.loading);
