@@ -29,7 +29,7 @@ const Events: React.FC = () => {
         PageDescription={eventData?.longDesc || 'Default description'}
         PageKeywords={['sinusoid', 'techfest', eventData?.eventName || '']}
         PageOGLImage={eventData?.logo || '/logo/logo.png'}
-        PageTitle={eventData?.eventName || 'Event Title'}
+        PageTitle={`${eventData?.eventName} | siNUsoid v8` || 'Event Title'}
       />
       {loading ? (
         <div>Loading...</div>
