@@ -66,7 +66,7 @@ const OnFest: React.FC = () => {
                 altText={event?.altText}
                 eventName={event?.eventName}
                 eventTagLine={event?.eventTagLine}
-                eventStatus={event?.eventStatus}
+                eventStatus={event?.Status}
                 registrationStartDate={event?.registrationStartDate}
                 registrationEndDate={event?.registrationEndDate}
                 eventStartDate={event?.eventStartDate}
