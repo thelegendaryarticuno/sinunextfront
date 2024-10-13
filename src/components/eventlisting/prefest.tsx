@@ -9,6 +9,7 @@ const PreFest: React.FC = () => {
   const { resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
 
+  // Fetch events from API
   const fetchAllEvents = async () => {
     try {
       const response = await axios.get("https://api.sinusoid.in/events/");
@@ -23,6 +24,10 @@ const PreFest: React.FC = () => {
     }
   };
 
+  // Build image URL dynamically or fall back to local image
+  const getImageUrl = (fileName: string) =>
+    `https://api.sinusoid.in/images/${fileName}`;
+
   useEffect(() => {
     setIsDark(resolvedTheme === "dark");
   }, [resolvedTheme]);
@@ -33,8 +38,11 @@ const PreFest: React.FC = () => {
 
   useEffect(() => {
     const formattedEvents = fetchedData.map((event: any) => ({
-      imageSrc: isDark ? "/images/dark.jpg" : "/images/light.jpg",
-      altText: "Google AI Essentials",
+      imageSrc: getImageUrl(
+        event?.imageAsset?.squareBanner?.imgUrl ||
+          (isDark ? "/images/dark.jpg" : "/images/light.jpg")
+      ),
+      altText: event?.eventName || "Event Image",
       eventName: event?.eventName,
       eventTagLine: event?.eventTagline,
       eventStatus: event?.status || "Upcoming",
@@ -42,7 +50,7 @@ const PreFest: React.FC = () => {
       registrationEndDate: event?.schedule?.registrationEnd,
       eventStartDate: event?.schedule?.eventStart,
       eventEndDate: event?.schedule?.eventEnd,
-      collaborationLogo: isDark ? "/events/Hive Pen.png" : "/events/1.png",
+      collaborationLogo: getImageUrl(isDark ? "Hive Pen.png" : "1.png"),
       eventId: event?.eventId,
     }));
     setEvents(formattedEvents);

@@ -110,12 +110,8 @@ const EventsBanner = ({
             <div className="max-w-60 flex justify-center">
               {eventData?.eventId === "abstruse" ? (
                 <PulsatingButton
-                  text="Live Now!"
-                  onClick={() =>
-                    router.push(
-                      "https://abstruse.sinusoid.in"
-                    )
-                  }
+                  text="Ended!"
+                  disabled
                 />
               ) : (
                 <PulsatingButton text="Coming Soon" />
@@ -133,7 +129,7 @@ const EventsBanner = ({
           </div>
         </div>
 
-        <div className="flex justify-start md:justify-between items-center mt-1 md:mt-1">
+        {/* <div className="flex justify-start md:justify-between items-center mt-1 md:mt-1">
           <div className="flex items-center ml-4 md:ml-12 mb-7">
             <span
               className={`text-sm ${
@@ -150,7 +146,7 @@ const EventsBanner = ({
               width={100}
             />
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
