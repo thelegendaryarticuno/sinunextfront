@@ -20,14 +20,19 @@ const OnFest: React.FC = () => {
     }
   };
 
+  const getImageUrl = (fileName: string) =>
+    `https://api.sinusoid.in/images/${fileName}`;
+
   useEffect(() => {
     fetchAllEvents();
   }, []);
 
   useEffect(() => {
     const formattedEvents = fetchedData.map((event: any) => ({
-      imageSrc: "/images/light.jpg",
-      altText: "Google AI Essentials",
+      imageSrc: getImageUrl(
+        event?.imageAsset?.squareBanner?.imgUrl || "/images/eventsdark.png"
+      ),
+      altText: event?.eventName || "Event Image",
       eventName: event?.eventName,
       eventTagLine: event?.eventTagline,
       eventStatus: event?.status || "Upcoming",
@@ -35,46 +40,18 @@ const OnFest: React.FC = () => {
       registrationEndDate: event?.registrationEnd,
       eventStartDate: event?.eventStart,
       eventEndDate: event?.eventEnd,
-      collaborationLogo: "/logo/logo.png",
+      collaborationLogo: getImageUrl("logo.png"),
       eventId: event?.eventId,
     }));
     setEvents(formattedEvents);
   }, [fetchedData]);
 
-  const gridColumns =
-    events.length === 1
-      ? "grid-cols-1 items-center"
-      : events.length === 2
-      ? "grid-cols-1 sm:grid-cols-2"
-      : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3";
-
   return (
     <div className="flex flex-col items-center mt-16 mb-4 px-4">
       {events.length > 0 ? (
-        <div className={`grid ${gridColumns} gap-10 justify-center`}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {events.map((event, index) => (
-            <div
-              key={index}
-              className={`w-full flex justify-center mb-4 ${
-                events.length === 4 && index === 3
-                  ? "lg:col-span-3 sm:col-span-2"
-                  : ""
-              }`}
-            >
-              <EventCard
-                imageSrc={event?.imageSrc}
-                altText={event?.altText}
-                eventName={event?.eventName}
-                eventTagLine={event?.eventTagLine}
-                eventStatus={event?.eventStatus}
-                registrationStartDate={event?.registrationStartDate}
-                registrationEndDate={event?.registrationEndDate}
-                eventStartDate={event?.eventStartDate}
-                eventEndDate={event?.eventEndDate}
-                collaborationLogo={event?.collaborationLogo}
-                eventId={event?.eventId}
-              />
-            </div>
+            <EventCard key={index} {...event} />
           ))}
         </div>
       ) : (
