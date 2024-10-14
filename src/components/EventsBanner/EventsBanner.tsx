@@ -41,6 +41,31 @@ const EventsBanner = ({
       }
     : { backgroundColor: isDark ? "black" : "white" };
 
+  // Function to handle button click
+  const handleButtonClick = () => {
+    if (eventData?.status === "registrations") {
+      router.push(`/events/${eventData?.eventId}/register`);
+    }
+  };
+
+  // Get appropriate button text and behavior based on event status
+  const getButtonContent = () => {
+    switch (eventData?.status) {
+      case "upcoming":
+        return { text: "Coming Soon", disabled: true };
+      case "registrations":
+        return { text: "Register Here", disabled: false };
+      case "ongoing":
+        return { text: "Registration Closed", disabled: true };
+      case "ended":
+        return { text: "Event Ended", disabled: true };
+      default:
+        return { text: "Unknown Status", disabled: true };
+    }
+  };
+
+  const { text, disabled } = getButtonContent();
+
   return (
     <div className="relative w-full overflow-hidden my-20">
       <div
@@ -108,14 +133,11 @@ const EventsBanner = ({
               </div>
             </div>
             <div className="max-w-60 flex justify-center">
-              {eventData?.eventId === "abstruse" ? (
-                <PulsatingButton
-                  text="Ended!"
-                  disabled
-                />
-              ) : (
-                <PulsatingButton text="Coming Soon" />
-              )}
+              <PulsatingButton
+                text={text}
+                onClick={handleButtonClick}
+                disabled={disabled} // Disable button based on status
+              />
             </div>
           </div>
           <div className="mt-6 ml-auto hidden lg:block">
@@ -129,12 +151,11 @@ const EventsBanner = ({
           </div>
         </div>
 
+        {/* Optional: Logo Section */}
         {/* <div className="flex justify-start md:justify-between items-center mt-1 md:mt-1">
           <div className="flex items-center ml-4 md:ml-12 mb-7">
             <span
-              className={`text-sm ${
-                isDark ? "text-gray-400" : "text-gray-400"
-              } mr-2`}
+              className={`text-sm ${isDark ? "text-gray-400" : "text-gray-400"} mr-2`}
             >
               Powered by
             </span>
