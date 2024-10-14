@@ -23,7 +23,6 @@ export default function Component({ bannerImage }: ComponentProps) {
   const [errorMessage, setErrorMessage] = useState<string | null>(null); // Error message state
   const [eventName, setEventName] = useState<string | null>(null); // Add this line
 
-
   const bgColor =
     theme === "dark"
       ? "bg-gradient-to-br from-black to-gray-900"
@@ -40,8 +39,8 @@ export default function Component({ bannerImage }: ComponentProps) {
     try {
       const response = await axios.get(`https://api.sinusoid.in/events/${id}`);
       const event = response.data;
-      const participantType = event.eventParticipants; 
-      setEventName(event.eventName);// Solo/Team
+      const participantType = event.eventParticipants;
+      setEventName(event.eventName); // Solo/Team
       setEventParticipant(participantType); // Update state with participant type
     } catch (error: any) {
       console.error("Error fetching event data:", error);
@@ -118,9 +117,11 @@ export default function Component({ bannerImage }: ComponentProps) {
   }, [formik.values.isNiitStudent]); // Only run when isNiitStudent changes
 
   return (
-    <div className={`flex flex-col min-h-screen ${bgColor} md:items-center justify-center`}>
+    <div
+      className={`flex flex-col h-full mt-12 ${bgColor} md:items-center justify-center`}
+    >
       {/* Form Section */}
-      <div className="w-full min-w-screen px-4 mt-10 py-8">
+      <div className="w-full min-w-screen px-4 py-4">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Image Slider */}
           <div className="hidden md:block">
@@ -129,7 +130,9 @@ export default function Component({ bannerImage }: ComponentProps) {
 
           {/* Registration Form */}
           <div>
-            <h2 className="text-2xl font-semibold mb-4">{eventName} Registration</h2>
+            <h2 className="text-2xl font-semibold mb-4">
+              {eventName} Registration
+            </h2>
             <form className="space-y-6" onSubmit={formik.handleSubmit}>
               {/* First Name and Last Name */}
               <div className="grid grid-cols-2 gap-4">
