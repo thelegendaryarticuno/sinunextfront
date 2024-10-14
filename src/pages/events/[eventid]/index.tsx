@@ -1,13 +1,12 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchEventData } from '@/components/Redux/eventSlice';
-import { RootState, AppDispatch } from '@/components/Redux/store';
-import EventsBanner from '@/components/EventsBanner/EventsBanner';
 import Description from '@/components/Description/description';
+import EventsBanner from '@/components/EventsBanner/EventsBanner';
 import { SponsorMarquee } from '@/components/Marquee/marquee';
+import { fetchEventData } from '@/components/Redux/eventSlice';
+import { AppDispatch, RootState } from '@/components/Redux/store';
 import SEOComponent from '@/components/SEOComponent/SEOComponent';
-import { Event } from '@/components/Redux/types';  // Import Event type
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Events: React.FC = () => {
   const router = useRouter();
