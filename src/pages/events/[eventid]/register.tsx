@@ -37,7 +37,7 @@ const Register: React.FC = () => {
   }, [router.isReady, eventid]);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col h-full my-4 ">
       {/* Show loading state or appropriate form */}
       {loadingForms || !eventParticipant ? (
         <p className="text-center mt-16 mb-4 text-lg font-semibold">
