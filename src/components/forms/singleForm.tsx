@@ -108,11 +108,10 @@ export default function Component({ bannerImage }: ComponentProps) {
   });
   // Automatically set university field if NIIT student checkbox is checked
   useEffect(() => {
-    if (
-      formik.values.isNiitStudent &&
-      formik.values.university !== "NIIT University"
-    ) {
+    if (formik.values.isNiitStudent) {
       formik.setFieldValue("university", "NIIT University");
+    } else {
+      formik.setFieldValue("university", ""); // Clear the university name when unchecked
     }
   }, [formik.values.isNiitStudent]); // Only run when isNiitStudent changes
 
