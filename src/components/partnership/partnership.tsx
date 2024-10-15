@@ -17,6 +17,7 @@ import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import axios from "axios";
 import * as Yup from "yup";
 import FormikForm from "@/components/formikform/formikform"; // Import your generic FormikForm component
+import { BorderBeam } from "../magicui/border-beam";
 
 const Partnership: React.FC = () => {
   const [loading, setLoading] = useState(false);
@@ -39,8 +40,6 @@ const Partnership: React.FC = () => {
     phone: Yup.string().required("Phone number is required"),
     companyName: Yup.string().required("Company name is required"),
   });
-
-  // Define the fields for the form
   const fields = [
     {
       name: "name",
@@ -73,8 +72,6 @@ const Partnership: React.FC = () => {
       validation: Yup.string().required("Company name is required"),
     },
   ];
-
-  // Submit handler
   const handleSubmit = async (
     values: any,
     { setSubmitting, resetForm }: any
@@ -106,7 +103,6 @@ const Partnership: React.FC = () => {
           BECOME A PARTNER
         </h1>
 
-        {/* Image for smaller screens */}
         <div className="lg:hidden w-80% md:h-auto mb-8 lg:mb-12">
           <Image
             src="/images/sponsorPartnership2.png"
@@ -127,8 +123,9 @@ const Partnership: React.FC = () => {
           PARTNER WITH US TO SHAPE THE FUTURE AND DRIVE POSITIVE CHANGE.
         </p>
 
-        <Dialog>
+        <Dialog>   
           <DialogTrigger asChild>
+            
             <div className="lg:mt-16 text-lg lg:text-xl font-bold cursor-pointer">
               <AnimatedGradientText>
                 <span
@@ -144,6 +141,7 @@ const Partnership: React.FC = () => {
           </DialogTrigger>
 
           <DialogContent className="sm:max-w-[425px] sm:px-10">
+          <BorderBeam />
             <DialogHeader>
               <DialogTitle>
                 <HyperText
