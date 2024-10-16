@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import Marquee from "@/components/magicui/marquee";
 import Image from "next/image";
 import axios from "axios";
+import { get } from "http";
 
 const ReviewCard = ({
   img,
@@ -48,55 +49,40 @@ const ReviewCard = ({
 };
 
 export function PlansMarquee() {
-     const [events, setEvents] = useState<any[]>([]);
-    const [fetchedData, setFetchedData] = useState<any[]>([]);
-  
-    const fetchAllEvents = async () => {
-      try {
-        const response = await axios.get("https://api.sinusoid.in/events/");
-        const filteredEvents = response?.data.filter(
-          (event: any) =>
-            event?.eventType !== "prefest" && event?.published === true
-        );
-        setFetchedData(filteredEvents);
-      } catch (error) {
-        console.error("Error fetching events:", error);
-        setFetchedData([]);
-      }
-    };
-  
-    const getImageUrl = (fileName: string) =>
-      `https://api.sinusoid.in/images/${fileName}`;
-  
-    useEffect(() => {
-      fetchAllEvents();
-    }, []);
-  
-    useEffect(() => {
-      const formattedEvents = fetchedData.map((event: any) => ({
-        imageSrc: getImageUrl(
-          event?.imageAsset?.eventBannerComponent?.imgUrl || "/images/eventsdark.png"
-        ),
-        
-        eventName: event?.eventName,
-        eventTagLine: event?.eventTagline,
-        
-      }));
+  const [eventData, setEventData] = useState<any[]>([]);
+
+  const fetchAllEvents = async () => {
+    try {
+      const response = await axios.get("https://api.sinusoid.in/events");
+      return response.data;
+    } catch (error) {
+      console.error("Error fetching events:", error);
+    }
+  };
+
+  function getImageUrl(fileName: string) {
+    return `https://api.sinusoid.in/images/${fileName}`;
+  }
+
+  useEffect(() => {
+    fetchAllEvents().then((data) => {
+      setEventData(data);
+    });
+  }, []);
 
   return (
     <div className="relative flex h-[400px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:xl">
       <Marquee pauseOnHover className="[--duration:40s]">
         {eventData.map((event, index) => {
           // Construct image source
-          const imageSrc = `https://api.sinusoid.in/images/${event.imageAsset?.eventBannerComponent?.imgUrl}`;
-
+          const imageSrc = getImageUrl(event?.imageAsset?.eventBannerComponent?.imgUrl);
           return (
             <ReviewCard
-              key={index}
+              key={`key-${event?.eventName}`}
               img={imageSrc}
-              alt={event.eventName || "Event Image"}
-              eventName={event.eventName}
-              eventTagline={event.eventTagline}
+              alt={event?.eventName || "Event Image"}
+              eventName={event?.eventName}
+              eventTagline={event?.eventTagline}
             />
           );
         })}
