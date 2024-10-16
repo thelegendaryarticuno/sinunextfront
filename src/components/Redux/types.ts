@@ -20,4 +20,6 @@ export interface Event {
   rules?: string[];   
   prizes?: string[];  
   eventStructure?: string[];  
+  eventMode: string;
+  eventRedirectUrl: string;
 }
