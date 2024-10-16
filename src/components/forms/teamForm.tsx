@@ -69,15 +69,6 @@ export default function TeamForm() {
     "/images/dark.jpg",
   ];
 
-  // Automatically set universityName field if NIIT student is checked
-  useEffect(() => {
-    if (isNiitStudent) {
-      formik.setFieldValue("universityName", "NIIT University");
-    } else {
-      formik.setFieldValue("universityName", "");
-    }
-  }, [isNiitStudent]);
-
   const handleNext = () => {
     if (currentStep < 4) setCurrentStep(currentStep + 1);
   };
@@ -154,9 +145,19 @@ export default function TeamForm() {
       }
     },
   });
+  // Automatically set universityName field if NIIT student is checked
+  useEffect(() => {
+    if (formik.values.isNiitStudent) {
+      formik.setFieldValue("university", "NIIT University");
+    } else {
+      formik.setFieldValue("university", ""); // Clear the university name when unchecked
+    }
+  }, [formik.values.isNiitStudent]);
 
   return (
-    <div className={`flex flex-col min-h-screen ${bgColor} md:items-center justify-center`}>
+    <div
+      className={`flex flex-col h-screen ${bgColor} md:items-center justify-center`}
+    >
       {/* Main Content */}
       <div className="flex-grow flex md:flex-row flex-col">
         {/* Left Split - Image Slider */}
@@ -167,8 +168,8 @@ export default function TeamForm() {
         </div>
 
         {/* Right Split - Registration Form */}
-        <div className="w-full md:w-[50vw] flex items-center justify-center p-4">
-          <div className="w-full max-w-screen">
+        <div className="w-full md:w-[40vw] flex items-center justify-center p-4">
+          <div className="w-full">
             <h2 className="text-2xl my-8 font-semibold mb-4 md:items-center text-center md:mt-0 md:flex md:justify-center md:items-center">
               {eventName} Registration
             </h2>
