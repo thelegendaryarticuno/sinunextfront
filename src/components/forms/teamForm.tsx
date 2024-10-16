@@ -69,15 +69,6 @@ export default function TeamForm() {
     "/images/dark.jpg",
   ];
 
-  // Automatically set universityName field if NIIT student is checked
-  useEffect(() => {
-    if (isNiitStudent) {
-      formik.setFieldValue("universityName", "NIIT University");
-    } else {
-      formik.setFieldValue("universityName", "");
-    }
-  }, [isNiitStudent]);
-
   const handleNext = () => {
     if (currentStep < 4) setCurrentStep(currentStep + 1);
   };
@@ -154,9 +145,19 @@ export default function TeamForm() {
       }
     },
   });
+  // Automatically set universityName field if NIIT student is checked
+  useEffect(() => {
+    if (formik.values.isNiitStudent) {
+      formik.setFieldValue("university", "NIIT University");
+    } else {
+      formik.setFieldValue("university", ""); // Clear the university name when unchecked
+    }
+  }, [formik.values.isNiitStudent]);
 
   return (
-    <div className={`flex flex-col h-screen ${bgColor} md:items-center justify-center`}>
+    <div
+      className={`flex flex-col h-screen ${bgColor} md:items-center justify-center`}
+    >
       {/* Main Content */}
       <div className="flex-grow flex md:flex-row flex-col">
         {/* Left Split - Image Slider */}
