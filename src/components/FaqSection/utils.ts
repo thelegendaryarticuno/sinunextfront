@@ -231,7 +231,7 @@ export const PLANS_FAQ_DATA = [
     category: "Registration and Packages",
     question: "Are there any discounts available for group registrations?",
     answer:
-      "",
+      "Yes! If we receive a minimum of 15 registrations from a single college for the Platinum or Gold plan, we will offer up to a 10% discount on that plan.",
   },
   {
     section: "faq",
