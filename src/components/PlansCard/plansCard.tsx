@@ -1,8 +1,8 @@
 import React from "react";
-import { useRouter } from "next/router"; // Import the useRouter hook
+import { useRouter } from "next/router";
 
 const PlansCard: React.FC = () => {
-  const router = useRouter(); // Initialize the useRouter hook
+  const router = useRouter();
 
   const plans = [
     {
@@ -19,7 +19,7 @@ const PlansCard: React.FC = () => {
       tag: "One Day",
       tagColor: "bg-gray-500",
       borderColor: "border-gray-500",
-      planId: "silver", // Add planId for routing
+      planId: "silver",
     },
     {
       name: "Gold",
@@ -35,7 +35,7 @@ const PlansCard: React.FC = () => {
       tag: "Two Days",
       tagColor: "bg-orange-400",
       borderColor: "border-orange-400",
-      planId: "gold", // Add planId for routing
+      planId: "gold",
     },
     {
       name: "Platinum",
@@ -51,12 +51,12 @@ const PlansCard: React.FC = () => {
       tag: "Three Days",
       tagColor: "bg-red-500",
       borderColor: "border-red-500",
-      planId: "platinum", // Add planId for routing
+      planId: "platinum",
     },
   ];
 
   const handleShowMore = (planId: string) => {
-    router.push(`/plans/${planId}`); // Navigate to the plan's specific page
+    router.push(`/plans/${planId}`);
   };
 
   return (
@@ -86,7 +86,7 @@ const PlansCard: React.FC = () => {
 
           <button
             className={`w-full py-3 rounded-md font-semibold text-black ${plan.bgColor}`}
-            onClick={() => handleShowMore(plan.planId)} // Trigger navigation on click
+            onClick={() => handleShowMore(plan.planId)}
           >
             {plan.buttonText}
           </button>
