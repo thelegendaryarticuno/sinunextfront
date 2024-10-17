@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import SEOComponent from "@/components/SEOComponent/SEOComponent";
 import { useRouter } from "next/router";
 import SingleForm from "@/components/forms/singleForm";
 import TeamForm from "@/components/forms/teamForm";
@@ -37,31 +38,49 @@ const Register: React.FC = () => {
   }, [router.isReady, eventid]);
 
   return (
-    <div className="flex flex-col h-full my-4 ">
-      {/* Show loading state or appropriate form */}
-      {loadingForms || !eventParticipant ? (
-        <p className="text-center mt-16 mb-4 text-lg font-semibold">
-          Form loading...
-        </p>
-      ) : (
-        <div className="mt-8 md:justify-center items-center w-full md:w-auto">
-          {eventParticipant === "solo" ? (
-            <SingleForm />
-          ) : eventParticipant === "team" ? (
-            <TeamForm />
-          ) : (
-            <p className="text-center text-lg font-semibold">
-              Event participation type not recognized.
-            </p>
-          )}
-        </div>
-      )}
+    <>
+      <SEOComponent
+        PageDescription="Are you prepared to redefine technology? Your launching pad is our Tech Fest! Discover the newest styles, take part in hackathons, respawn, and a lot more. Don't miss out!"
+        PageKeywords={[
+          "sinusoid",
+          "techfest",
+          "tech",
+          "network",
+          "learn",
+          "register",
+          "coding",
+          "hackathon",
+          "gaming",
+        ]}
+        PageOGLImage="/images/dark.jpg"
+        PageTitle="Events | siNUsoid v8"
+      />
+      <div className="flex flex-col h-full my-4 ">
+        {/* Show loading state or appropriate form */}
+        {loadingForms || !eventParticipant ? (
+          <p className="text-center mt-16 mb-4 text-lg font-semibold">
+            Form loading...
+          </p>
+        ) : (
+          <div className="mt-8 md:justify-center items-center w-full md:w-auto">
+            {eventParticipant === "solo" ? (
+              <SingleForm />
+            ) : eventParticipant === "team" ? (
+              <TeamForm />
+            ) : (
+              <p className="text-center text-lg font-semibold">
+                Event participation type not recognized.
+              </p>
+            )}
+          </div>
+        )}
 
-      {/* Handle the case where the event is not found or an error occurs */}
-      {!loadingForms && errorMessage && (
-        <p className="text-center text-lg font-semibold">{errorMessage}</p>
-      )}
-    </div>
+        {/* Handle the case where the event is not found or an error occurs */}
+        {!loadingForms && errorMessage && (
+          <p className="text-center text-lg font-semibold">{errorMessage}</p>
+        )}
+      </div>
+    </>
   );
 };
 
