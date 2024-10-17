@@ -53,7 +53,7 @@ const Register: React.FC = () => {
           "gaming",
         ]}
         PageOGLImage="/images/dark.jpg"
-        PageTitle="Events | siNUsoid v8"
+        PageTitle="Events Registration | siNUsoid v8"
       />
       <div className="flex flex-col h-full my-4 ">
         {/* Show loading state or appropriate form */}
