@@ -174,3 +174,196 @@ export const INDRADHANUSH_FAQ_DATA = [
       "Indradhanush has made a meaningful difference by encouraging a spirit of giving, strengthening community ties, and improving the lives of many individuals.",
   },
 ];
+
+export const PLANS_FAQ_CATEGORY = [
+  {
+    section: "faq",
+    category:"Registration and Packages",
+    title: "Registration and Packages",
+  },
+  {
+    section: "faq",
+    category: "Transportation",
+    title: "Transportation",
+  },
+  {
+    section: "faq",
+    category: "Accomodation",
+    title: "Acoomodation",
+  },
+  {
+    section: "faq",
+    category: "Mess Services",
+    title: "Mess Services",
+  },
+  {
+    section: "faq",
+    category: "DJ Night",
+    title: "DJ Night",
+  },
+  {
+    section: "faq",
+    category: "Code of Conduct",
+    title: "Code of Conduct",
+  },
+  {
+    section: "faq",
+    category: "Event Logistics",
+    title: "Event Logistics",
+  },
+  {
+    section: "faq",
+    category: "Miscellaneous",
+    title: "Miscellaneous",
+  },
+];
+
+export const PLANS_FAQ_DATA = [
+  {
+    section: "faq",
+    category: "Registration and Packages",
+    question: "How do I register for the tech fest?",
+    answer:
+      "Check under events tab on the website",
+  },
+  {
+    section: "faq",
+    category: "Registration and Packages",
+    question: "Are there any discounts available for group registrations?",
+    answer:
+      "Yes! If we receive a minimum of 15 registrations from a single college for the Platinum or Gold plan, we will offer up to a 10% discount on that plan.",
+  },
+  {
+    section: "faq",
+    category: "Transportation",
+    question: "Is transportation included in all packages?",
+    answer:
+      "Drop off is included in all packages and pick up is only for platinum.",
+  },
+  {
+    section: "faq",
+    category: "Transportation",
+    question: "Can I board the bus without a printed registration confirmation?",
+    answer:
+      "No you cannot, a verification and headcount will be done.",
+  },
+  {
+    section: "faq",
+    category: "Accomodation",
+    question: "What facilities are provided in the hostel accommodations?",
+    answer:
+      "Mattress and pillows. Any damage done, all people in that room will be liable.",
+  },
+  {
+    section: "faq",
+    category: "Accomodation",
+    question: "Is separate accommodation available for boys and girls?",
+    answer: "Yes in boys and girls hostel respectively",
+  },
+  {
+    section: "faq",
+    category: "Accomodation",
+    question: "What do I need to bring for my stay?",
+    answer:
+      "Bedsheets, pillow cover, water bottle, toiletries, change of clothes etc.",
+  },
+  {
+    section: "faq",
+    category: "Mess Services",
+    question: "Are there any additional costs for meals outside the mess services?",
+    answer:
+      "Yes, for which you pay from your own pocket and that cost is not included in any of the packages available.",
+  },
+  {
+    section: "faq",
+    category: "Mess Services",
+    question:
+      "What time will meals be served during the tech fest by stalls?",
+    answer:
+      "Stalls will open at 4pm.",
+  },
+  {
+    section: "faq",
+    category: "Mess Services",
+    question: "Will the mess provide options for special dietary needs (e.g., vegetarian, vegan)?",
+    answer:
+      "The mess serves Vegetarian food. Jain food may be provided based on availability and prior notification.",
+  },
+  {
+    section: "faq",
+    category: "DJ Night",
+    question: "Is the DJ night included in all packages?",
+    answer:
+      "Yes, it is.",
+  },
+  {
+    section: "faq",
+    category: "DJ Night",
+    question: "What time does the DJ night start on November 10th?",
+    answer:
+      "9pm",
+  },
+  {
+    section: "faq",
+    category: "DJ Night",
+    question: "Can non-participants of the events attend the DJ night event?",
+    answer:
+      "Yes, as long as you have the band provided by us.",
+  },
+  {
+    section: "faq",
+    category: "Code of Conduct",
+    question: "What is the penalty for violating the code of conduct, such as smoking or drinking on campus?",
+    answer:
+      "Fine between Rs. 500 to Rs 2000",
+  },
+  {
+    section: "faq",
+    category: "Code of Conduct",
+    question: "How can I report instances of ragging or harassment?",
+    answer:
+      "You can contact your SPOC or anyone with a WILDCARD Id-card",
+  },
+  {
+    section: "faq",
+    category: "Event Logistics",
+    question: "Can I extend my accommodation beyond the specified package dates?",
+    answer: "Extensions will be based on availability and will cost extra.",
+  },
+  {
+    section: "faq",
+    category: "Event Logistics",
+    question: "Will there be any breaks during the bus journey from Iffco Chowk?",
+    answer:
+      "No, there will be no stops, until it’s an emergency case.",
+  },
+  {
+    section: "faq",
+    category: "Event Logistics",
+    question: "Are there any shuttle services available on the campus during the event?",
+    answer:
+      "After attendees/participants have entered NIIT University campus they will not be allowed to leave till 11th November.",
+  },
+  {
+    section: "faq",
+    category: "Miscellaneous",
+    question:
+      "Are laptops and other valuables allowed in the hostel?",
+    answer:
+      "Yes you may carry Laptops, phones, earphones, chargers but things like heater, hair dryer, extension cords are strictly prohibited and will be confiscated if found.",
+  },
+  {
+    section: "faq",
+    category: "Miscellaneous",
+    question: "Is there a place on campus where I can purchase food or snacks outside of mess hours?",
+    answer:
+      "Yes, there are cafes and tuck shop.",
+  },
+  {
+    section: "faq",
+    category: "Miscellaneous",
+    question: "What is the procedure for lost and found items during the tech fest?",
+    answer:
+      "Please report to your SPOC",
+  },
+];
