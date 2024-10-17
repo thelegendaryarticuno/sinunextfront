@@ -40,6 +40,12 @@ const EventsBanner = ({
       }
     : { backgroundColor: isDark ? "black" : "white" };
 
+  const getImageUrl = (fileName: string) =>
+    `https://api.sinusoid.in/images/${fileName}`;
+  const rightImageUrl = eventData?.imageAsset?.eventBannerComponent?.imgUrl
+    ? getImageUrl(eventData.imageAsset.eventBannerComponent.imgUrl)
+    : rightImage;
+
   const handleButtonClick = () => {
     if (eventData?.status === "registrations") {
       if (eventData?.eventMode === "unstop" && eventData?.eventRedirectUrl) {
@@ -154,7 +160,7 @@ const EventsBanner = ({
           </div>
           <div className="mt-6 ml-auto hidden lg:block">
             <Image
-              src={rightImage}
+              src={rightImageUrl}
               alt="Event illustration"
               className="rounded-lg"
               width={200}
