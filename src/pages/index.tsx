@@ -21,12 +21,12 @@ const Home: React.FC = () => {
           "events",
           "niit university",
         ]}
-        PageOGLImage="/logo/logo.png"
+        PageOGLImage="https://sinusoid.in/logo/logo.png"
         PageTitle="siNUsoid v8 | Reflexive Retrograde"
       />
-      <Hero/>      
+      <Hero />
       <AboutSection />
-      
+
       <SponsorMarquee />
       <FaqSection
         Generic_Faq_Category={FAQ_CATEGORY}

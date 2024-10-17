@@ -4,9 +4,8 @@ import Image from "next/image";
 import PulsatingButton from "../ui/pulsatingbutton";
 import dayjs from "dayjs";
 import { useRouter } from "next/router";
-import { useSelector } from 'react-redux';
-import { RootState } from '@/components/Redux/store';
-import { Event } from '@/components/Redux/types';
+import { useSelector } from "react-redux";
+import { RootState } from "@/components/Redux/store";
 
 interface EventsBannerProps {
   lightImage?: string;
@@ -41,10 +40,29 @@ const EventsBanner = ({
       }
     : { backgroundColor: isDark ? "black" : "white" };
 
-  // Function to handle button click
+  const getImageUrl = (fileName: string) =>
+    `https://api.sinusoid.in/images/${fileName}`;
+  const rightImageUrl = eventData?.imageAsset?.eventBannerComponent?.imgUrl
+    ? getImageUrl(eventData.imageAsset.eventBannerComponent.imgUrl)
+    : rightImage;
+
   const handleButtonClick = () => {
     if (eventData?.status === "registrations") {
-      router.push(`/events/${eventData?.eventId}/register`);
+      if (eventData?.eventMode === "unstop" && eventData?.eventRedirectUrl) {
+        // Ensure the URL starts with http or https for external redirection
+        const externalUrl = eventData.eventRedirectUrl.startsWith("http")
+          ? eventData.eventRedirectUrl
+          : `https://${eventData.eventRedirectUrl}`;
+
+        // Redirect to the external URL
+        window.location.href = externalUrl;
+      } else if (
+        eventData?.eventMode === "offline" ||
+        eventData?.eventMode === "online"
+      ) {
+        // Navigate to internal registration page
+        router.push(`/events/${eventData?.eventId}/register`);
+      }
     }
   };
 
@@ -142,7 +160,7 @@ const EventsBanner = ({
           </div>
           <div className="mt-6 ml-auto hidden lg:block">
             <Image
-              src={rightImage}
+              src={rightImageUrl}
               alt="Event illustration"
               className="rounded-lg"
               width={200}
