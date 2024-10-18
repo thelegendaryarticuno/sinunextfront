@@ -223,8 +223,8 @@ const PlanDetails = () => {
             Students must always be wearing their identity cards and be prepared to produce it, if demanded by the authorities.
             </li>
             <li className="text-sm">
-            On entry to the university, you will not be allowed to leave the university till the completion of your desired package,
-            unless there's an emergency.
+            {`On entry to the university, you will not be allowed to leave the university till the completion of your desired package,
+            unless there's an emergency.`}
             </li>
             <li className="text-sm">
             No graffiti, scribbling or unwarranted marks on walls or doors, anywhere within the premises is not permitted.
