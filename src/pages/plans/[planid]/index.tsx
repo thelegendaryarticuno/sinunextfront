@@ -6,6 +6,7 @@ interface Plan {
   price: string;
   details: string[];
   extraInfo?: string;
+  date: string;
 }
 
 const PlanDetails = () => {
@@ -16,7 +17,8 @@ const PlanDetails = () => {
   const plans: { [key: string]: Plan } = {
     silver: {
       name: "Silver Plan",
-      price: "₹1099, 10th November",
+      price: "₹1099",
+      date: " 10th November",
       details: [
         "One day All-Access Pass",
         "Budget friendly",
@@ -38,7 +40,8 @@ const PlanDetails = () => {
     },
     gold: {
       name: "Gold Plan",
-      price: "₹1499, 9th-10th November",
+      price: "₹1499",
+      date: "9th-10th November",
       details: [
         "Affordable All-Access Pass",
         "Full Access to All Events for 2 Days",
@@ -62,14 +65,15 @@ const PlanDetails = () => {
     },
     platinum: {
       name: "Platinum Plan",
-      price: "₹1799, 8th-10th November",
+      price: "₹1799",
+      date: "8th-10th November",
       details: [
         "All-Access Adventure for 3 days",
         "Hassle-Free Travel",
         "Meals and Accommodation inclusive",
         "Exclusive DJ Night Access",
         "Comfortable Stay",
-        "Platinum Exclusive Infinix Zone Pass",
+        "Platinum Exclusive Infinix Zone Pass",
       ],
       extraInfo: `Transportation:
       Both pickup and drop will be provided.
@@ -98,31 +102,47 @@ const PlanDetails = () => {
   if (!plan) {
     return <p>Loading...</p>;
   }
-
   return (
-    <div className="container mx-auto py-10 px-4 mt-16">
-      <div className="pl-4">
-        <h1 className="text-3xl font-bold mb-2 text-black dark:text-white">
-          {plan.name}
-        </h1>
-        <p className="text-xl font-bold mb-2 text-black dark:text-white">
-          {plan.price}
-        </p>
-        <ul className="space-y-2 mb-2 text-gray-800 dark:text-gray-400">
-          {plan.details.map((detail: string, index: number) => (
-            <li key={index} className="text-lg">
-              {detail}
-            </li>
-          ))}
-        </ul>
+    <div className="px-6 sm:px-12 lg:px-20 py-10 mt-16">
+    <div className="pl-4">
+      {/* Plan details box */}
+      <div className="bg-gradient-to-r from-gray-800 via-gray-800 to-orange-700 p-6 rounded-lg shadow-lg mb-8 lg:p-8">
+        <div className="flex flex-col lg:flex-row justify-between items-center lg:items-start mb-2">
+          <div>
+            <h1 className="text-3xl font-bold text-white">
+              {plan.name}
+            </h1>
+            <p className="text-xl font-bold text-white">
+              {plan.date}
+            </p>
+          </div>
+        </div>
+        <hr className="border-t-2 border-white my-4" />
+        <ul className="space-y-0 text-white">
+  {plan.details.map((detail: string, index: number) => (
+    <li key={index} className="text-lg">
+      {detail}
+    </li>
+  ))}
+</ul>
+
+        <div className="mt-6 flex items-center space-x-6">
+          <button className="bg-orange-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-500 text-xl">
+            Register
+          </button>
+          <span className="text-2xl font-bold text-white">
+            at {plan.price}
+          </span>
+        </div>
+      </div>
         <div className="flex flex-wrap justify-between gap-4 mt-12">
-          <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex-1 min-w-[30%]">
+          <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg w-full sm:w-[48%] lg:w-[30%]">
             <h3 className="text-xl font-bold mb-4">ADDITIONAL INFORMATION</h3>
             <pre className="text-sm font-normal whitespace-pre-line">
               {plan.extraInfo}
             </pre>
           </div>
-          <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex-1 min-w-[30%]">
+          <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg w-full sm:w-[48%] lg:w-[30%]">
             <h3 className="text-xl font-bold mb-4">TRANSPORTATION</h3>
             <p className="text-sm font-normal whitespace-pre-line">
             - Pick-up will be on 8th November,2024 from IFFCO CHOWK at 8:00 AM.<br />
@@ -133,7 +153,7 @@ const PlanDetails = () => {
 
             </p>
           </div>
-          <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg flex-1 min-w-[30%]">
+          <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg w-full sm:w-[48%] lg:w-[30%]">
             <h3 className="text-xl font-bold mb-4">MESS</h3>
             <p className="text-sm font-normal">
               The mess service will operate the same for all registration types.
