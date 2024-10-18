@@ -3,19 +3,24 @@ import { cn } from "@/lib/utils";
 import Marquee from "@/components/magicui/marquee";
 import Image from "next/image";
 import axios from "axios";
-import { get } from "http";
 
 const ReviewCard = ({
   img,
   alt,
   eventName,
   eventTagline,
+  eventId,
 }: {
   img: string;
   alt: string;
   eventName: string | undefined;
   eventTagline: string | undefined;
+  eventId: string | undefined;
 }) => {
+  const handleGoTo = () => {
+    window.location.href = `/events/${eventId}`;
+  };
+
   return (
     <figure
       className={cn(
@@ -34,15 +39,21 @@ const ReviewCard = ({
       />
       <div
         className={cn(
-          "absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          "absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         )}
       >
         {eventName && (
-          <div className="text-white text-xl font-semibold text-center">
+          <div className="text-white text-xl font-semibold text-center mb-4">
             <p>{eventName}</p>
             <p>{eventTagline}</p>
           </div>
         )}
+        <button
+          onClick={handleGoTo}
+          className="bg-slate-800 text-white px-4 py-2 rounded-md hover:bg-gray-600 transition-colors"
+        >
+          Go to
+        </button>
       </div>
     </figure>
   );
@@ -74,7 +85,6 @@ export function PlansMarquee() {
     <div className="relative flex h-[400px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:xl">
       <Marquee pauseOnHover className="[--duration:40s]">
         {eventData.map((event, index) => {
-          // Construct image source
           const imageSrc = getImageUrl(event?.imageAsset?.eventBannerComponent?.imgUrl);
           return (
             <ReviewCard
@@ -83,6 +93,7 @@ export function PlansMarquee() {
               alt={event?.eventName || "Event Image"}
               eventName={event?.eventName}
               eventTagline={event?.eventTagline}
+              eventId={event?.eventId}
             />
           );
         })}
@@ -90,3 +101,5 @@ export function PlansMarquee() {
     </div>
   );
 }
+
+export default PlansMarquee;
