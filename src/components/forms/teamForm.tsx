@@ -63,7 +63,7 @@ export default function TeamForm() {
   const handleTeamMembersChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
     if (value > (maxTeam ?? 0)) {
-      alert(`Maximum allowed members are ${maxTeam}`);
+      formik.errors.teamMembers = `Maximum allowed members are ${maxTeam}.`;
     } else {
       setTeamMembers(value);
       formik.setFieldValue("teamMembers", value);
@@ -294,7 +294,6 @@ export default function TeamForm() {
                         placeholder="Enter your phone number"
                         onChange={(e) => {
                           const value = e.target.value;
-                          // Allow only numeric values
                           if (/^\d*$/.test(value)) {
                             formik.setFieldValue("phone", value);
                           }

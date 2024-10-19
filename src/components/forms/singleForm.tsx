@@ -18,7 +18,9 @@ export default function Component() {
   const [eventParticipant, setEventParticipant] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [eventName, setEventName] = useState<string | null>(null);
-  const [submissionStatus, setSubmissionStatus] = useState<"success" | "error" | null>(null);
+  const [submissionStatus, setSubmissionStatus] = useState<
+    "success" | "error" | null
+  >(null);
 
   const bgColor =
     theme === "dark"
@@ -81,7 +83,10 @@ export default function Component() {
       };
 
       try {
-        await axios.post("https://api.sinusoid.in/eventRegistrations", formData);
+        await axios.post(
+          "https://api.sinusoid.in/eventRegistrations",
+          formData
+        );
         setSubmissionStatus("success");
       } catch (error) {
         console.error("Registration Error:", error);
@@ -109,7 +114,9 @@ export default function Component() {
   }, [submissionStatus]);
 
   return (
-    <div className={`flex flex-col h-full mt-12 ${bgColor} md:items-center justify-center`}>
+    <div
+      className={`flex flex-col h-full mt-12 ${bgColor} md:items-center justify-center`}
+    >
       <div className="w-full min-w-screen px-4 py-4">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Left Side: Image Slider */}
@@ -119,7 +126,9 @@ export default function Component() {
 
           {/* Right Side: Form */}
           <div>
-            <h2 className="text-2xl font-semibold mb-4">{eventName} Registration</h2>
+            <h2 className="text-2xl font-semibold mb-4">
+              {eventName} Registration
+            </h2>
 
             {submissionStatus === "success" && (
               <div className="flex flex-col items-center my-16 space-y-4">
@@ -153,7 +162,9 @@ export default function Component() {
                       value={formik.values.firstName}
                     />
                     {formik.touched.firstName && formik.errors.firstName && (
-                      <p className="text-red-500 text-sm">{formik.errors.firstName}</p>
+                      <p className="text-red-500 text-sm">
+                        {formik.errors.firstName}
+                      </p>
                     )}
                   </div>
 
@@ -168,7 +179,9 @@ export default function Component() {
                       value={formik.values.lastName}
                     />
                     {formik.touched.lastName && formik.errors.lastName && (
-                      <p className="text-red-500 text-sm">{formik.errors.lastName}</p>
+                      <p className="text-red-500 text-sm">
+                        {formik.errors.lastName}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -185,7 +198,9 @@ export default function Component() {
                     value={formik.values.email}
                   />
                   {formik.touched.email && formik.errors.email && (
-                    <p className="text-red-500 text-sm">{formik.errors.email}</p>
+                    <p className="text-red-500 text-sm">
+                      {formik.errors.email}
+                    </p>
                   )}
                 </div>
 
@@ -196,15 +211,21 @@ export default function Component() {
                     name="phone"
                     type="tel"
                     placeholder="Enter your phone number"
-                    onChange={formik.handleChange}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      if (/^\d*$/.test(value)) {
+                        formik.setFieldValue("phone", value);
+                      }
+                    }}
                     onBlur={formik.handleBlur}
                     value={formik.values.phone}
                   />
-                  {formik.touched.phone && formik.errors.phone && (
-                    <p className="text-red-500 text-sm">{formik.errors.phone}</p>
-                  )}
                 </div>
-
+                {formik.touched.phone && formik.errors.phone && (
+                  <p className="text-red-500 text-sm mt-1">
+                    {formik.errors.phone}
+                  </p>
+                )}
                 <div className="flex items-center space-x-2">
                   <input
                     type="checkbox"
@@ -216,7 +237,9 @@ export default function Component() {
                     }
                     className="w-4 h-4 text-blue-500 border-gray-300 rounded focus:ring-blue-500"
                   />
-                  <Label htmlFor="isNiitStudent">I am a student of NIIT University</Label>
+                  <Label htmlFor="isNiitStudent">
+                    I am a student of NIIT University
+                  </Label>
                 </div>
 
                 <div className="space-y-1">
@@ -231,16 +254,18 @@ export default function Component() {
                     disabled={formik.values.isNiitStudent}
                   />
                   {formik.touched.university && formik.errors.university && (
-                    <p className="text-red-500 text-sm">{formik.errors.university}</p>
+                    <p className="text-red-500 text-sm">
+                      {formik.errors.university}
+                    </p>
                   )}
                 </div>
 
                 <div className="flex justify-center">
                   <Button
-                  type="submit"
-                  className="max-w-60 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
+                    type="submit"
+                    className="max-w-60 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-200"
                   >
-                  Submit Registration
+                    Submit Registration
                   </Button>
                 </div>
               </form>
