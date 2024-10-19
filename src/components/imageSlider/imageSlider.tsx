@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/components/Redux/store";
 
-export default function ImageSlider() {
+interface ImageSliderProps {
+  className?: string; // Optional className prop
+}
+
+export default function ImageSlider({ className = "" }: ImageSliderProps) {
   const [currentImage, setCurrentImage] = useState(0);
   const eventData = useSelector((state: RootState) => state.event.eventData);
 
@@ -36,13 +40,13 @@ export default function ImageSlider() {
   };
 
   return (
-    <div className="relative w-full h-full overflow-hidden">
+    <div className={`relative w-full h-full overflow-hidden ${className}`}>
       {images.map((src, index) => (
         <img
           key={index}
           src={src}
           alt={`Event image ${index + 1}`}
-          className={`absolute w-full h-80 justify-center object-cover transition-opacity duration-1000 ease-in-out ${
+          className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-1000 ease-in-out ${
             index === currentImage ? "opacity-100" : "opacity-0"
           }`}
         />

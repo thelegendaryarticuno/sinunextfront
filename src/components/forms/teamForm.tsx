@@ -194,14 +194,15 @@ export default function TeamForm() {
       className={`flex flex-col min-h-screen ${bgColor} md:items-center justify-center overflow-x-hidden`} // Added overflow-x-hidden to prevent horizontal scroll
     >
       {/* Main Content */}
-      <div className="flex-grow flex md:flex-row flex-col w-full overflow-x-hidden"> {/* Added w-full and overflow-x-hidden */}
+      <div className="flex-grow flex md:flex-row flex-col w-full overflow-hidden">
         {/* Left Split - Image Slider */}
         <div className="hidden md:flex w-[50vw] items-center justify-center">
-          <div className="w-4/5 h-4/5">
-            <ImageSlider />
+          <div className="w-full h-full flex justify-center items-center"> 
+            <div className="relative w-[80%] h-[80%]">
+              <ImageSlider className="w-full h-full object-contain" />
+            </div>
           </div>
         </div>
-  
         {/* Right Split - Registration Form */}
         <div className="w-full md:w-[50vw] flex items-center justify-center p-4">
           <div className="w-full max-w-screen-md"> {/* Adjusted max-width to max-w-screen-md */}
