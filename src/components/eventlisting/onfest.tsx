@@ -26,7 +26,7 @@ const OnFest: React.FC = () => {
 
   // Build image URL dynamically or fall back to local image
   const getImageUrl = (fileName: string) =>
-    `https://api.sinusoid.in/images/${fileName}`;
+    `https://storage.googleapis.com/sinusoidcms-2024.appspot.com/${fileName}`;
 
   useEffect(() => {
     setIsDark(resolvedTheme === "dark");

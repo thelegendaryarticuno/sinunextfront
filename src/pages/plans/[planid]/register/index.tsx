@@ -1,13 +1,17 @@
 import React from "react";
-import PRForm from "@/components/prforms/prforms"; // Adjust the path based on your file structure
+import PrForms from "@/components/prforms/prforms"; // Adjust the path if the file is located in a different folder
 
-const Register: React.FC = () => {
+const Page = () => {
   return (
-    <div style={{ margin: "20px", fontFamily: "Arial, sans-serif" }}>
-      <h1>Register Client</h1>
-      <PRForm />
+    <div>
+      <h1 className="text-center text-2xl font-bold mt-8">
+        Welcome to the Registration Form
+      </h1>
+      <div className="flex justify-center mt-8">
+        <PrForms />
+      </div>
     </div>
   );
 };
 
-export default Register;
+export default Page;
