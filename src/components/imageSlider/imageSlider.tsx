@@ -1,36 +1,48 @@
-// imageSlider.tsx
-
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/components/Redux/store";
 
-interface ImageSliderProps {
-  images: string[]; // Accept an array of images as props
-}
-
-export default function ImageSlider({ images }: ImageSliderProps) {
+export default function ImageSlider() {
   const [currentImage, setCurrentImage] = useState(0);
+  const eventData = useSelector((state: RootState) => state.event.eventData);
 
-  // Function to cycle images every 4 seconds
+  // Helper function to build the image URL
+  const getImageUrl = (fileName: string) =>
+    `https://storage.googleapis.com/sinusoidcms-2024.appspot.com/${fileName}`;
+
+  // Extract the event image from Redux state
+  const squareBannerUrl = eventData?.imageAsset?.squareBanner?.imgUrl
+    ? getImageUrl(eventData.imageAsset.squareBanner.imgUrl)
+    : null;
+
+  // Fallback image if no event image is available
+  const fallbackImage = "/events/hackathon-35vh.jpg";
+
+  // Construct the array of images (either event image or fallback)
+  const images = squareBannerUrl ? [squareBannerUrl] : [fallbackImage];
+
+  // Handle image cycling every 4 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       nextImage();
-    }, 4000); // 4-second interval
+    }, 4000);
 
     return () => clearInterval(interval); // Cleanup on unmount
-  }, []);
+  }, [images]); // Rerun effect if images change
 
+  // Increment the current image index
   const nextImage = () => {
     setCurrentImage((prev) => (prev + 1) % images.length);
   };
 
   return (
     <div className="relative w-full h-full overflow-hidden">
-      {/* Render only one image at a time with smooth transitions */}
       {images.map((src, index) => (
         <img
           key={index}
           src={src}
           alt={`Event image ${index + 1}`}
-          className={`absolute w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+          className={`absolute w-full h-80 justify-center object-cover transition-opacity duration-1000 ease-in-out ${
             index === currentImage ? "opacity-100" : "opacity-0"
           }`}
         />

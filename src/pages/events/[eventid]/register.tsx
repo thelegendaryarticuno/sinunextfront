@@ -62,7 +62,7 @@ const Register: React.FC = () => {
             Form loading...
           </p>
         ) : (
-          <div className="mt-8 md:justify-center items-center w-full md:w-auto">
+          <div className="mt-16 md:justify-center items-center w-full md:w-auto overflow-y-auto ">
             {eventParticipant === "solo" ? (
               <SingleForm />
             ) : eventParticipant === "team" ? (
