@@ -205,7 +205,7 @@ export default function TeamForm() {
         </div>
         {/* Right Split - Registration Form */}
         <div className="w-full md:w-[50vw] flex items-center justify-center p-4">
-          <div className="w-full max-w-screen-md"> {/* Adjusted max-width to max-w-screen-md */}
+          <div className="w-full max-w-screen-md">
             <h2 className="text-2xl my-8 font-semibold mb-4 md:items-center text-center md:mt-0 md:flex md:justify-center md:items-center">
               {eventName} Registration
             </h2>
