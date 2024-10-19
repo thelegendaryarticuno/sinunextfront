@@ -42,7 +42,7 @@ export default function ImageSlider() {
           key={index}
           src={src}
           alt={`Event image ${index + 1}`}
-          className={`absolute w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
+          className={`absolute w-full h-80 justify-center object-cover transition-opacity duration-1000 ease-in-out ${
             index === currentImage ? "opacity-100" : "opacity-0"
           }`}
         />

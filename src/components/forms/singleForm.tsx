@@ -14,7 +14,6 @@ export default function Component() {
   const { theme } = useTheme();
   const router = useRouter();
   const { eventid } = router.query;
-
   const [loadingForms, setLoadingForms] = useState(true);
   const [eventParticipant, setEventParticipant] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
