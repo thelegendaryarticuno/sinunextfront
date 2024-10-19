@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { CheckCircle, XCircle } from "lucide-react";
+import ImageSlider from "@/components/imageSlider/imageSlider"; // Importing ImageSlider
 
 // Validation Schema using Yup
 const validationSchema = Yup.object({
@@ -63,7 +64,6 @@ export default function TeamForm() {
       fetchEventData(eventid as string);
     }
   }, [router.isReady, eventid]);
-
   const handleTeamMembersChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
     if (value > (maxTeam ?? 0)) {
@@ -85,7 +85,10 @@ export default function TeamForm() {
     "/images/dark.jpg",
   ];
   const handleNext = () => {
-    if (currentStep < 4) setCurrentStep(currentStep + 1);
+    if (currentStep < 4) {
+      console.log(`Advancing to step: ${currentStep + 1}`); // Debugging log
+      setCurrentStep(currentStep + 1);
+    }
   };
 
   const handlePrevious = () => {
@@ -97,6 +100,7 @@ export default function TeamForm() {
         <>
           {currentStep === 1 && renderStep1()}
           {currentStep === 2 && renderStep2()}
+          {currentStep === 3 && renderStep3(true)}
           {currentStep === 4 && renderStep4()}
         </>
       );
@@ -105,7 +109,7 @@ export default function TeamForm() {
         <>
           {currentStep === 1 && renderStep1()}
           {currentStep === 2 && renderStep2()}
-          {currentStep === 3 && renderStep3()}
+          {currentStep === 3 && renderStep3(false)}
           {currentStep === 4 && renderStep4()}
         </>
       );
@@ -200,7 +204,7 @@ export default function TeamForm() {
     </>
   );
 
-  const renderStep3 = () => (
+  const renderStep3 = (fixed: boolean) => (
     <div className="space-y-1">
       <Label htmlFor="teamMembers">
         Number of Team Members (Including Team Leader)
@@ -208,15 +212,13 @@ export default function TeamForm() {
       <Input
         id="teamMembers"
         type="number"
-        placeholder={`Enter number of team members (Min: ${minTeam}, Max: ${maxTeam})`}
-        onChange={handleTeamMembersChange}
-        value={teamMembers ?? ""}
-        min={minTeam}
-        max={maxTeam}
+        value={maxTeam} // Always display the fixed value
+        readOnly={fixed} // Disable input if 'fixed' is true
+        className={fixed ? "text-white cursor-not-allowed" : ""} // Style it as disabled
+        onChange={fixed ? undefined : handleTeamMembersChange} // Disable change handler when fixed
       />
     </div>
   );
-
   const renderStep4 = () => (
     <>
       {formik.values.teamDetails.map((_, index) => (
@@ -225,8 +227,9 @@ export default function TeamForm() {
             {index === 0 ? "Team Leader" : `Member ${index + 1}`}
           </h3>
           <div className="space-y-1">
-            <Label>Name</Label>
+            <Label htmlFor={`teamDetails[${index}].teamMemberName`}>Name</Label>
             <Input
+              id={`teamDetails[${index}].teamMemberName`}
               name={`teamDetails[${index}].teamMemberName`}
               placeholder="Enter name"
               onChange={formik.handleChange}
@@ -234,8 +237,11 @@ export default function TeamForm() {
             />
           </div>
           <div className="space-y-1">
-            <Label>Email</Label>
+            <Label htmlFor={`teamDetails[${index}].teamMemberEmail`}>
+              Email
+            </Label>
             <Input
+              id={`teamDetails[${index}].teamMemberEmail`}
               name={`teamDetails[${index}].teamMemberEmail`}
               type="email"
               placeholder="Enter email"
@@ -252,7 +258,13 @@ export default function TeamForm() {
     formik.values.firstName && formik.values.lastName && formik.values.email;
   const isStep2Valid = () =>
     formik.values.phone && formik.values.universityName;
-  const isStep3Valid = () => teamMembers && teamMembers > 0;
+  const isStep3Valid = () => {
+    const min = minTeam ?? 0;
+    const max = maxTeam ?? 0;
+
+    return (min === max && max > 0) || (teamMembers && teamMembers > 0);
+  };
+
   const isStep4Valid = () =>
     formik.values.teamDetails.every(
       (member) => member.teamMemberName && member.teamMemberEmail
@@ -267,16 +279,18 @@ export default function TeamForm() {
   };
 
   useEffect(() => {
-    if (currentStep === 3 && teamMembers) {
+    const teamSize = maxTeam ?? teamMembers;
+
+    if (currentStep === 3 && teamSize > 0) {
       formik.setFieldValue(
         "teamDetails",
-        Array.from({ length: teamMembers }, () => ({
+        Array.from({ length: teamSize }, () => ({
           teamMemberName: "",
           teamMemberEmail: "",
         }))
       );
     }
-  }, [teamMembers, currentStep]);
+  }, [teamMembers, maxTeam, currentStep]);
 
   const formik = useFormik({
     initialValues: {
@@ -289,33 +303,39 @@ export default function TeamForm() {
       teamMembers: 0,
       teamDetails: [] as { teamMemberName: string; teamMemberEmail: string }[],
     },
-
     validationSchema,
     onSubmit: async (values) => {
+      console.log("Form values on submit:", values); // Debugging log
+
       const formData = {
-        eventId: eventid, // Use dynamic event ID from query params
-        eventParticipants: eventParticipant, // Solo/Team based on fetched event data
+        eventId: eventid,
+        eventParticipants: eventParticipant,
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
         phone: values.phone,
         universityName: values.universityName,
-        isNiitStudent: values.isNiitStudent || false, // Explicitly set to false if unchecked
+        isNiitStudent: values.isNiitStudent || false,
         teamMembers: values.teamMembers,
         teamDetails: values.teamDetails,
       };
+
+      console.log("Submitting form data:", formData); // Debugging log
+
       try {
         const response = await axios.post(
           "https://api.sinusoid.in/eventRegistrations",
           formData
         );
-        alert("Registration Successful!");
+        console.log("Submission successful:", response); // Debugging log
+        setSubmissionStatus("success");
       } catch (error) {
-        console.error("Registration Error:", error);
-        alert("Registration failed. Please try again.");
+        console.error("Registration Error:", error); // Detailed error log
+        setSubmissionStatus("error");
       }
     },
   });
+
   // Automatically set universityName field if NIIT student is checked
   useEffect(() => {
     if (formik.values.isNiitStudent) {
@@ -337,7 +357,7 @@ export default function TeamForm() {
 
   return (
     <div
-      className={`flex flex-col h-screen ${bgColor} md:items-center justify-center`}
+      className={`flex flex-col h-screen ${bgColor} md:items-center justify-center md: mt-8`}
     >
       <div className="flex-grow flex md:flex-row flex-col">
         <div className="w-full md:w-[40vw] flex items-center justify-center p-4">
@@ -345,6 +365,27 @@ export default function TeamForm() {
             <h2 className="text-2xl my-8 font-semibold mb-4 text-center">
               {eventName} Registration
             </h2>
+            <div className="h-full w-full">
+              <ImageSlider />
+            </div>
+            {submissionStatus === "success" && (
+              <div className="flex flex-col items-center my-16 space-y-4">
+                <CheckCircle className="w-16 h-16 text-green-500 animate-bounce" />
+                <p className="text-xl font-medium text-green-500">
+                  Registration Successful!
+                </p>
+              </div>
+            )}
+
+            {submissionStatus === "error" && (
+              <div className="flex flex-col items-center my-16 space-y-4">
+                <XCircle className="w-16 h-16 text-red-500 animate-bounce" />
+                <p className="text-xl font-medium text-red-500">
+                  Registration Unsuccessful. Please try again.
+                </p>
+              </div>
+            )}
+
             {!submissionStatus && (
               <form className="space-y-4" onSubmit={formik.handleSubmit}>
                 {renderSteps()}
@@ -354,14 +395,26 @@ export default function TeamForm() {
                       Previous
                     </Button>
                   )}
-                  <Button
-                    type={currentStep === 4 ? "submit" : "button"}
-                    onClick={currentStep === 4 ? undefined : handleNext}
-                    disabled={!isNextEnabled()}
-                    className="bg-blue-500 text-white"
-                  >
-                    {currentStep === 4 ? "Submit" : "Next"}
-                  </Button>
+                  {currentStep < 4 && (
+                    <Button
+                      type="button"
+                      onClick={handleNext}
+                      disabled={!isNextEnabled()}
+                      className="bg-blue-500 text-white"
+                    >
+                      Next
+                    </Button>
+                  )}
+                  {currentStep === 4 && (
+                    <Button
+                      type="submit" // Make sure this remains "submit"
+                      disabled={!isNextEnabled()}
+                      className="bg-blue-500 text-white"
+                      onClick={() => formik.handleSubmit()}
+                    >
+                      Submit
+                    </Button>
+                  )}
                 </div>
               </form>
             )}
