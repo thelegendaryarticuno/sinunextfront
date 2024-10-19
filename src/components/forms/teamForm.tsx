@@ -63,7 +63,7 @@ export default function TeamForm() {
   const handleTeamMembersChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
     if (value > (maxTeam ?? 0)) {
-      alert(`Maximum allowed members are ${maxTeam}`);
+      formik.errors.teamMembers = `Maximum allowed members are ${maxTeam}.`;
     } else {
       setTeamMembers(value);
       formik.setFieldValue("teamMembers", value);
@@ -87,7 +87,7 @@ export default function TeamForm() {
     formik.values.firstName && formik.values.lastName && formik.values.email;
   const isStep2Valid = () =>
     formik.values.phone && formik.values.universityName;
-  const isStep3Valid = () => teamMembers && teamMembers > 0;
+  const isStep3Valid = () => teamMembers && teamMembers >= (minTeam ?? 0);
   const isStep4Valid = () =>
     formik.values.teamDetails.every(
       (member) => member.teamMemberName && member.teamMemberEmail
@@ -144,7 +144,7 @@ export default function TeamForm() {
     if (submissionStatus) {
       const timer = setTimeout(() => {
         setSubmissionStatus(null);
-        formik.resetForm();
+        router.push(`/events/${eventid}`);
       }, 5000);
       return () => clearTimeout(timer);
     }
@@ -292,11 +292,21 @@ export default function TeamForm() {
                         name="phone"
                         type="tel"
                         placeholder="Enter your phone number"
-                        onChange={formik.handleChange}
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          if (/^\d*$/.test(value)) {
+                            formik.setFieldValue("phone", value);
+                          }
+                        }}
                         onBlur={formik.handleBlur}
                         value={formik.values.phone}
                       />
                     </div>
+                    {formik.touched.phone && formik.errors.phone && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {formik.errors.phone}
+                      </p>
+                    )}
 
                     <div className="flex items-center space-x-2">
                       <Checkbox
