@@ -49,8 +49,8 @@ export default function TeamForm() {
       const participantType = event.eventParticipants;
       setEventName(event.eventName);
       setEventParticipant(participantType); // Update state with participant type
-      setMinTeam(event.minTeamMemberRequired);
-      setMaxTeam(event.maxTeamMemberAllowed);
+      setMinTeam(event.minTeamMember);
+      setMaxTeam(event.maxTeamMember);
     } catch (error: any) {
       console.error("Error fetching event data:", error);
       setErrorMessage(error.response?.data?.message || "Failed to load event.");
