@@ -294,7 +294,6 @@ export default function TeamForm() {
                         placeholder="Enter your phone number"
                         onChange={(e) => {
                           const value = e.target.value;
-                          // Allow only numeric values
                           if (/^\d*$/.test(value)) {
                             formik.setFieldValue("phone", value);
                           }
