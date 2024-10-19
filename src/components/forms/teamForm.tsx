@@ -181,10 +181,9 @@ export default function TeamForm() {
           formData
         );
         setSubmissionStatus("success");
-        alert("Registration Successful!");
       } catch (error) {
         console.error("Registration Error:", error);
-        alert("Registration failed. Please try again.");
+
         setSubmissionStatus("error");
       }
     },
