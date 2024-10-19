@@ -191,7 +191,7 @@ export default function TeamForm() {
 
   return (
     <div
-      className={`flex flex-col min-h-screen ${bgColor} md:items-center justify-center overflow-x-hidden`} // Added overflow-x-hidden to prevent horizontal scroll
+      className={`flex flex-col min-h-screen ${bgColor} md:items-center justify-center overflow-x-hidden`}
     >
       {/* Main Content */}
       <div className="flex-grow flex md:flex-row flex-col w-full overflow-hidden">
