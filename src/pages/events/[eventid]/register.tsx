@@ -55,14 +55,15 @@ const Register: React.FC = () => {
         PageOGLImage="/images/dark.jpg"
         PageTitle="Events Registration | siNUsoid v8"
       />
-      <div className="flex flex-col h-full my-4 ">
+      {/* Main wrapper to prevent horizontal scrolling */}
+      <div className="flex flex-col h-full my-4 w-full max-w-full overflow-x-hidden">
         {/* Show loading state or appropriate form */}
         {loadingForms || !eventParticipant ? (
           <p className="text-center mt-16 mb-4 text-lg font-semibold">
             Form loading...
           </p>
         ) : (
-          <div className="mt-16 md:justify-center items-center w-full md:w-auto overflow-y-auto ">
+          <div className="mt-16 md:justify-center items-center w-full md:w-auto overflow-y-auto">
             {eventParticipant === "solo" ? (
               <SingleForm />
             ) : eventParticipant === "team" ? (

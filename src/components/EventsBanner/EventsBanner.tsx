@@ -93,7 +93,7 @@ const EventsBanner = ({
         <div className="relative z-10 p-4 mt-6 md:p-8 py-4 flex flex-col md:flex-row h-[90%] justify-between items-start md:items-center">
           <div className="flex flex-col h-full justify-center w-full md:w-3/5">
             <h2
-              className={`text-l md:text-2xl font-bold mb-4 leading-tight ${
+              className={`text-2xl md:text-2xl font-bold mb-4 leading-tight ${
                 isDark ? "text-white" : "text-white"
               }`}
             >
