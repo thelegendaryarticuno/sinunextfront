@@ -224,7 +224,7 @@ export const PLANS_FAQ_DATA = [
     category: "Registration and Packages",
     question: "How do I register for the tech fest?",
     answer:
-      "Check under events tab on the website",
+      "You can find the registration details under the Events tab on our website.",
   },
   {
     section: "faq",
@@ -238,41 +238,41 @@ export const PLANS_FAQ_DATA = [
     category: "Transportation",
     question: "Is transportation included in all packages?",
     answer:
-      "Drop off is included in all packages and pick up is only for platinum.",
+      "All packages include drop-off service, while pick-up is exclusively available for our Platinum package.",
   },
   {
     section: "faq",
     category: "Transportation",
     question: "Can I board the bus without a printed registration confirmation?",
     answer:
-      "No you cannot, a verification and headcount will be done.",
+      "No you cannot board the bus, a verification and headcount will be done.",
   },
   {
     section: "faq",
     category: "Accomodation",
     question: "What facilities are provided in the hostel accommodations?",
     answer:
-      "Mattress and pillows. Any damage done, all people in that room will be liable.",
+      "Each accommodation is equipped with a mattress and pillows. Please note that any damages incurred will be the collective responsibility of all occupants in that room.",
   },
   {
     section: "faq",
     category: "Accomodation",
     question: "Is separate accommodation available for boys and girls?",
-    answer: "Yes in boys and girls hostel respectively",
+    answer: "Yes, there are designated hostels for boys and girls, ensuring privacy and comfort for all residents.",
   },
   {
     section: "faq",
     category: "Accomodation",
     question: "What do I need to bring for my stay?",
     answer:
-      "Bedsheets, pillow cover, water bottle, toiletries, change of clothes etc.",
+      "We recommend bringing essential items such as bedsheets, pillow covers, a water bottle, toiletries, and a change of clothes to ensure a comfortable stay.",
   },
   {
     section: "faq",
     category: "Mess Services",
     question: "Are there any additional costs for meals outside the mess services?",
     answer:
-      "Yes, for which you pay from your own pocket and that cost is not included in any of the packages available.",
+      "Yes, any meals purchased outside of the mess services will be at your own expense, and are not included in any of the available packages.",
   },
   {
     section: "faq",
@@ -280,7 +280,7 @@ export const PLANS_FAQ_DATA = [
     question:
       "What time will meals be served during the tech fest by stalls?",
     answer:
-      "Stalls will open at 4pm.",
+      "The stalls will begin at 4pm, on all three days.",
   },
   {
     section: "faq",
@@ -294,14 +294,14 @@ export const PLANS_FAQ_DATA = [
     category: "DJ Night",
     question: "Is the DJ night included in all packages?",
     answer:
-      "Yes, it is.",
+      "Yes, the DJ night is included in all our packages.",
   },
   {
     section: "faq",
     category: "DJ Night",
     question: "What time does the DJ night start on November 10th?",
     answer:
-      "9pm",
+      "The DJ night will commence at 9 PM on November 10th.",
   },
   {
     section: "faq",
@@ -315,34 +315,34 @@ export const PLANS_FAQ_DATA = [
     category: "Code of Conduct",
     question: "What is the penalty for violating the code of conduct, such as smoking or drinking on campus?",
     answer:
-      "Fine between Rs. 500 to Rs 2000",
+      "Violations may result in a fine ranging from Rs. 500 to Rs. 2000.",
   },
   {
     section: "faq",
     category: "Code of Conduct",
     question: "How can I report instances of ragging or harassment?",
     answer:
-      "You can contact your SPOC or anyone with a WILDCARD Id-card",
+      "You may report such instances by reaching out to your designated SPOC or any individual displaying a WILDCARD ID card.",
   },
   {
     section: "faq",
     category: "Event Logistics",
     question: "Can I extend my accommodation beyond the specified package dates?",
-    answer: "Extensions will be based on availability and will cost extra.",
+    answer: "Extensions to your accommodation will be subject to availability, and will have additional charges.",
   },
   {
     section: "faq",
     category: "Event Logistics",
-    question: "Will there be any breaks during the bus journey from Iffco Chowk?",
+    question: "Will there be any breaks during the bus journey from IFFCO Chowk?",
     answer:
-      "No, there will be no stops, until it’s an emergency case.",
+      "No, there will be no scheduled stops during the bus journey, except in the case of an emergency.",
   },
   {
     section: "faq",
     category: "Event Logistics",
     question: "Are there any shuttle services available on the campus during the event?",
     answer:
-      "After attendees/participants have entered NIIT University campus they will not be allowed to leave till 11th November.",
+      "Kindly note that once attendees and participants enter the NIIT University campus, they will not be permitted to leave until November 11th.",
   },
   {
     section: "faq",
@@ -350,20 +350,20 @@ export const PLANS_FAQ_DATA = [
     question:
       "Are laptops and other valuables allowed in the hostel?",
     answer:
-      "Yes you may carry Laptops, phones, earphones, chargers but things like heater, hair dryer, extension cords are strictly prohibited and will be confiscated if found.",
+      "Yes you may carry Laptops, phones, earphones, chargers. However, please note that items such as heater, hair dryer, extension cords are strictly prohibited and will be confiscated if found.",
   },
   {
     section: "faq",
     category: "Miscellaneous",
     question: "Is there a place on campus where I can purchase food or snacks outside of mess hours?",
     answer:
-      "Yes, there are cafes and tuck shop.",
+      "Yes, there are many on-campus facilities such as cafes and the tuckshop that provide food or snacks outside of mess hours.",
   },
   {
     section: "faq",
     category: "Miscellaneous",
     question: "What is the procedure for lost and found items during the tech fest?",
     answer:
-      "Please report to your SPOC",
+      "For any lost items, please report to your SPOC.",
   },
 ];
