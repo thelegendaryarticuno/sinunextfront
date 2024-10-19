@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/components/Redux/store";
 
 interface ImageSliderProps {
-  className?: string; // Optional className prop
+  className?: string;
 }
 
 export default function ImageSlider({ className = "" }: ImageSliderProps) {
