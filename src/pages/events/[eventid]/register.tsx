@@ -55,7 +55,6 @@ const Register: React.FC = () => {
         PageOGLImage="/images/dark.jpg"
         PageTitle="Events Registration | siNUsoid v8"
       />
-      {/* Main wrapper to prevent horizontal scrolling */}
       <div className="flex flex-col h-full my-4 w-full max-w-full overflow-x-hidden">
         {/* Show loading state or appropriate form */}
         {loadingForms || !eventParticipant ? (
