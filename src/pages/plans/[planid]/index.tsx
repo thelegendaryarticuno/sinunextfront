@@ -121,6 +121,7 @@ const PlanDetails = () => {
           "campus stay",
           "meals",
           "gaming",
+          "accomodation",
         ]}
         PageOGLImage="/images/dark.jpg"
         PageTitle="Events Registration | siNUsoid v8"
