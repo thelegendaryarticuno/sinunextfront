@@ -37,7 +37,7 @@ export const FAQ_DATA = [
   {
     section: "faq",
     category: "dateAndVenue",
-    question: "When and where is siNUsoid v8 happening?",
+    question: "When is siNUsoid v8 happening?",
     answer: "siNUsoid will be held from 8th to 10th of November, 2024.",
   },
   {
@@ -51,13 +51,13 @@ export const FAQ_DATA = [
     category: "registration",
     question: "How do I register for siNUsoid?",
     answer:
-      "You can register for siNUsoid by visiting the registration page on our website.",
+      "You can register for the events in siNUsoid v8 by visiting the Events page on our website.",
   },
   {
     section: "faq",
     category: "registration",
     question: "Is there a registration fee for siNUsoid?",
-    answer: "No, siNUsoid is free for all participants.",
+    answer: "No! The registration for all events in siNUsoid v8 is free for all participants.",
   },
   {
     section: "faq",
