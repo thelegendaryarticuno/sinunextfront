@@ -1,4 +1,20 @@
-import React, { useEffect, useState } from "react";
+{/* Optional: Logo Section */}
+        {/* <div className="flex justify-start md:justify-between items-center mt-1 md:mt-1">
+          <div className="flex items-center ml-4 md:ml-12 mb-7">
+            <span
+              className={`text-sm ${isDark ? "text-gray-400" : "text-gray-400"} mr-2`}
+            >
+              Powered by
+            </span>
+            <Image
+              src={logo}
+              alt="sinu logo"
+              className="h-8"
+              height={24}
+              width={100}
+            />
+          </div>
+        </div> */}import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import PulsatingButton from "../ui/pulsatingbutton";
@@ -49,24 +65,19 @@ const EventsBanner = ({
   const handleButtonClick = () => {
     if (eventData?.status === "registrations") {
       if (eventData?.eventMode === "unstop" && eventData?.eventRedirectUrl) {
-        // Ensure the URL starts with http or https for external redirection
         const externalUrl = eventData.eventRedirectUrl.startsWith("http")
           ? eventData.eventRedirectUrl
           : `https://${eventData.eventRedirectUrl}`;
-
-        // Redirect to the external URL
         window.location.href = externalUrl;
       } else if (
         eventData?.eventMode === "offline" ||
         eventData?.eventMode === "online"
       ) {
-        // Navigate to internal registration page
         router.push(`/events/${eventData?.eventId}/register`);
       }
     }
   };
 
-  // Get appropriate button text and behavior based on event status
   const getButtonContent = () => {
     switch (eventData?.status) {
       case "upcoming":
@@ -90,10 +101,10 @@ const EventsBanner = ({
         className="w-[90%] md:w-[80%] h-[45vh] md:h-[40vh] flex flex-col justify-center pl-4 md:pl-12 text-left mx-auto rounded-lg overflow-hidden"
         style={bannerStyle}
       >
-        <div className="relative z-10 p-4 mt-6 md:p-8 py-4 flex flex-col md:flex-row h-[90%] justify-between items-start md:items-center">
+        <div className="relative z-10 p-4 md:p-8 py-4 flex flex-col md:flex-row h-[90%] justify-between items-start md:items-center">
           <div className="flex flex-col h-full justify-center w-full md:w-3/5">
             <h2
-              className={`text-l md:text-2xl font-bold mb-4 leading-tight ${
+              className={`text-2xl md:text-2xl font-bold mb-4 leading-tight ${
                 isDark ? "text-white" : "text-white"
               }`}
             >
@@ -154,7 +165,7 @@ const EventsBanner = ({
               <PulsatingButton
                 text={text}
                 onClick={handleButtonClick}
-                disabled={disabled} // Disable button based on status
+                disabled={disabled}
               />
             </div>
           </div>
@@ -162,7 +173,7 @@ const EventsBanner = ({
             <Image
               src={rightImageUrl}
               alt="Event illustration"
-              className="rounded-lg"
+              className="rounded-lg transform -translate-y-3 -translate-x-12"
               width={200}
               height={100}
             />

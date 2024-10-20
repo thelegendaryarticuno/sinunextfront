@@ -191,20 +191,21 @@ export default function TeamForm() {
 
   return (
     <div
-      className={`flex flex-col min-h-screen ${bgColor} md:items-center justify-center`}
+      className={`flex flex-col min-h-screen ${bgColor} md:items-center justify-center overflow-x-hidden`}
     >
       {/* Main Content */}
-      <div className="flex-grow flex md:flex-row flex-col">
+      <div className="flex-grow flex md:flex-row flex-col w-full overflow-hidden">
         {/* Left Split - Image Slider */}
         <div className="hidden md:flex w-[50vw] items-center justify-center">
-          <div className="w-4/5 h-4/5">
-            <ImageSlider />
+          <div className="w-full h-full flex justify-center items-center"> 
+            <div className="relative w-[80%] h-[80%]">
+              <ImageSlider className="w-full h-full object-contain" />
+            </div>
           </div>
         </div>
-
         {/* Right Split - Registration Form */}
         <div className="w-full md:w-[50vw] flex items-center justify-center p-4">
-          <div className="w-full max-w-screen">
+          <div className="w-full max-w-screen-md">
             <h2 className="text-2xl my-8 font-semibold mb-4 md:items-center text-center md:mt-0 md:flex md:justify-center md:items-center">
               {eventName} Registration
             </h2>
