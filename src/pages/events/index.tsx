@@ -7,7 +7,8 @@ import { useTheme } from "next-themes";
 
 const Events: React.FC = () => {
   const { resolvedTheme } = useTheme();
-  const logoSrc = resolvedTheme === "dark" ? "/events/Dark.svg" : "/events/Light.svg";
+  const logoSrc =
+    resolvedTheme === "dark" ? "/events/Dark.svg" : "/events/Light.svg";
 
   return (
     <>
@@ -24,7 +25,7 @@ const Events: React.FC = () => {
           "hackathon",
           "gaming",
         ]}
-        PageOGLImage="/images/dark.jpg"
+        PageOGLImage="https://sinusoid.in/socialLogo.jpg"
         PageTitle="Events | siNUsoid v8"
       />
       <div className="w-full h-[70vh] flex items-center justify-center relative overflow-hidden mt-16">
@@ -40,7 +41,7 @@ const Events: React.FC = () => {
           <h1 className="text-6xl font-bold mb-8">Events</h1>
         </div>
       </div>
-      <Link href='/events/hiveweb3hackathon'>
+      <Link href="/events/hiveweb3hackathon">
         <div className="relative flex justify-center items-center w-full h-[30vh] mt-2">
           <Image
             src={logoSrc}
@@ -51,7 +52,7 @@ const Events: React.FC = () => {
           />
         </div>
       </Link>
-     <EventOrganizer />
+      <EventOrganizer />
     </>
   );
 };
