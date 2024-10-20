@@ -4,7 +4,7 @@ import { RootState, AppDispatch } from "@/components/Redux/store";
 import { fetchEventData } from "@/components/Redux/eventSlice";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Overview from "../eventsection/Overview";
-import Sponsor from "../eventsection/sponsor";
+//import Sponsor from "../eventsection/sponsor";
 import dayjs from "dayjs";
 import { Event } from "@/components/Redux/types";
 
@@ -113,11 +113,7 @@ const TabsComponent: React.FC<{ eventData: Event }> = ({ eventData }) => {
         </div>
       ),
     },
-    {
-      value: "about-sponsor",
-      text: "Our Sponsors",
-      component: <Sponsor />,
-    },
+    
   ];
 
   return (

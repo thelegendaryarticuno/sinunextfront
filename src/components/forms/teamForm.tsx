@@ -63,7 +63,7 @@ export default function TeamForm() {
   const handleTeamMembersChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
     if (value > (maxTeam ?? 0)) {
-      alert(`Maximum allowed members are ${maxTeam}`);
+      formik.errors.teamMembers = `Maximum allowed members are ${maxTeam}.`;
     } else {
       setTeamMembers(value);
       formik.setFieldValue("teamMembers", value);
@@ -87,7 +87,7 @@ export default function TeamForm() {
     formik.values.firstName && formik.values.lastName && formik.values.email;
   const isStep2Valid = () =>
     formik.values.phone && formik.values.universityName;
-  const isStep3Valid = () => teamMembers && teamMembers > 0;
+  const isStep3Valid = () => teamMembers && teamMembers >= (minTeam ?? 0);
   const isStep4Valid = () =>
     formik.values.teamDetails.every(
       (member) => member.teamMemberName && member.teamMemberEmail
@@ -144,7 +144,7 @@ export default function TeamForm() {
     if (submissionStatus) {
       const timer = setTimeout(() => {
         setSubmissionStatus(null);
-        formik.resetForm();
+        router.push(`/events/${eventid}`);
       }, 5000);
       return () => clearTimeout(timer);
     }
@@ -191,20 +191,21 @@ export default function TeamForm() {
 
   return (
     <div
-      className={`flex flex-col min-h-screen ${bgColor} md:items-center justify-center`}
+      className={`flex flex-col min-h-screen ${bgColor} md:items-center justify-center overflow-x-hidden`}
     >
       {/* Main Content */}
-      <div className="flex-grow flex md:flex-row flex-col">
+      <div className="flex-grow flex md:flex-row flex-col w-full overflow-hidden">
         {/* Left Split - Image Slider */}
         <div className="hidden md:flex w-[50vw] items-center justify-center">
-          <div className="w-4/5 h-4/5">
-            <ImageSlider />
+          <div className="w-full h-full flex justify-center items-center"> 
+            <div className="relative w-[80%] h-[80%]">
+              <ImageSlider className="w-full h-full object-contain" />
+            </div>
           </div>
         </div>
-
         {/* Right Split - Registration Form */}
         <div className="w-full md:w-[50vw] flex items-center justify-center p-4">
-          <div className="w-full max-w-screen">
+          <div className="w-full max-w-screen-md">
             <h2 className="text-2xl my-8 font-semibold mb-4 md:items-center text-center md:mt-0 md:flex md:justify-center md:items-center">
               {eventName} Registration
             </h2>
@@ -292,11 +293,21 @@ export default function TeamForm() {
                         name="phone"
                         type="tel"
                         placeholder="Enter your phone number"
-                        onChange={formik.handleChange}
+                        onChange={(e) => {
+                          const value = e.target.value;
+                          if (/^\d*$/.test(value)) {
+                            formik.setFieldValue("phone", value);
+                          }
+                        }}
                         onBlur={formik.handleBlur}
                         value={formik.values.phone}
                       />
                     </div>
+                    {formik.touched.phone && formik.errors.phone && (
+                      <p className="text-red-500 text-sm mt-1">
+                        {formik.errors.phone}
+                      </p>
+                    )}
 
                     <div className="flex items-center space-x-2">
                       <Checkbox
