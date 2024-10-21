@@ -165,6 +165,7 @@ export default function TeamForm() {
     onSubmit: async (values) => {
       const formData = {
         eventId: eventid, // Use dynamic event ID from query params
+        eventName: eventName, // Use dynamic event name from fetched event data
         eventParticipants: eventParticipant, // Solo/Team based on fetched event data
         firstName: values.firstName,
         lastName: values.lastName,
