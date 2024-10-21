@@ -19,7 +19,7 @@ const Register: React.FC = () => {
       const response = await axios.get(`https://api.sinusoid.in/events/${id}`);
       const event = response.data; // Get the event object
       const participantType = event.eventParticipants; // Store participant type (solo/team)
-      console.log(participantType); // Print participant type to console
+      // console.log(participantType); // Print participant type to console
 
       setEventParticipant(participantType); // Set the state with participant type
     } catch (error: any) {
