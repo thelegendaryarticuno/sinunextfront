@@ -16,17 +16,12 @@ import {
 export const navLinkArray = [
   { href: "/about", text: "About", icon: <FaInfoCircle /> },
   { href: "/events", text: "Events", icon: <FaCalendarAlt /> },
+  { href: "/plans", text: "Accomodation", icon: <FaCalendarAlt /> },
   {
     href: "/sponsor",
     text: "Sponsor",
     icon: <FaHandsHelping />,
     hoverCardSize: "w-24",
-  },
-  {
-    href: "/merchandise",
-    text: "Merchandise",
-    icon: <FaShoppingCart />,
-    hoverCardSize: "w-30",
   },
 ];
 
