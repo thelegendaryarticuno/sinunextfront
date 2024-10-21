@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
+import Link from "next/link";
 
 interface Plan {
   name: string;
@@ -123,7 +124,7 @@ const PlanDetails = () => {
           "gaming",
           "accomodation",
         ]}
-        PageOGLImage="/images/dark.jpg"
+        PageOGLImage="https://sinusoid.in/socialLogo.jpg"
         PageTitle="Events Registration | siNUsoid v8"
       />
       <div className="px-6 sm:px-12 lg:px-20 py-10 mt-16">
@@ -146,9 +147,11 @@ const PlanDetails = () => {
             </ul>
 
             <div className="mt-6 flex items-center space-x-6">
-              <button className="bg-orange-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-500 text-xl">
-                Register
-              </button>
+              <Link href={`/plans/${planid}/register`}>
+                <button className="bg-orange-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-500 text-xl">
+                  Coming Soon!
+                </button>
+              </Link>
               <span className="text-2xl font-bold text-white">
                 at {plan.price}
               </span>

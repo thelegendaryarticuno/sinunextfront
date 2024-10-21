@@ -13,7 +13,7 @@ export default function SEOComponent({
   PageTitle = "siNUsoid v8",
   PageDescription = "siNUsoid v8",
   PageKeywords = ["siNUsoid", "techfest", "niituniversity"],
-  PageOGLImage = "https://sinusoid.in/logo/logo.png",
+  PageOGLImage = "https://sinusoid.in/socialLogo.jpg",
   PageURL = "https://sinusoid.in",
 }: SEOComponentProps) {
   return (
@@ -92,7 +92,7 @@ export default function SEOComponent({
 //         PageOGLImage={PageOGLImage}
 //         PageURL={PageURL}
 //       />
-      
+
 //       {/* Blog post content */}
 //       <div className="blog-post">
 //         <h1>{PageTitle}</h1>
@@ -124,4 +124,3 @@ export default function SEOComponent({
 // };
 
 // export default BlogPostPage;
-
