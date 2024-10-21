@@ -72,6 +72,7 @@ export default function Component() {
     onSubmit: async (values) => {
       const formData = {
         eventId: eventid,
+        eventName: eventName,
         eventParticipants: eventParticipant,
         firstName: values.firstName,
         lastName: values.lastName,
