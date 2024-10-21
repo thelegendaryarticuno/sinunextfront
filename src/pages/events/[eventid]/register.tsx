@@ -52,7 +52,7 @@ const Register: React.FC = () => {
           "hackathon",
           "gaming",
         ]}
-        PageOGLImage="/images/dark.jpg"
+        PageOGLImage="https://sinusoid.in/socialLogo.jpg"
         PageTitle="Events Registration | siNUsoid v8"
       />
       <div className="flex flex-col h-full my-4 w-full max-w-full overflow-x-hidden">
