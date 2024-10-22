@@ -6,7 +6,6 @@ import { SponsorMarquee } from "@/components/Marquee/marquee";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
 import React from "react";
 
-
 const Home: React.FC = () => {
   return (
     <>
@@ -21,7 +20,7 @@ const Home: React.FC = () => {
           "events",
           "niit university",
         ]}
-        PageOGLImage="https://sinusoid.in/logo/logo.png"
+        PageOGLImage="https://sinusoid.in/socialLogo.jpg"
         PageTitle="siNUsoid v8 | Reflexive Retrograde"
       />
       <Hero />

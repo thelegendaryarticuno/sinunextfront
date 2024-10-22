@@ -19,7 +19,7 @@ const Register: React.FC = () => {
       const response = await axios.get(`https://api.sinusoid.in/events/${id}`);
       const event = response.data; // Get the event object
       const participantType = event.eventParticipants; // Store participant type (solo/team)
-      console.log(participantType); // Print participant type to console
+      // console.log(participantType); // Print participant type to console
 
       setEventParticipant(participantType); // Set the state with participant type
     } catch (error: any) {
@@ -52,17 +52,17 @@ const Register: React.FC = () => {
           "hackathon",
           "gaming",
         ]}
-        PageOGLImage="/images/dark.jpg"
+        PageOGLImage="https://sinusoid.in/socialLogo.jpg"
         PageTitle="Events Registration | siNUsoid v8"
       />
-      <div className="flex flex-col h-full my-4 ">
+      <div className="flex flex-col h-full my-4 w-full max-w-full overflow-x-hidden">
         {/* Show loading state or appropriate form */}
         {loadingForms || !eventParticipant ? (
           <p className="text-center mt-16 mb-4 text-lg font-semibold">
             Form loading...
           </p>
         ) : (
-          <div className="mt-8 md:justify-center items-center w-full md:w-auto">
+          <div className="mt-16 md:justify-center items-center w-full md:w-auto overflow-y-auto">
             {eventParticipant === "solo" ? (
               <SingleForm />
             ) : eventParticipant === "team" ? (
