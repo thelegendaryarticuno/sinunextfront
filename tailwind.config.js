@@ -88,6 +88,15 @@ module.exports = {
       },
     },
   },
+  safelist: [
+    'bg-gradient-to-r',
+    'from-gray-500',
+    'to-gray-300',
+    'from-yellow-400',
+    'to-yellow-200',
+    'from-purple-500',
+    'to-purple-300',
+  ],
   plugins: [
     function ({ addUtilities }) {
       addUtilities({
