@@ -1,5 +1,5 @@
 import React from "react";
-import PrForms from "@/components/prforms/prForms";
+import PrForms from "@/components/prforms/accomodation";
 import { useTheme } from "next-themes";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
 
