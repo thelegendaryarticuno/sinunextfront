@@ -9,6 +9,12 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { CheckCircle, XCircle } from "lucide-react";
 import plans from "@/constants/plansConstant";
+import { useDropzone } from "react-dropzone";
+import { useCallback } from "react";
+import QRCode from "react-qr-code";
+import React from "react";
+import ReactDOM from "react-dom";
+
 type PlanKey = keyof typeof plans;
 // Validation Schema using Yup
 const validationSchema = Yup.object({
@@ -23,6 +29,7 @@ const validationSchema = Yup.object({
   healthComplications: Yup.string(),
   gender: Yup.string().required("Gender is required"),
   photoIdUrl: Yup.mixed().required("College ID is required"),
+  paymentProofUrl: Yup.mixed().required("Payment Proof is required"),
 });
 
 export default function PrForm() {
@@ -41,13 +48,17 @@ export default function PrForm() {
   const [submissionStatus, setSubmissionStatus] = useState<
     "success" | "error" | null
   >(null);
-
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const bgColor =
     theme === "dark"
       ? "bg-gradient-to-br from-black to-gray-900"
       : "bg-gradient-to-br from-blue-400 to-blue-200";
 
-  const handleNext = () => currentStep < 2 && setCurrentStep(currentStep + 1);
+  const handleNext = () => {
+    if (isNextEnabled()) {
+      setCurrentStep(currentStep + 1);
+    }
+  };
   const handlePrevious = () =>
     currentStep > 1 && setCurrentStep(currentStep - 1);
 
@@ -58,12 +69,16 @@ export default function PrForm() {
     formik.values.phone &&
     formik.values.universityName;
 
-  const isStep2Valid = () =>
-    formik.values.gender !== "" && formik.values.photoIdUrl;
+  const isStep2Valid = () => formik.values.gender && formik.values.photoIdUrl;
 
-  const isNextEnabled = () =>
-    currentStep === 1 ? isStep1Valid() : isStep2Valid();
+  const isStep3Valid = () => formik.values.paymentProofUrl;
 
+  const isNextEnabled = () => {
+    if (currentStep === 1) return isStep1Valid();
+    if (currentStep === 2) return isStep2Valid();
+    if (currentStep === 3) return isStep3Valid();
+    return false;
+  };
   const handleImageUpload = async (event: any) => {
     const file = event?.target?.files?.[0];
     if (!file) {
@@ -89,6 +104,44 @@ export default function PrForm() {
       console.error("Image Upload Error:", error);
     }
   };
+  const handlePaymentUpload = async (event: any) => {
+    const file = event?.target?.files?.[0];
+    if (!file) {
+      console.log("No file selected");
+      return;
+    }
+
+    const imageFormData = new FormData();
+    imageFormData.append("image", file);
+
+    try {
+      const response = await axios.post(
+        "https://api.sinusoid.in/upload",
+        imageFormData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      formik.setFieldValue("paymentProofUrl", response?.data?.fileName);
+      console.log(response?.data?.fileName);
+      console.log(formik.values.paymentProofUrl);
+    } catch (error) {
+      console.error("Image Upload Error:", error);
+    }
+  };
+  const onDrop = useCallback((acceptedFiles: File[]) => {
+    const file = acceptedFiles[0]; // Only handle one file
+    setUploadedFile(file);
+    handlePaymentUpload({ target: { files: acceptedFiles } }); // Trigger upload
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: { "image/*": [] },
+    multiple: false,
+  });
 
   useEffect(() => {
     if (submissionStatus) {
@@ -110,13 +163,14 @@ export default function PrForm() {
       healthComplications: "",
       gender: "",
       photoIdUrl: "",
+      paymentProofUrl: "",
     },
     validationSchema,
     onSubmit: async (values) => {
       const formData = {
         ...values,
         planId: planid,
-        planName: "Accommodation",
+        planName: planDetails.name,
       };
       try {
         await axios.post("https://api.sinusoid.in/plan", formData);
@@ -130,19 +184,19 @@ export default function PrForm() {
 
   return (
     <div
-      className={`flex flex-col flex-center w-95 min-h-full ${bgColor} my-16 py-16 pl-16 rounded-lg md:items-center justify-center overflow-x-hidden`}
+      className={`flex flex-col flex-center w-95 min-h-full ${bgColor} px-4 py-8 items-center justify-center rounded-lg lg:mt-16 lg:px-16 lg:py-16 overflow-x-hidden `}
     >
       <div className="flex-grow flex md:flex-row flex-col w-full overflow-hidden">
         {/* Gradient div instead of ImageSlider */}
         <div
-          className={`p-8 rounded-md justify-center items-center mt-10 text-black ${planDetails.gradient} mb-8`}
+          className={`p-8 rounded-md justify-center items-center mt-10 text-black ${planDetails.gradient} mb-8 sm:mt-0`}
         >
-          <h2 className="text-3xl font-bold justify-center mb-2">{planDetails.name}</h2>
-          <p className="text-xl mt-8">
-            {planDetails.price}
-          </p>
-          <p className="text-lg font-medium my-4">{planDetails.duration}</p>
-          <ul className="list-disc list-inside space-y-2">
+          <h2 className="text-3xl font-bold justify-center mb-2">
+            {planDetails.name}
+          </h2>
+          <p className="text-xl mt-8">{planDetails.price}</p>
+          <p className="text-lg font-bold my-4">{planDetails.duration}</p>
+          <ul className="list-disc font-bold list-inside space-y-2">
             {planDetails.description.map((item: string, index: number) => (
               <li key={index}>{item}</li>
             ))}
@@ -275,7 +329,7 @@ export default function PrForm() {
                     {/* Increased spacing between sections */}
                     <div>
                       <Label>Gender</Label>
-                      <div className="flex space-x-4 mt-2">
+                      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-2 ml-2">
                         {["Male", "Female", "Other", "Prefer Not to say"].map(
                           (option) => (
                             <label
@@ -339,6 +393,90 @@ export default function PrForm() {
                     </div>
                   </div>
                 )}
+                {currentStep === 3 && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    {/* QR Code Section */}
+                    <div className="flex flex-col items-center w-full md:w-auto">
+                      <h3 className="text-xl font-semibold mb-4">
+                        Scan the QR
+                      </h3>
+                      <div
+                        style={{
+                          height: "auto",
+                          margin: "0 auto",
+                          maxWidth: 200,
+                          width: "100%",
+                        }}
+                      >
+                        <QRCode
+                          size={256}
+                          style={{
+                            height: "auto",
+                            maxWidth: "100%",
+                            width: "100%",
+                          }}
+                          value={planDetails.link}
+                          viewBox={`0 0 256 256`}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Image Uploader Section */}
+                    <div className="flex flex-col items-center w-full md:w-auto">
+                      <h3 className="text-xl font-semibold mb-4">
+                        Upload the payment proof
+                      </h3>
+                      <div
+                        {...getRootProps()}
+                        className={`w-full border-2 border-dashed rounded-md p-8 text-center cursor-pointer 
+        ${isDragActive ? "border-blue-500 bg-blue-50" : "border-gray-300"}`}
+                      >
+                        <input
+                          {...getInputProps()}
+                          name="paymentProofUrl"
+                          id="paymentProofUrl"
+                        />
+                        {!uploadedFile ? (
+                          <div className="flex flex-col items-center justify-center space-y-2">
+                            <svg
+                              className="w-12 h-12 text-gray-400"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M12 4v16m8-8H4"
+                              ></path>
+                            </svg>
+                            <p className="text-gray-500">
+                              Drag and drop an image here, or click to select a
+                              file
+                            </p>
+                          </div>
+                        ) : (
+                          <div className="flex flex-col items-center space-y-2">
+                            <img
+                              src={URL.createObjectURL(uploadedFile)}
+                              alt="Uploaded file preview"
+                              className="w-40 h-40 object-cover rounded-md border border-gray-300"
+                            />
+                          </div>
+                        )}
+                      </div>
+                      {formik.touched.paymentProofUrl &&
+                        formik.errors.paymentProofUrl && (
+                          <p className="text-red-500 text-sm mt-1">
+                            {formik.errors.paymentProofUrl}
+                          </p>
+                        )}
+                    </div>
+                  </div>
+                )}
+
                 <div className="flex justify-between mt-8">
                   {currentStep > 1 && (
                     <Button type="button" onClick={handlePrevious}>
@@ -346,16 +484,16 @@ export default function PrForm() {
                     </Button>
                   )}
                   <Button
-                    type={currentStep === 2 ? "submit" : "button"}
-                    onClick={handleNext}
+                    type={currentStep === 3 ? "submit" : "button"}
+                    onClick={currentStep < 3 ? handleNext : undefined}
                     disabled={!isNextEnabled()}
                     className={`px-6 py-2 rounded-md text-white ${
-                      currentStep === 2
+                      currentStep === 3
                         ? "bg-green-500 hover:bg-green-600"
                         : "bg-blue-500 hover:bg-blue-600"
                     } disabled:opacity-50`}
                   >
-                    {currentStep === 2 ? "Submit" : "Next"}
+                    {currentStep === 3 ? "Submit" : "Next"}
                   </Button>
                 </div>
               </form>
