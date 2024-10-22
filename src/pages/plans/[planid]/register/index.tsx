@@ -15,7 +15,7 @@ const Page = () => {
       <SEOComponent
         PageDescription="Join us at siNUsoid v8! Choose from Silver, Gold, and Platinum plans for an exclusive tech fest experience. Enjoy full event access, accommodation, DJ nights, and more. Register now!"
         PageKeywords={[
-          "siNUsoid v8",
+          "siNUsoid v8", 
           "techfest",
           "events registration",
           "silver plan",
