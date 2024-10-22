@@ -149,7 +149,7 @@ const PlanDetails = () => {
             <div className="mt-6 flex items-center space-x-6">
               <Link href={`/plans/${planid}/register`}>
                 <button className="bg-orange-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-orange-500 text-xl">
-                  Coming Soon!
+                  Register Here!
                 </button>
               </Link>
               <span className="text-2xl font-bold text-white">
