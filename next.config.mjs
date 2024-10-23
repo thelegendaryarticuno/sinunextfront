@@ -4,7 +4,13 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    domains: ["api.sinusoid.in"], // Add your domain here
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api.sinusoid.in",
+        pathname: "**",
+      },
+    ],
   },
 };
 
