@@ -46,8 +46,6 @@ const Merchandise: React.FC = () => {
             autoPlay
             loop
             muted
-            playsInline
-            poster="/images/placeholder.jpg"
             className="absolute top-0 left-0 w-full h-full object-cover z-10"
           />
         </div>
