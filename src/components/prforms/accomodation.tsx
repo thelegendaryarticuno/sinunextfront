@@ -406,6 +406,9 @@ export default function PrForm() {
                           margin: "0 auto",
                           maxWidth: 200,
                           width: "100%",
+                          backgroundColor: "white",
+                          padding: "10px",
+                          borderRadius: "8px",
                         }}
                       >
                         <QRCode
