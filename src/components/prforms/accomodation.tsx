@@ -376,14 +376,17 @@ export default function PrForm() {
                         )}
                     </div>
                     <div>
-                      <Label htmlFor="photoIdUrl">Upload College ID</Label>
-                      <Input
+                        <Label htmlFor="photoIdUrl">Upload College ID</Label>
+                        <Input
                         id="photoIdUrl"
                         type="file"
                         name="photoIdUrl"
                         onChange={handleImageUpload}
                         className="w-full border-2 border-gray-300 p-2 rounded-md"
-                      />
+                        />
+                        <p className="text-gray-500 text-sm mt-1">
+                        Please note: Only files smaller than 1MB are permitted.
+                        </p>
                       {formik.touched.photoIdUrl &&
                         formik.errors.photoIdUrl && (
                           <p className="text-red-500 text-sm mt-1">
@@ -421,6 +424,17 @@ export default function PrForm() {
                           value={planDetails.link}
                           viewBox={`0 0 256 256`}
                         />
+                      </div>
+                      <div className="flex md:hidden">
+                        <Button
+                          type="button"
+                          onClick={() =>
+                            window.open(planDetails.link, "_blank")
+                          }
+                          className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
+                        >
+                          Pay Now
+                        </Button>
                       </div>
                     </div>
 
