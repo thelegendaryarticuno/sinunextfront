@@ -13,7 +13,6 @@ import { useDropzone } from "react-dropzone";
 import { useCallback } from "react";
 import QRCode from "react-qr-code";
 import React from "react";
-import ReactDOM from "react-dom";
 
 type PlanKey = keyof typeof plans;
 // Validation Schema using Yup
@@ -48,6 +47,7 @@ export default function PrForm() {
   const [submissionStatus, setSubmissionStatus] = useState<
     "success" | "error" | null
   >(null);
+  const [uploadProgress, setUploadProgress] = useState(0); // Track upload percentage
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
   const bgColor =
     theme === "dark"
@@ -97,11 +97,19 @@ export default function PrForm() {
           headers: {
             "Content-Type": "multipart/form-data",
           },
+          onUploadProgress: (progressEvent: any) => {
+            const percentCompleted = Math.round(
+              (progressEvent.loaded * 100) / progressEvent?.total
+            );
+            setUploadProgress(percentCompleted); // Update progress state
+          },
         }
       );
       formik.setFieldValue("photoIdUrl", response?.data?.fileName);
+      setUploadProgress(0);
     } catch (error) {
       console.error("Image Upload Error:", error);
+      setUploadProgress(0);
     }
   };
   const handlePaymentUpload = async (event: any) => {
@@ -376,17 +384,27 @@ export default function PrForm() {
                         )}
                     </div>
                     <div>
-                        <Label htmlFor="photoIdUrl">Upload College ID</Label>
-                        <Input
+                      <Label htmlFor="photoIdUrl">Upload College ID</Label>
+                      <Input
                         id="photoIdUrl"
                         type="file"
                         name="photoIdUrl"
                         onChange={handleImageUpload}
                         className="w-full border-2 border-gray-300 p-2 rounded-md"
-                        />
-                        <p className="text-gray-500 text-sm mt-1">
-                        Please note: Only files smaller than 1MB are permitted.
-                        </p>
+                      />
+                      {uploadProgress > 0 && uploadProgress < 100 && (
+                        <div className="mt-2">
+                          <p className="text-gray-500 text-sm">
+                            Uploading: {uploadProgress}%
+                          </p>
+                          <div className="w-full bg-gray-300 rounded-full h-2.5 mt-1">
+                            <div
+                              className="bg-blue-500 h-2.5 rounded-full"
+                              style={{ width: `${uploadProgress}%` }}
+                            ></div>
+                          </div>
+                        </div>
+                      )}
                       {formik.touched.photoIdUrl &&
                         formik.errors.photoIdUrl && (
                           <p className="text-red-500 text-sm mt-1">
