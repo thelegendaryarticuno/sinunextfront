@@ -6,20 +6,22 @@ const PlansCard: React.FC = () => {
 
   const plans = [
     {
-      name: "Silver",
-      price: "₹1099, 10th November",
+      name: "Platinum",
+      price: "₹1799, 8th-10th November",
       features: [
-        "One day All-Access Pass",
-        "Budget friendly",
-        "Meals & Accommodation included",
-        "DJ night access",
+        "All-Access Adventure for 3 days",
+        "Hassle-Free Travel",
+        "Meals and Accommodation inclusive",
+        "Exclusive DJ Night Access",
+        "Comfortable Stay",
+        "Platinum Exclusive Infinix Zone Pass",
       ],
       buttonText: "Show More",
-      bgColor: "bg-gray-500",
-      tag: "One Day",
-      tagColor: "bg-gray-500",
-      borderColor: "border-gray-500",
-      planId: "silver",
+      bgColor: "bg-red-500",
+      tag: "Three Days",
+      tagColor: "bg-red-500",
+      borderColor: "border-red-500",
+      planId: "platinum",
     },
     {
       name: "Gold",
@@ -38,22 +40,20 @@ const PlansCard: React.FC = () => {
       planId: "gold",
     },
     {
-      name: "Platinum",
-      price: "₹1799, 8th-10th November",
+      name: "Silver",
+      price: "₹1099, 10th November",
       features: [
-        "All-Access Adventure for 3 days",
-        "Hassle-Free Travel",
-        "Meals and Accommodation inclusive",
-        "Exclusive DJ Night Access",
-        "Comfortable Stay",
-        "Platinum Exclusive Infinix Zone Pass",
+        "One day All-Access Pass",
+        "Budget friendly",
+        "Meals & Accommodation included",
+        "DJ night access",
       ],
       buttonText: "Show More",
-      bgColor: "bg-red-500",
-      tag: "Three Days",
-      tagColor: "bg-red-500",
-      borderColor: "border-red-500",
-      planId: "platinum",
+      bgColor: "bg-gray-500",
+      tag: "One Day",
+      tagColor: "bg-gray-500",
+      borderColor: "border-gray-500",
+      planId: "silver",
     },
   ];
 
@@ -62,7 +62,7 @@ const PlansCard: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-center gap-6 py-10 px-4 md:px-0">
+    <div className="flex flex-col md:flex-row-reverse justify-center gap-6 py-10 px-4 md:px-0">
       {plans.map((plan, index) => (
         <div
           key={index}
