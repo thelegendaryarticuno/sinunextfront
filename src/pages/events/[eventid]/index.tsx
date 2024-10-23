@@ -4,23 +4,43 @@ import { SponsorMarquee } from '@/components/Marquee/marquee';
 import { fetchEventData } from '@/components/Redux/eventSlice';
 import { AppDispatch, RootState } from '@/components/Redux/store';
 import SEOComponent from '@/components/SEOComponent/SEOComponent';
+import axios from 'axios';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Events: React.FC = () => {
   const router = useRouter();
   const { eventid } = router.query; // get eventId from router query 
   const dispatch = useDispatch<AppDispatch>();
-  const eventData = useSelector((state: RootState) => state.event.eventData);
+  // const eventData = useSelector((state: RootState) => state.event.eventData);
   const loading = useSelector((state: RootState) => state.event.loading);
   const error = useSelector((state: RootState) => state.event.error);
+  interface EventData {
+    longDesc: string;
+    eventName: string;
+    logo: string;
+  }
+
+  const [eventData, setEventData] = useState<EventData | null>(null);
+
+  const fetchEventDataById = async () => {
+    try {
+      const response = await axios.get(`https://api.sinusoid.in/events/${eventid}`);
+      // setEventData(response?.data)
+      // console.log("Event Data Received")
+      return (response.data);
+    } catch (error) {
+      console.error('Error fetching event data:', error);
+    }
+  }
 
   useEffect(() => {
     if (eventid && typeof eventid === 'string') {
-      dispatch(fetchEventData(eventid));
+      fetchEventDataById().then(data => setEventData(data));
     }
-  }, [dispatch, eventid]);
+  }, [eventid]);
+
 
   return (
     <>

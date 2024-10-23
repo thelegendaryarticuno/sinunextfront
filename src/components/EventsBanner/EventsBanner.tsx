@@ -1,20 +1,4 @@
-{/* Optional: Logo Section */}
-        {/* <div className="flex justify-start md:justify-between items-center mt-1 md:mt-1">
-          <div className="flex items-center ml-4 md:ml-12 mb-7">
-            <span
-              className={`text-sm ${isDark ? "text-gray-400" : "text-gray-400"} mr-2`}
-            >
-              Powered by
-            </span>
-            <Image
-              src={logo}
-              alt="sinu logo"
-              className="h-8"
-              height={24}
-              width={100}
-            />
-          </div>
-        </div> */}import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import PulsatingButton from "../ui/pulsatingbutton";
