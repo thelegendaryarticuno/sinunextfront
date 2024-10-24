@@ -36,7 +36,9 @@ export default function ImageSlider({ className = "" }: ImageSliderProps) {
 
   // Increment the current image index
   const nextImage = () => {
-    setCurrentImage((prev) => (prev + 1) % images.length);
+    if (images.length > 0) {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }
   };
 
   return (
