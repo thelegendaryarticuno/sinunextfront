@@ -43,7 +43,9 @@ const ImageSlider = ({ className = "" }: ImageSliderProps) => {
     return () => clearInterval(interval);
   }, [images]);
   const nextImage = () => {
-    setCurrentImage((prev) => (prev + 1) % images.length);
+    if (images.length > 0) {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }
   };
 
   return (
