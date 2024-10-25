@@ -1,30 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '@/components/Redux/store';
-import { fetchEventData } from '@/components/Redux/eventSlice';
 import { useTheme } from 'next-themes';
 
 interface RuleProps {
-  eventId: string;
+  eventData: {
+    rules?: string[];
+  };
 }
 
-const Rule: React.FC<RuleProps> = ({ eventId }) => {
-  const dispatch: AppDispatch = useDispatch();
-  const { eventData, loading, error } = useSelector(
-    (state: RootState) => state.event
-  );
+const Rule: React.FC<RuleProps> = ({ eventData }) => {
   const { theme } = useTheme();
-
-  useEffect(() => {
-    if (!eventData) {
-      dispatch(fetchEventData(eventId));
-    }
-  }, [dispatch, eventId, eventData]);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
-  if (!eventData) return <p>No event data available.</p>;
 
   return (
     <div

@@ -4,10 +4,26 @@ import Image from "next/image";
 import PulsatingButton from "../ui/pulsatingbutton";
 import dayjs from "dayjs";
 import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
-import { RootState } from "@/components/Redux/store";
 
 interface EventsBannerProps {
+  eventData: {
+    eventName: string;
+    eventTagline: string;
+    schedule: {
+      eventStart: string;
+      eventEnd: string;
+    };
+    imageAsset: {
+      eventBannerComponent: {
+        imgUrl: string;
+      };
+    };
+    logo: string;
+    status: string;
+    eventMode: string;
+    eventRedirectUrl?: string;
+    eventId: string;
+  };
   lightImage?: string;
   darkImage?: string;
   logo?: string;
@@ -15,6 +31,7 @@ interface EventsBannerProps {
 }
 
 const EventsBanner = ({
+  eventData,
   lightImage = "/events/hackathon-35vh.jpg",
   darkImage = "/events/hackathon-35vh.jpg",
   logo = "/events/Hive Pen.png",
@@ -23,9 +40,6 @@ const EventsBanner = ({
   const { resolvedTheme } = useTheme();
   const [isDark, setIsDark] = useState(false);
   const router = useRouter();
-
-  // Fetch eventData from Redux
-  const eventData = useSelector((state: RootState) => state.event.eventData);
 
   useEffect(() => {
     setIsDark(resolvedTheme === "dark");
@@ -47,23 +61,20 @@ const EventsBanner = ({
     : rightImage;
 
   const handleButtonClick = () => {
-    if (eventData?.status === "registrations") {
-      if (eventData?.eventMode === "unstop" && eventData?.eventRedirectUrl) {
+    if (eventData.status === "registrations") {
+      if (eventData.eventMode === "unstop" && eventData.eventRedirectUrl) {
         const externalUrl = eventData.eventRedirectUrl.startsWith("http")
           ? eventData.eventRedirectUrl
           : `https://${eventData.eventRedirectUrl}`;
         window.location.href = externalUrl;
-      } else if (
-        eventData?.eventMode === "offline" ||
-        eventData?.eventMode === "online"
-      ) {
-        router.push(`/events/${eventData?.eventId}/register`);
+      } else if (eventData.eventMode === "offline" || eventData.eventMode === "online") {
+        router.push(`/events/${eventData.eventId}/register`);
       }
     }
   };
 
   const getButtonContent = () => {
-    switch (eventData?.status) {
+    switch (eventData.status) {
       case "upcoming":
         return { text: "Coming Soon", disabled: true };
       case "registrations":
@@ -92,65 +103,41 @@ const EventsBanner = ({
                 isDark ? "text-white" : "text-white"
               }`}
             >
-              {eventData?.eventName}
+              {eventData.eventName}
             </h2>
             <p
               className={`text-sm md:text-lg mb-4 leading-tight ${
                 isDark ? "text-gray-200" : "text-white"
               }`}
             >
-              {eventData?.eventTagline}
+              {eventData.eventTagline}
             </p>
             <div className="flex flex-col md:flex-row md:items-start mb-4">
               <div className="flex flex-row text-base md:text-md mb-2 md:mb-0 md:mr-4">
                 <div className="mr-4">
-                  <p
-                    className={`${
-                      isDark ? "text-gray-200" : "text-gray-200"
-                    } leading-tight`}
-                  >
+                  <p className={`${isDark ? "text-gray-200" : "text-gray-200"} leading-tight`}>
                     Start Date:
                   </p>
-                  <p
-                    className={`${
-                      isDark ? "text-gray-200" : "text-gray-200"
-                    } leading-tight`}
-                  >
+                  <p className={`${isDark ? "text-gray-200" : "text-gray-200"} leading-tight`}>
                     <strong>
-                      {dayjs(eventData?.schedule?.eventStart).format(
-                        "dddd, MMMM D, YYYY"
-                      )}
+                      {dayjs(eventData.schedule.eventStart).format("dddd, MMMM D, YYYY")}
                     </strong>
                   </p>
                 </div>
                 <div className="ml-4">
-                  <p
-                    className={`${
-                      isDark ? "text-gray-200" : "text-gray-200"
-                    } leading-tight`}
-                  >
+                  <p className={`${isDark ? "text-gray-200" : "text-gray-200"} leading-tight`}>
                     End Date:
                   </p>
-                  <p
-                    className={`${
-                      isDark ? "text-gray-200" : "text-gray-200"
-                    } leading-tight`}
-                  >
+                  <p className={`${isDark ? "text-gray-200" : "text-gray-200"} leading-tight`}>
                     <strong>
-                      {dayjs(eventData?.schedule?.eventEnd).format(
-                        "dddd, MMMM D, YYYY"
-                      )}
+                      {dayjs(eventData.schedule.eventEnd).format("dddd, MMMM D, YYYY")}
                     </strong>
                   </p>
                 </div>
               </div>
             </div>
             <div className="max-w-60 flex justify-center">
-              <PulsatingButton
-                text={text}
-                onClick={handleButtonClick}
-                disabled={disabled}
-              />
+              <PulsatingButton text={text} onClick={handleButtonClick} disabled={disabled} />
             </div>
           </div>
           <div className="mt-6 ml-auto hidden lg:block">
@@ -163,24 +150,6 @@ const EventsBanner = ({
             />
           </div>
         </div>
-
-        {/* Optional: Logo Section */}
-        {/* <div className="flex justify-start md:justify-between items-center mt-1 md:mt-1">
-          <div className="flex items-center ml-4 md:ml-12 mb-7">
-            <span
-              className={`text-sm ${isDark ? "text-gray-400" : "text-gray-400"} mr-2`}
-            >
-              Powered by
-            </span>
-            <Image
-              src={logo}
-              alt="sinu logo"
-              className="h-8"
-              height={24}
-              width={100}
-            />
-          </div>
-        </div> */}
       </div>
     </div>
   );
