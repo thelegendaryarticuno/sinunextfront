@@ -31,7 +31,7 @@ const Plans: React.FC = () => {
           "accomodation",
         ]}
         PageOGLImage="https://sinusoid.in/socialLogo.jpg"
-        PageTitle="Events Registration | siNUsoid v8"
+        PageTitle="Accomodation  | siNUsoid v8"
       />
       <Hero />
       <PlansMarquee />

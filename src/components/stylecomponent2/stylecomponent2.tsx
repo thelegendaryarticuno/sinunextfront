@@ -4,12 +4,12 @@ import { useTheme } from "next-themes";
 
 const sponsors = [
   "/sponsorLogo/Jio.webp",
-  "/sponsorLogo/Microsoft.webp",
-  "/sponsorLogo/MountainDew.webp",
-  "/sponsorLogo/Kaspersky.webp",
-  "/sponsorLogo/RoyalEnfield.webp",
-  "/sponsorLogo/bewakoof.webp",
-  "/sponsorLogo/sbi.webp",
+  "/sponsorLogo/KGEN.png",
+  "/sponsorLogo/2Oh.png",
+  "/sponsorLogo/4.png",
+  "/sponsorLogo/7.png",
+  "/sponsorLogo/NYNAEVE.png",
+  "/sponsorLogo/Trikon.png",
   "/sponsorLogo/ramada.webp",
   "/sponsorLogo/Zomato.png",
   "/sponsorLogo/Gigabyte.webp"

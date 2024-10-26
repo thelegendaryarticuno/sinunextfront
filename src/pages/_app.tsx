@@ -1,25 +1,18 @@
-import { Provider } from 'react-redux';
-import { store, persistor } from '@/components/Redux/store';  // Updated to import persistor
-import Footer from '@/components/Footer/Footer';
-import Header from '@/components/Header/Header';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
 import '@/styles/globals.css';
-import { PersistGate } from 'redux-persist/integration/react';  // Import PersistGate
+import Footer from '@/components/Footer/Footer';
+import Header from '@/components/Header/Header';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <GoogleAnalytics gaId="GTM-58KNP2JR" />
-        <ThemeProvider defaultTheme="dark" attribute="class">
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
-        </ThemeProvider>
-      </PersistGate>
-    </Provider>
+    <ThemeProvider defaultTheme="dark" attribute="class">
+      <GoogleAnalytics gaId="GTM-58KNP2JR" />
+      <Header />
+      <Component {...pageProps} />
+      <Footer />
+    </ThemeProvider>
   );
 }
 
