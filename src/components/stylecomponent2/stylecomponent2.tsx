@@ -10,8 +10,8 @@ const sponsors = [
   "/sponsorLogo/7.png",
   "/sponsorLogo/NYNAEVE.png",
   "/sponsorLogo/Trikon.png",
-  "/sponsorLogo/ramada.webp",
-  "/sponsorLogo/Zomato.png",
+  "/sponsorLogo/RedBull.webp",
+  "/sponsorLogo/studCops.webp",
   "/sponsorLogo/Gigabyte.webp"
 ];
 
