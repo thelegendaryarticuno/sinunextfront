@@ -1,40 +1,47 @@
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "@/components/Redux/store";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 interface ImageSliderProps {
   className?: string;
 }
-
-export default function ImageSlider({ className = "" }: ImageSliderProps) {
+const ImageSlider = ({ className = "" }: ImageSliderProps) => {
   const [currentImage, setCurrentImage] = useState(0);
-  const eventData = useSelector((state: RootState) => state.event.eventData);
-
-  // Helper function to build the image URL
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const router = useRouter();
+  const { eventid } = router.query;
   const getImageUrl = (fileName: string) =>
     `https://storage.googleapis.com/sinusoidcms-2024.appspot.com/${fileName}`;
-
-  // Extract the event image from Redux state
-  const squareBannerUrl = eventData?.imageAsset?.squareBanner?.imgUrl
-    ? getImageUrl(eventData.imageAsset.squareBanner.imgUrl)
-    : null;
-
-  // Fallback image if no event image is available
+  
+  useEffect(() => {
+    const fetchEventData = async () => {
+      if (eventid && typeof eventid === "string") {
+        try {
+          const response = await axios.get(`https://api.sinusoid.in/events/${eventid}`);
+          const squareBanner = response.data?.imageAsset?.squareBanner?.imgUrl;
+          if (squareBanner) {
+            setImageUrl(getImageUrl(squareBanner));
+          } else {
+            setImageUrl(null);
+          }
+        } catch (error) {
+          console.error("Error fetching event data:", error);
+          setImageUrl(null);
+        }
+      }
+    };
+    fetchEventData();
+  }, [eventid]);
   const fallbackImage = "/events/hackathon-35vh.jpg";
-
-  // Construct the array of images (either event image or fallback)
-  const images = squareBannerUrl ? [squareBannerUrl] : [fallbackImage];
-
-  // Handle image cycling every 4 seconds
+  const images = imageUrl ? [imageUrl] : [fallbackImage];
+  
   useEffect(() => {
     const interval = setInterval(() => {
       nextImage();
     }, 4000);
 
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, [images]); // Rerun effect if images change
-
-  // Increment the current image index
+    return () => clearInterval(interval);
+  }, [images]);
   const nextImage = () => {
     if (images.length > 0) {
       setCurrentImage((prev) => (prev + 1) % images.length);
@@ -55,4 +62,6 @@ export default function ImageSlider({ className = "" }: ImageSliderProps) {
       ))}
     </div>
   );
-}
+};
+
+export default ImageSlider;

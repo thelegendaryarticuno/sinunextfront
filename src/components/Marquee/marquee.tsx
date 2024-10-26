@@ -3,20 +3,48 @@ import Marquee from "@/components/magicui/marquee";
 import Image from "next/image";
 
 const reviews = [
-  { img: "/sponsorLogo/BCH.webp" , alt:"BCH"},
-  { img: "/sponsorLogo/CodeChef.webp", alt:"CodeChef" },
-  { img: "/sponsorLogo/CodingNinjas.webp", alt:"CodingNinjas" },
-  { img: "/sponsorLogo/Gigabyte.webp", alt:"Gigabyte" },
-  { img: "/sponsorLogo/Jio.webp", alt:"Jio" },
-  { img: "/sponsorLogo/Kaspersky.webp", alt:"Kaspersky" },
-  { img: "/sponsorLogo/Microsoft.webp", alt:"Microsoft" }, 
-  { img: "/sponsorLogo/MountainDew.webp", alt:"MountainDew" },
-  { img: "/sponsorLogo/RedBull.webp", alt:"RedBull" },
-  { img: "/sponsorLogo/RoyalEnfield.webp", alt:"RoyalEnfield" },
-  { img: "/sponsorLogo/SKOAR.webp", alt:"SKOAR" },
-  { img: "/sponsorLogo/TpLink.webp", alt:"TpLink" },
-  { img: "/sponsorLogo/Ubon.webp", alt:"Ubon" },
-  { img: "/sponsorLogo/studCops.webp", alt:"StudCops" },
+  { 
+    img: "/sponsorLogo/BCH.webp", alt:"BCH" 
+  },
+  { 
+    img: "/sponsorLogo/KGEN2.png", alt:"KGEN"
+  },
+  {
+     img: "/sponsorLogo/trikon3.png", alt:"Trikon" 
+    },
+  {
+     img: "/sponsorLogo/Gigabyte.webp" , alt:"Gigabyte" 
+    },
+  {
+     img: "/sponsorLogo/Jio.webp" , alt:"Jio"
+    },
+  {
+     img: "/sponsorLogo/7.png" , alt:"perfectKoncerts"
+    },
+  {
+     img: "/sponsorLogo/GDX.png" , alt:"GDX"
+    },
+  {
+     img: "/sponsorLogo/FLYJONE.png" , alt:"FLYJONE"
+    },
+  {
+     img: "/sponsorLogo/RedBull.webp" , alt:"RedBull"
+    },
+  {
+     img: "/sponsorLogo/denver.png" , alt:"DENVER"
+    },
+  {
+     img: "/sponsorLogo/NYNAEVE.png" , alt:"NYNAEVE"
+    },
+  {
+     img: "/sponsorLogo/2Oh.png" , alt:"2Oh"
+    },
+  {
+     img: "/sponsorLogo/Ubon.webp" , alt:"Ubon"
+    },
+  {
+     img: "/sponsorLogo/studCops.png" , alt:"StudCops"
+    },
 ];
 
 const firstRow = reviews.slice(0, 14);

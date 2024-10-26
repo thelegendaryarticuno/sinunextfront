@@ -21,7 +21,7 @@ export default function SEOComponent({
       <title>{PageTitle}</title>
       <meta name="description" content={PageDescription} />
       <meta httpEquiv="Content-Language" content="en" />
-      <link rel="icon" href="/socialLogo.jpg" />
+      <link rel="icon" href="https://sinusoid.in/socialLogo.jpg" />
       <meta name="keywords" content={PageKeywords?.join(",")} />
       <meta property="og:title" content={PageTitle} />
       <meta property="og:description" content={PageDescription} />

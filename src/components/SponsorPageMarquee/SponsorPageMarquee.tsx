@@ -7,10 +7,10 @@ const sponsorLogos = [
     img: "/sponsorLogo/BCH.webp", alt:"BCH" 
   },
   { 
-    img: "/sponsorLogo/CodeChef.webp", alt:"CodeChef"
+    img: "/sponsorLogo/KGEN2.png", alt:"KGEN"
   },
   {
-     img: "/sponsorLogo/CodingNinjas.webp", alt:"CodingNinjas" 
+     img: "/sponsorLogo/trikon3.png", alt:"Trikon" 
     },
   {
      img: "/sponsorLogo/Gigabyte.webp" , alt:"Gigabyte" 
@@ -19,31 +19,31 @@ const sponsorLogos = [
      img: "/sponsorLogo/Jio.webp" , alt:"Jio"
     },
   {
-     img: "/sponsorLogo/Kaspersky.webp" , alt:"Kaspersky"
+     img: "/sponsorLogo/7.png" , alt:"perfectKoncerts"
     },
   {
-     img: "/sponsorLogo/Microsoft.webp" , alt:"Microsoft"
+     img: "/sponsorLogo/GDX.png" , alt:"GDX"
     },
   {
-     img: "/sponsorLogo/MountainDew.webp" , alt:"MountainDew"
+     img: "/sponsorLogo/FLYJONE.png" , alt:"FLYJONE"
     },
   {
      img: "/sponsorLogo/RedBull.webp" , alt:"RedBull"
     },
   {
-     img: "/sponsorLogo/RoyalEnfield.webp" , alt:"RoyalEnfield"
+     img: "/sponsorLogo/denver.png" , alt:"DENVER"
     },
   {
-     img: "/sponsorLogo/SKOAR.webp" , alt:"SKOAR"
+     img: "/sponsorLogo/NYNAEVE.png" , alt:"NYNAEVE"
     },
   {
-     img: "/sponsorLogo/TpLink.webp" , alt:"TpLink"
+     img: "/sponsorLogo/2Oh.png" , alt:"2Oh"
     },
   {
      img: "/sponsorLogo/Ubon.webp" , alt:"Ubon"
     },
   {
-     img: "/sponsorLogo/studCops.webp" , alt:"StudCops"
+     img: "/sponsorLogo/studCops.png" , alt:"StudCops"
     },
 ];
 
