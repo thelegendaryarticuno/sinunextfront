@@ -111,7 +111,7 @@ const PlanDetails = () => {
         PageKeywords={[
           "siNUsoid v8",
           "techfest",
-          "events registration",
+          "Accomodation registration",
           "silver plan",
           "gold plan",
           "platinum plan",
@@ -125,7 +125,7 @@ const PlanDetails = () => {
           "accomodation",
         ]}
         PageOGLImage="https://sinusoid.in/socialLogo.jpg"
-        PageTitle="Events Registration | siNUsoid v8"
+        PageTitle="Accomodation Plans | siNUsoid v8"
       />
       <div className="px-6 sm:px-12 lg:px-20 py-10 mt-16">
         <div className="pl-4">
@@ -330,7 +330,6 @@ const PlanDetails = () => {
           </div>
         </div>
       </div>
-      );
     </>
   );
 };

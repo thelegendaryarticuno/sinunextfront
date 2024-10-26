@@ -66,13 +66,13 @@ const WorkshopCard: React.FC<WorkshopCardProps> = ({
         </div>
       </div>
 
-      <div className="flex justify-center mt-2 w-full">
+      {/*<div className="flex justify-center mt-2 w-full">
         <Link href={`/workshops/${workshopId}`}>
           <button className="bg-orange-400 dark:bg-orange-600 hover:bg-orange-800 dark:hover:bg-orange-800 text-black dark:text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
             Show more
           </button>
         </Link>
-      </div>
+      </div>*/}
     </div>
   );
 };

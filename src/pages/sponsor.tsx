@@ -55,15 +55,13 @@ const Sponsors: React.FC = () => {
               </div>
             </div>
             <div className="relative w-full lg:w-[30%] flex flex-col items-center justify-center lg:border-l-4 border-zinc-50 dark:border-zinc-950">
-              <div>
-                <Image
-                  src="/images/Hive.png"
-                  alt="titleSponsorLogo"
-                  width={250}
-                  height={250}
-                  className="object-contain p-4 z-20"
-                />
-              </div>
+              <Image
+                src="/images/Hive.png"
+                alt="titleSponsorLogo"
+                width={250}
+                height={250}
+                className="object-contain p-4 z-20"
+              />
             </div>
             <div className="flex-1 p-4 md:p-8 flex flex-col justify-between lg:ml-4">
               <div className="dark:text-white text-black text-4xl md:text-5xl font-bold mb-6">
@@ -76,6 +74,18 @@ const Sponsors: React.FC = () => {
               </div>
             </div>
           </ShineBorder>
+        </div>
+        <div className="flex items-center justify-center p-4">
+          <div className="relative w-[90%] md:w-[80%] h-[60vh] border-4 border-zinc-900 rounded-md overflow-hidden">
+            <video
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+            >
+              <source src="/sponsorBG/video.mp4" type="video/mp4" />
+            </video>
+          </div>
         </div>
         <div className="relative dark:bg-black bg-white flex items-center justify-center p-4">
           <ShineBorder
