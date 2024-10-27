@@ -87,6 +87,14 @@ export default function Footer() {
                   Merchandise
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="contactus"
+                  className="text-slate-500 dark:text-slate-400 hover:text-black dark:hover:text-white"
+                >
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '@/components/Redux/store';
 import { useTheme } from 'next-themes';
 
-const Prize: React.FC = () => {
+interface PrizeProps {
+  eventData: {
+    prizes?: string[];
+  };
+}
+
+const Prize: React.FC<PrizeProps> = ({ eventData }) => {
   const { theme } = useTheme();
-  const eventData = useSelector((state: RootState) => state.event.eventData); // Fetch eventData from Redux
 
   useEffect(() => {
     console.log('EventData in Prize component:', eventData);

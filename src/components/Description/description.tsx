@@ -1,32 +1,27 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { RootState, AppDispatch } from "@/components/Redux/store";
-import { fetchEventData } from "@/components/Redux/eventSlice";
+import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Overview from "../eventsection/Overview";
 import dayjs from "dayjs";
-import { Event } from "@/components/Redux/types";
 
 interface DescriptionProps {
-  eventId: string;
+  eventData: {
+    longDesc: string;
+    eventName: string;
+    eventTagline: string;
+    schedule: {
+      eventStart: string;
+      eventEnd: string;
+      registrationStart?: string;
+      submissionStart?: string;
+      submissionEnd?: string;
+    };
+    rules?: string[];
+    prizes?: string[];
+    eventStructure?: string[];
+  };
 }
 
-const Description: React.FC<DescriptionProps> = ({ eventId }) => {
-  const dispatch: AppDispatch = useDispatch();
-  const { eventData, loading, error } = useSelector(
-    (state: RootState) => state.event
-  );
-
-  useEffect(() => {
-    if (!eventData) {
-      dispatch(fetchEventData(eventId));
-    }
-  }, [dispatch, eventId, eventData]);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
-  if (!eventData) return <p>No event data available.</p>;
-
+const Description: React.FC<DescriptionProps> = ({ eventData }) => {
   return (
     <div className="description-container p-4">
       <TabsComponent eventData={eventData} />
@@ -34,12 +29,12 @@ const Description: React.FC<DescriptionProps> = ({ eventId }) => {
   );
 };
 
-const TabsComponent: React.FC<{ eventData: Event }> = ({ eventData }) => {
+const TabsComponent: React.FC<{ eventData: DescriptionProps["eventData"] }> = ({ eventData }) => {
   const renderTimeline = () => (
     <>
       <p>
         Event Start:{" "}
-        {dayjs(eventData?.schedule?.eventStart).format("MMMM D, YYYY")}
+        {dayjs(eventData.schedule.eventStart).format("MMMM D, YYYY")}
       </p>
       <p>
         Event End:{" "}
@@ -64,12 +59,12 @@ const TabsComponent: React.FC<{ eventData: Event }> = ({ eventData }) => {
     {
       value: "event-overview",
       text: "Event Overview",
-      component: <Overview />,
+      component: <Overview eventData={eventData} />,
     },
     {
       value: "timeline",
       text: "Events Timeline",
-      component: renderTimeline(), 
+      component: renderTimeline(),
     },
     {
       value: "rules-and-regulations",
@@ -77,7 +72,7 @@ const TabsComponent: React.FC<{ eventData: Event }> = ({ eventData }) => {
       component: (
         <div>
           <ul className="list-disc list-inside space-y-3">
-            {eventData?.rules?.map((rule, idx) => (
+            {eventData.rules?.map((rule, idx) => (
               <li key={idx} className="mb-3">
                 {rule}
               </li>
@@ -91,7 +86,7 @@ const TabsComponent: React.FC<{ eventData: Event }> = ({ eventData }) => {
       text: "Prizes",
       component: (
         <div>
-          {eventData?.prizes?.map((prize, idx) => (
+          {eventData.prizes?.map((prize, idx) => (
             <p key={idx} className="mb-2">
               {prize}
             </p>
@@ -104,7 +99,7 @@ const TabsComponent: React.FC<{ eventData: Event }> = ({ eventData }) => {
       text: "Event Structure",
       component: (
         <div>
-          {eventData?.eventStructure?.map((structure, idx) => (
+          {eventData.eventStructure?.map((structure, idx) => (
             <p key={idx} className="mb-2">
               {structure}
             </p>
@@ -112,7 +107,6 @@ const TabsComponent: React.FC<{ eventData: Event }> = ({ eventData }) => {
         </div>
       ),
     },
-    
   ];
 
   return (
@@ -121,15 +115,15 @@ const TabsComponent: React.FC<{ eventData: Event }> = ({ eventData }) => {
         <div className="tabs-triggers bg-gray-100 dark:bg-gray-700 rounded-t-lg overflow-x-auto scrollbar-hidden">
           <TabsList className="flex space-x-2 md:space-x-4 lg:space-x-6 min-w-max">
             {tabsArray.map((tab, idx) => (
-              <TabsTrigger key={`tab_${idx}`} value={tab?.value}>
-                {tab?.text}
+              <TabsTrigger key={`tab_${idx}`} value={tab.value}>
+                {tab.text}
               </TabsTrigger>
             ))}
           </TabsList>
         </div>
         <div className="tabs-contents p-4 bg-gray-50 dark:bg-gray-900 rounded-b-lg">
           {tabsArray.map((tab, idx) => (
-            <TabsContent key={`content_${idx}`} value={tab?.value}>
+            <TabsContent key={`content_${idx}`} value={tab.value}>
               {tab.component}
             </TabsContent>
           ))}

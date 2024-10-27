@@ -41,7 +41,7 @@ const Events: React.FC = () => {
           <h1 className="text-6xl font-bold mb-8">Events</h1>
         </div>
       </div>
-      <Link href="/events/hiveweb3hackathon">
+      <Link href="/events/hiveWeb3Hackathon">
         <div className="relative flex justify-center items-center w-full h-[30vh] mt-2">
           <Image
             src={logoSrc}
