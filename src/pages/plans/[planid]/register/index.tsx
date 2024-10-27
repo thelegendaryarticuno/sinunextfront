@@ -17,7 +17,7 @@ const Page = () => {
         PageKeywords={[
           "siNUsoid v8",
           "techfest",
-          "events registration",
+          "accommodation registration",
           "silver plan",
           "gold plan",
           "platinum plan",
@@ -31,7 +31,7 @@ const Page = () => {
           "accomodation",
         ]}
         PageOGLImage="https://sinusoid.in/socialLogo.jpg"
-        PageTitle="Events Registration | siNUsoid v8"
+        PageTitle="Accommodation Registration | siNUsoid v8"
       />
       <div>
         <div className={`flex justify-center ${bgColor} mt-8`}>
