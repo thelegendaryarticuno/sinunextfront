@@ -65,9 +65,9 @@ const Hero: React.FC<HeroProps> = ({
           className="object-contain z-20"
         />
       </div>
-      <Banner />
-      {/* <Link href="/events/hiveWeb3Hackathon"> */}
-        {/* <div className="relative flex justify-center items-center w-full h-[30vh] mt-2">
+      {/* <Banner /> */}
+      <Link href="/events/hiveWeb3Hackathon">
+        <div className="relative flex justify-center items-center w-full h-[30vh] mt-2">
           <Image
             src={isDark ? "/events/Dark.svg" : "/events/Light.svg"}
             alt="Theme Specific Logo"
@@ -75,8 +75,8 @@ const Hero: React.FC<HeroProps> = ({
             objectFit="fill"
             className=""
           />
-        </div> */}
-      {/* </Link> */}
+        </div>
+      </Link>
     </div>
   );
 };
