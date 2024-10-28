@@ -8,7 +8,9 @@ import { CheckCircle, XCircle } from "lucide-react"; // Import icons
 const ContactUs = () => {
   const { theme } = useTheme();
 
-  const [submissionStatus, setSubmissionStatus] = useState<"idle" | "success" | "error">("idle");
+  const [submissionStatus, setSubmissionStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   // Reset the submission status after 5-10 seconds
   useEffect(() => {
@@ -24,9 +26,9 @@ const ContactUs = () => {
       ? "bg-gradient-to-br from-black to-gray-900"
       : "bg-gradient-to-br from-blue-400 to-blue-200";
   const textColor = theme === "dark" ? "text-gray-100" : "text-black";
-  const inputBorderColor = theme === "dark" ? "border-gray-600" : "border-black";
-  const buttonBgColor =
-    theme === "dark" ? "bg-slate-600" : "bg-blue-500";
+  const inputBorderColor =
+    theme === "dark" ? "border-gray-600" : "border-black";
+  const buttonBgColor = theme === "dark" ? "bg-slate-600" : "bg-blue-500";
 
   // Formik Form Handling
   const formik = useFormik({
@@ -71,7 +73,9 @@ const ContactUs = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <CheckCircle className="text-green-500 w-16 h-16 mx-auto" />
-          <p className="text-xl font-semibold mt-4 text-green-500">Form Submitted Successfully!</p>
+          <p className="text-xl font-semibold mt-4 text-green-500">
+            Form Submitted Successfully!
+          </p>
         </div>
       </div>
     );
@@ -82,7 +86,9 @@ const ContactUs = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <XCircle className="text-red-500 w-16 h-16 mx-auto" />
-          <p className="text-xl font-semibold mt-4 text-red-500">Form Not Submitted. Please try again.</p>
+          <p className="text-xl font-semibold mt-4 text-red-500">
+            Form Not Submitted. Please try again.
+          </p>
         </div>
       </div>
     );
@@ -127,7 +133,9 @@ const ContactUs = () => {
                 value={formik.values.firstName}
               />
               {formik.touched.firstName && formik.errors.firstName && (
-                <div className="text-red-500 text-sm mt-1">{formik.errors.firstName}</div>
+                <div className="text-red-500 text-sm mt-1">
+                  {formik.errors.firstName}
+                </div>
               )}
             </div>
 
@@ -143,7 +151,9 @@ const ContactUs = () => {
                 value={formik.values.lastName}
               />
               {formik.touched.lastName && formik.errors.lastName && (
-                <div className="text-red-500 text-sm mt-1">{formik.errors.lastName}</div>
+                <div className="text-red-500 text-sm mt-1">
+                  {formik.errors.lastName}
+                </div>
               )}
             </div>
           </div>
@@ -159,7 +169,9 @@ const ContactUs = () => {
             value={formik.values.email}
           />
           {formik.touched.email && formik.errors.email && (
-            <div className="text-red-500 text-sm mt-1">{formik.errors.email}</div>
+            <div className="text-red-500 text-sm mt-1">
+              {formik.errors.email}
+            </div>
           )}
 
           <textarea
@@ -172,7 +184,9 @@ const ContactUs = () => {
             value={formik.values.query}
           />
           {formik.touched.query && formik.errors.query && (
-            <div className="text-red-500 text-sm mt-1">{formik.errors.query}</div>
+            <div className="text-red-500 text-sm mt-1">
+              {formik.errors.query}
+            </div>
           )}
 
           <button
