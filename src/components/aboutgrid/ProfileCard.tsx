@@ -21,7 +21,7 @@ const instagramLinks = [
   "https://www.instagram.com/torilneedshelplmao/",
   "https://www.instagram.com/k2.pvt?igsh=enF4cmhtZzBxcTV4",
   "https://www.instagram.com/theazapto?igsh=MXBwN3B0MGVydGJjcQ==",
-  "https://www.instagram.com/alishaxz_313?igsh=MThqdmg1eTJ4bmhndQ==",
+  "https://www.instagram.com/alishaa.sultana_13/",
   "https://www.instagram.com/ananyaa1029?igsh=MWlmanhjeWsydDR4dA==",
   "https://www.instagram.com/jatinnxarora?igsh=YWV4NzhzNHhwbGxr",
   "https://www.instagram.com/yashwanth_yalavali?igsh=MW45c3U1bGFvMTh3cg==",
