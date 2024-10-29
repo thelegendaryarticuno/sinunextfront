@@ -25,16 +25,16 @@ const instagramLinks = [
   "https://www.instagram.com/ananyaa1029?igsh=MWlmanhjeWsydDR4dA==",
   "https://www.instagram.com/jatinnxarora?igsh=YWV4NzhzNHhwbGxr",
   "https://www.instagram.com/yashwanth_yalavali?igsh=MW45c3U1bGFvMTh3cg==",
-  "#",
+  "https://www.instagram.com/ritheshvreddy_18/",
   "https://www.instagram.com/ranjan_ayushh?igsh=MXNxaW5xMWxwNGs4Nw==",
 ];
 
 const linkedinLinks = [
   "https://www.linkedin.com/in/toril-jain-2a6a12244",
-  "https://www.linkedin.com/in/kaustav-karan-0b5562219",
-  "#",
+  "https://www.linkedin.com/in/kaustav-karan",
+  "https://www.instagram.com/theazapto",
   "https://www.linkedin.com/in/alisha-sultana-300801251",
-  "#",
+  "https://www.instagram.com/ananyaa1029/",
   "https://www.linkedin.com/in/jatin-arora-337a39251",
   "https://www.linkedin.com/in/yashwanth-yalavali-802908252",
   "#",
