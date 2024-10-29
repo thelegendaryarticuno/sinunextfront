@@ -50,9 +50,9 @@ const Sponsors: React.FC = () => {
         </div>
         <SponsorPageMarquee />
         <div className="relative dark:bg-black bg-white flex items-center justify-center p-4 ">
-          <ShineBorder
+          <div
             className="max-w-4xl w-full dark:bg-[url('/hanging-flex02-bg.png')] rounded-lg shadow-3xl overflow-hidden flex flex-col md:flex-row"
-            color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+            // color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
           >
             <div className="relative w-full lg:w-[7%] flex items-center justify-center p-4">
               <div className="text-sm md:text-base dark:text-white text-black lg:[writing-mode:vertical-lr] lg:[text-orientation:upright] font-black">
@@ -92,25 +92,23 @@ const Sponsors: React.FC = () => {
                 The Blockchain for Web3
               </div>
             </div>
-          </ShineBorder>
+          </div>
 
           {/* Dialog Box Overlay */}
           {isDialogOpen && (
             <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-              <div className="bg-white dark:bg-zinc-800 p-8 rounded-lg shadow-xl w-full h-[80vh] max-w-4xl max-h-[80vh] flex flex-col justify-between relative">
+              <div className="bg-white dark:bg-zinc-800 p-8 rounded-lg shadow-xl w-full h-[60vh] max-w-4xl max-h-[80vh] flex flex-col justify-between relative">
                 <h2 className="text-2xl font-bold mb-4 text-center dark:text-white">
                   Hive - The Blockchain for Web3
                 </h2>
 
-                <video
+                <iframe
                   className="w-full flex-1 object-cover rounded-md mb-4"
-                  controls
-                >
-                  <source
-                    src="https://api.sinusoid.in/images/Hive_Video.mp4"
-                    type="video/mp4"
-                  />
-                </video>
+                  src="https://www.youtube.com/embed/KU6j4b3MToI"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
 
                 {/* Cross Icon for Close */}
                 <X
@@ -122,9 +120,9 @@ const Sponsors: React.FC = () => {
           )}
         </div>
         <div className="relative dark:bg-black bg-white flex items-center justify-center p-4">
-          <ShineBorder
+          <div
             className="max-w-4xl w-full dark:bg-zinc-900 bg-zinc-200 rounded-lg shadow-3xl overflow-hidden flex flex-col md:flex-row-reverse"
-            color={["#00DBDE", "#FC00FF", "#50CC7F"]}
+            // color={["#00DBDE", "#FC00FF", "#50CC7F"]}
           >
             <div className="relative w-full lg:w-[7%] flex items-center justify-center p-4">
               <div className="text-sm md:text-base dark:text-white text-black lg:[writing-mode:vertical-lr] lg:[text-orientation:upright] font-black">
@@ -150,7 +148,7 @@ const Sponsors: React.FC = () => {
                 }
               </div>
             </div>
-          </ShineBorder>
+          </div>
         </div>
       </div>
       <SponsorComp />
