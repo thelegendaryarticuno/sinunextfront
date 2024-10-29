@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { useTheme } from "next-themes";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import { CheckCircle, XCircle } from "lucide-react";
@@ -34,7 +34,7 @@ const validationSchema = Yup.object({
 export default function PrForm() {
   const { theme } = useTheme();
   const router = useRouter();
-  const { planid } = router.query;
+  const { planid, referralCode } = router.query;
   const planKey = Array.isArray(planid)
     ? planid[0]?.toLowerCase()
     : planid?.toLowerCase() || "silver";
@@ -47,8 +47,17 @@ export default function PrForm() {
   const [submissionStatus, setSubmissionStatus] = useState<
     "success" | "error" | null
   >(null);
+  // Add this in your component's state section (after other useState hooks)
+  const [appliedPlanDetails, setAppliedPlanDetails] = useState(planDetails);
   const [uploadProgress, setUploadProgress] = useState(0); // Track upload percentage
   const [uploadedFile, setUploadedFile] = useState<File | null>(null);
+  const [amount, setAmount] = useState(planDetails.price); // Store updated price
+  const [name, setName] = useState(planDetails.name); // Store updated price
+  const [description, setDescription] = useState(planDetails.description); // Store updated price
+  const [referralStatus, setReferralStatus] = useState<
+    "success" | "error" | null
+  >(null);
+  const [referralMessage, setReferralMessage] = useState<string | null>(null);
   const bgColor =
     theme === "dark"
       ? "bg-gradient-to-br from-black to-gray-900"
@@ -161,6 +170,17 @@ export default function PrForm() {
     }
   }, [submissionStatus]);
 
+  useEffect(() => {
+    const validateReferral = async () => {
+      if (router.isReady && referralCode) {
+        formik.setFieldValue("referralCode", referralCode);
+        applyReferralCode();
+        console.log("Referral Code:", referralCode);
+      }
+    };
+    validateReferral();
+  }, [router.isReady, referralCode]);
+
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -172,14 +192,25 @@ export default function PrForm() {
       gender: "",
       photoIdUrl: "",
       paymentProofUrl: "",
+      referralCode: "", // New field
     },
     validationSchema,
     onSubmit: async (values) => {
+      const defaultReferralCode =
+        planid === "silver"
+          ? "DEFSIL"
+          : planid === "gold"
+          ? "DEFGLD"
+          : "DEFPLT";
+      const referralCode = values.referralCode || defaultReferralCode;
+
       const formData = {
         ...values,
         planId: planid,
         planName: planDetails.name,
+        referralCode,
       };
+
       try {
         await axios.post("https://api.sinusoid.in/plan", formData);
         setSubmissionStatus("success");
@@ -189,26 +220,51 @@ export default function PrForm() {
       }
     },
   });
+  const applyReferralCode = async () => {
+    const formReferralCode = formik.values.referralCode;
+    try {
+      const response = await axios.get(
+        `https://api.sinusoid.in/prplans/${
+          referralCode ? referralCode : formReferralCode
+        }`
+      );
+      const { data } = response;
+      if (data.ttl === 0) {
+        setReferralStatus("error");
+        setReferralMessage("Referral code expired");
+        return;
+      } else if (data.planType !== planid) {
+        setReferralStatus("error");
+        setReferralMessage("Referral code is not applicable for this plan");
+        return;
+      }
+      console.log("Referral Code Data:", data);
+      setName(data.name);
+      setAmount(data.price);
+      setDescription(data.description);
+    } catch (error) {
+      console.error("Referral Code Error:", error);
+    }
+  };
 
   return (
     <div
-      className={`flex flex-col flex-center w-95 min-h-full ${bgColor} px-4 py-8 items-center justify-center rounded-lg lg:mt-16 lg:px-16 lg:py-16 overflow-x-hidden `}
+      className={`flex flex-col flex-center w-95 min-h-full ${bgColor} px-4 py-8 mb-4 items-center justify-center rounded-lg lg:mt-16 lg:px-16 lg:py-16 overflow-x-hidden `}
     >
       <div className="flex-grow flex md:flex-row flex-col w-full overflow-hidden">
         {/* Gradient div instead of ImageSlider */}
         <div
           className={`p-8 rounded-md justify-center items-center mt-10 text-black ${planDetails.gradient} mb-8 sm:mt-0`}
         >
-          <h2 className="text-3xl font-bold justify-center mb-2">
-            {planDetails.name}
-          </h2>
-          <p className="text-xl mt-8">{planDetails.price}</p>
+          <h2 className="text-3xl font-bold justify-center mb-2">{name}</h2>
+          <p className="text-xl mt-8">
+            ₹
+            {Number(amount) > 0 ? Number(amount).toFixed(2) : planDetails.price}
+          </p>
           <p className="text-lg font-bold my-4">{planDetails.duration}</p>
-          <ul className="list-disc font-bold list-inside space-y-2">
-            {planDetails.description.map((item: string, index: number) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
+          {(description || []).map((item: string, index: number) => (
+            <li key={index}>{item}</li>
+          ))}
         </div>
         <div className="w-full md:w-[50vw] flex items-center justify-center p-4">
           <div className="w-full max-w-screen-md">
@@ -384,6 +440,47 @@ export default function PrForm() {
                         )}
                     </div>
                     <div>
+                      <Label htmlFor="referralCode">
+                        Referral Code (Optional)
+                      </Label>
+                      <div className="flex space-x-2">
+                        <Input
+                          id="referralCode"
+                          name="referralCode"
+                          onChange={(e) => {
+                            const upperCaseReferralCode =
+                              e.target.value.toUpperCase();
+                            formik.setFieldValue(
+                              "referralCode",
+                              upperCaseReferralCode
+                            );
+                          }}
+                          onBlur={formik.handleBlur}
+                          value={formik.values.referralCode}
+                          placeholder="Enter referral code"
+                          className="flex-1"
+                        />
+                        <Button
+                          type="button"
+                          onClick={applyReferralCode}
+                          disabled={!formik.values.referralCode}
+                        >
+                          Apply
+                        </Button>
+                      </div>
+                      {referralStatus && (
+                        <p
+                          className={`mt-2 text-sm ${
+                            referralStatus === "success"
+                              ? "text-green-500"
+                              : "text-red-500"
+                          }`}
+                        >
+                          {referralMessage}
+                        </p>
+                      )}
+                    </div>
+                    <div>
                       <Label htmlFor="photoIdUrl">Upload College ID</Label>
                       <Input
                         id="photoIdUrl"
@@ -439,7 +536,9 @@ export default function PrForm() {
                             maxWidth: "100%",
                             width: "100%",
                           }}
-                          value={planDetails.link}
+                          value={`upi://pay?pa=aroraxjatin@oksbi&pn=Jatin%20Arora&am=${Number(
+                            amount
+                          ).toFixed(2)}&cu=INR&aid=uGICAgKDApojPLA`}
                           viewBox={`0 0 256 256`}
                         />
                       </div>
@@ -447,7 +546,12 @@ export default function PrForm() {
                         <Button
                           type="button"
                           onClick={() =>
-                            window.open(planDetails.link, "_blank")
+                            window.open(
+                              `upi://pay?pa=aroraxjatin@oksbi&pn=Jatin%20Arora&am=${Number(
+                                amount
+                              ).toFixed(2)}&cu=INR&aid=uGICAgKDApojPLA`,
+                              "_blank"
+                            )
                           }
                           className="mt-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md"
                         >
