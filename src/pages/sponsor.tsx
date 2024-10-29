@@ -106,7 +106,10 @@ const Sponsors: React.FC = () => {
                   className="w-full flex-1 object-cover rounded-md mb-4"
                   controls
                 >
-                  <source src="/sponsorBG/Hive_video.mp4" type="video/mp4" />
+                  <source
+                    src="https://api.sinusoid.in/images/Hive_Video.mp4"
+                    type="video/mp4"
+                  />
                 </video>
 
                 {/* Cross Icon for Close */}
