@@ -123,7 +123,7 @@ const MeetTheTeam = () => {
   const teamMembers = [
     {
       name: "Toril Jain",
-      position: "Executive Head and Event C. Core",
+      position: "Event Curation Core",
       profileImgIndex: 0,
       instagramLinkIndex: 0,
       linkedinLinkIndex: 0,
