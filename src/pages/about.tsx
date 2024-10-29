@@ -5,6 +5,7 @@ import AboutHistory from "@/components/abouthistory/collab";
 import AboutHero from "@/components/abouthero/hero";
 import MeetTheTeam from "@/components/aboutgrid/ProfileCard";
 import Image from "next/image";
+import Spline from "@splinetool/react-spline";
 
 const About: React.FC = () => {
   return (
@@ -25,7 +26,7 @@ const About: React.FC = () => {
       />
       {/* Video Section */}
       <div className="w-full md:h-[70vh] h-[40vh] flex items-center justify-center relative overflow-hidden mt-20">
-        <video
+        {/* <video
           className="video-element w-full"
           width={1500}
           autoPlay
@@ -34,7 +35,9 @@ const About: React.FC = () => {
           style={{ filter: "blur(8px)" }}
         >
           <source src="/sponsorBG/video.mp4" type="video/mp4" />
-        </video>
+        </video> */}
+
+        <Spline className="z-40" scene="https://prod.spline.design/1qPH35VC6Whw8l0w/scene.splinecode" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white p-4 font-bold">
           <h1 className="text-6xl font-bold mb-8">About Us</h1>
         </div>
