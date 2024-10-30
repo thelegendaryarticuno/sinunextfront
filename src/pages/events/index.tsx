@@ -4,6 +4,7 @@ import EventOrganizer from "@/components/eventlisting/eventorganizer";
 import Image from "next/image";
 import Link from "next/link";
 import { useTheme } from "next-themes";
+import Banner from "@/components/Banner30vh/banner";
 
 const Events: React.FC = () => {
   const { resolvedTheme } = useTheme();
@@ -41,17 +42,7 @@ const Events: React.FC = () => {
           <h1 className="text-6xl font-bold mb-8">Events</h1>
         </div>
       </div>
-      <Link href="/events/hiveWeb3Hackathon">
-        <div className="relative flex justify-center items-center w-full h-[30vh] mt-2">
-          <Image
-            src={logoSrc}
-            alt="Theme Specific Logo"
-            layout="fill"
-            objectFit="fill"
-            className="p-0"
-          />
-        </div>
-      </Link>
+      <Banner/>
       <EventOrganizer />
     </>
   );
