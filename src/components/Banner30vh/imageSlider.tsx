@@ -1,4 +1,4 @@
-// components/ImageSlider.tsx
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 interface ImageSliderProps {
@@ -8,55 +8,49 @@ interface ImageSliderProps {
 }
 
 export default function ImageSlider({
-  imageFiles,
+  imageFiles = [], // Default to an empty array if no imageFiles are provided
   autoSlide = true,
-  slideInterval = 3000, // 3 seconds by default
+  slideInterval = 3000,
 }: ImageSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Go to the next image
   const goToNextImage = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === imageFiles.length - 1 ? 0 : prevIndex + 1
     );
   };
 
-  // Go to the previous image
   const goToPrevImage = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? imageFiles.length - 1 : prevIndex - 1
     );
   };
 
-  // Redirect to the link of the current image
-  const goToImageLink = () => {
-    const currentImage = imageFiles[currentIndex];
-    if (currentImage.link) {
-      window.location.href = currentImage.link;
-    }
-  };
-
-  // Auto-slide functionality
   useEffect(() => {
-    if (!autoSlide) return; // If auto-slide is disabled, exit early
+    if (!autoSlide || imageFiles.length === 0) return;
     const interval = setInterval(goToNextImage, slideInterval);
-    return () => clearInterval(interval); // Cleanup on unmount
-  }, [currentIndex, autoSlide, slideInterval]);
+    return () => clearInterval(interval);
+  }, [currentIndex, autoSlide, slideInterval, imageFiles.length]);
+
+  if (imageFiles.length === 0) {
+    return <div>Loading images...</div>; // Show a loading message or placeholder
+  }
 
   return (
-    <div className="w-full h-full relative overflow-hidden">
+    <div className="w-full h-full relative overflow-hidden group flex items-center justify-center">
       {/* Image */}
-      <img
-        src={imageFiles[currentIndex].src}
-        alt={`Slide ${currentIndex + 1}`}
-        className="w-full h-full object-cover cursor-pointer transition duration-700 ease-in-out"
-        onClick={goToImageLink} // Navigate on click
-      />
+      <Link href={imageFiles[currentIndex].link}>
+        <img
+          src={imageFiles[currentIndex].src}
+          alt={`Slide ${currentIndex + 1}`}
+          className="rounded-lg object-cover cursor-pointer transition duration-700 ease-in-out md:w-full md:h-full lg:w-[60vw] h-[23vh]"
+        />
+      </Link>
 
       {/* Left Navigation Button */}
       <button
         onClick={goToPrevImage}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-500/70 text-white px-3 py-1 rounded-full hover:bg-gray-700"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-500/70 text-white px-3 py-1 rounded-full lg:hover:bg-gray-700 opacity-100 group-hover:opacity-100 transition-opacity duration-300 md:opacity-100"
       >
         ❮
       </button>
@@ -64,23 +58,10 @@ export default function ImageSlider({
       {/* Right Navigation Button */}
       <button
         onClick={goToNextImage}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-500/70 text-white px-3 py-1 rounded-full hover:bg-gray-700"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-500/70 text-white px-3 py-1 rounded-full hover:bg-gray-700 opacity-100 group-hover:opacity-100 transition-opacity duration-300 md:opacity-100"
       >
         ❯
       </button>
-
-      {/* Dots/Indicators */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-        {imageFiles.map((_, index) => (
-          <div
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-3 h-3 rounded-full ${
-              index === currentIndex ? "bg-blue-500" : "bg-gray-300"
-            } cursor-pointer transition-colors duration-300`}
-          ></div>
-        ))}
-      </div>
     </div>
   );
 }
