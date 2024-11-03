@@ -5,6 +5,7 @@ export interface Event {
   startTime: string;
   endTime: string;
   date: string;
+  venue?: string;
 }
 
 const eventData: Record<string, Event[]> = {
@@ -14,13 +15,15 @@ const eventData: Record<string, Event[]> = {
       startTime: "21:00",
       endTime: "22:00",
       date: "08/11/24",
+      venue: "LT 202",
     },
-    { name: "OC", startTime: "17:00", endTime: "18:00", date: "08/11/24" },
+    { name: "OC", startTime: "02:00", endTime: "18:00", date: "04/11/24" },
     {
       name: "Tech Savvy",
       startTime: "18:00",
       endTime: "20:00",
       date: "08/11/24",
+      venue: "LT 202",
     },
     {
       name: "Infinix Experience Zone",
@@ -34,6 +37,7 @@ const eventData: Record<string, Event[]> = {
       startTime: "22:00",
       endTime: "23:00",
       date: "08/11/24",
+      venue: "LT 202",
     },
   ],
   "Day-2": [
@@ -49,12 +53,14 @@ const eventData: Record<string, Event[]> = {
       startTime: "09:00",
       endTime: "10:00",
       date: "09/11/24",
+      venue: "LT 202",
     },
     {
       name: "Tech Tacular",
       startTime: "12:00",
       endTime: "13:00",
       date: "09/11/24",
+      venue: "LT 202",
     },
     {
       name: "Start-up Summit",
@@ -79,6 +85,7 @@ const eventData: Record<string, Event[]> = {
       startTime: "18:00",
       endTime: "19:00",
       date: "09/11/24",
+      venue: "LT 202",
     },
     {
       name: "Infinix Experience Zone and Respawn",
@@ -93,6 +100,7 @@ const eventData: Record<string, Event[]> = {
       startTime: "09:00",
       endTime: "10:00",
       date: "10/11/24",
+      venue: "LT 202",
     },
     {
       name: "Hackathon Online",
@@ -105,6 +113,7 @@ const eventData: Record<string, Event[]> = {
       startTime: "11:00",
       endTime: "12:00",
       date: "10/11/24",
+      venue: "LT 202",
     },
     {
       name: "Hallucin8",
@@ -117,6 +126,7 @@ const eventData: Record<string, Event[]> = {
       startTime: "13:00",
       endTime: "14:00",
       date: "10/11/24",
+      venue: "LT 202",
     },
     {
       name: "Design Dojo",
@@ -129,6 +139,7 @@ const eventData: Record<string, Event[]> = {
       startTime: "17:00",
       endTime: "18:00",
       date: "10/11/24",
+      venue: "LT 202",
     },
     {
       name: "CC + DJ + Prize",
