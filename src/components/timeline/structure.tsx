@@ -290,33 +290,22 @@ export default function Component() {
 
   return (
     <div
-      className={`w-auto min-h-screen ${
+      className={`w-auto min-h-screen mt-16 text-center ${
         theme === "dark"
           ? "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900"
           : "bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50"
       } p-2 sm:p-3 md:p-4 lg:p-6`}
     >
       <div className="max-w-full lg:max-w-7xl mx-auto">
-        <header className="flex items-center justify-between mb-4 sm:mb-6 md:mb-8">
-          <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
+        <header className="flex items-center justify-center mb-4 sm:mb-6 md:mb-8">
+          <div className="flex items-center text-center gap-2 sm:gap-4 md:gap-6">
             <div
               className={`${
                 theme === "dark" ? "text-white/90" : "text-gray-800"
-              } text-lg sm:text-xl md:text-2xl font-light`}
+              } text-4xl sm:text-xl md:text-4xl font-light`}
             >
               Event Timeline
             </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <Button
-              variant="ghost"
-              size="icon"
-              className={`${
-                theme === "dark"
-                  ? "text-white/70 hover:text-white"
-                  : "text-gray-600 hover:text-gray-800"
-              }`}
-            ></Button>
           </div>
         </header>
 
