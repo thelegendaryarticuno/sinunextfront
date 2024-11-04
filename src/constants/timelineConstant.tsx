@@ -109,8 +109,29 @@ const eventData: Record<string, Event[]> = {
       date: "09/11/24",
       venue: "Auditorium",
     },
+    {
+      name: "Respawn",
+      startTime: "21:00",
+      endTime: "23:59",
+      date: "09/11/24",
+      venue: "AC2, First Floor",
+    },
   ],
   "Day-3": [
+    {
+      name: "Respawn",
+      startTime: "00:00",
+      endTime: "03:00",
+      date: "10/11/24",
+      venue: "AC2, First Floor",
+    },
+    {
+      name: "Infinix Experience Zone ",
+      startTime: "00:00",
+      endTime: "03:00",
+      date: "10/11/24",
+      venue: "LAB 19&20",
+    },
     {
       name: "Math Relay",
       startTime: "09:00",
