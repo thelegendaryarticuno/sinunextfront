@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
+import Banner from "../Banner30vh/banner";
 
 interface HeroProps {
   defaultLightImg?: string;
@@ -64,7 +65,8 @@ const Hero: React.FC<HeroProps> = ({
           className="object-contain z-20"
         />
       </div>
-      <Link href="/events/hiveWeb3Hackathon">
+      <Banner />
+      {/* <Link href="/events/hiveWeb3Hackathon">
         <div className="relative flex justify-center items-center w-full h-[30vh] mt-2">
           <Image
             src={isDark ? "/events/Dark.svg" : "/events/Light.svg"}
@@ -74,7 +76,7 @@ const Hero: React.FC<HeroProps> = ({
             className=""
           />
         </div>
-      </Link>
+      </Link> */}
     </div>
   );
 };
