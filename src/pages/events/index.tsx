@@ -1,8 +1,6 @@
-import EventsBanner from "@/components/EventsBanner/EventsBanner";
 import SEOComponent from "@/components/SEOComponent/SEOComponent";
 import EventOrganizer from "@/components/eventlisting/eventorganizer";
 import Image from "next/image";
-import Link from "next/link";
 import { useTheme } from "next-themes";
 import Banner from "@/components/Banner30vh/banner";
 
