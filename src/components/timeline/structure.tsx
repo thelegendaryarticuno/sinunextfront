@@ -296,17 +296,7 @@ export default function Component() {
       } p-2 sm:p-3 md:p-4 lg:p-6`}
     >
       <div className="max-w-full lg:max-w-7xl mx-auto">
-        <header className="flex items-center justify-center mb-4 sm:mb-6 md:mb-8">
-          <div className="flex items-center text-center gap-2 sm:gap-4 md:gap-6">
-            <div
-              className={`${
-                theme === "dark" ? "text-white/90" : "text-gray-800"
-              } text-4xl sm:text-xl md:text-4xl font-light`}
-            >
-              Event Timeline
-            </div>
-          </div>
-        </header>
+        <header className="flex items-center justify-center mb-12 md:mb-12"></header>
 
         <Tabs
           defaultValue="Day-1"
