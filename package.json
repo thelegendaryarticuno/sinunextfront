@@ -23,9 +23,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@radix-ui/react-tabs": "^1.1.0",
     "@radix-ui/themes": "^3.1.1",
-    "@react-three/drei": "^9.115.0",
-    "@react-three/fiber": "^8.17.10",
-    "@reduxjs/toolkit": "^2.2.7",
+"@reduxjs/toolkit": "^2.2.7",
     "@splinetool/react-spline": "^4.0.0",
     "@splinetool/runtime": "^1.9.35",
     "@svgr/webpack": "^8.1.0",
@@ -58,7 +56,6 @@
     "swiper": "^11.1.9",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
-    "three": "^0.170.0",
     "yup": "^1.4.0"
   },
   "devDependencies": {
