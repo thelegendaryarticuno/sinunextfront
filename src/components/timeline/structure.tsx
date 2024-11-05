@@ -196,7 +196,8 @@ export default function Component() {
                                         : "text-gray-600"
                                     } text-xs md:text-sm font-medium`}
                                   >
-                                    {event.startTime} - {event.endTime}
+                                    {event.startTime}
+                                    {event.endTime && ` - ${event.endTime}`}
                                   </p>
                                 </div>
                                 <div className="flex items-center gap-2">

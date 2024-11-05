@@ -1,13 +1,11 @@
-import PlansMarquee from "@/components/PlansMarquee/plansMarquee";
-import IDCardHero from "@/components/idcard/hero";
+import Page from "@/components/idcard/page";
 
-const IDCardPage = () => {
+const Id = () => {
   return (
-    <main>
-      <IDCardHero />
-      <PlansMarquee />
-    </main>
+    <div className="mt-16">
+      <Page />
+    </div>
   );
 };
 
-export default IDCardPage;
+export default Id;
