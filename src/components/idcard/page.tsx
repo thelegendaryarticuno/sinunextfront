@@ -1,13 +1,13 @@
+import IDCardHero from "./hero";
+
 const Page = () => {
-    return (
+  return (
+    <div>
       <div>
-        <h1>ID Card </h1>
-        <div>
-          {/* Add your content here */}
-        </div>
+        <IDCardHero />
       </div>
-    );
-  };
-  
-  export default Page;
-  
+    </div>
+  );
+};
+
+export default Page;
