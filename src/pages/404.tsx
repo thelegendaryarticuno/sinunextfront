@@ -1,6 +1,5 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image"; // Import the Image component from the correct package
 
