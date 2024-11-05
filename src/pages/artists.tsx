@@ -1,31 +1,17 @@
 import React from "react";
-import SEOComponent from "@/components/SEOComponent/SEOComponent";
-import Artists from "@/components/artistsCards/artistsCards";
+import ArtistsMain from "@/components/artistsPageCard/artistsPageCard";
 
-const Sponsors: React.FC = () => {
+const ArtistsPage: React.FC = () => {
   return (
-    <>
-      <SEOComponent
-        PageDescription="#"
-        PageKeywords={[
-          "sinusoid",
-          "techfest",
-          "artists",
-          "djnight",
-          "music",
-          "branding",
-          "support",
-        ]}
-        PageOGLImage="/logo/logo.png"
-        PageTitle="Artists | siNUsoid v8"
-      />
-      <div className="mt-32 flex justify-center mb-28">
-        <div className="scale-125 w-[80%] mt-28 mb-10 md:mt-0 md:mb-0 max-w-6xl">
-          <Artists />
-        </div>
+    <div className="bg-gray-100 dark:bg-gray-950 min-h-screen mt-24">
+      <div className="bg-gradient-to-r from-orange-500 to-purple-600 text-white text-center py-2 text-2xl font-bold shadow-lg mb-10">
+        NOW PLAYING
       </div>
-    </>
+      <div className="h-6 md:h-8"></div>
+
+      <ArtistsMain />
+    </div>
   );
 };
 
-export default Sponsors;
+export default ArtistsPage;
