@@ -8,20 +8,44 @@ export interface Event {
 
 const eventData: Record<string, Event[]> = {
   "Day-1": [
-    { name: "OC", startTime: "17:00", endTime: "19:00", date: "08/11/24" },
     {
-      name: "Tech Savvy",
-      startTime: "19:30",
-      endTime: "20:30",
+      name: "Opening Ceremony",
+      startTime: "17:00",
+      endTime: "19:00",
       date: "08/11/24",
       venue: "Auditorium",
+    },
+    {
+      name: "Tech Savvy",
+      startTime: "19:00",
+      endTime: "20:00",
+      date: "08/11/24",
+      venue: "Auditorium",
+    },
+    {
+      name: "Trade Off",
+      startTime: "21:00",
+      endTime: "22:00",
+      date: "08/11/24",
     },
     {
       name: "Infinix Experience Zone",
       startTime: "21:00",
       endTime: "23:59",
       date: "08/11/24",
-      venue: "LAB 19&20",
+      venue: "AC2, First Floor",
+    },
+    {
+      name: "CTF: Capture The Flag",
+      startTime: "22:00",
+      endTime: "23:00",
+      date: "08/11/24",
+    },
+    {
+      name: "Error Stack",
+      startTime: "22:00",
+      endTime: "23:00",
+      date: "08/11/24",
     },
     {
       name: "Respawn",
@@ -37,7 +61,7 @@ const eventData: Record<string, Event[]> = {
       startTime: "00:00",
       endTime: "03:00",
       date: "09/11/24",
-      venue: "LAB 19&20",
+      venue: "AC2, First Floor",
     },
     {
       name: "Respawn",
@@ -47,23 +71,16 @@ const eventData: Record<string, Event[]> = {
       venue: "AC2, First Floor",
     },
     {
-      name: "Infinix Experience Zone ",
-      startTime: "12:00",
-      endTime: "23:59",
-      date: "09/11/24",
-      venue: "LAB 19&20",
-    },
-    {
       name: "Murder Mystery",
       startTime: "10:00",
-      endTime: "11:30",
+      endTime: "12:00",
       date: "09/11/24",
-      venue: "Auditorium",
+      venue: "In-Campus",
     },
     {
       name: "Tech Tacular",
       startTime: "13:00",
-      endTime: "14:00",
+      endTime: "15:00",
       date: "09/11/24",
       venue: "AC2, Ground Floor",
     },
@@ -89,14 +106,21 @@ const eventData: Record<string, Event[]> = {
       venue: "Spine",
     },
     {
-      name: "Hive Hackathon",
+      name: "Code Hive Hackathon: Online",
+      startTime: "10:00",
+      endTime: "12:00",
+      date: "09/11/24",
+      venue: "Auditorium",
+    },
+    {
+      name: "Code Hive Hackathon",
       startTime: "14:00",
       endTime: "17:00",
       date: "09/11/24",
       venue: "Auditorium",
     },
     {
-      name: "Hackathon Buffer",
+      name: "Code Hive Hackathon Buffer",
       startTime: "18:00",
       endTime: "20:00",
       date: "09/11/24",
@@ -108,6 +132,13 @@ const eventData: Record<string, Event[]> = {
       endTime: "22:00",
       date: "09/11/24",
       venue: "Auditorium",
+    },
+    {
+      name: "Infinix Experience Zone",
+      startTime: "21:00",
+      endTime: "23:59",
+      date: "09/11/24",
+      venue: "AC2, First Floor",
     },
     {
       name: "Respawn",
@@ -130,7 +161,7 @@ const eventData: Record<string, Event[]> = {
       startTime: "00:00",
       endTime: "03:00",
       date: "10/11/24",
-      venue: "LAB 19&20",
+      venue: "AC2, First Floor",
     },
     {
       name: "Math Relay",
@@ -139,15 +170,10 @@ const eventData: Record<string, Event[]> = {
       date: "10/11/24",
       venue: "Bowl Area",
     },
-    {
-      name: "Hackathon Online",
-      startTime: "10:00",
-      endTime: "11:00",
-      date: "10/11/24",
-    },
+
     {
       name: "Analytical Acumen",
-      startTime: "11:00",
+      startTime: "10:00",
       endTime: "12:00",
       date: "10/11/24",
       venue: "LT 101",
@@ -174,10 +200,11 @@ const eventData: Record<string, Event[]> = {
       venue: "CSE Lab",
     },
     {
-      name: "CC + DJ + Prize",
+      name: "Closing Ceremony",
       startTime: "18:00",
       endTime: "23:59",
       date: "10/11/24",
+      venue: "Main Stage",
     },
   ],
 };
