@@ -1,10 +1,13 @@
-const Id = () => {
+import PlansMarquee from "@/components/PlansMarquee/plansMarquee";
+import IDCardHero from "@/components/idcard/hero";
+
+const IDCardPage = () => {
   return (
-    <div>
-      <h1>ID Card </h1>
-      <div>{/* Add your content here */}</div>
-    </div>
+    <main>
+      <IDCardHero />
+      <PlansMarquee />
+    </main>
   );
 };
 
-export default Id;
+export default IDCardPage;
