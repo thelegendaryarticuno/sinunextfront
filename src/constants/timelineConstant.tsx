@@ -33,7 +33,7 @@ const eventData: Record<string, Event[]> = {
       startTime: "21:00",
       endTime: "23:59",
       date: "08/11/24",
-      venue: "AC2, First Floor",
+      venue: "Lab 19 & 20",
     },
     {
       name: "CTF: Capture The Flag",
@@ -61,7 +61,7 @@ const eventData: Record<string, Event[]> = {
       startTime: "00:00",
       endTime: "03:00",
       date: "09/11/24",
-      venue: "AC2, First Floor",
+      venue: "Lab 19 & 20",
     },
     {
       name: "Respawn",
@@ -106,23 +106,9 @@ const eventData: Record<string, Event[]> = {
       venue: "Spine",
     },
     {
-      name: "Code Hive Hackathon: Online",
-      startTime: "10:00",
-      endTime: "12:00",
-      date: "09/11/24",
-      venue: "Auditorium",
-    },
-    {
       name: "Code Hive Hackathon",
-      startTime: "14:00",
+      startTime: "10:00",
       endTime: "17:00",
-      date: "09/11/24",
-      venue: "Auditorium",
-    },
-    {
-      name: "Code Hive Hackathon Buffer",
-      startTime: "18:00",
-      endTime: "20:00",
       date: "09/11/24",
       venue: "Auditorium",
     },
@@ -138,7 +124,7 @@ const eventData: Record<string, Event[]> = {
       startTime: "21:00",
       endTime: "23:59",
       date: "09/11/24",
-      venue: "AC2, First Floor",
+      venue: "Lab 19 & 20",
     },
     {
       name: "Respawn",
@@ -161,7 +147,7 @@ const eventData: Record<string, Event[]> = {
       startTime: "00:00",
       endTime: "03:00",
       date: "10/11/24",
-      venue: "AC2, First Floor",
+      venue: "Lab 19 & 20",
     },
     {
       name: "Math Relay",
