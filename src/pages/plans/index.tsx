@@ -34,8 +34,8 @@ const Plans: React.FC = () => {
         PageTitle="Accomodation  | siNUsoid v8"
       />
       <Hero />
-      <PlansMarquee />
       <PlansCard />
+      <PlansMarquee />
       <FaqSection
         Generic_Faq_Category={PLANS_FAQ_CATEGORY}
         Generic_Faq_Data={PLANS_FAQ_DATA}
