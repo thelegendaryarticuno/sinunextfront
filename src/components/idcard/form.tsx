@@ -2,6 +2,7 @@ import React from "react";
 import HyperText from "../magicui/hyper-text";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
+import { useTheme } from "next-themes";
 
 const validationSchema = Yup.object({
   firstName: Yup.string().required("First name is required"),
@@ -13,6 +14,7 @@ const validationSchema = Yup.object({
 });
 
 const IDCardForm = () => {
+  const { theme } = useTheme();
   const [isNIITStudent, setIsNIITStudent] = React.useState(false);
   const initialValues = {
     firstName: "",
@@ -33,7 +35,7 @@ const IDCardForm = () => {
   };
 
   return (
-    <div className="max-w-2xl ite mx-auto p-4">
+    <div className={`max-w-2xl mx-auto p-4 ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'}`}>
       <div className="flex justify-center">
         <HyperText
           duration={1150}
