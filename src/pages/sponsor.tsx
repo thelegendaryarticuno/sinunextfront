@@ -50,9 +50,9 @@ const Sponsors: React.FC = () => {
         </div>
         <SponsorPageMarquee />
         <div className="relative dark:bg-black bg-white flex items-center justify-center p-4 ">
-          <div
+          <ShineBorder
             className="max-w-4xl w-full dark:bg-[url('/hanging-flex02-bg.png')] rounded-lg shadow-3xl overflow-hidden flex flex-col md:flex-row"
-            // color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+            color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
           >
             <div className="relative w-full lg:w-[7%] flex items-center justify-center p-4">
               <div className="text-sm md:text-base dark:text-white text-black lg:[writing-mode:vertical-lr] lg:[text-orientation:upright] font-black">
@@ -92,7 +92,7 @@ const Sponsors: React.FC = () => {
                 The Blockchain for Web3
               </div>
             </div>
-          </div>
+          </ShineBorder>
 
           {/* Dialog Box Overlay */}
           {isDialogOpen && (
@@ -120,9 +120,9 @@ const Sponsors: React.FC = () => {
           )}
         </div>
         <div className="relative dark:bg-black bg-white flex items-center justify-center p-4">
-          <div
+          <ShineBorder
             className="max-w-4xl w-full dark:bg-zinc-900 bg-zinc-200 rounded-lg shadow-3xl overflow-hidden flex flex-col md:flex-row-reverse"
-            // color={["#00DBDE", "#FC00FF", "#50CC7F"]}
+            color={["#00DBDE", "#FC00FF", "#50CC7F"]}
           >
             <div className="relative w-full lg:w-[7%] flex items-center justify-center p-4">
               <div className="text-sm md:text-base dark:text-white text-black lg:[writing-mode:vertical-lr] lg:[text-orientation:upright] font-black">
@@ -131,11 +131,11 @@ const Sponsors: React.FC = () => {
             </div>
             <div className="relative w-full lg:w-[30%] flex flex-col items-center justify-center lg:border-r-4 border-zinc-50 dark:border-zinc-950">
               <Image
-                src="/sponsorLogo/SKOAR.webp"
+                src="/sponsorLogo/Trends.webp"
                 alt="coSponsorLogo"
-                width={150}
-                height={150}
-                className="object-contain p-4 z-20"
+                width={250}
+                height={250}
+                className="object-contain p-2 z-20"
               />
             </div>
             <div className="flex-1 p-4 md:p-8 flex flex-col justify-between lg:mr-4">
@@ -144,11 +144,11 @@ const Sponsors: React.FC = () => {
               </div>
               <div className="dark:text-white text-black mb-6 font-bold text-base">
                 {
-                  "We would also like to acknowledge Skoar. This partnership offers substantial branding opportunities, ensuring high exposure and connection with a diverse audience. As a Co-Sponsor, your brand will be prominently featured throughout the event, ensuring that you stand out in a competitive market. (Previous Sponsor)"
+                  "Trends is adding a stylish twist to the fest by offering exclusive fashion gift vouchers,all in the chic style they are recognised for! Trends, widely recognised for its ability to cater for everyone's fashion needs, is here to ensure that this fest is free of the fashion police."
                 }
               </div>
             </div>
-          </div>
+          </ShineBorder>
         </div>
       </div>
       <SponsorComp />

@@ -3,16 +3,26 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 
 const sponsors = [
-  "/sponsorLogo/Jio.webp",
-  "/sponsorLogo/KGEN.png",
+  "/images/HiveVerticalLogo.png",
+  "/sponsorLogo/Trends.webp",
   "/sponsorLogo/2Oh.png",
-  "/sponsorLogo/4.png",
+  "/sponsorLogo/BaskinRobins.webp",
   "/sponsorLogo/7.png",
   "/sponsorLogo/NYNAEVE.png",
   "/sponsorLogo/Trikon.png",
   "/sponsorLogo/RedBull.webp",
   "/sponsorLogo/studCops.webp",
-  "/sponsorLogo/Gigabyte.webp"
+  "/sponsorLogo/MetaSoilVerse.webp",
+  "/sponsorLogo/infinix.webp",
+  "/sponsorLogo/flyjone2.png",
+  "/sponsorLogo/BCH.webp",
+  "/sponsorLogo/DayNeemrana.webp",
+  "/sponsorLogo/Ramada.webp",
+  "/sponsorLogo/GDX.png",
+  "/sponsorLogo/MemoryBlaze.webp",
+  "/sponsorLogo/Bustro.webp",
+  "/sponsorLogo/KGEN.png",
+  "/sponsorLogo/RoyalEnfield.webp"
 ];
 
 const SponsorComp: React.FC = () => {
@@ -24,7 +34,7 @@ const SponsorComp: React.FC = () => {
       <h2 className="text-center text-6xl font-bold mb-12 dark:text-white text-black">
         PARTNERS
       </h2>
-      <div className="container mx-auto grid grid-cols-2 md:grid-cols-5 lg:grid-cols-5 gap-8 items-center">
+      <div className="container mx-auto grid grid-cols-4 md:grid-cols-5 lg:grid-cols-5 gap-8 items-center">
         {sponsors.map((sponsor, index) => (
           <div key={index} className="flex justify-center items-center">
             <Image
