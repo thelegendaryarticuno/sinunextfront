@@ -7,31 +7,41 @@ import { useTheme } from "next-themes";
 const validationSchema = Yup.object({
   firstName: Yup.string().required("First name is required"),
   lastName: Yup.string().required("Last name is required"),
-  email: Yup.string()
+  emailId: Yup.string()
     .email("Invalid email address")
     .required("Email is required"),
-  universityName: Yup.string().required("University name is required"),
 });
 
 const IDCardForm = () => {
   const { theme } = useTheme();
-  const [isNIITStudent, setIsNIITStudent] = React.useState(false);
   const initialValues = {
     firstName: "",
     lastName: "",
-    email: "",
-    universityName: "",
+    emailId: "",
   };
 
-  const handleSubmit = (values: any) => {
-    console.log(values);
-    // Handle form submission
-  };
+  const handleSubmit = async (values: any) => {
+    try {
+      const response = await fetch('https://api.sinusoid.in/attendee/internal', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values)
+      });
 
-  const handleCheckboxChange = (e: any, setFieldValue: any) => {
-    const isChecked = e.target.checked;
-    setIsNIITStudent(isChecked);
-    setFieldValue("universityName", isChecked ? "NIIT University" : "");
+      if (!response.ok) {
+        alert('Form submission failed. Please try again.');
+        return;
+      }
+
+      const data = await response.json();
+      console.log('Success:', data);
+      // Handle success (maybe show a success message)
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Form submission failed. Please try again.');
+    }
   };
 
   return (
@@ -48,7 +58,7 @@ const IDCardForm = () => {
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched, setFieldValue }) => (
+        {({ errors, touched }) => (
           <Form className="space-y-4">
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="flex-1">
@@ -92,54 +102,19 @@ const IDCardForm = () => {
             </div>
 
             <div>
-              <label htmlFor="email" className="block mb-1">
+              <label htmlFor="emailId" className="block mb-1">
                 Email
               </label>
               <Field
                 type="email"
-                id="email"
-                name="email"
+                id="emailId"
+                name="emailId"
                 className={`w-full p-2 border rounded ${
-                  errors.email && touched.email ? "border-red-500" : ""
+                  errors.emailId && touched.emailId ? "border-red-500" : ""
                 }`}
               />
-              {errors.email && touched.email && (
-                <div className="text-red-500 text-sm mt-1">{errors.email}</div>
-              )}
-            </div>
-
-            <div className="flex items-center gap-2">
-              <input
-                type="checkbox"
-                id="isNIITStudent"
-                checked={isNIITStudent}
-                onChange={(e) => handleCheckboxChange(e, setFieldValue)}
-                className="h-4 w-4"
-              />
-              <label htmlFor="isNIITStudent">
-                Are you a student of NIIT University?
-              </label>
-            </div>
-
-            <div>
-              <label htmlFor="universityName" className="block mb-1">
-                University Name
-              </label>
-              <Field
-                type="text"
-                id="universityName"
-                name="universityName"
-                disabled={isNIITStudent}
-                className={`w-full p-2 border rounded ${
-                  errors.universityName && touched.universityName
-                    ? "border-red-500"
-                    : ""
-                } ${isNIITStudent ? "bg-gray-800" : ""}`}
-              />
-              {errors.universityName && touched.universityName && (
-                <div className="text-red-500 text-sm mt-1">
-                  {errors.universityName}
-                </div>
+              {errors.emailId && touched.emailId && (
+                <div className="text-red-500 text-sm mt-1">{errors.emailId}</div>
               )}
             </div>
 

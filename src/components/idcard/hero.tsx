@@ -68,7 +68,7 @@ const IDCardHero = () => {
           onClick={handleOutsideClick}
         >
           <div
-            className={`${theme === "dark" ? "bg-[#1a1a2e]" : "bg-white"} ${
+            className={`${theme === "dark" ? "bg-gray-800" : "bg-white"} ${
               theme === "dark" ? "text-white" : "text-gray-900"
             } rounded-lg p-10 w-[90%] max-w-lg shadow-lg relative`}
           >
