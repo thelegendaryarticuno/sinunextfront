@@ -14,7 +14,7 @@ const sponsors = [
   "/sponsorLogo/studCops.webp",
   "/sponsorLogo/MetaSoilVerse.webp",
   "/sponsorLogo/infinix.webp",
-  "/sponsorLogo/FLYJONE.png",
+  "/sponsorLogo/flyjone2.png",
   "/sponsorLogo/BCH.webp",
   "/sponsorLogo/DayNeemrana.webp",
   "/sponsorLogo/Ramada.webp",
