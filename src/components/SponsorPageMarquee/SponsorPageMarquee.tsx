@@ -63,9 +63,12 @@ const sponsorLogos = [
   {
      img: "/sponsorLogo/KGEN2.png" , alt:"KGEN"
     },
+  {
+     img: "/sponsorLogo/HYDERABADIKITCHEN.webp" , alt:"HyderabadiKitchen"
+    },
 ];
 
-const firstRow = sponsorLogos.slice(0, 20);
+const firstRow = sponsorLogos.slice(0, 21);
 
 const ReviewCard = ({ img }: { img: string }) => {
   return (
