@@ -57,7 +57,7 @@ export const FAQ_DATA = [
     section: "faq",
     category: "registration",
     question: "Is there a registration fee for siNUsoid?",
-    answer: "No! The registration for all events in siNUsoid v8 is free for all participants.",
+    answer: "Yes, there is a registration fee for offline events at siNUsoid v8, which is ₹200 per participant per event.",
   },
   {
     section: "faq",
