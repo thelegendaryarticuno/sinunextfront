@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import IdCard from "@/components/idcard/id";
 import { Loader2 } from "lucide-react";
@@ -8,6 +8,8 @@ import { FaIdCard, FaMusic } from "react-icons/fa";
 import { FiCheckCircle } from "react-icons/fi";
 import { MdEvent } from "react-icons/md";
 import { GiTicket } from "react-icons/gi";
+import ShareButton from "@/components/idcard/shareButton";
+import html2canvas from "html2canvas";
 
 const IDValidation = () => {
   const router = useRouter();
@@ -15,7 +17,9 @@ const IDValidation = () => {
   const [loading, setLoading] = useState(true);
   const [attendeeData, setAttendeeData] = useState<any>(null);
   const [qrToken, setQrToken] = useState<string>("");
+  const [cardImage, setCardImage] = useState<string>("");
   const { theme, resolvedTheme } = useTheme();
+  const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,6 +63,21 @@ const IDValidation = () => {
 
     fetchData();
   }, [attendeeId]);
+
+  useEffect(() => {
+    // Generate card image after card is rendered
+    if (cardRef.current) {
+      html2canvas(cardRef.current, {
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: null
+      }).then((canvas) => {
+        // Convert canvas directly to data URL as PNG
+        const imageUrl = canvas.toDataURL('image/png', 1.0);
+        setCardImage(imageUrl);
+      });
+    }
+  }, [qrToken, attendeeData]);
 
   const isDarkTheme = theme === "dark" || resolvedTheme === "dark";
 
@@ -145,6 +164,7 @@ const IDValidation = () => {
                     <span className="text-lg">
                       Feel the Rhythm of Live Performances
                     </span>
+                    {cardImage && <ShareButton imageUrl={cardImage} />}
                   </li>
                 </ul>
               </div>
@@ -152,7 +172,7 @@ const IDValidation = () => {
 
             {/* ID Card section */}
             <div className="w-full md:w-auto flex justify-center order-1 md:order-2">
-              <div className="w-[400px] transform scale-105 hover:scale-110 transition-transform duration-300 mx-auto">
+              <div ref={cardRef} className="w-[400px] transform scale-105 hover:scale-110 transition-transform duration-300 mx-auto">
                 <IdCard
                   firstName={attendeeData.firstName}
                   lastName={attendeeData.lastName}
