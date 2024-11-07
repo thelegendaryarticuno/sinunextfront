@@ -38,7 +38,10 @@ const PlanDetails = () => {
       - Separate rooms will be provided in hostels for both boys and girls for 1 day.
       
       DJ Night:
-      - Scheduled for November 10th, 2024.`,
+      - Scheduled for November 10th, 2024.
+      
+      Return And Refund Policy:
+      - No refund will be provided after registration in any case.`,
     },
     gold: {
       name: "Gold Plan",
@@ -62,6 +65,9 @@ const PlanDetails = () => {
       
       DJ Night:
       - Scheduled for November 10th, 2024.
+
+      Return And Refund Policy:
+      - No refund will be provided after registration in any case
 
       Early bird offer: On registration by 25th Oct, a clothing voucher worth Rs. 750 from the sponsor will be provided.`,
     },
@@ -90,6 +96,9 @@ const PlanDetails = () => {
       
       DJ Night:
       - Scheduled for November 10th, 2024.
+
+      Return And Refund Policy:
+      - No refund will be provided after registration in any case.
 
       Early bird offer: On registration by 25th Oct, a clothing voucher worth Rs. 750+ and a goodie kit from the sponsors will be provided.`,
     },
