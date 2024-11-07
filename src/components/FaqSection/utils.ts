@@ -19,6 +19,12 @@ export const FAQ_CATEGORY = [
     category: "events",
     title: "Events",
   },
+  {
+    section: "faq",
+    category: "returnAndRefund",
+    title: "Return and Refund",
+  },
+
 ];
 export const FAQ_DATA = [
   {
@@ -72,6 +78,12 @@ export const FAQ_DATA = [
     question: "Are there any workshops or keynote sessions?",
     answer:
       "Yes, there will be workshops and keynote sessions by industry experts.",
+  },
+  {
+    section: "faq",
+    category: "returnAndRefund",
+    question: "Is there a refund policy for the siNUsoid V8?",
+    answer: "No, there is no refund policy for siNUsoid v8 in any case.",
   },
 ];
 
@@ -213,6 +225,11 @@ export const PLANS_FAQ_CATEGORY = [
   },
   {
     section: "faq",
+    category: "returnAndRefund",
+    title: "Return and Refund",
+  },
+  {
+    section: "faq",
     category: "Miscellaneous",
     title: "Miscellaneous",
   },
@@ -343,6 +360,12 @@ export const PLANS_FAQ_DATA = [
     question: "Are there any shuttle services available on the campus during the event?",
     answer:
       "Kindly note that once attendees and participants enter the NIIT University campus, they will not be permitted to leave until November 11th.",
+  },
+  {
+    section: "faq",
+    category: "returnAndRefund",
+    question: "Is there a refund policy for the siNUsoid V8?",
+    answer: "No, there is no refund policy for siNUsoid v8 in any case.",
   },
   {
     section: "faq",

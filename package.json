@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.0",
     "@next/third-parties": "^14.2.5",
     "@radix-ui/react-accordion": "^1.2.0",
     "@radix-ui/react-avatar": "^1.1.0",
@@ -39,6 +40,7 @@
     "dayjs": "^1.11.13",
     "formik": "^2.4.6",
     "framer-motion": "^11.11.10",
+    "html2canvas": "^1.4.1",
     "lucide-react": "^0.414.0",
     "measure": "^0.1.1",
     "meshline": "^3.3.1",
