@@ -10,6 +10,7 @@ import { MdEvent } from "react-icons/md";
 import { GiTicket } from "react-icons/gi";
 import ShareButton from "@/components/idcard/shareButton";
 import html2canvas from "html2canvas";
+import QRCode from "qrcode";
 
 const IDValidation = () => {
   const router = useRouter();
@@ -65,18 +66,39 @@ const IDValidation = () => {
   }, [attendeeId]);
 
   useEffect(() => {
-    // Generate card image after card is rendered
-    if (cardRef.current) {
-      html2canvas(cardRef.current, {
-        useCORS: true,
-        allowTaint: true,
-        backgroundColor: null
-      }).then((canvas) => {
-        // Convert canvas directly to data URL as PNG
+    const generateImage = async () => {
+      if (!cardRef.current || !qrToken) return;
+
+      try {
+        // Generate QR code first
+        const qrCodeUrl = await QRCode.toDataURL(qrToken, {
+          width: 200,
+          margin: 1,
+          color: {
+            dark: "#FFFFFF",
+            light: "#00000000",
+          },
+        });
+
+        // Wait for QR code to be ready
+        await new Promise((resolve) => setTimeout(resolve, 100));
+
+        // Generate card image
+        const canvas = await html2canvas(cardRef.current, {
+          useCORS: true,
+          allowTaint: true,
+          backgroundColor: null
+        });
+
+        // Convert canvas to data URL
         const imageUrl = canvas.toDataURL('image/png', 1.0);
         setCardImage(imageUrl);
-      });
-    }
+      } catch (error) {
+        console.error("Error generating image:", error);
+      }
+    };
+
+    generateImage();
   }, [qrToken, attendeeData]);
 
   const isDarkTheme = theme === "dark" || resolvedTheme === "dark";
