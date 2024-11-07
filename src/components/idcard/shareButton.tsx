@@ -28,7 +28,19 @@ const ShareButton = ({ imageUrl }: ShareButtonProps) => {
         return;
       }
 
-      // Convert data URL to File
+      // Wait longer for QR code and all images to fully render
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
+      // Create a temporary img element to ensure image is loaded
+      const img = new Image();
+      img.crossOrigin = "anonymous";
+      await new Promise((resolve, reject) => {
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = imageUrl;
+      });
+
+      // Convert data URL to File after ensuring image is loaded
       const file = dataURLtoFile(imageUrl, "IDCard.png");
 
       if (navigator.canShare({ files: [file] })) {
