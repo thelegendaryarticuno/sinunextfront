@@ -1,7 +1,7 @@
 export interface Event {
   name: string;
   startTime: string;
-  endTime: string;
+  endTime?: string;
   date: string;
   venue?: string;
 }
@@ -25,8 +25,7 @@ const eventData: Record<string, Event[]> = {
     {
       name: "Trade Off",
       startTime: "21:00",
-      endTime: "22:00",
-      date: "08/11/24",
+     date: "08/11/24",
     },
     {
       name: "Infinix Experience Zone",
@@ -38,13 +37,11 @@ const eventData: Record<string, Event[]> = {
     {
       name: "CTF: Capture The Flag",
       startTime: "22:00",
-      endTime: "23:00",
       date: "08/11/24",
     },
     {
       name: "Error Stack",
       startTime: "22:00",
-      endTime: "23:00",
       date: "08/11/24",
     },
     {
