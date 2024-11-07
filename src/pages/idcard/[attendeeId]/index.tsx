@@ -67,8 +67,14 @@ const IDValidation = () => {
   useEffect(() => {
     // Generate card image after card is rendered
     if (cardRef.current) {
-      html2canvas(cardRef.current).then((canvas:any) => {
-        setCardImage(canvas.toDataURL('image/png'));
+      html2canvas(cardRef.current, {
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: null
+      }).then((canvas) => {
+        // Convert canvas directly to data URL as PNG
+        const imageUrl = canvas.toDataURL('image/png', 1.0);
+        setCardImage(imageUrl);
       });
     }
   }, [qrToken, attendeeData]);
