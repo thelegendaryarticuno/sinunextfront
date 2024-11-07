@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import HyperText from "../magicui/hyper-text";
 import { Formik, Form, Field } from "formik";
 import * as Yup from "yup";
 import { useTheme } from "next-themes";
+import { FaCheckCircle, FaTimesCircle } from "react-icons/fa";
+import { useRouter } from "next/router";
+import { Loader2 } from "lucide-react";
 
 const validationSchema = Yup.object({
   firstName: Yup.string().required("First name is required"),
@@ -14,6 +17,9 @@ const validationSchema = Yup.object({
 
 const IDCardForm = () => {
   const { theme } = useTheme();
+  const router = useRouter();
+  const [submissionStatus, setSubmissionStatus] = useState<'idle' | 'success' | 'error' | 'loading'>('idle');
+  
   const initialValues = {
     firstName: "",
     lastName: "",
@@ -22,6 +28,7 @@ const IDCardForm = () => {
 
   const handleSubmit = async (values: any) => {
     try {
+      setSubmissionStatus('loading');
       const response = await fetch('https://api.sinusoid.in/attendee/internal', {
         method: 'POST',
         headers: {
@@ -31,16 +38,28 @@ const IDCardForm = () => {
       });
 
       if (!response.ok) {
-        alert('Form submission failed. Please try again.');
+        setSubmissionStatus('error');
+        setTimeout(() => setSubmissionStatus('idle'), 2000);
         return;
       }
 
       const data = await response.json();
       console.log('Success:', data);
-      // Handle success (maybe show a success message)
+      setSubmissionStatus('success');
+      
+      // Wait for success animation
+      setTimeout(() => {
+        setSubmissionStatus('loading');
+        // Show generating message for 1.5s
+        setTimeout(() => {
+          router.push(`/idcard/${data.attendeeId}`);
+        }, 1500);
+      }, 1000);
+
     } catch (error) {
       console.error('Error:', error);
-      alert('Form submission failed. Please try again.');
+      setSubmissionStatus('error');
+      setTimeout(() => setSubmissionStatus('idle'), 2000);
     }
   };
 
@@ -118,12 +137,36 @@ const IDCardForm = () => {
               )}
             </div>
 
-            <button
-              type="submit"
-              className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
-            >
-              Submit
-            </button>
+            <div className="relative">
+              <button
+                type="submit"
+                disabled={submissionStatus !== 'idle'}
+                className="w-full bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
+              >
+                Submit
+              </button>
+              
+              {submissionStatus === 'success' && (
+                <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-green-500 rounded animate-fade-in">
+                  <FaCheckCircle className="text-white text-2xl animate-bounce" />
+                  <span className="ml-2 text-white">Form Submitted Successfully!</span>
+                </div>
+              )}
+              
+              {submissionStatus === 'error' && (
+                <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-red-500 rounded animate-fade-in">
+                  <FaTimesCircle className="text-white text-2xl animate-bounce" />
+                  <span className="ml-2 text-white">Form Submission Failed</span>
+                </div>
+              )}
+              
+              {submissionStatus === 'loading' && (
+                <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-blue-500 rounded animate-fade-in">
+                  <Loader2 className="text-white text-2xl animate-spin" />
+                  <span className="ml-2 text-white">Generating Your ID Card...</span>
+                </div>
+              )}
+            </div>
           </Form>
         )}
       </Formik>
