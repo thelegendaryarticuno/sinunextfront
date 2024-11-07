@@ -64,6 +64,7 @@ export default function IdCard({ firstName, lastName, qrData }: IdCardProps) {
         />
       </div>
       <div className="absolute right-4 top-0 bottom-0 flex items-center">
+        
         <img
           src="/logo/345.png"
           alt="Vertical Text"

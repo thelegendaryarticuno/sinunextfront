@@ -63,11 +63,14 @@ const reviews = [
   {
      img: "/sponsorLogo/KGEN2.png" , alt:"KGEN"
     },
+    {
+      img: "/sponsorLogo/HYDERABADIKITCHEN.webp" , alt:"HyderabadiKitchen"
+    }
 ];
 
-const firstRow = reviews.slice(0, 20);
+const firstRow = reviews.slice(0, 21);
 const secondRow = [
-  ...reviews.slice(10, 20),
+  ...reviews.slice(10, 21),
   ...reviews.slice(0, 10),
 ];
 
