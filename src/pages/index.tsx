@@ -1,5 +1,4 @@
 import AboutSection from "@/components/AboutSection/AboutSection";
-import Artists from "@/components/artistsCards/artistsCards";
 import { FaqSection } from "@/components/FaqSection/FaqSection";
 import { FAQ_CATEGORY, FAQ_DATA } from "@/components/FaqSection/utils";
 import Hero from "@/components/Hero/Hero";
@@ -26,7 +25,7 @@ const Home: React.FC = () => {
       />
       <Hero />
       <AboutSection />
-      {/* <Artists /> */}
+
       <SponsorMarquee />
       <FaqSection
         Generic_Faq_Category={FAQ_CATEGORY}

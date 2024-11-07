@@ -1,143 +1,137 @@
-import React, { useState } from "react";
-import Link from "next/link"; // Import Link from Next.js
+import React from "react";
 import Image from "next/image";
-import { BorderBeam } from "../magicui/border-beam";
 import { FaInstagram } from "react-icons/fa";
-import { FaArrowRight } from "react-icons/fa";
-
 interface ArtistContainerProps {
   imageUrl: string;
   artistName: string;
   artistDescription: string;
-  instagramLink?: string;
+  instagramHandle1?: string;
+  instagramLink1?: string;
+  instagramHandle2?: string;
   instagramLink2?: string;
-  instagramLink3?: string;
-  positionClass: string;
 }
-
 const ArtistContainer: React.FC<ArtistContainerProps> = ({
   imageUrl,
   artistName,
   artistDescription,
-  instagramLink,
+  instagramHandle1,
+  instagramLink1,
+  instagramHandle2,
   instagramLink2,
-  instagramLink3,
-  positionClass,
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
   return (
-    <div
-      className="bg-gray-100 dark:bg-gray-900 shadow-md rounded-lg p-6 relative w-[280px] h-[500px] md:w-[400px] md:h-[550px] mx-auto md:mx-0 group"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <BorderBeam />
-
-      {/* Image Container */}
-      <div className="absolute inset-0 flex items-end">
+    <div className="relative w-full max-w-[90vw] h-[70vh] bg-gray-100 dark:bg-gray-900 md:max-w-[500px] md:h-[75vh] md:rounded-lg md:shadow-lg mb-0 mx-auto">
+      <div className="absolute inset-0">
         <Image
           src={imageUrl}
-          alt="Artist"
+          alt={artistName}
           layout="fill"
           objectFit="cover"
-          className="rounded-lg"
+          objectPosition="center"
+          className="md:rounded-lg"
         />
+        <div className="absolute inset-0 bg-white opacity-20 md:hidden"></div>
       </div>
-
-      {/* Rectangle Container for Artist Name and Description */}
-      <div
-        className={`absolute ${positionClass} bg-white dark:bg-gray-800 p-6 rounded-lg shadow-2xl w-[220px] h-[150px] md:w-[300px] md:h-[160px]`}
-      >
-        <h3 className="text-lg font-bold text-black dark:text-white">
-          {artistName}
-        </h3>
-        <p className="text-sm text-gray-700 dark:text-gray-300">
-          {artistDescription}
-        </p>
-
-        {/* Social Media Box for Instagram */}
-        <div className="mt-2 flex flex-col gap-2">
-          {instagramLink && (
-            <a
-              href={instagramLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center"
-            >
-              <FaInstagram className="h-6 w-6 text-gray-600 dark:text-gray-400" />
-              <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">
-                @vj.infinity
-              </span>
-            </a>
-          )}
-          {instagramLink2 && (
-            <a
-              href={instagramLink2}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center"
-            >
-              <FaInstagram className="h-6 w-6 text-gray-600 dark:text-gray-400" />
-              <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">
-                @elina_chauhann
-              </span>
-            </a>
-          )}
-          {instagramLink3 && (
-            <a
-              href={instagramLink3}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center"
-            >
-              <FaInstagram className="h-6 w-6 text-gray-600 dark:text-gray-400" />
-              <span className="ml-2 text-sm text-gray-600 dark:text-gray-400">
-                @???
-              </span>
-            </a>
-          )}
+      <div className="md:hidden flex flex-col justify-end h-full p-0 bg-black bg-opacity-50 text-white">
+        <div className="flex flex-col items-center mb-4">
+          <h2 className="text-4xl font-bold text-center mb-4">{artistName}</h2>
+          <div className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory gap-4 w-full px-4">
+            <div className="flex-shrink-0 w-full snap-center bg-white bg-opacity-30 backdrop-blur-lg p-4 rounded-lg text-center">
+              <h4 className="font-semibold text-lg mb-2">Instagram</h4>
+              {instagramLink1 && instagramHandle1 && (
+                <a
+                  href={instagramLink1}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center mt-2"
+                >
+                  <FaInstagram className="h-5 w-5" />
+                  <span className="ml-2 text-sm">{instagramHandle1}</span>
+                </a>
+              )}
+              {instagramLink2 && instagramHandle2 && (
+                <a
+                  href={instagramLink2}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center mt-2"
+                >
+                  <FaInstagram className="h-5 w-5" />
+                  <span className="ml-2 text-sm">{instagramHandle2}</span>
+                </a>
+              )}
+            </div>
+            <div className="flex-shrink-0 w-full snap-center bg-white bg-opacity-30 backdrop-blur-lg p-4 rounded-lg text-center">
+              <h4 className="font-semibold text-lg mb-2">About</h4>
+              <p className="text-sm">{artistDescription || "No description available"}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="hidden md:flex flex-col h-full p-8 bg-opacity-50 bg-gray-900 text-gray-900">
+        <div className="absolute top-10 right-[-150px] z-20 flex flex-col gap-4 md:right-[-175px]">
+          <div className="bg-white bg-opacity-30 backdrop-blur-lg p-4 rounded-lg w-[220px] h-[140px] text-center">
+            <h4 className="font-semibold text-lg mb-2">Instagram</h4>
+            {instagramLink1 && instagramHandle1 && (
+              <a
+                href={instagramLink1}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center mt-2"
+              >
+                <FaInstagram className="h-5 w-5" />
+                <span className="ml-2 text-sm">{instagramHandle1}</span>
+              </a>
+            )}
+            {instagramLink2 && instagramHandle2 && (
+              <a
+                href={instagramLink2}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center mt-2"
+              >
+                <FaInstagram className="h-5 w-5" />
+                <span className="ml-2 text-sm">{instagramHandle2}</span>
+              </a>
+            )}
+          </div>
+          <div className="bg-white bg-opacity-30 backdrop-blur-lg p-4 rounded-lg w-[220px] h-[140px] text-center mt-40">
+            <h4 className="font-semibold text-lg mb-2">About</h4>
+            <p className="text-sm">{artistDescription || "No description available"}</p>
+          </div>
+        </div>
+        <div className="flex flex-col items-center mt-auto">
+          <h2 className="text-2xl font-bold text-center mb-6">{artistName}</h2>
         </div>
       </div>
     </div>
   );
 };
-
 const Artists: React.FC = () => {
   return (
-    <div className="flex flex-col items-center p-8">
-      <div className="flex items-center mb-8 group">
-        {" "}
-        {/* Added group class here */}
-        <Link href="/artists" passHref>
-          <h2 className="text-5xl font-bold cursor-pointer text-gray-800 dark:text-white group-hover:text-orange-600 transition duration-300">
-            Performing Artists
-          </h2>
-        </Link>
-        <Link href="/artists" passHref>
-          <FaArrowRight className="ml-2 text-3xl cursor-pointer text-gray-800 dark:text-white group-hover:text-orange-600 transition duration-300" />
-        </Link>
-      </div>
-
-      <div className="flex flex-col md:flex-row gap-16 md:gap-96 justify-center">
-        <ArtistContainer
-          imageUrl="/images/artist1.png"
-          artistName="Elina Chauhan & VJ Infinity"
-          artistDescription=""
-          instagramLink="https://www.instagram.com/vj.infinity/"
-          instagramLink2="https://www.instagram.com/elina_chauhann/"
-          positionClass="left-1/2 transform -translate-x-1/2 bottom-[20px] md:top-[20px] md:left-[87%] md:translate-x-[0]"
-        />
-        <ArtistContainer
-          imageUrl="/images/unknown1.png"
-          artistName="???"
-          artistDescription="???"
-          positionClass="left-1/2 transform -translate-x-1/2 bottom-[20px] md:bottom-[20px] md:left-[-100px]"
-          instagramLink3="#"
-        />
-      </div>
+    <div className="flex flex-col gap-8 md:pt-48 pb-40 px-0 md:pl-8"> 
+      <ArtistContainer
+        imageUrl="/images/vj_infinity.webp"
+        artistName="VJ Infinity"
+        artistDescription="Dynamic musical duo bringing you electrifying performances."
+        instagramHandle1="@vj.infinity"
+        instagramLink1="https://www.instagram.com/vj.infinity/"
+      />
+      <ArtistContainer
+        imageUrl="/images/elina.webp"
+        artistName="Elina Chauhan"
+        artistDescription="An enigmatic presence with captivating tunes."
+        instagramHandle1="@elina_chauhann"
+        instagramLink1="https://www.instagram.com/elina_chauhann/"
+      />
+      <ArtistContainer
+        imageUrl="/images/unknown1.png"
+        artistName="DJ Shadow"
+        artistDescription="A journey through sound and rhythm with the iconic DJ Shadow."
+        instagramHandle1="@dj_shadow"
+        instagramLink1="https://www.instagram.com/dj_shadow/"
+      />
     </div>
   );
 };
-
 export default Artists;
