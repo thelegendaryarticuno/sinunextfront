@@ -219,8 +219,8 @@ const PlanDetails = () => {
               </p>
               <ul className="list-disc list-inside text-sm font-normal whitespace-pre-line">
                 <li>
-                  Bedding: Mattresses and pillows will be provided. Bedsheet and
-                  pillow cover will not be given.
+                  Bedding: Mattresses will be provided. Bedsheet and
+                  blanket will not be given, so please carry your own.
                 </li>
                 <li>
                   Water: There will be a designated area to refill your water
