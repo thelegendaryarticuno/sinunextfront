@@ -154,7 +154,8 @@ export const INDRADHANUSH_FAQ_DATA = [
     section: "faq",
     category: "Donations",
     question: "Are monetary donations accepted?",
-    answer: "No, we're not accepting monetary donations. We focus on tangible items that can directly benefit those in need.",
+    answer:
+      "No, we're not accepting monetary donations. We focus on tangible items that can directly benefit those in need.",
   },
   {
     section: "faq",
@@ -190,7 +191,7 @@ export const INDRADHANUSH_FAQ_DATA = [
 export const PLANS_FAQ_CATEGORY = [
   {
     section: "faq",
-    category:"Registration and Packages",
+    category: "Registration and Packages",
     title: "Registration and Packages",
   },
   {
@@ -260,7 +261,8 @@ export const PLANS_FAQ_DATA = [
   {
     section: "faq",
     category: "Transportation",
-    question: "Can I board the bus without a printed registration confirmation?",
+    question:
+      "Can I board the bus without a printed registration confirmation?",
     answer:
       "No you cannot board the bus, a verification and headcount will be done.",
   },
@@ -275,7 +277,8 @@ export const PLANS_FAQ_DATA = [
     section: "faq",
     category: "Accomodation",
     question: "Is separate accommodation available for boys and girls?",
-    answer: "Yes, there are designated hostels for boys and girls, ensuring privacy and comfort for all residents.",
+    answer:
+      "Yes, separate accommodations are provided for boys and girls to ensure privacy and comfort.",
   },
   {
     section: "faq",
@@ -286,23 +289,30 @@ export const PLANS_FAQ_DATA = [
   },
   {
     section: "faq",
+    category: "Accomodation",
+    question: "Are boys and girls allowed to stay together in hostels?",
+    answer:
+      "No, boys and girls are not allowed to stay together in hostels. Separate accommodations are provided for boys and girls to ensure privacy and comfort.",
+  },
+  {
+    section: "faq",
     category: "Mess Services",
-    question: "Are there any additional costs for meals outside the mess services?",
+    question:
+      "Are there any additional costs for meals outside the mess services?",
     answer:
       "Yes, any meals purchased outside of the mess services will be at your own expense, and are not included in any of the available packages.",
   },
   {
     section: "faq",
     category: "Mess Services",
-    question:
-      "What time will meals be served during the tech fest by stalls?",
-    answer:
-      "The stalls will begin at 4pm, on all three days.",
+    question: "What time will meals be served during the tech fest by stalls?",
+    answer: "The stalls will begin at 4pm, on all three days.",
   },
   {
     section: "faq",
     category: "Mess Services",
-    question: "Will the mess provide options for special dietary needs (e.g., vegetarian, vegan)?",
+    question:
+      "Will the mess provide options for special dietary needs (e.g., vegetarian, vegan)?",
     answer:
       "The mess serves Vegetarian food. Jain food may be provided based on availability and prior notification.",
   },
@@ -310,29 +320,26 @@ export const PLANS_FAQ_DATA = [
     section: "faq",
     category: "DJ Night",
     question: "Is the DJ night included in all packages?",
-    answer:
-      "Yes, the DJ night is included in all our packages.",
+    answer: "Yes, the DJ night is included in all our packages.",
   },
   {
     section: "faq",
     category: "DJ Night",
     question: "What time does the DJ night start on November 10th?",
-    answer:
-      "The DJ night will commence at 9 PM on November 10th.",
+    answer: "The DJ night will commence at 9 PM on November 10th.",
   },
   {
     section: "faq",
     category: "DJ Night",
     question: "Can non-participants of the events attend the DJ night event?",
-    answer:
-      "Yes, as long as you have the band provided by us.",
+    answer: "Yes, as long as you have the band provided by us.",
   },
   {
     section: "faq",
     category: "Code of Conduct",
-    question: "What is the penalty for violating the code of conduct, such as smoking or drinking on campus?",
-    answer:
-      "Violations may result in a fine ranging from Rs. 500 to Rs. 2000.",
+    question:
+      "What is the penalty for violating the code of conduct, such as smoking or drinking on campus?",
+    answer: "Violations may result in a fine ranging from Rs. 500 to Rs. 2000.",
   },
   {
     section: "faq",
@@ -344,20 +351,24 @@ export const PLANS_FAQ_DATA = [
   {
     section: "faq",
     category: "Event Logistics",
-    question: "Can I extend my accommodation beyond the specified package dates?",
-    answer: "Extensions to your accommodation will be subject to availability, and will have additional charges.",
+    question:
+      "Can I extend my accommodation beyond the specified package dates?",
+    answer:
+      "Extensions to your accommodation will be subject to availability, and will have additional charges.",
   },
   {
     section: "faq",
     category: "Event Logistics",
-    question: "Will there be any breaks during the bus journey from IFFCO Chowk?",
+    question:
+      "Will there be any breaks during the bus journey from IFFCO Chowk?",
     answer:
       "No, there will be no scheduled stops during the bus journey, except in the case of an emergency.",
   },
   {
     section: "faq",
     category: "Event Logistics",
-    question: "Are there any shuttle services available on the campus during the event?",
+    question:
+      "Are there any shuttle services available on the campus during the event?",
     answer:
       "Kindly note that once attendees and participants enter the NIIT University campus, they will not be permitted to leave until November 11th.",
   },
@@ -370,23 +381,23 @@ export const PLANS_FAQ_DATA = [
   {
     section: "faq",
     category: "Miscellaneous",
-    question:
-      "Are laptops and other valuables allowed in the hostel?",
+    question: "Are laptops and other valuables allowed in the hostel?",
     answer:
       "Yes you may carry Laptops, phones, earphones, chargers. However, please note that items such as heater, hair dryer, extension cords are strictly prohibited and will be confiscated if found.",
   },
   {
     section: "faq",
     category: "Miscellaneous",
-    question: "Is there a place on campus where I can purchase food or snacks outside of mess hours?",
+    question:
+      "Is there a place on campus where I can purchase food or snacks outside of mess hours?",
     answer:
       "Yes, there are many on-campus facilities such as cafes and the tuckshop that provide food or snacks outside of mess hours.",
   },
   {
     section: "faq",
     category: "Miscellaneous",
-    question: "What is the procedure for lost and found items during the tech fest?",
-    answer:
-      "For any lost items, please report to your SPOC.",
+    question:
+      "What is the procedure for lost and found items during the tech fest?",
+    answer: "For any lost items, please report to your SPOC.",
   },
 ];
