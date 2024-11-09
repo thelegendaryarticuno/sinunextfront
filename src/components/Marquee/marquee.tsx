@@ -4,19 +4,19 @@ import Image from "next/image";
 
 const reviews = [
   { 
-    img: "/sponsorLogo/BCH.webp", alt:"BCH" 
+    img: "/images/HiveVerticalLogo.png", alt:"Hive" 
   },
   { 
-    img: "/sponsorLogo/KGEN2.png", alt:"KGEN"
+    img: "/sponsorLogo/Trends.webp", alt:"Trends"
   },
   {
-     img: "/sponsorLogo/trikon3.png", alt:"Trikon" 
+     img: "/sponsorLogo/2Oh.png", alt:"2Oh" 
     },
   {
-     img: "/sponsorLogo/Gigabyte.webp" , alt:"Gigabyte" 
+     img: "/sponsorLogo/BaskinRobins.webp" , alt:"BaskinRobins" 
     },
   {
-     img: "/sponsorLogo/Jio.webp" , alt:"Jio"
+     img: "/sponsorLogo/NYNAEVE.png" , alt:"NYNAEVE"
     },
   {
      img: "/sponsorLogo/7.png" , alt:"perfectKoncerts"
@@ -31,26 +31,47 @@ const reviews = [
      img: "/sponsorLogo/RedBull.webp" , alt:"RedBull"
     },
   {
-     img: "/sponsorLogo/denver.png" , alt:"DENVER"
+     img: "/sponsorLogo/RoyalEnfield.webp" , alt:"RoyalEnfield"
     },
   {
-     img: "/sponsorLogo/NYNAEVE.png" , alt:"NYNAEVE"
+     img: "/sponsorLogo/Bustro.webp" , alt:"Bustro"
     },
   {
-     img: "/sponsorLogo/2Oh.png" , alt:"2Oh"
+     img: "/sponsorLogo/Trikon.png" , alt:"Trikon"
     },
   {
-     img: "/sponsorLogo/Ubon.webp" , alt:"Ubon"
+     img: "/sponsorLogo/MemoryBlaze.webp" , alt:"MemoryBlaze"
     },
   {
      img: "/sponsorLogo/studCops.png" , alt:"StudCops"
     },
+  {
+     img: "/sponsorLogo/Ramada.webp" , alt:"Ramada"
+    },
+  {
+     img: "/sponsorLogo/DayNeemrana.webp" , alt:"DayNeemrana"
+    },
+  {
+     img: "/sponsorLogo/BCH.webp" , alt:"BCH"
+    },
+  {
+     img: "/sponsorLogo/infinix.webp" , alt:"infinix"
+    },
+  {
+     img: "/sponsorLogo/MetaSoilVerse.webp" , alt:"MetaSoilVerse"
+    },
+  {
+     img: "/sponsorLogo/KGEN2.png" , alt:"KGEN"
+    },
+    {
+      img: "/sponsorLogo/HYDERABADIKITCHEN.webp" , alt:"HyderabadiKitchen"
+    }
 ];
 
-const firstRow = reviews.slice(0, 14);
+const firstRow = reviews.slice(0, 21);
 const secondRow = [
-  ...reviews.slice(6, 14),
-  ...reviews.slice(0, 6),
+  ...reviews.slice(10, 21),
+  ...reviews.slice(0, 10),
 ];
 
 const ReviewCard = ({ img }: { img: string }) => {
