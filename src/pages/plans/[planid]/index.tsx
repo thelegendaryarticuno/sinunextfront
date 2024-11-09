@@ -36,6 +36,7 @@ const PlanDetails = () => {
       
       Accommodation:
       - Separate rooms will be provided in hostels for both boys and girls for 1 day.
+      - Boys and girls are strictly prohibited from entering each other’s rooms under any circumstances.
       
       DJ Night:
       - Scheduled for November 10th, 2024.
@@ -62,6 +63,7 @@ const PlanDetails = () => {
       
       Accommodation:
       - Separate rooms will be provided in hostels for both boys and girls for 2 days.
+      - Boys and girls are strictly prohibited from entering each other’s rooms under any circumstances.
       
       DJ Night:
       - Scheduled for November 10th, 2024.
@@ -93,6 +95,7 @@ const PlanDetails = () => {
       
       Accommodation:
       - Separate rooms will be provided in hostels for both boys and girls for 3 days.
+      - Boys and girls are strictly prohibited from entering each other’s rooms under any circumstances.
       
       DJ Night:
       - Scheduled for November 10th, 2024.
@@ -245,6 +248,9 @@ const PlanDetails = () => {
                 detectors in every room. Strict actions will be taken if anyone
                 is found violating this rule.
               </p>
+              <p className="text-sm font-normal mt-4 whitespace-pre-line">
+                Note: Boys and girls are strictly prohibited from entering each other’s rooms under any circumstances.
+              </p>
               <h3 className="text-xl font-bold mt-6 mb-4">DJ NIGHT</h3>
               <p className="text-sm font-normal whitespace-pre-line">
                 The DJ Night is scheduled for November 10, 2024. Only those who
@@ -274,6 +280,9 @@ const PlanDetails = () => {
               <li className="text-sm">
                 {`On entry to the university, you will not be allowed to leave the university till the completion of your desired package,
             unless there's an emergency.`}
+              </li>
+              <li className="text-sm">
+                {`Boys and girls are strictly prohibited from entering each other’s rooms under any circumstances.`}
               </li>
               <li className="text-sm">
                 No graffiti, scribbling or unwarranted marks on walls or doors,
